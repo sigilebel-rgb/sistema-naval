@@ -1657,7 +1657,7 @@ function renderMixCargaEscala(){
 // ══════════════════════════════════════════════
 // LOGIN / LOGOUT
 // ══════════════════════════════════════════════
-function login(){
+async function login(){
   const email=document.getElementById('li_email').value.trim();
   const pass=document.getElementById('li_pass').value;
   const errEl=document.getElementById('login-alert');
@@ -1667,7 +1667,9 @@ function login(){
     errEl.innerHTML='<div class="alert a-warn">&#9888; Ingrese correo y contraseña.</div>';
     return;
   }
-  // Verificar credenciales primero, ANTES de mostrar cualquier mensaje
+  // Sincronizar usuarios desde Supabase antes de validar
+  if(_sbOnline) await UA.syncFromSB();
+  // Verificar credenciales
   const u=UA.find(email);
   if(!u||btoa(pass)!==u.pass){
     registrarLog(email,u?.nombre,'','Credenciales incorrectas');
