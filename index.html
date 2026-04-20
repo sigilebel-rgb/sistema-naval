@@ -4194,8 +4194,9 @@ function mmGuardarTodo(){
   if(ei<0)return;
   viajes[vi].escalas[ei].operaciones=[..._mmOps];
   VA.save(viajes);
+ VA.save(viajes);
+  if(typeof VA.pushToDB==="function")VA.pushToDB(viajes[vi]);
   cerrarModalMix();
-  renderNaves();
   showAlert('✅ Mix de carga guardado para '+viajes[vi].escalas[ei].puerto,'ok');
 }
 
