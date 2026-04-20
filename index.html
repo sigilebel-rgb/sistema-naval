@@ -1335,7 +1335,6 @@ return {id:n.id,nombre:n.nombre||'Sin nombre',created:n.creado||new Date().toISO
 }
 
 function viajeToDBRow(v){
-  return {id:v.id,nave_id:v.nave_id,voyage:v.voyage,ruta:v.desc||'',
     return {id:v.id,nave_id:v.nave_id,voyage:v.voyage,ruta:v.desc||'',fecha_ini:v.salida||null,fecha_fin:null,data_json:v};
 }
 
