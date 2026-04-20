@@ -1267,9 +1267,23 @@ const VA={KEY:'vms_viajes',
     const rows=await SB.select('viajes','limit=200');
     if(rows&&rows.length){
       const SYSTEM_IDS_V=new Set([UA.SB_ID,'__usuarios_volans__','__login_logs_volans__']);
-      const viajes=rows
+      const viajesDB=rows
         .filter(r=>!SYSTEM_IDS_V.has(r.id))
         .map(r=>r.data_json&&(r.data_json.voyage||r.data_json.nave_id)?r.data_json:r);
+      const viajesLocal=JSON.parse(localStorage.getItem(this.KEY)||'[]');
+      const viajes=viajesDB.map(vDB=>{
+        const vLocal=viajesLocal.find(x=>x.id===vDB.id);
+        if(vLocal&&vDB.escalas&&vLocal.escalas){
+          vDB.escalas=vDB.escalas.map(eDB=>{
+            const eLocal=vLocal.escalas.find(x=>x.id===eDB.id);
+            if(eLocal&&eLocal.operaciones&&eLocal.operaciones.length>0&&(!eDB.operaciones||eDB.operaciones.length===0)){
+              eDB.operaciones=eLocal.operaciones;
+            }
+            return eDB;
+          });
+        }
+        return vDB;
+      });
       this.save(viajes);
       console.info('[SB] Viajes:',viajes.length);
     }
