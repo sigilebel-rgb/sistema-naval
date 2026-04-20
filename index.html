@@ -1331,12 +1331,12 @@ function dbRowToTurno(r){
 }
 
 function naveToDBRow(n){
-  return {id:n.id,created:n.creado||new Date().toISOString(),usuario:'',pais:n.bandera||'',data_json:n};
+return {id:n.id,nombre:n.nombre||'Sin nombre',created:n.creado||new Date().toISOString(),usuario:'',pais:n.bandera||'',data_json:n}; 
 }
 
 function viajeToDBRow(v){
   return {id:v.id,nave_id:v.nave_id,voyage:v.voyage,ruta:v.desc||'',
-    fecha_ini:v.salida||null,fecha_fin:null,estado:v.estado||'activo',data_json:v};
+    return {id:v.id,nave_id:v.nave_id,voyage:v.voyage,ruta:v.desc||'',fecha_ini:v.salida||null,fecha_fin:null,data_json:v};
 }
 
 const PRODUCTOS=['Bobinas de acero','Planchas de acero','Rieles','Carga general','Contenedores','Cobre','Fierro construcción','Concentrado de cobre','Concentrado de hierro','Concentrado de zinc','Heavy Lift','Cobre cátodos','Cobre ánodos','Harina de pescado','Granel seco','Granel líquido','Ro-Ro','Refrigerada / Reefer','Otro'];
