@@ -1671,7 +1671,10 @@ async function login(){
   // Siempre intentar conexión en el momento del login (no depender del estado previo)
   if(btn){btn.disabled=true;btn.textContent='⏳ Verificando...';}
   await checkSBConnection();
-  if(_sbOnline) await UA.syncFromSB();
+ if(btn){btn.disabled=true;btn.textContent='⏳ Verificando...';}
+await checkSBConnection();
+if(_sbOnline) await UA.syncFromSB();
+if(btn){btn.disabled=false;btn.textContent='Ingresar';}
   if(btn){btn.disabled=false;btn.textContent='Ingresar';}
   // Verificar credenciales
   const u=UA.find(email);
