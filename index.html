@@ -834,6 +834,7 @@ var o=[];var l=Array.isArray(e);for(f=n.s.c;f<=n.e.c;++f)s[f]=ya(f);for(var c=n.
       <div class="fgrp" style="margin-bottom:10px"><label>Observaciones generales del turno</label><textarea id="t_obs" placeholder="Novedades, condiciones especiales, instrucciones al turno siguiente..."></textarea></div>
       <div class="btn-row">
         <button class="btn btn-g" onclick="guardarTurno()">✅ Guardar Turno</button>
+        <button class="btn" style="background:#25D366;color:#fff;border-color:#25D366" onclick="compartirWhatsApp()">📲 WhatsApp</button>
         <button class="btn" onclick="limpiarFormTurno()">🗑 Limpiar</button>
       </div>
     </div>
@@ -4261,3 +4262,36 @@ if(_s){
 
 </body>
 </html>
+function compartirWhatsApp(){
+  const nave=document.getElementById('t_nave').value.trim()||'—';
+  const puerto=document.getElementById('t_puerto').value.trim()||'—';
+  const fecha=document.getElementById('t_fecha').value||'';
+  const turnoVal=document.getElementById('t_turno').value||'';
+  const jefe=document.getElementById('t_jefe').value.trim()||'—';
+  const obs=document.getElementById('t_obs').value.trim();
+  const terminal=getTerminalValue('t')||'—';
+  const ht=TURNOS[turnoVal]||{};
+  const turnoLabel={'mañana':'🌅 Mañana','tarde':'🌆 Tarde','noche':'🌙 Noche','libre':'🕐 Libre'}[turnoVal]||turnoVal;
+  const totalTon=cuadrillas.reduce((s,c)=>s+(c.ton||0),0);
+  const totalDet=detenciones.reduce((s,d)=>s+d.min,0);
+  const detNave=detenciones.filter(d=>d.resp==='Nave').reduce((s,d)=>s+d.min,0);
+  const detEstib=detenciones.filter(d=>d.resp==='Estibadores').reduce((s,d)=>s+d.min,0);
+  const detPuerto=detenciones.filter(d=>d.resp==='Puerto').reduce((s,d)=>s+d.min,0);
+  const detClima=detenciones.filter(d=>d.resp==='Clima').reduce((s,d)=>s+d.min,0);
+  const ct=cuadrillas.filter(c=>c.hora_ini&&c.hora_fin&&c.ton>0);
+  let minBruto=turnoVal==='mañana'||turnoVal==='tarde'?450:540;
+  if(ct.length){const inis=ct.map(c=>c.hora_ini.split(':').map(Number)).map(([h,m])=>h*60+m);const fins=ct.map(c=>c.hora_fin.split(':').map(Number)).map(([h,m])=>h*60+m);const sp=Math.max(...fins)>Math.min(...inis)?Math.max(...fins)-Math.min(...inis):Math.max(...fins)+1440-Math.min(...inis);if(sp>0)minBruto=sp;}
+  const bruto=minBruto>0&&totalTon>0?Math.round(totalTon/(minBruto/60)):0;
+  const detNataNave=detenciones.filter(d=>DET_NETO_NAVE.includes(d.tipo)).reduce((s,d)=>s+d.min,0);
+  const minNeto=Math.max(1,minBruto-detNataNave);
+  const neto=totalTon>0?Math.round(totalTon/(minNeto/60)):0;
+  const gruasLines=cuadrillas.length?cuadrillas.map(c=>`  • Grúa ${c.grua||'?'} — ${c.ton||0} ton (${c.hora_ini||'?'}-${c.hora_fin||'?'})${c.producto?' ['+c.producto+']':''}`).join('\n'):'  Sin registros';
+  let detLines='';
+  if(detenciones.length){detLines='\n\n⏸ *DETENCIONES ('+totalDet+" min)*\n";detLines+=detenciones.map(d=>`  • ${d.tipo||'—'} ${d.hi||''}–${d.hf||''} (${d.min||0} min) [${d.resp||'—'}]${d.obs?': '+d.obs:''}`).join('\n');}
+  const nFotos=Object.values(fotosBodegas).reduce((s,arr)=>s+(arr.length||0),0);
+  const fotosLine=nFotos>0?`\n\n📷 *FOTOS:* ${nFotos} imagen(es) adjunta(s) al sistema`:'';
+  const fechaFmt=fecha?new Date(fecha+'T12:00:00').toLocaleDateString('es-CL',{weekday:'long',day:'2-digit',month:'long',year:'numeric'}):'—';
+  const msg=`🚢 *INFORME DE TURNO — VOLANS MARITIME*\n━━━━━━━━━━━━━━━━━━━━━━\n📅 ${fechaFmt}\n🕐 ${turnoLabel}  ${ht.hi||'—'} – ${ht.hf||'—'}\n⚓ Nave: *${nave}*\n🏗️ Puerto: ${puerto} | Terminal: ${terminal}\n👷 Jefe de Turno: ${jefe}\n\n📦 *RENDIMIENTO*\n  Toneladas: *${totalTon.toLocaleString('es-CL')} ton*\n  Rend. Bruto: *${bruto>0?bruto.toLocaleString('es-CL')+' t/h':'—'}*\n  Rend. Neto: *${neto>0?neto.toLocaleString('es-CL')+' t/h':'—'}*\n  T. Detenciones: ${totalDet} min\n\n🏗️ *GRÚAS / CUADRILLAS*\n${gruasLines}\n\n⚠️ *RESUMEN DEMORAS*\n  🚢 Nave: ${detNave} min\n  👷 Estibadores: ${detEstib} min\n  🏗️ Puerto: ${detPuerto} min\n  🌦️ Clima: ${detClima} min${detLines}${fotosLine}${obs?'\n\n📝 *OBSERVACIONES*\n'+obs:''}\n━━━━━━━━━━━━━━━━━━━━━━\n_Generado por Sistema Volans Maritime_`;
+  window.open('https://wa.me/?text='+encodeURIComponent(msg),'_blank');
+}
+</script>
