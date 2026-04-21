@@ -3453,7 +3453,9 @@ async function iniciarApp(){
   if(_sbOnline){
     setTimeout(async()=>{
       await Promise.all([TA.syncFromDB(), NA.syncFromDB(), VA.syncFromDB()]);
+      const _vbOpen=VA.getAll().map(v=>v.id).filter(id=>document.getElementById('vb-'+id)?.style.display==='block');
       renderNaves();renderHistorial();
+      _vbOpen.forEach(id=>{const el=document.getElementById('vb-'+id);if(el)el.style.display='block';});
       console.info('[SB] Auto-sync completado');
     }, 1000);
   }
@@ -4207,9 +4209,7 @@ function mmGuardarTodo(){
   const ei=(viajes[vi].escalas||[]).findIndex(x=>x.id===_mmEscalaId);
   if(ei<0)return;
   viajes[vi].escalas[ei].operaciones=[..._mmOps];
-  VA.save(viajes);
- VA.save(viajes);
-  if(typeof VA.pushToDB==="function")VA.pushToDB(viajes[vi]);
+  VA.update(viajes[vi]);
   cerrarModalMix();
   showAlert('✅ Mix de carga guardado para '+viajes[vi].escalas[ei].puerto,'ok');
 }
