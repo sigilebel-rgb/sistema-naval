@@ -1449,7 +1449,8 @@ function renderViajeCard(v){
         <button class="btn btn-sm" style="font-size:10px;background:var(--blue2);color:#fff;border-color:var(--blue2)" onclick="abrirModalTiempos('${v.id}','${e.id}')">⏱ AT</button>
         <button class="btn btn-sm btn-r" style="font-size:10px;margin-top:2px" onclick="eliminarEscalaViaje('${v.id}','${e.id}')" title="Eliminar puerto">🗑</button>
       </td>
-    </tr>`;
+    </tr>
+    ${(()=>{const turnosEscala=TA.getAll().filter(t=>t.escala_id===e.id);if(!turnosEscala.length)return '';return '<tr><td colspan="9" style="padding:0 0 4px 32px"><div style="display:flex;flex-wrap:wrap;gap:4px">'+(turnosEscala.map(t=>'<span style="background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:2px 8px;font-size:10px;cursor:pointer" onclick="abrirEditarTurno(\''+t.id+'\')">'+( t.turno==='mañana'?'🌅':t.turno==='tarde'?'🌆':'🌙')+' '+t.fecha+(t.kpi?.totalTon?' · '+t.kpi.totalTon.toLocaleString('es-CL')+'t':'')+'</span>').join(''))+'</div></td></tr>';})()}`;
   }).join('');
 
   return `<div style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;margin-bottom:6px;overflow:hidden">
@@ -2460,7 +2461,7 @@ function renderHistorial(){
   const ffecha_hasta=document.getElementById('f_fecha_hasta')?.value||'';
 
   let turnos=TA.getAll().filter(t=>{
-    if(fnave&&(t.nave||'')!==fnave)return false;
+    if(fnave&&(t.nave||'').toLowerCase()!==fnave.toLowerCase())return false;
     if(fpuerto&&(t.puerto||'')!==fpuerto)return false;
     if(fterminal&&(t.terminal||'')!==fterminal)return false;
     if(fturno&&t.turno!==fturno)return false;
@@ -2899,7 +2900,7 @@ function poblarSelectNaves(){
   const sel=document.getElementById('r_nave');
   if(!sel)return;
   const cur=sel.value;
-  const naves=[...new Set(TA.getAll().map(t=>t.nave).filter(Boolean))].sort();
+  const naves=[...new Set(TA.getAll().map(t=>(t.nave||'')).filter(Boolean).map(n=>n.toLowerCase()))].sort();
   sel.innerHTML='<option value="">— Seleccionar nave —</option>'+naves.map(n=>'<option value="'+n+'" '+(n===cur?'selected':'')+'>'+n+'</option>').join('');
   // Populate sub-filters based on current nave selection
   setTimeout(()=>{if(typeof poblarFiltrosReporte==='function')poblarFiltrosReporte();},0);
@@ -3393,6 +3394,7 @@ function seleccionarFoto(bodega){
     if(!pending)return;
     files.forEach(file=>{
       comprimirFoto(file,0.5,1280,b64=>{
+        if(!fotosBodegas[bodega])fotosBodegas[bodega]=[];
         fotosBodegas[bodega].push(b64);
         pending--;
         if(pending===0)renderFotoSlot(bodega);
