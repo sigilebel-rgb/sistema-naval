@@ -1424,7 +1424,7 @@ function renderViajeCard(v){
     const etbShow=ef&&e.atb?`<span style="color:var(--green);font-weight:700">${fmtDt(e.atb)}</span><br><span style="font-size:10px;color:var(--text3);text-decoration:line-through">${fmtDt(e.etb)||'—'}</span>`:fmtDt(e.etb)||'—';
     const etdShow=ef&&e.atd?`<span style="color:var(--green);font-weight:700">${fmtDt(e.atd)}</span><br><span style="font-size:10px;color:var(--text3);text-decoration:line-through">${fmtDt(e.etd)||'—'}</span>`:fmtDt(e.etd)||'—';
     const badge=ef?'<span class="tag t-gr" style="font-size:9px">✅ Efectivo</span>':'<span class="tag t-am" style="font-size:9px">⏳ Est.</span>';
-    return `<tr onclick="toggleTurnosEscala('${v.id}','${e.id}')" style="cursor:pointer;border-bottom:none">
+    return `<tr>
       <td>${idx+1}</td>
       <td>
         <strong>${e.puerto}</strong>
@@ -1450,7 +1450,7 @@ function renderViajeCard(v){
         <button class="btn btn-sm btn-r" style="font-size:10px;margin-top:2px" onclick="eliminarEscalaViaje('${v.id}','${e.id}')" title="Eliminar puerto">🗑</button>
       </td>
     </tr>
-    ${(()=>{const turnosEscala=TA.getAll().filter(t=>t.escala_id===e.id);if(!turnosEscala.length)return '';return '<tr><td colspan="9" style="padding:0 0 4px 32px"><div style="display:flex;flex-wrap:wrap;gap:4px">'+(turnosEscala.map(t=>'<span style="background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:2px 8px;font-size:10px;cursor:pointer" onclick="event.stopPropagation();abrirEditarTurno(\''+t.id+'\')">'+( t.turno==='mañana'?'🌅':t.turno==='tarde'?'🌆':'🌙')+' '+t.fecha+(t.kpi?.totalTon?' · '+t.kpi.totalTon.toLocaleString('es-CL')+'t':'')+'</span>').join(''))+'</div></td></tr><tr id='te-${v.id}-${e.id}' style='display:none'><td colspan='9' style='padding:0;border-top:none'><div id='td-${v.id}-${e.id}' style='padding:8px 16px;background:var(--bg2)'></div></td></tr>';})()}`;
+    ${(()=>{const turnosEscala=TA.getAll().filter(t=>t.escala_id===e.id);if(!turnosEscala.length)return '';return '<tr><td colspan="9" style="padding:0 0 4px 32px"><div style="display:flex;flex-wrap:wrap;gap:4px">'+(turnosEscala.map(t=>'<span style="background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:2px 8px;font-size:10px;cursor:pointer" onclick="event.stopPropagation();abrirEditarTurno(\''+t.id+'\')">'+( t.turno==='mañana'?'🌅':t.turno==='tarde'?'🌆':'🌙')+' '+t.fecha+(t.kpi?.totalTon?' · '+t.kpi.totalTon.toLocaleString('es-CL')+'t':'')+'</span>').join(''))+'</div></td></tr>';})()}`;
   }).join('');
 
   return `<div style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;margin-bottom:6px;overflow:hidden">
@@ -4277,48 +4277,6 @@ if(_s){
   document.getElementById('li_email').focus();
 }
 async function compartirWhatsApp(){await guardarTurno();const nave=document.getElementById('t_nave').value.trim()||'—';const puerto=document.getElementById('t_puerto').value.trim()||'—';const fecha=document.getElementById('t_fecha').value||'';const turnoVal=document.getElementById('t_turno').value||'';const jefe=document.getElementById('t_jefe').value.trim()||'—';const obs=document.getElementById('t_obs').value.trim();const terminal=getTerminalValue('t')||'—';const ht=TURNOS[turnoVal]||{};const turnoLabel={'mañana':'🌅 Mañana','tarde':'🌆 Tarde','noche':'🌙 Noche','libre':'🕐 Libre'}[turnoVal]||turnoVal;const totalTon=cuadrillas.reduce((s,c)=>s+(c.ton||0),0);const totalDet=detenciones.reduce((s,d)=>s+d.min,0);const detNave=detenciones.filter(d=>d.resp==='Nave').reduce((s,d)=>s+d.min,0);const detEstib=detenciones.filter(d=>d.resp==='Estibadores').reduce((s,d)=>s+d.min,0);const detPuerto=detenciones.filter(d=>d.resp==='Puerto').reduce((s,d)=>s+d.min,0);const detClima=detenciones.filter(d=>d.resp==='Clima').reduce((s,d)=>s+d.min,0);const ct=cuadrillas.filter(c=>c.hora_ini&&c.hora_fin&&c.ton>0);let minBruto=turnoVal==='mañana'||turnoVal==='tarde'?450:540;if(ct.length){const inis=ct.map(c=>c.hora_ini.split(':').map(Number)).map(([h,m])=>h*60+m);const fins=ct.map(c=>c.hora_fin.split(':').map(Number)).map(([h,m])=>h*60+m);const sp=Math.max(...fins)>Math.min(...inis)?Math.max(...fins)-Math.min(...inis):Math.max(...fins)+1440-Math.min(...inis);if(sp>0)minBruto=sp;}const bruto=minBruto>0&&totalTon>0?Math.round(totalTon/(minBruto/60)):0;const detNataNave=detenciones.filter(d=>DET_NETO_NAVE.includes(d.tipo)).reduce((s,d)=>s+d.min,0);const minNeto=Math.max(1,minBruto-detNataNave);const neto=totalTon>0?Math.round(totalTon/(minNeto/60)):0;const gruasLines=cuadrillas.length?cuadrillas.map(c=>`  • Grúa ${c.grua||'?'} — ${c.ton||0} ton (${c.hora_ini||'?'}-${c.hora_fin||'?'})${c.producto?' ['+c.producto+']':''}`).join('\n'):'  Sin registros';let detLines='';if(detenciones.length){detLines='\n\n⏸ *DETENCIONES ('+totalDet+" min)*\n";detLines+=detenciones.map(d=>`  • ${d.tipo||'—'} ${d.hi||''}–${d.hf||''} (${d.min||0} min) [${d.resp||'—'}]${d.obs?': '+d.obs:''}`).join('\n');}const nFotos=Object.values(fotosBodegas).reduce((s,arr)=>s+(arr.length||0),0);const fotosLine=nFotos>0?`\n\n📷 *FOTOS:* ${nFotos} imagen(es) adjunta(s) al sistema`:'';const fechaFmt=fecha?new Date(fecha+'T12:00:00').toLocaleDateString('es-CL',{weekday:'long',day:'2-digit',month:'long',year:'numeric'}):'—';const msg=`🚢 *INFORME DE TURNO — VOLANS MARITIME*\n━━━━━━━━━━━━━━━━━━━━━━\n📅 ${fechaFmt}\n🕐 ${turnoLabel}  ${ht.hi||'—'} – ${ht.hf||'—'}\n⚓ Nave: *${nave}*\n🏗️ Puerto: ${puerto} | Terminal: ${terminal}\n👷 Jefe de Turno: ${jefe}\n\n📦 *RENDIMIENTO*\n  Toneladas: *${totalTon.toLocaleString('es-CL')} ton*\n  Rend. Bruto: *${bruto>0?bruto.toLocaleString('es-CL')+' t/h':'—'}*\n  Rend. Neto: *${neto>0?neto.toLocaleString('es-CL')+' t/h':'—'}*\n  T. Detenciones: ${totalDet} min\n\n🏗️ *GRÚAS / CUADRILLAS*\n${gruasLines}\n\n⚠️ *RESUMEN DEMORAS*\n  🚢 Nave: ${detNave} min\n  👷 Estibadores: ${detEstib} min\n  🏗️ Puerto: ${detPuerto} min\n  🌦️ Clima: ${detClima} min${detLines}${fotosLine}${obs?'\n\n📝 *OBSERVACIONES*\n'+obs:''}\n━━━━━━━━━━━━━━━━━━━━━━\n_Generado por Sistema Volans Maritime_`;window.open('https://wa.me/?text='+encodeURIComponent(msg),'_blank');}
-
-function toggleTurnosEscala(vId, eId) {
-  const row = document.getElementById('te-' + vId + '-' + eId);
-  const div = document.getElementById('td-' + vId + '-' + eId);
-  if (!row) return;
-  if (row.style.display === 'none') {
-    row.style.display = '';
-    // Load turnos for this escala
-    const viaje = TA.getAll().find(v => v.id === vId) || {};
-    const escalas = viaje.escalas || [];
-    const escala = escalas.find(e => e.id === eId) || {};
-    const nave = viaje.nave || '';
-    const puerto = escala.puerto || '';
-    const todos = JSON.parse(localStorage.getItem('vms_turnos') || '[]');
-    const turnos = todos.filter(t => t.nave === nave && t.puerto === puerto);
-    if (turnos.length === 0) {
-      div.innerHTML = '<p style="color:var(--text3);font-size:11px;margin:4px 0">Sin turnos ingresados</p>';
-      return;
-    }
-    let html = '<table style="width:100%;font-size:11px;border-collapse:collapse">';
-    html += '<tr style="color:var(--text3)"><th style="text-align:left;padding:2px 6px">Fecha</th><th style="padding:2px 6px">Turno</th><th style="padding:2px 6px">Inicio</th><th style="padding:2px 6px">Fin</th><th style="padding:2px 6px">Ton</th><th style="padding:2px 6px">Bruto t/h</th><th style="padding:2px 6px">Neto t/h</th></tr>';
-    turnos.forEach(t => {
-      const br = t.kpi ? (t.kpi.bruto || 0) : 0;
-      const ne = t.kpi ? (t.kpi.neto || 0) : 0;
-      const ton = t.kpi ? (t.kpi.totalTon || 0) : 0;
-      html += '<tr style="border-top:1px solid var(--border)">';
-      html += '<td style="padding:3px 6px">' + (t.fecha || '') + '</td>';
-      html += '<td style="padding:3px 6px;text-align:center">' + (t.turno || '') + '</td>';
-      html += '<td style="padding:3px 6px;text-align:center">' + (t.hi || '') + '</td>';
-      html += '<td style="padding:3px 6px;text-align:center">' + (t.hf || '') + '</td>';
-      html += '<td style="padding:3px 6px;text-align:center">' + ton + '</td>';
-      html += '<td style="padding:3px 6px;text-align:center;color:var(--blue)">' + br + '</td>';
-      html += '<td style="padding:3px 6px;text-align:center;color:var(--green)">' + ne + '</td>';
-      html += '</tr>';
-    });
-    html += '</table>';
-    div.innerHTML = html;
-  } else {
-    row.style.display = 'none';
-    div.innerHTML = '';
-  }
-}
 </script>
 </body>
 </html>
