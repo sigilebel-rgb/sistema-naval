@@ -195,7 +195,7 @@ var o=[];var l=Array.isArray(e);for(f=n.s.c;f<=n.e.c;++f)s[f]=ya(f);for(var c=n.
 <div class="panel-overlay" id="user-panel">
   <div class="panel-box">
     <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem">
-      <span style="font-weight:700;font-size:14px">👥 Gestión de Usuarios</span>
+      <span style="font-weight:700;font-size:14px">\uD83D\uDC65 Gestión de Usuarios</span>
       <button class="btn btn-sm" onclick="cerrarPanelUsuarios()">✕ Cerrar</button>
     </div>
     <div class="section-label">Crear nuevo usuario</div>
@@ -205,11 +205,11 @@ var o=[];var l=Array.isArray(e);for(f=n.s.c;f<=n.e.c;++f)s[f]=ya(f);for(var c=n.
       <div class="fgrp"><label>Contraseña</label><input type="password" id="up_pass" placeholder="mín. 6 caracteres"></div>
       <div class="fgrp"><label>Cargo / Rol</label>
         <select id="up_rol">
-          <option value="gerente">👔 Gerente</option>
+          <option value="gerente">\uD83D\uDC54 Gerente</option>
           <option value="port_captain">⚓ Port Captain</option>
-          <option value="inspector" selected>🔍 Inspector</option>
-          <option value="agente">📋 Agente</option>
-          <option value="admin">🔑 Administrador</option>
+          <option value="inspector" selected>\uD83D\uDD0D Inspector</option>
+          <option value="agente">\uD83D\uDCCB Agente</option>
+          <option value="admin">\uD83D\uDD11 Administrador</option>
         </select>
       </div>
     </div>
@@ -217,8 +217,8 @@ var o=[];var l=Array.isArray(e);for(f=n.s.c;f<=n.e.c;++f)s[f]=ya(f);for(var c=n.
     <button class="btn btn-g btn-sm" onclick="crearUsuario()">+ Crear usuario</button>
     <div class="sep"></div>
     <div style="display:flex;gap:0;border-bottom:1px solid var(--border);margin-bottom:10px">
-      <button id="up-tab-usuarios" onclick="setUpTab('usuarios')" style="background:none;border:none;cursor:pointer;padding:6px 14px;font-size:13px;color:var(--text);font-weight:700;border-bottom:2px solid var(--blue);font-family:inherit">👥 Usuarios</button>
-      <button id="up-tab-logs" onclick="setUpTab('logs')" style="background:none;border:none;cursor:pointer;padding:6px 14px;font-size:13px;color:var(--text2);font-weight:400;border-bottom:2px solid transparent;font-family:inherit">📋 Log de Accesos</button>
+      <button id="up-tab-usuarios" onclick="setUpTab('usuarios')" style="background:none;border:none;cursor:pointer;padding:6px 14px;font-size:13px;color:var(--text);font-weight:700;border-bottom:2px solid var(--blue);font-family:inherit">\uD83D\uDC65 Usuarios</button>
+      <button id="up-tab-logs" onclick="setUpTab('logs')" style="background:none;border:none;cursor:pointer;padding:6px 14px;font-size:13px;color:var(--text2);font-weight:400;border-bottom:2px solid transparent;font-family:inherit">\uD83D\uDCCB Log de Accesos</button>
     </div>
     <div id="up-lista"></div>
   </div>
@@ -265,7 +265,7 @@ var o=[];var l=Array.isArray(e);for(f=n.s.c;f<=n.e.c;++f)s[f]=ya(f);for(var c=n.
   <div style="background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:1.5rem;width:700px;max-width:96vw;max-height:90vh;overflow-y:auto">
     <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem">
       <div>
-        <div style="font-weight:700;font-size:15px" id="mm-title">📦 Mix de Carga</div>
+        <div style="font-weight:700;font-size:15px" id="mm-title">\uD83D\uDCE6 Mix de Carga</div>
         <div style="font-size:11px;color:var(--text3)" id="mm-sub">Define los productos, toneladas y bodegas para esta escala</div>
       </div>
       <button class="btn btn-sm" onclick="cerrarModalMix()">✕ Cerrar</button>
@@ -280,8 +280,8 @@ var o=[];var l=Array.isArray(e);for(f=n.s.c;f<=n.e.c;++f)s[f]=ya(f);for(var c=n.
       <div class="fg" style="margin-bottom:8px">
         <div class="fgrp"><label>Tipo operación</label>
           <select id="mm-tipo">
-            <option value="Embarque">🟢 Embarque</option>
-            <option value="Descarga">🔵 Descarga</option>
+            <option value="Embarque">\uD83D\uDFE2 Embarque</option>
+            <option value="Descarga">\uD83D\uDD35 Descarga</option>
           </select>
         </div>
         <div class="fgrp"><label>Producto</label>
@@ -302,7 +302,7 @@ var o=[];var l=Array.isArray(e);for(f=n.s.c;f<=n.e.c;++f)s[f]=ya(f);for(var c=n.
       </div>
     </div>
     <div class="btn-row" style="margin-top:1rem;border-top:1px solid var(--border);padding-top:1rem">
-      <button class="btn btn-g" onclick="mmGuardarTodo()">💾 Guardar mix de carga</button>
+      <button class="btn btn-g" onclick="mmGuardarTodo()">\uD83D\uDCBE Guardar mix de carga</button>
       <button class="btn btn-sm" onclick="cerrarModalMix()">Cancelar</button>
     </div>
   </div>
@@ -355,7 +355,7 @@ var o=[];var l=Array.isArray(e);for(f=n.s.c;f<=n.e.c;++f)s[f]=ya(f);for(var c=n.
     <div id="met-alert"></div>
 
     <!-- Datos generales -->
-    <div class="section-label" style="margin-top:0">📋 Datos generales</div>
+    <div class="section-label" style="margin-top:0">\uD83D\uDCCB Datos generales</div>
     <div class="fg" style="margin-bottom:10px">
       <div class="fgrp"><label>Nave</label><input id="met-nave" placeholder="Nombre nave"></div>
       <div class="fgrp"><label>Puerto / Escala</label><input id="met-puerto" placeholder="Puerto"></div>
@@ -373,9 +373,9 @@ var o=[];var l=Array.isArray(e);for(f=n.s.c;f<=n.e.c;++f)s[f]=ya(f);for(var c=n.
       <div class="fgrp"><label>Fecha</label><input type="date" id="met-fecha"></div>
       <div class="fgrp"><label>Turno</label>
         <select id="met-turno">
-          <option value="mañana">🌅 Mañana (08:00–15:30)</option>
-          <option value="tarde">🌆 Tarde (15:30–23:00)</option>
-          <option value="noche">🌙 Noche (23:00–08:00)</option>
+          <option value="mañana">\uD83C\uDF05 Mañana (08:00–15:30)</option>
+          <option value="tarde">\uD83C\uDF06 Tarde (15:30–23:00)</option>
+          <option value="noche">\uD83C\uDF19 Noche (23:00–08:00)</option>
         </select>
       </div>
       <div class="fgrp"><label>Jefe de Turno</label><input id="met-jefe" placeholder="Supervisor"></div>
@@ -383,22 +383,22 @@ var o=[];var l=Array.isArray(e);for(f=n.s.c;f<=n.e.c;++f)s[f]=ya(f);for(var c=n.
     </div>
 
     <!-- Operaciones (cuadrillas) -->
-    <div class="section-label">🟢 Operaciones / Grúas</div>
+    <div class="section-label">\uD83D\uDFE2 Operaciones / Grúas</div>
     <div id="met-cuadrillas"></div>
     <button class="btn btn-sm btn-g" style="margin-top:6px" onclick="metAgregarCuadrilla()">+ Agregar grúa</button>
 
     <!-- Detenciones -->
-    <div class="section-label" style="margin-top:12px">🔴 Detenciones</div>
+    <div class="section-label" style="margin-top:12px">\uD83D\uDD34 Detenciones</div>
     <div id="met-detenciones"></div>
     <button class="btn btn-sm" style="margin-top:6px;border-color:var(--red);color:var(--red)" onclick="metAgregarDetencion()">+ Agregar detención</button>
 
     <!-- Fotografías por bodega -->
-    <div class="section-label" style="margin-top:12px">📷 Fotografías por Bodega</div>
+    <div class="section-label" style="margin-top:12px">\uD83D\uDCF7 Fotografías por Bodega</div>
     <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px;margin-bottom:8px" id="met-fotos"></div>
 
     <!-- Botones -->
     <div class="btn-row" style="margin-top:1.5rem;border-top:1px solid var(--border);padding-top:1rem">
-      <button class="btn btn-g" onclick="guardarEdicionTurno()">💾 Guardar cambios</button>
+      <button class="btn btn-g" onclick="guardarEdicionTurno()">\uD83D\uDCBE Guardar cambios</button>
       <button class="btn btn-sm" onclick="cerrarEditarTurno()">Cancelar</button>
     </div>
   </div>
@@ -443,7 +443,7 @@ var o=[];var l=Array.isArray(e);for(f=n.s.c;f<=n.e.c;++f)s[f]=ya(f);for(var c=n.
         <span id="sb-status-txt" style="color:rgba(255,255,255,.6)">BD...</span>
       </div>
       <div class="user-badge" id="user-badge" onclick="if(isAdmin())abrirPanelUsuarios()">
-        <span id="u-icon">👤</span>
+        <span id="u-icon">\uD83D\uDC64</span>
         <span id="u-nombre">—</span>
         <span style="font-size:10px;opacity:.6" id="u-rol">—</span>
       </div>
@@ -456,10 +456,10 @@ var o=[];var l=Array.isArray(e);for(f=n.s.c;f<=n.e.c;++f)s[f]=ya(f);for(var c=n.
 
   <!-- TABS -->
   <div class="tabs">
-    <button class="tab active" onclick="setTab('flota',this)">🚢 Flota &amp; Viajes</button>
-    <button class="tab" onclick="setTab('turno',this)">📋 Bitácora de Turno</button>
-    <button class="tab" onclick="setTab('historial',this)">📂 Historial</button>
-    <button class="tab" onclick="setTab('reporte',this)">📊 Reporte Nave</button>
+    <button class="tab active" onclick="setTab('flota',this)">\uD83D\uDEA2 Flota &amp; Viajes</button>
+    <button class="tab" onclick="setTab('turno',this)">\uD83D\uDCCB Bitácora de Turno</button>
+    <button class="tab" onclick="setTab('historial',this)">\uD83D\uDCC2 Historial</button>
+    <button class="tab" onclick="setTab('reporte',this)">\uD83D\uDCCA Reporte Nave</button>
   </div>
 
 
@@ -468,7 +468,7 @@ var o=[];var l=Array.isArray(e);for(f=n.s.c;f<=n.e.c;++f)s[f]=ya(f);for(var c=n.
 
     <!-- ZONA IMPORTAR EXCEL -->
     <div class="card" id="excel-import-card">
-      <div class="card-title">📂 Importar Itinerario desde Excel
+      <div class="card-title">\uD83D\uDCC2 Importar Itinerario desde Excel
         <span style="font-size:11px;font-weight:400;color:var(--text2)">— Sube el Master Schedule y define cada rotación</span>
       </div>
 
@@ -479,7 +479,7 @@ var o=[];var l=Array.isArray(e);for(f=n.s.c;f<=n.e.c;++f)s[f]=ya(f);for(var c=n.
           ondragleave="this.style.borderColor='var(--border)';this.style.background=''"
           ondrop="handleExcelDrop(event)"
           onclick="document.getElementById('excel-file-input').click()">
-          <div style="font-size:30px;margin-bottom:6px">📊</div>
+          <div style="font-size:30px;margin-bottom:6px">\uD83D\uDCCA</div>
           <div style="font-weight:700;color:var(--text);font-size:13px">Arrastra el Excel aquí o haz clic para seleccionar</div>
           <div style="font-size:11px;color:var(--text3);margin-top:3px">Formato .xlsx · Detecta automáticamente buques y puertos con ETA/ETB/ETD</div>
           <input type="file" id="excel-file-input" accept=".xlsx,.xls" style="display:none" onchange="handleExcelFile(this.files[0])">
@@ -490,7 +490,7 @@ var o=[];var l=Array.isArray(e);for(f=n.s.c;f<=n.e.c;++f)s[f]=ya(f);for(var c=n.
       <div id="excel-step2" style="display:none;margin-top:10px">
         <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;flex-wrap:wrap">
           <span style="font-size:12px;color:var(--green)" id="excel-file-label"></span>
-          <button class="btn btn-sm" style="margin-left:auto" onclick="resetExcelImport()">🔄 Cargar otro archivo</button>
+          <button class="btn btn-sm" style="margin-left:auto" onclick="resetExcelImport()">\uD83D\uDD04 Cargar otro archivo</button>
         </div>
 
         <!-- Selector de nave -->
@@ -539,19 +539,19 @@ var o=[];var l=Array.isArray(e);for(f=n.s.c;f<=n.e.c;++f)s[f]=ya(f);for(var c=n.
             </div>
           </div>
           <div style="font-size:11px;color:var(--text3);margin-bottom:8px">
-            💡 Selecciona inicio y término para filtrar los puertos de esta rotación. Deja en blanco para incluir todos.
+            \uD83D\uDCA1 Selecciona inicio y término para filtrar los puertos de esta rotación. Deja en blanco para incluir todos.
           </div>
           <!-- Previsualización de puertos filtrados -->
           <div id="xl-puertos-preview"></div>
           <div class="btn-row" style="margin-top:10px">
-            <button class="btn btn-g" onclick="confirmarImportRotacion()">📥 Importar esta rotación</button>
+            <button class="btn btn-g" onclick="confirmarImportRotacion()">\uD83D\uDCE5 Importar esta rotación</button>
           </div>
         </div>
       </div>
     </div>
 
     <div class="card">
-      <div class="card-title">🚢 Flota de Naves
+      <div class="card-title">\uD83D\uDEA2 Flota de Naves
         <button class="btn btn-sm btn-p" style="margin-left:auto" onclick="toggleFlotaForm()">+ Nueva nave</button>
       </div>
       <div id="form-nave" style="display:none;margin-top:10px">
@@ -565,7 +565,7 @@ var o=[];var l=Array.isArray(e);for(f=n.s.c;f<=n.e.c;++f)s[f]=ya(f);for(var c=n.
           <div class="fgrp"><label>Bandera</label><input id="nn_bandera" placeholder="Ej: Panamá"></div>
         </div>
         <div class="btn-row">
-          <button class="btn btn-g" onclick="guardarNave()">💾 Guardar Nave</button>
+          <button class="btn btn-g" onclick="guardarNave()">\uD83D\uDCBE Guardar Nave</button>
           <button class="btn btn-sm" onclick="toggleFlotaForm()">Cancelar</button>
         </div>
       </div>
@@ -592,7 +592,7 @@ var o=[];var l=Array.isArray(e);for(f=n.s.c;f<=n.e.c;++f)s[f]=ya(f);for(var c=n.
       <div id="vp-escalas-list"></div>
       <button class="btn btn-sm btn-p" onclick="agregarEscalaForm()" style="margin-bottom:10px">+ Agregar escala</button>
       <div class="btn-row">
-        <button class="btn btn-g" onclick="guardarViaje()">💾 Guardar Viaje</button>
+        <button class="btn btn-g" onclick="guardarViaje()">\uD83D\uDCBE Guardar Viaje</button>
         <button class="btn btn-sm" onclick="cerrarPanelViaje()">Cancelar</button>
       </div>
     </div>
@@ -603,23 +603,23 @@ var o=[];var l=Array.isArray(e);for(f=n.s.c;f<=n.e.c;++f)s[f]=ya(f);for(var c=n.
 
     <!-- VINCULAR NAVE/ESCALA -->
     <div class="card">
-      <div class="card-title">🔗 Vincular Turno a Nave y Escala
+      <div class="card-title">\uD83D\uDD17 Vincular Turno a Nave y Escala
         <span style="font-size:11px;font-weight:400;color:var(--text2)">— el mix de carga se carga automáticamente al seleccionar la escala</span>
       </div>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:8px">
-        <div class="fgrp"><label>🚢 Nave</label>
+        <div class="fgrp"><label>\uD83D\uDEA2 Nave</label>
           <select id="b_nave" onchange="poblarEscalasBitacora()"><option value="">— Seleccionar nave —</option></select></div>
-        <div class="fgrp"><label>📍 Escala / Puerto</label>
+        <div class="fgrp"><label>\uD83D\uDCCD Escala / Puerto</label>
           <select id="b_escala" onchange="onCambioEscalaBitacora()"><option value="">— Seleccionar escala —</option></select></div>
       </div>
       <div id="mix-escala-hint" style="display:none;font-size:11px;color:var(--text3);padding:6px 10px;background:var(--bg3);border-radius:6px;border-left:3px solid var(--green)">
-        💡 <strong>Mix de carga cargado</strong> — el panel de avance aparecerá debajo. Si la escala no tiene mix definido, usa el botón <strong>📦 Mix</strong> en la tabla de Flota &amp; Viajes.
+        \uD83D\uDCA1 <strong>Mix de carga cargado</strong> — el panel de avance aparecerá debajo. Si la escala no tiene mix definido, usa el botón <strong>\uD83D\uDCE6 Mix</strong> en la tabla de Flota &amp; Viajes.
       </div>
     </div>
 
     <!-- MIX DE CARGA ESCALA VINCULADA -->
     <div class="card" id="card-mix-carga" style="display:none">
-      <div class="card-title">📦 Mix de Carga — Escala vinculada
+      <div class="card-title">\uD83D\uDCE6 Mix de Carga — Escala vinculada
         <span style="font-size:11px;font-weight:400;color:var(--text2)">— Saldo programado vs. ejecutado</span>
       </div>
       <div id="mix-carga-panel"></div>
@@ -627,7 +627,7 @@ var o=[];var l=Array.isArray(e);for(f=n.s.c;f<=n.e.c;++f)s[f]=ya(f);for(var c=n.
 
     <!-- CABECERA TURNO -->
     <div class="card">
-      <div class="card-title">🚢 Datos del Turno</div>
+      <div class="card-title">\uD83D\uDEA2 Datos del Turno</div>
       <div class="fg">
         <div class="fgrp"><label>Nombre de la Nave</label><input id="t_nave" placeholder="Ej: MV Pacific Star"></div>
         <div class="fgrp"><label>Puerto / Escala</label><input id="t_puerto" placeholder="Ej: San Antonio" oninput="autoFillTerminal(this.value,'t_terminal_sel')"></div>
@@ -643,10 +643,10 @@ var o=[];var l=Array.isArray(e);for(f=n.s.c;f<=n.e.c;++f)s[f]=ya(f);for(var c=n.
         <div class="fgrp"><label>Fecha</label><input type="date" id="t_fecha"></div>
         <div class="fgrp"><label>Turno</label>
           <select id="t_turno" onchange="setHorasTurno()">
-            <option value="mañana">🌅 Mañana</option>
-            <option value="tarde">🌆 Tarde</option>
-            <option value="noche">🌙 Noche</option>
-            <option value="libre">🕐 Horario Libre</option>
+            <option value="mañana">\uD83C\uDF05 Mañana</option>
+            <option value="tarde">\uD83C\uDF06 Tarde</option>
+            <option value="noche">\uD83C\uDF19 Noche</option>
+            <option value="libre">\uD83D\uDD50 Horario Libre</option>
           </select>
         </div>
         <div class="fgrp" style="min-width:150px">
@@ -681,15 +681,15 @@ var o=[];var l=Array.isArray(e);for(f=n.s.c;f<=n.e.c;++f)s[f]=ya(f);for(var c=n.
         <span style="font-size:11px;font-weight:400;color:var(--text2)">— Seleccione qué ocurrió en el turno</span>
       </div>
       <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:1rem">
-        <button class="btn btn-g" onclick="mostrarFormRegistro('embarque')">🟢 Embarque / Descarga</button>
-        <button class="btn" style="border-color:var(--red);color:var(--red)" onclick="mostrarFormRegistro('detencion')">🔴 Detención</button>
-        <button class="btn" style="border-color:var(--blue);color:var(--blue)" onclick="mostrarFormRegistro('transito')">🔵 Tránsito (Canal)</button>
-        <button class="btn" style="border-color:var(--yellow);color:var(--yellow)" onclick="mostrarFormRegistro('maltipo')">🟡 Mal Tiempo / Evento Externo</button>
+        <button class="btn btn-g" onclick="mostrarFormRegistro('embarque')">\uD83D\uDFE2 Embarque / Descarga</button>
+        <button class="btn" style="border-color:var(--red);color:var(--red)" onclick="mostrarFormRegistro('detencion')">\uD83D\uDD34 Detención</button>
+        <button class="btn" style="border-color:var(--blue);color:var(--blue)" onclick="mostrarFormRegistro('transito')">\uD83D\uDD35 Tránsito (Canal)</button>
+        <button class="btn" style="border-color:var(--yellow);color:var(--yellow)" onclick="mostrarFormRegistro('maltipo')">\uD83D\uDFE1 Mal Tiempo / Evento Externo</button>
       </div>
 
       <!-- FORM: EMBARQUE -->
       <div id="form-embarque" class="hidden">
-        <div class="section-label" style="margin-bottom:8px">🟢 Embarque / Descarga — Grúas y Cuadrillas activas en el turno</div>
+        <div class="section-label" style="margin-bottom:8px">\uD83D\uDFE2 Embarque / Descarga — Grúas y Cuadrillas activas en el turno</div>
         <div id="cuadrillas-list"></div>
         <button class="btn btn-sm btn-g" onclick="agregarCuadrilla()" style="margin-top:6px">+ Agregar Grúa / Cuadrilla</button>
         <!-- RENDIMIENTO POR PRODUCTO en tiempo real -->
@@ -698,14 +698,14 @@ var o=[];var l=Array.isArray(e);for(f=n.s.c;f<=n.e.c;++f)s[f]=ya(f);for(var c=n.
 
       <!-- FORM: DETENCIÓN -->
       <div id="form-detencion" class="hidden">
-        <div class="section-label">🔴 Detención — Registrar con hora inicio y término</div>
+        <div class="section-label">\uD83D\uDD34 Detención — Registrar con hora inicio y término</div>
         <div style="display:grid;grid-template-columns:160px 160px 1fr;gap:10px;margin-bottom:8px;align-items:start">
           <div class="fgrp"><label>Hora Inicio</label><input type="time" id="d_hi"></div>
           <div class="fgrp"><label>Hora Término</label><input type="time" id="d_hf"></div>
           <div class="fgrp"><label>Tipo de Detención</label>
             <select id="d_tipo" onchange="autoResponsable()">
               <option value="">— Seleccionar tipo —</option>
-              <optgroup label="🚢 NAVE — Descuenta Rend. Neto">
+              <optgroup label="\uD83D\uDEA2 NAVE — Descuenta Rend. Neto">
                 <option value="Apertura de bodega">Apertura de bodega</option>
                 <option value="Cierre de bodega">Cierre de bodega</option>
                 <option value="Atraque / Desatraque">Atraque / Desatraque</option>
@@ -722,7 +722,7 @@ var o=[];var l=Array.isArray(e);for(f=n.s.c;f<=n.e.c;++f)s[f]=ya(f);for(var c=n.
                 <option value="Espera instrucciones nave">Espera instrucciones nave</option>
                 <option value="Cambio de bodega">Cambio de bodega</option>
               </optgroup>
-              <optgroup label="👷 ESTIBADORES">
+              <optgroup label="\uD83D\uDC77 ESTIBADORES">
                 <option value="Charla de estibadores">Charla de estibadores (1st hook)</option>
                 <option value="Embarque grúa horquilla">Embarque con grúa horquilla</option>
                 <option value="Descarga grúa horquilla">Descarga con grúa horquilla</option>
@@ -735,13 +735,13 @@ var o=[];var l=Array.isArray(e);for(f=n.s.c;f<=n.e.c;++f)s[f]=ya(f);for(var c=n.
                 <option value="Accidente estibadores">Accidente estibadores</option>
                 <option value="Espera instrucciones estibadores">Espera instrucciones (estibadores)</option>
               </optgroup>
-              <optgroup label="🏗️ PUERTO / TERMINAL">
+              <optgroup label="\uD83C\uDFD7️ PUERTO / TERMINAL">
                 <option value="Equipo terminal">Falla equipo terminal</option>
                 <option value="Congestión puerto">Congestión puerto</option>
                 <option value="Autoridad marítima">Inspección / Autoridad marítima</option>
                 <option value="Espera muelle">Espera muelle / sitio</option>
               </optgroup>
-              <optgroup label="🌦️ CLIMA / EXTERNO">
+              <optgroup label="\uD83C\uDF26️ CLIMA / EXTERNO">
                 <option value="Mal tiempo">Mal tiempo</option>
                 <option value="Marejada">Marejada</option>
                 <option value="Niebla">Niebla espesa</option>
@@ -753,10 +753,10 @@ var o=[];var l=Array.isArray(e);for(f=n.s.c;f<=n.e.c;++f)s[f]=ya(f);for(var c=n.
           </div>
           <div class="fgrp"><label>Responsabilidad</label>
             <select id="d_resp">
-              <option value="Nave">🚢 Nave</option>
-              <option value="Estibadores">👷 Estibadores</option>
-              <option value="Puerto">🏗️ Puerto / Terminal</option>
-              <option value="Clima">🌦️ Clima / Externo</option>
+              <option value="Nave">\uD83D\uDEA2 Nave</option>
+              <option value="Estibadores">\uD83D\uDC77 Estibadores</option>
+              <option value="Puerto">\uD83C\uDFD7️ Puerto / Terminal</option>
+              <option value="Clima">\uD83C\uDF26️ Clima / Externo</option>
               <option value="N/A">— N/A</option>
             </select>
           </div>
@@ -767,7 +767,7 @@ var o=[];var l=Array.isArray(e);for(f=n.s.c;f<=n.e.c;++f)s[f]=ya(f);for(var c=n.
 
       <!-- FORM: TRÁNSITO -->
       <div id="form-transito" class="hidden">
-        <div class="section-label">🔵 Tránsito por Canal — Solo informativo</div>
+        <div class="section-label">\uD83D\uDD35 Tránsito por Canal — Solo informativo</div>
         <div class="fg" style="margin-bottom:8px">
           <div class="fgrp"><label>Canal / Zona</label><input id="tr_canal" placeholder="Ej: Canal de Panamá, Estrecho Magallanes"></div>
           <div class="fgrp"><label>Fecha/Hora Ingreso</label><input type="datetime-local" id="tr_ini"></div>
@@ -787,7 +787,7 @@ var o=[];var l=Array.isArray(e);for(f=n.s.c;f<=n.e.c;++f)s[f]=ya(f);for(var c=n.
 
       <!-- FORM: MAL TIEMPO -->
       <div id="form-maltipo" class="hidden">
-        <div class="section-label">🟡 Evento de Mal Tiempo / Externo</div>
+        <div class="section-label">\uD83D\uDFE1 Evento de Mal Tiempo / Externo</div>
         <div class="fg" style="margin-bottom:8px">
           <div class="fgrp"><label>Tipo</label>
             <select id="mt_tipo">
@@ -808,7 +808,7 @@ var o=[];var l=Array.isArray(e);for(f=n.s.c;f<=n.e.c;++f)s[f]=ya(f);for(var c=n.
 
     <!-- REGISTROS DEL TURNO -->
     <div class="card">
-      <div class="card-title">📋 Registros del Turno
+      <div class="card-title">\uD83D\uDCCB Registros del Turno
         <span style="font-size:11px;font-weight:400;color:var(--text2)" id="reg-count">— 0 registros</span>
       </div>
       <div id="registros-list"><div class="empty">Sin registros en este turno</div></div>
@@ -816,7 +816,7 @@ var o=[];var l=Array.isArray(e);for(f=n.s.c;f<=n.e.c;++f)s[f]=ya(f);for(var c=n.
 
     <!-- FOTOS BODEGAS -->
     <div class="card">
-      <div class="card-title">📷 Fotografías por Bodega
+      <div class="card-title">\uD83D\uDCF7 Fotografías por Bodega
         <span style="font-size:11px;font-weight:400;color:var(--text2)">— hasta 5 bodegas, compresión automática a calidad media</span>
       </div>
       <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:8px" id="fotos-bodegas">
@@ -830,12 +830,12 @@ var o=[];var l=Array.isArray(e);for(f=n.s.c;f<=n.e.c;++f)s[f]=ya(f);for(var c=n.
 
     <!-- GUARDAR TURNO -->
     <div class="card">
-      <div class="card-title">💾 Cerrar y Guardar Turno</div>
+      <div class="card-title">\uD83D\uDCBE Cerrar y Guardar Turno</div>
       <div class="fgrp" style="margin-bottom:10px"><label>Observaciones generales del turno</label><textarea id="t_obs" placeholder="Novedades, condiciones especiales, instrucciones al turno siguiente..."></textarea></div>
       <div class="btn-row">
         <button class="btn btn-g" onclick="guardarTurno()">✅ Guardar Turno</button>
-        <button class="btn" style="background:#25D366;color:#fff;border-color:#25D366" onclick="compartirWhatsApp()">📲 WhatsApp</button>
-        <button class="btn" onclick="limpiarFormTurno()">🗑 Limpiar</button>
+        <button class="btn" style="background:#25D366;color:#fff;border-color:#25D366" onclick="compartirWhatsApp()">\uD83D\uDCF2 WhatsApp</button>
+        <button class="btn" onclick="limpiarFormTurno()">\uD83D\uDDD1 Limpiar</button>
       </div>
     </div>
   </div>
@@ -843,29 +843,29 @@ var o=[];var l=Array.isArray(e);for(f=n.s.c;f<=n.e.c;++f)s[f]=ya(f);for(var c=n.
   <!-- ══════════════ TAB: HISTORIAL ══════════════ -->
   <div id="tab-historial" class="hidden">
     <div class="card">
-      <div class="card-title">📂 Historial de Turnos</div>
+      <div class="card-title">\uD83D\uDCC2 Historial de Turnos</div>
       <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:8px;margin-bottom:10px">
-        <div class="fgrp"><label>🚢 Nave</label>
+        <div class="fgrp"><label>\uD83D\uDEA2 Nave</label>
           <select id="f_nave" onchange="poblarFiltrosHistorial();renderHistorial()"><option value="">— Todas las naves —</option></select></div>
-        <div class="fgrp"><label>📍 Puerto</label>
+        <div class="fgrp"><label>\uD83D\uDCCD Puerto</label>
           <select id="f_puerto" onchange="renderHistorial()"><option value="">— Todos los puertos —</option></select></div>
-        <div class="fgrp"><label>🏗️ Terminal</label>
+        <div class="fgrp"><label>\uD83C\uDFD7️ Terminal</label>
           <select id="f_terminal" onchange="renderHistorial()"><option value="">— Todos los terminales —</option></select></div>
-        <div class="fgrp"><label>🕐 Turno</label>
+        <div class="fgrp"><label>\uD83D\uDD50 Turno</label>
           <select id="f_turno" onchange="renderHistorial()">
             <option value="">— Todos —</option>
-            <option value="mañana">🌅 Mañana</option>
-            <option value="tarde">🌆 Tarde</option>
-            <option value="noche">🌙 Noche</option>
-            <option value="libre">🕐 Libre</option>
+            <option value="mañana">\uD83C\uDF05 Mañana</option>
+            <option value="tarde">\uD83C\uDF06 Tarde</option>
+            <option value="noche">\uD83C\uDF19 Noche</option>
+            <option value="libre">\uD83D\uDD50 Libre</option>
           </select></div>
-        <div class="fgrp"><label>📦 Producto</label>
+        <div class="fgrp"><label>\uD83D\uDCE6 Producto</label>
           <select id="f_producto" onchange="renderHistorial()"><option value="">— Todos los productos —</option></select></div>
-        <div class="fgrp"><label>🚀 N° Viaje</label>
+        <div class="fgrp"><label>\uD83D\uDE80 N° Viaje</label>
           <select id="f_viaje" onchange="renderHistorial()"><option value="">— Todos los viajes —</option></select></div>
-        <div class="fgrp"><label>🗓 Fecha desde</label>
+        <div class="fgrp"><label>\uD83D\uDDD3 Fecha desde</label>
           <input type="date" id="f_fecha_desde" oninput="renderHistorial()"></div>
-        <div class="fgrp"><label>🗓 Fecha hasta</label>
+        <div class="fgrp"><label>\uD83D\uDDD3 Fecha hasta</label>
           <input type="date" id="f_fecha_hasta" oninput="renderHistorial()"></div>
         <div class="fgrp" style="align-self:flex-end">
           <button class="btn btn-sm" style="width:100%" onclick="limpiarFiltros()">✕ Limpiar</button>
@@ -880,36 +880,36 @@ var o=[];var l=Array.isArray(e);for(f=n.s.c;f<=n.e.c;++f)s[f]=ya(f);for(var c=n.
   <!-- ══════════════ TAB: REPORTE NAVE ══════════════ -->
   <div id="tab-reporte" class="hidden">
     <div class="card">
-      <div class="card-title">📊 Reporte Ejecutivo por Nave</div>
+      <div class="card-title">\uD83D\uDCCA Reporte Ejecutivo por Nave</div>
       <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:8px;margin-bottom:10px">
-        <div class="fgrp"><label>🚢 Nave</label>
+        <div class="fgrp"><label>\uD83D\uDEA2 Nave</label>
           <select id="r_nave" onchange="poblarFiltrosReporte();renderReporte()"><option value="">— Seleccionar —</option></select>
         </div>
-        <div class="fgrp"><label>📍 Puerto</label>
+        <div class="fgrp"><label>\uD83D\uDCCD Puerto</label>
           <select id="r_puerto" onchange="renderReporte()"><option value="">— Todos los puertos —</option></select>
         </div>
-        <div class="fgrp"><label>🏗️ Terminal</label>
+        <div class="fgrp"><label>\uD83C\uDFD7️ Terminal</label>
           <select id="r_terminal" onchange="renderReporte()"><option value="">— Todos los terminales —</option></select>
         </div>
-        <div class="fgrp"><label>📦 Producto</label>
+        <div class="fgrp"><label>\uD83D\uDCE6 Producto</label>
           <select id="r_producto" onchange="renderReporte()"><option value="">— Todos los productos —</option></select>
         </div>
-        <div class="fgrp"><label>🚀 N° Viaje</label>
+        <div class="fgrp"><label>\uD83D\uDE80 N° Viaje</label>
           <select id="r_viaje" onchange="renderReporte()"><option value="">— Todos los viajes —</option></select>
         </div>
-        <div class="fgrp"><label>🕐 Turno</label>
+        <div class="fgrp"><label>\uD83D\uDD50 Turno</label>
           <select id="r_turno" onchange="renderReporte()">
             <option value="">— Todos —</option>
-            <option value="mañana">🌅 Mañana</option>
-            <option value="tarde">🌆 Tarde</option>
-            <option value="noche">🌙 Noche</option>
-            <option value="libre">🕐 Libre</option>
+            <option value="mañana">\uD83C\uDF05 Mañana</option>
+            <option value="tarde">\uD83C\uDF06 Tarde</option>
+            <option value="noche">\uD83C\uDF19 Noche</option>
+            <option value="libre">\uD83D\uDD50 Libre</option>
           </select>
         </div>
-        <div class="fgrp"><label>🗓 Desde</label>
+        <div class="fgrp"><label>\uD83D\uDDD3 Desde</label>
           <input type="date" id="r_fecha_desde" oninput="renderReporte()">
         </div>
-        <div class="fgrp"><label>🗓 Hasta</label>
+        <div class="fgrp"><label>\uD83D\uDDD3 Hasta</label>
           <input type="date" id="r_fecha_hasta" oninput="renderReporte()">
         </div>
         <div class="fgrp" style="align-self:flex-end">
@@ -1384,12 +1384,12 @@ function renderNaves(){
     const vActivo=vs.find(v=>v.estado==='activo');
     return `<div style="background:var(--bg2);border:1px solid var(--border);border-radius:10px;margin-bottom:8px;overflow:hidden">
       <div style="display:flex;align-items:center;gap:10px;padding:12px 14px;background:linear-gradient(90deg,rgba(31,111,235,.1),transparent);flex-wrap:wrap">
-        <span style="font-size:22px">🚢</span>
+        <span style="font-size:22px">\uD83D\uDEA2</span>
         <div>
           <div style="font-weight:700;font-size:14px">${n.nombre}</div>
           <div style="font-size:11px;color:var(--text2)">${n.tipo||''}${n.imo?' · '+n.imo:''}${n.bandera?' · '+n.bandera:''}${n.dwt?' · '+n.dwt.toLocaleString('es-CL')+' DWT':''}</div>
         </div>
-        ${vActivo?'<span class="tag t-gr">🟢 Activo</span>':''}
+        ${vActivo?'<span class="tag t-gr">\uD83D\uDFE2 Activo</span>':''}
         <div style="margin-left:auto;display:flex;gap:6px">
           <button class="btn btn-sm btn-p" onclick="abrirPanelViaje('${n.id}')">+ Viaje</button>
           ${isAdmin()?`<button class="btn btn-r btn-sm" onclick="eliminarNave('${n.id}')">✕</button>`:''}
@@ -1405,7 +1405,7 @@ function renderViajeCard(v){
   const escalas=v.escalas||[];
   const ELAB={planificado:'t-gy',activo:'t-gr',completado:'t-bl'};
   const esc_rows=escalas.map((e,idx)=>{
-    const TMAP={operacional:'<span class="tag t-bl">📦</span>',transito:'<span class="tag t-pu">🚢</span>',fondeo:'<span class="tag t-am">⚓</span>',servicios:'<span class="tag t-gr">🔧</span>'};
+    const TMAP={operacional:'<span class="tag t-bl">\uD83D\uDCE6</span>',transito:'<span class="tag t-pu">\uD83D\uDEA2</span>',fondeo:'<span class="tag t-am">⚓</span>',servicios:'<span class="tag t-gr">\uD83D\uDD27</span>'};
     const opsData=e.operaciones||[];
     // Calcular progreso real desde turnos guardados
     const turnosEsc=TA.getAll().filter(t=>t.escala_id===e.id);
@@ -1445,12 +1445,12 @@ function renderViajeCard(v){
       <td style="max-width:180px">${ops||'—'}</td>
       <td>${badge}</td>
       <td style="white-space:nowrap">
-        <button class="btn btn-sm" style="font-size:10px;background:var(--green-dim);color:var(--green);border-color:var(--green);margin-bottom:2px" onclick="abrirModalMix('${v.id}','${e.id}')">📦 Mix</button>
+        <button class="btn btn-sm" style="font-size:10px;background:var(--green-dim);color:var(--green);border-color:var(--green);margin-bottom:2px" onclick="abrirModalMix('${v.id}','${e.id}')">\uD83D\uDCE6 Mix</button>
         <button class="btn btn-sm" style="font-size:10px;background:var(--blue2);color:#fff;border-color:var(--blue2)" onclick="abrirModalTiempos('${v.id}','${e.id}')">⏱ AT</button>
-        <button class="btn btn-sm btn-r" style="font-size:10px;margin-top:2px" onclick="eliminarEscalaViaje('${v.id}','${e.id}')" title="Eliminar puerto">🗑</button>
+        <button class="btn btn-sm btn-r" style="font-size:10px;margin-top:2px" onclick="eliminarEscalaViaje('${v.id}','${e.id}')" title="Eliminar puerto">\uD83D\uDDD1</button>
       </td>
     </tr>
-    ${(()=>{const turnosEscala=TA.getAll().filter(t=>t.escala_id===e.id);if(!turnosEscala.length)return '';const turnoRows=turnosEscala.map(t=>{const em=t.turno==='mañana'?'🌅':t.turno==='tarde'?'🌆':'🌙';const br=t.kpi?.bruto||0;const ne=t.kpi?.neto||0;const ton=t.kpi?.totalTon||0;return '<tr style="background:var(--bg2)"><td colspan="2" style="padding:4px 8px 4px 32px;font-size:11px"><b>'+em+' '+t.fecha+'</b> &nbsp;'+t.turno+'<span style="color:var(--text3);margin-left:8px">'+t.hi+' – '+t.hf+'</span></td><td colspan="2" style="font-size:11px;padding:4px 8px"><span style="color:var(--green)">'+ton.toLocaleString('es-CL')+'t</span></td><td colspan="2" style="font-size:11px;padding:4px 8px">Bruto: <b>'+br+'</b> t/h &nbsp; Neto: <b style="color:'+(ne!==br?'var(--blue)':'inherit')+'">'+ne+'</b> t/h</td><td colspan="3" style="padding:4px 8px;text-align:right"><button class="btn btn-sm" style="font-size:10px" onclick="event.stopPropagation();abrirEditarTurno(t.id)">✏️ Editar</button></td></tr>';}).join('');return '<tr><td colspan="9" style="padding:0;border-top:1px solid var(--border)">'+turnoRows+'</td></tr>';`;
+    ${(()=>{const turnosEscala=TA.getAll().filter(t=>t.escala_id===e.id);if(!turnosEscala.length)return '';const turnoRows=turnosEscala.map(t=>{const em=t.turno==='mañana'?'\uD83C\uDF05':t.turno==='tarde'?'\uD83C\uDF06':'\uD83C\uDF19';const br=t.kpi?.bruto||0;const ne=t.kpi?.neto||0;const ton=t.kpi?.totalTon||0;return '<tr style="background:var(--bg2)"><td colspan="2" style="padding:4px 8px 4px 32px;font-size:11px"><b>'+em+' '+t.fecha+'</b> &nbsp;'+t.turno+'<span style="color:var(--text3);margin-left:8px">'+t.hi+' – '+t.hf+'</span></td><td colspan="2" style="font-size:11px;padding:4px 8px"><span style="color:var(--green)">'+ton.toLocaleString('es-CL')+'t</span></td><td colspan="2" style="font-size:11px;padding:4px 8px">Bruto: <b>'+br+'</b> t/h &nbsp; Neto: <b style="color:'+(ne!==br?'var(--blue)':'inherit')+'">'+ne+'</b> t/h</td><td colspan="3" style="padding:4px 8px;text-align:right"><button class="btn btn-sm" style="font-size:10px" onclick="event.stopPropagation();abrirEditarTurno(''+t.id+'')">✏️ Editar</button></td></tr>';}).join('');return '<tr><td colspan="9" style="padding:0;border-top:1px solid var(--border)">'+turnoRows+'</td></tr>';`;
   }).join('');
 
   return `<div style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;margin-bottom:6px;overflow:hidden">
@@ -1539,10 +1539,10 @@ function renderEscalasForm(){
       +'<div class="fgrp"><label>País</label><input value="'+(e.pais||'')+'" onchange="_escTemp['+i+'].pais=this.value" placeholder="Ej: Chile"></div>'
       +'<div class="fgrp"><label>Terminal</label><input value="'+(e.terminal||'')+'" onchange="_escTemp['+i+'].terminal=this.value" placeholder="Ej: TPS"></div>'
       +'<div class="fgrp"><label>Tipo</label><select onchange="_escTemp['+i+'].tipo=this.value">'
-      +'<option value="operacional" '+(e.tipo==='operacional'?'selected':'')+'>📦 Operacional</option>'
-      +'<option value="transito" '+(e.tipo==='transito'?'selected':'')+'>🚢 Tránsito</option>'
+      +'<option value="operacional" '+(e.tipo==='operacional'?'selected':'')+'>\uD83D\uDCE6 Operacional</option>'
+      +'<option value="transito" '+(e.tipo==='transito'?'selected':'')+'>\uD83D\uDEA2 Tránsito</option>'
       +'<option value="fondeo" '+(e.tipo==='fondeo'?'selected':'')+'>⚓ Fondeo</option>'
-      +'<option value="servicios" '+(e.tipo==='servicios'?'selected':'')+'>🔧 Servicios</option></select></div>'
+      +'<option value="servicios" '+(e.tipo==='servicios'?'selected':'')+'>\uD83D\uDD27 Servicios</option></select></div>'
       +'<div class="fgrp"><label>ETA</label><input type="datetime-local" value="'+(e.eta||'')+'" onchange="_escTemp['+i+'].eta=this.value"></div>'
       +'<div class="fgrp"><label>ETB</label><input type="datetime-local" value="'+(e.etb||'')+'" onchange="_escTemp['+i+'].etb=this.value"></div>'
       +'<div class="fgrp"><label>ETD</label><input type="datetime-local" value="'+(e.etd||'')+'" onchange="_escTemp['+i+'].etd=this.value"></div>'
@@ -1641,7 +1641,7 @@ function renderMixCargaEscala(){
       tonPorProd[k]=(tonPorProd[k]||0)+(c.ton||0);
     });
   });
-  let html='<div class="section-label" style="margin-top:0">📦 Mix de Carga Programado — '+escala.puerto+'</div>';
+  let html='<div class="section-label" style="margin-top:0">\uD83D\uDCE6 Mix de Carga Programado — '+escala.puerto+'</div>';
   html+='<div class="tw"><table style="font-size:12px"><thead><tr><th>Op.</th><th>Producto</th><th>Bodega</th><th>Prog. (t)</th><th>Embarcado/Desc.</th><th>Saldo</th><th>Avance</th></tr></thead><tbody>';
   escala.operaciones.forEach(op=>{
     const k=op.tipo_op+'|'+op.producto;
@@ -1730,7 +1730,7 @@ function aplicarSesion(u){
   const b=document.getElementById('btn-out');
   if(n)n.textContent=u.nombre.split(' ')[0];
   if(r)r.textContent=u.rol==='admin'?'Admin':'Inspector';
-  if(i)i.textContent=u.rol==='admin'?'👑':'👤';
+  if(i)i.textContent=u.rol==='admin'?'\uD83D\uDC51':'\uD83D\uDC64';
   if(b)b.style.display='block';
   const bs=document.getElementById('btn-sync');if(bs)bs.style.display='block';
   const tu=document.getElementById('t_usuario');
@@ -1989,7 +1989,7 @@ function renderRendPorProducto(){
   }
 
   let html='<div style="background:var(--bg4);border:1px solid var(--border);border-radius:8px;padding:10px;margin-top:4px">'
-    +'<div style="font-size:10px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px">📊 Rendimiento por Producto — Este turno</div>'
+    +'<div style="font-size:10px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px">\uD83D\uDCCA Rendimiento por Producto — Este turno</div>'
     +'<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:8px">';
 
   items.forEach(v=>{
@@ -2119,7 +2119,7 @@ function renderRegistros(){
 
   // Embarques
   if(cuadrillas.length){
-    html+=`<div class="section-label">🟢 Embarques / Descargas</div>`;
+    html+=`<div class="section-label">\uD83D\uDFE2 Embarques / Descargas</div>`;
     html+=`<div class="tw"><table><thead><tr><th>Grúa/Cuadrilla</th><th>Op.</th><th>Producto</th><th>Bodega</th><th>Inicio</th><th>Término</th><th>Ton.</th><th>Rend. (t/h)</th><th></th></tr></thead><tbody>`;
     cuadrillas.forEach((c,i)=>{
       const min=diffMin(c.hora_ini,c.hora_fin);
@@ -2163,7 +2163,7 @@ function renderRegistros(){
 
   // Detenciones
   if(detenciones.length){
-    html+=`<div class="section-label" style="margin-top:.75rem">🔴 Detenciones</div>`;
+    html+=`<div class="section-label" style="margin-top:.75rem">\uD83D\uDD34 Detenciones</div>`;
     html+=`<div class="tw"><table><thead><tr><th>Tipo</th><th>Responsabilidad</th><th>Inicio</th><th>Término</th><th>Minutos</th><th>Observaciones</th><th></th></tr></thead><tbody>`;
     detenciones.forEach((d,i)=>{
       const rc=d.resp==='Nave'?'t-re':d.resp==='Estibadores'?'t-am':d.resp==='Puerto'?'t-bl':'t-gy';
@@ -2175,7 +2175,7 @@ function renderRegistros(){
 
   // Tránsitos
   if(transitos.length){
-    html+=`<div class="section-label" style="margin-top:.75rem">🔵 Tránsitos</div>`;
+    html+=`<div class="section-label" style="margin-top:.75rem">\uD83D\uDD35 Tránsitos</div>`;
     html+=`<div class="tw"><table><thead><tr><th>Canal / Zona</th><th>Ingreso</th><th>Salida</th><th>Duración</th><th>Actividades</th><th>Obs.</th><th></th></tr></thead><tbody>`;
     transitos.forEach((t,i)=>{
       html+=`<tr><td><strong>${t.canal}</strong></td><td>${fmtDt(t.ini)}</td><td>${fmtDt(t.fin)}</td><td>${t.min?t.min+" min":'—'}</td><td style="color:var(--text2)">${t.acts.join(', ')||'—'}</td><td style="color:var(--text2)">${t.obs||'—'}</td>
@@ -2186,7 +2186,7 @@ function renderRegistros(){
 
   // Mal tiempo
   if(malTiempos.length){
-    html+=`<div class="section-label" style="margin-top:.75rem">🟡 Eventos Climáticos</div>`;
+    html+=`<div class="section-label" style="margin-top:.75rem">\uD83D\uDFE1 Eventos Climáticos</div>`;
     html+=`<div class="tw"><table><thead><tr><th>Tipo</th><th>Inicio</th><th>Término</th><th>Duración</th><th>Observaciones</th><th></th></tr></thead><tbody>`;
     malTiempos.forEach((m,i)=>{
       html+=`<tr><td><strong>${m.tipo}</strong></td><td>${fmtDt(m.ini)}</td><td>${fmtDt(m.fin)}</td><td>${m.min?m.min+" min":'—'}</td><td style="color:var(--text2)">${m.obs||'—'}</td>
@@ -2291,10 +2291,10 @@ function calcKPIs(){
   const dd=document.getElementById('kpi-det-breakdown');
   if(dd){
     const partes=[];
-    if(detNave>0)partes.push('<span style="color:var(--red)">🚢 Nave: '+detNave+"'</span>");
-    if(detEstib>0)partes.push('<span style="color:var(--yellow)">👷 Estib: '+detEstib+"'</span>");
-    if(detPuerto>0)partes.push('<span style="color:var(--blue)">🏗️ Puerto: '+detPuerto+"'</span>");
-    if(detClima>0)partes.push('<span style="color:var(--purple)">🌦️ Clima: '+detClima+"'</span>");
+    if(detNave>0)partes.push('<span style="color:var(--red)">\uD83D\uDEA2 Nave: '+detNave+"'</span>");
+    if(detEstib>0)partes.push('<span style="color:var(--yellow)">\uD83D\uDC77 Estib: '+detEstib+"'</span>");
+    if(detPuerto>0)partes.push('<span style="color:var(--blue)">\uD83C\uDFD7️ Puerto: '+detPuerto+"'</span>");
+    if(detClima>0)partes.push('<span style="color:var(--purple)">\uD83C\uDF26️ Clima: '+detClima+"'</span>");
     dd.innerHTML=partes.length?partes.join(' · '):'';
   }
 
@@ -2433,7 +2433,7 @@ function onCambioEscalaBitacora(){
       if(hint)hint.style.display='block';
       if(!tieneOps&&hint){
         hint.style.borderLeftColor='var(--yellow)';
-        hint.innerHTML='⚠️ Esta escala no tiene mix de carga definido. Ve a <strong>Flota &amp; Viajes</strong> → botón <strong>📦 Mix</strong> de la escala <strong>'+escala.puerto+'</strong> para ingresar los productos y toneladas.';
+        hint.innerHTML='⚠️ Esta escala no tiene mix de carga definido. Ve a <strong>Flota &amp; Viajes</strong> → botón <strong>\uD83D\uDCE6 Mix</strong> de la escala <strong>'+escala.puerto+'</strong> para ingresar los productos y toneladas.';
       } else if(hint){
         hint.style.borderLeftColor='var(--green)';
         hint.innerHTML='✅ Mix de carga cargado para <strong>'+escala.puerto+'</strong> — '+escala.operaciones.length+' operación'+(escala.operaciones.length!==1?'es':'')+' definida'+(escala.operaciones.length!==1?'s':'')+'.';
@@ -2496,11 +2496,11 @@ function renderHistorial(){
   const el=document.getElementById('historial-list');
   if(!turnos.length){el.innerHTML='<div class="empty">Sin resultados</div>';return;}
 
-  const TLAB={mañana:'🌅 Mañana',tarde:'🌆 Tarde',noche:'🌙 Noche'};
+  const TLAB={mañana:'\uD83C\uDF05 Mañana',tarde:'\uD83C\uDF06 Tarde',noche:'\uD83C\uDF19 Noche'};
   el.innerHTML=turnos.map(t=>`
     <div class="turno-card">
       <div class="turno-hdr" onclick="toggleTurno('th-${t.id}')">
-        <span style="font-weight:700;font-size:13px">🚢 ${t.nave||'Sin nave'}</span>
+        <span style="font-weight:700;font-size:13px">\uD83D\uDEA2 ${t.nave||'Sin nave'}</span>
         <span class="tag t-gy">${t.puerto||'—'}${t.terminal?'<span style="opacity:.6;font-size:9px"> · '+t.terminal+'</span>':''}</span>
         <span class="tag t-bl">${fmt(t.fecha)}</span>
         <span class="tag t-pu">${TLAB[t.turno]||t.turno||t.tipo||'—'}${t.hi&&t.hf?' · '+t.hi+'→'+t.hf:''}</span>
@@ -2532,13 +2532,13 @@ function renderHistorial(){
           <div class="met" style="border-left:3px solid var(--red);padding-left:6px">
             <div class="ml">Det. Total</div>
             <div class="mv ${t.kpi?(t.kpi.totalDet>60?'mv-red':t.kpi.totalDet>30?'mv-yellow':'mv-green'):''}">${(t.kpi&&t.kpi.totalDet)||0}'</div>
-            <div class="ms" style="line-height:1.5">${t.kpi?[t.kpi.detNave>0?'🚢 '+t.kpi.detNave+'\'':'',t.kpi.detEstib>0?'👷 '+t.kpi.detEstib+'\'':'',t.kpi.detPuerto>0?'🏗️ '+t.kpi.detPuerto+'\'':'',t.kpi.detClima>0?'🌦️ '+t.kpi.detClima+'\'':''].filter(Boolean).join(' '):''}</div>
+            <div class="ms" style="line-height:1.5">${t.kpi?[t.kpi.detNave>0?'\uD83D\uDEA2 '+t.kpi.detNave+'\'':'',t.kpi.detEstib>0?'\uD83D\uDC77 '+t.kpi.detEstib+'\'':'',t.kpi.detPuerto>0?'\uD83C\uDFD7️ '+t.kpi.detPuerto+'\'':'',t.kpi.detClima>0?'\uD83C\uDF26️ '+t.kpi.detClima+'\'':''].filter(Boolean).join(' '):''}</div>
           </div>
         </div>
         ${renderDetTurno(t)}
-        ${t.obs?`<div style="margin-top:8px;font-size:12px;color:var(--text2)">📝 <strong>Obs:</strong> ${t.obs}</div>`:''}
+        ${t.obs?`<div style="margin-top:8px;font-size:12px;color:var(--text2)">\uD83D\uDCDD <strong>Obs:</strong> ${t.obs}</div>`:''}
         ${t.fotos&&Object.keys(t.fotos||{}).length?`
-        <div class="section-label" style="margin-top:8px">📷 Fotografías</div>
+        <div class="section-label" style="margin-top:8px">\uD83D\uDCF7 Fotografías</div>
         <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:4px">
           ${Object.entries(t.fotos).map(([b,src])=>`
             <div style="text-align:center">
@@ -2555,7 +2555,7 @@ function renderDetTurno(t){
   let h='';
   // Embarques/Descargas del turno
   if((t.cuadrillas||[]).length){
-    h+=`<div class="section-label">🟢 Operaciones del turno</div>
+    h+=`<div class="section-label">\uD83D\uDFE2 Operaciones del turno</div>
     <div class="tw"><table><thead><tr><th>Grúa/Cuad.</th><th>Op.</th><th>Producto</th><th>Bodega</th><th>Inicio</th><th>Término</th><th>Ton.</th><th>Rend.(t/h)</th></tr></thead><tbody>`;
     t.cuadrillas.forEach(c=>{
       const min=diffMin(c.hora_ini,c.hora_fin);
@@ -2566,7 +2566,7 @@ function renderDetTurno(t){
   }
   // Detenciones
   if((t.detenciones||[]).length){
-    h+=`<div class="section-label" style="margin-top:8px">🔴 Detenciones del turno</div><div class="tw"><table><thead><tr><th>Tipo</th><th>Responsabilidad</th><th>Inicio</th><th>Término</th><th>Min.</th></tr></thead><tbody>`;
+    h+=`<div class="section-label" style="margin-top:8px">\uD83D\uDD34 Detenciones del turno</div><div class="tw"><table><thead><tr><th>Tipo</th><th>Responsabilidad</th><th>Inicio</th><th>Término</th><th>Min.</th></tr></thead><tbody>`;
     t.detenciones.forEach(d=>{
       const rc=d.resp==='Nave'?'t-re':d.resp==='Estibadores'?'t-am':d.resp==='Puerto'?'t-bl':'t-gy';
       h+=`<tr><td>${d.tipo}</td><td><span class="tag ${rc}">${d.resp}</span></td><td>${d.hi}</td><td>${d.hf}</td><td><strong style="color:var(--red)">${d.min}&#39;</strong></td></tr>`;
@@ -2586,7 +2586,7 @@ function toggleTurno(id){
 // ══════════════════════════════════════════════
 let _metId=null, _metCuad=[], _metDet=[], _metFotos={};
 
-const TLAB_MET={mañana:'🌅 Mañana',tarde:'🌆 Tarde',noche:'🌙 Noche'};
+const TLAB_MET={mañana:'\uD83C\uDF05 Mañana',tarde:'\uD83C\uDF06 Tarde',noche:'\uD83C\uDF19 Noche'};
 
 function abrirEditarTurno(id){
   const t=TA.getAll().find(x=>x.id===id);
@@ -2731,7 +2731,7 @@ function metRenderFotos(){
       </div>`;
     } else {
       html+=`<div onclick="metSeleccionarFoto(${b})" style="background:var(--bg3);border:2px dashed var(--border);border-radius:6px;height:110px;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;transition:all .2s" onmouseover="this.style.borderColor='var(--blue)'" onmouseout="this.style.borderColor='var(--border)'">
-        <div style="font-size:22px;opacity:.4">📷</div>
+        <div style="font-size:22px;opacity:.4">\uD83D\uDCF7</div>
         <div style="font-size:10px;color:var(--text3);margin-top:4px;font-weight:600">Bodega ${b}</div>
         <div style="font-size:9px;color:var(--text3)">Agregar foto</div>
       </div>`;
@@ -2909,7 +2909,7 @@ function poblarSelectNaves(){
 
 function renderReporte(){
   if(!isAdmin()){
-    document.getElementById('reporte-content').innerHTML='<div class="empty">🔒 El reporte ejecutivo es solo para Administradores</div>';
+    document.getElementById('reporte-content').innerHTML='<div class="empty">\uD83D\uDD12 El reporte ejecutivo es solo para Administradores</div>';
     return;
   }
   const nave=document.getElementById('r_nave').value;
@@ -3059,7 +3059,7 @@ function renderReporte(){
   });
 
   const totalDetAll=totalMinDet||1;
-  const TLAB={mañana:'🌅 Mañana',tarde:'🌆 Tarde',noche:'🌙 Noche'};
+  const TLAB={mañana:'\uD83C\uDF05 Mañana',tarde:'\uD83C\uDF06 Tarde',noche:'\uD83C\uDF19 Noche'};
 
   document.getElementById('reporte-content').innerHTML=`
     <!-- RESUMEN GENERAL -->
@@ -3069,7 +3069,7 @@ function renderReporte(){
       <div class="met"><div class="ml">Rend. Neto Prom.</div><div class="mv mv-yellow">${avgNeto>0?avgNeto.toLocaleString('es-CL'):'—'}</div><div class="ms">t/h sin nave+estib</div></div>
       <div class="met"><div class="ml">Rend. Neto Puro</div><div class="mv mv-green">${avgNetoPuro>0?avgNetoPuro.toLocaleString('es-CL'):'—'}</div><div class="ms">t/h sin toda demora</div></div>
       <div class="met"><div class="ml">Det. Total</div><div class="mv ${totalMinDet>300?'mv-red':totalMinDet>120?'mv-yellow':'mv-green'}">${totalMinDet}'</div>
-        <div class="ms" style="line-height:1.6">${[totalDetNave>0?'🚢 '+totalDetNave+"'":null,totalDetEstib>0?'👷 '+totalDetEstib+"'":null,totalDetPuerto>0?'🏗️ '+totalDetPuerto+"'":null,totalDetClima>0?'🌦️ '+totalDetClima+"'":null].filter(Boolean).join(' ')}</div>
+        <div class="ms" style="line-height:1.6">${[totalDetNave>0?'\uD83D\uDEA2 '+totalDetNave+"'":null,totalDetEstib>0?'\uD83D\uDC77 '+totalDetEstib+"'":null,totalDetPuerto>0?'\uD83C\uDFD7️ '+totalDetPuerto+"'":null,totalDetClima>0?'\uD83C\uDF26️ '+totalDetClima+"'":null].filter(Boolean).join(' ')}</div>
       </div>
     </div>
 
@@ -3077,14 +3077,14 @@ function renderReporte(){
 
     <!-- DETENCIONES POR RESPONSABILIDAD -->
     <div class="report-section">
-      <div class="report-title">🔴 Detenciones por Responsabilidad</div>
+      <div class="report-title">\uD83D\uDD34 Detenciones por Responsabilidad</div>
       ${Object.entries(detByResp).map(([resp,min])=>{
         if(!min)return '';
         const pct=Math.round(min/totalDetAll*100);
         const rc=resp==='Nave'?'var(--red)':resp==='Estibadores'?'var(--yellow)':resp==='Puerto'?'var(--blue)':'var(--text3)';
         return `<div style="margin-bottom:8px">
           <div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:3px">
-            <span>${resp==='Nave'?'🚢':resp==='Estibadores'?'👷':resp==='Puerto'?'🏗️':'🌦️'} <strong>${resp}</strong></span>
+            <span>${resp==='Nave'?'\uD83D\uDEA2':resp==='Estibadores'?'\uD83D\uDC77':resp==='Puerto'?'\uD83C\uDFD7️':'\uD83C\uDF26️'} <strong>${resp}</strong></span>
             <span style="color:${rc}">${min}&#39; <span style="color:var(--text3)">(${pct}%)</span></span>
           </div>
           <div class="kpi-bar"><div class="kpi-fill" style="width:${pct}%;background:${rc}"></div></div>
@@ -3103,7 +3103,7 @@ function renderReporte(){
 
     <!-- RENDIMIENTO POR PRODUCTO -->
     ${Object.keys(prodMap).length?`<div class="report-section">
-      <div class="report-title">📦 Rendimiento por Producto</div>
+      <div class="report-title">\uD83D\uDCE6 Rendimiento por Producto</div>
       <div class="tw"><table><thead><tr><th>Producto</th><th>Tonelaje Total</th><th>Rend. Neto (t/h)</th></tr></thead><tbody>
       ${Object.entries(prodMap).map(([prod,v])=>{
         const rend=v.min>0?Math.round(v.ton/(v.min/60)):0;
@@ -3114,7 +3114,7 @@ function renderReporte(){
 
     <!-- RENDIMIENTO POR TURNO -->
     <div class="report-section">
-      <div class="report-title">🕐 Rendimiento por Turno</div>
+      <div class="report-title">\uD83D\uDD50 Rendimiento por Turno</div>
       <div class="tw"><table><thead><tr><th>Turno</th><th>Ton. Totales</th><th>Rend. Bruto</th><th>Rend. Neto</th></tr></thead><tbody>
       ${['mañana','tarde','noche'].map(tk=>{
         const ts=turnoStats[tk];
@@ -3127,7 +3127,7 @@ function renderReporte(){
     </div>
 
     <!-- RENDIMIENTO POR DÍA -->
-    ${Object.keys(diaStats).length?'<div class="report-section"><div class="report-title">📅 Rendimiento por Día</div>'
+    ${Object.keys(diaStats).length?'<div class="report-section"><div class="report-title">\uD83D\uDCC5 Rendimiento por Día</div>'
       +'<div class="tw"><table><thead><tr><th>Fecha</th><th>Turnos</th><th>Ton. Día</th><th>Rend. Bruto</th><th>Rend. Neto</th></tr></thead><tbody>'
       +Object.values(diaStats).sort((a,b)=>a.fecha.localeCompare(b.fecha)).map(d=>{
         const pb=d.brutoList.length?Math.round(d.brutoList.reduce((s,v)=>s+v,0)/d.brutoList.length):0;
@@ -3142,7 +3142,7 @@ function renderReporte(){
 
     <!-- DETALLE TURNOS -->
     <div class="report-section">
-      <div class="report-title">📋 Detalle de Turnos</div>
+      <div class="report-title">\uD83D\uDCCB Detalle de Turnos</div>
       <div class="tw"><table><thead><tr><th>Fecha</th><th>Turno</th><th>Puerto</th><th>Ton.</th><th>Bruto</th><th>Neto</th><th>Det.</th><th>Responsable</th></tr></thead><tbody>
       ${turnos.map(t=>`
         <tr>
@@ -3233,7 +3233,7 @@ function renderPanelUsuarios(){
     // Mostrar los logs locales inmediatamente mientras se sincroniza
     function _renderLogsTable(){
       const logs=getLoginLogs().slice().reverse();
-      lista.innerHTML=`<div class="section-label">Últimos intentos de acceso (${logs.length}) <span id="logs-sync-badge" style="font-size:10px;color:var(--text3);margin-left:8px">🔄 Sincronizando…</span></div>
+      lista.innerHTML=`<div class="section-label">Últimos intentos de acceso (${logs.length}) <span id="logs-sync-badge" style="font-size:10px;color:var(--text3);margin-left:8px">\uD83D\uDD04 Sincronizando…</span></div>
       <div class="tw"><table><thead><tr><th>Fecha/Hora</th><th>Correo</th><th>Resultado</th><th>Detalle</th></tr></thead><tbody>
       ${logs.length===0?'<tr><td colspan="4" style="color:var(--text3);text-align:center">Sin registros aún</td></tr>':
         logs.map(l=>{
@@ -3248,14 +3248,14 @@ function renderPanelUsuarios(){
         }).join('')}
       </tbody></table></div>
       <div style="margin-top:8px;text-align:right">
-        <button class="btn btn-sm" onclick="limpiarTodosLogs()" style="font-size:11px;color:var(--red);border-color:var(--red)">🗑 Limpiar logs</button>
+        <button class="btn btn-sm" onclick="limpiarTodosLogs()" style="font-size:11px;color:var(--red);border-color:var(--red)">\uD83D\uDDD1 Limpiar logs</button>
       </div>`;
     }
     // Sincronizar desde Supabase (viene embebido en registro de usuarios)
     UA.syncFromSB().then(()=>{
       _renderLogsTable();
       const badge=document.getElementById('logs-sync-badge');
-      if(badge)badge.textContent=_sbOnline?'✅ Sincronizado':'📴 Sin conexión BD';
+      if(badge)badge.textContent=_sbOnline?'✅ Sincronizado':'\uD83D\uDCF4 Sin conexión BD';
     });
     return;
   }
@@ -3264,12 +3264,12 @@ function renderPanelUsuarios(){
   const filas=usuarios.map(function(u){
     var esYo=u.id===sesionId;
     var tagYo=esYo?' <span style="font-size:10px;background:var(--blue2);color:#fff;padding:1px 6px;border-radius:8px">Yo</span>':'';
-    var tagRol='<span class="tag '+(u.rol==='admin'?'t-pu':'t-gr')+'">'+(u.rol==='admin'?'👑 Admin':'📋 Inspector')+'</span>';
-    var tagEstado=u.activo===false?'<span class="tag t-re">🔒 Bloqueado</span>':'<span class="tag t-gr">✅ Activo</span>';
-    var btnClave='<button onclick="resetPassUsuario(&quot;'+u.id+'&quot;)" class="btn btn-sm" style="background:var(--blue2);color:#fff;border-color:var(--blue2)">🔑 Clave</button>';
+    var tagRol='<span class="tag '+(u.rol==='admin'?'t-pu':'t-gr')+'">'+(u.rol==='admin'?'\uD83D\uDC51 Admin':'\uD83D\uDCCB Inspector')+'</span>';
+    var tagEstado=u.activo===false?'<span class="tag t-re">\uD83D\uDD12 Bloqueado</span>':'<span class="tag t-gr">✅ Activo</span>';
+    var btnClave='<button onclick="resetPassUsuario(&quot;'+u.id+'&quot;)" class="btn btn-sm" style="background:var(--blue2);color:#fff;border-color:var(--blue2)">\uD83D\uDD11 Clave</button>';
     var btnRol='<button onclick="toggleRolUsuario(&quot;'+u.id+'&quot;)" class="btn btn-sm" style="background:var(--purple-dim);color:var(--purple);border-color:var(--purple)">'+(u.rol==='admin'?'→ Inspector':'→ Admin')+'</button>';
     var estiloActivo=u.activo===false?'background:var(--green-dim);color:var(--green);border-color:var(--green)':'background:var(--yellow-dim);color:var(--yellow);border-color:var(--yellow)';
-    var labelActivo=u.activo===false?'🔓 Activar':'🔒 Bloquear';
+    var labelActivo=u.activo===false?'\uD83D\uDD13 Activar':'\uD83D\uDD12 Bloquear';
     var btnBloquear=esYo?'':'<button onclick="toggleActivoUsuario(&quot;'+u.id+'&quot;)" class="btn btn-sm" style="'+estiloActivo+'">'+labelActivo+'</button>';
     var btnEliminar=esYo?'':'<button onclick="eliminarUsuario(&quot;'+u.id+'&quot;)" class="btn btn-r btn-sm">✕</button>';
     return '<tr>'
@@ -3324,7 +3324,7 @@ function toggleActivoUsuario(id){
   if(i>=0){
     arr[i].activo=arr[i].activo===false?true:false;
     UA.save(arr);
-    showAlert(arr[i].activo?'✅ Usuario activado':'🔒 Usuario bloqueado','ok');
+    showAlert(arr[i].activo?'✅ Usuario activado':'\uD83D\uDD12 Usuario bloqueado','ok');
   }
   renderPanelUsuarios();
 }
@@ -3374,7 +3374,7 @@ function renderFotoSlot(b){
 
   // Botón agregar
   if(puedeAgregar){
-    html+='<div onclick="seleccionarFoto('+b+')" style="border:1.5px dashed var(--border);border-radius:6px;padding:6px;text-align:center;cursor:pointer;font-size:11px;color:var(--text3)">📷 Agregar foto</div>';
+    html+='<div onclick="seleccionarFoto('+b+')" style="border:1.5px dashed var(--border);border-radius:6px;padding:6px;text-align:center;cursor:pointer;font-size:11px;color:var(--text3)">\uD83D\uDCF7 Agregar foto</div>';
   } else {
     html+='<div style="text-align:center;font-size:10px;color:var(--text3)">Máximo alcanzado</div>';
   }
@@ -3502,7 +3502,7 @@ function getMasterScheduleData(){
 // ══════════════════════════════════════════════
 // IMPORTACIÓN EXCEL — SheetJS
 // ══════════════════════════════════════════════
-const SHEET_SKIP_NAMES=['Resumen','Distancias','Mapa','📍 Distancias_Update'];
+const SHEET_SKIP_NAMES=['Resumen','Distancias','Mapa','\uD83D\uDCCD Distancias_Update'];
 window._excelNaves=[];
 window._excelNaveActual=null;
 
@@ -3528,7 +3528,7 @@ function handleExcelFile(file){
       const naves=[];
 
       wb.SheetNames.forEach(sn=>{
-        if(SKIP.some(s=>sn===s||sn.startsWith('📍')))return;
+        if(SKIP.some(s=>sn===s||sn.startsWith('\uD83D\uDCCD')))return;
         const ws=wb.Sheets[sn];
         const raw=XLSX.utils.sheet_to_json(ws,{header:1,defval:'',raw:false,dateNF:'yyyy-mm-dd hh:mm:ss'});
         if(!raw||raw.length<7)return;
@@ -3968,7 +3968,7 @@ function resetExcelImport(){
   document.getElementById('excel-step2').style.display='none';
   document.getElementById('excel-step1').style.display='block';
   const dz=document.getElementById('excel-drop-zone');
-  if(dz)dz.innerHTML=`<div style="font-size:30px;margin-bottom:6px">📊</div>
+  if(dz)dz.innerHTML=`<div style="font-size:30px;margin-bottom:6px">\uD83D\uDCCA</div>
     <div style="font-weight:700;color:var(--text);font-size:13px">Arrastra el Excel aquí o haz clic para seleccionar</div>
     <div style="font-size:11px;color:var(--text3);margin-top:3px">Formato .xlsx · Detecta automáticamente buques y puertos con ETA/ETB/ETD</div>
     <input type="file" id="excel-file-input" accept=".xlsx,.xls" style="display:none" onchange="handleExcelFile(this.files[0])">`;
@@ -3987,7 +3987,7 @@ function abrirModalMix(viajeId, escalaId){
   if(!e)return;
   _mmViajeId=viajeId; _mmEscalaId=escalaId;
   _mmOps=(e.operaciones||[]).map(o=>({...o}));
-  document.getElementById('mm-title').textContent='📦 Mix de Carga — '+e.puerto;
+  document.getElementById('mm-title').textContent='\uD83D\uDCE6 Mix de Carga — '+e.puerto;
   document.getElementById('mm-sub').textContent='Voyage '+v.voyage+' · Define embarques, descargas, toneladas y bodegas';
   // Populate product select
   const sel=document.getElementById('mm-prod');
@@ -4227,7 +4227,7 @@ function abrirModalTiempos(viajeId, escalaId){
   const e=(v.escalas||[]).find(x=>x.id===escalaId);
   if(!e)return;
   const modal=document.getElementById('modal-tiempos');
-  document.getElementById('mt-nave-title').textContent='📍 '+e.puerto+' — '+(v.voyage||'');
+  document.getElementById('mt-nave-title').textContent='\uD83D\uDCCD '+e.puerto+' — '+(v.voyage||'');
   document.getElementById('mt-eta').textContent=fmtDt(e.eta)||'—';
   document.getElementById('mt-etb').textContent=fmtDt(e.etb)||'—';
   document.getElementById('mt-etd').textContent=fmtDt(e.etd)||'—';
@@ -4276,7 +4276,7 @@ if(_s){
   document.getElementById('login-overlay').style.display='flex';
   document.getElementById('li_email').focus();
 }
-async function compartirWhatsApp(){await guardarTurno();const nave=document.getElementById('t_nave').value.trim()||'—';const puerto=document.getElementById('t_puerto').value.trim()||'—';const fecha=document.getElementById('t_fecha').value||'';const turnoVal=document.getElementById('t_turno').value||'';const jefe=document.getElementById('t_jefe').value.trim()||'—';const obs=document.getElementById('t_obs').value.trim();const terminal=getTerminalValue('t')||'—';const ht=TURNOS[turnoVal]||{};const turnoLabel={'mañana':'🌅 Mañana','tarde':'🌆 Tarde','noche':'🌙 Noche','libre':'🕐 Libre'}[turnoVal]||turnoVal;const totalTon=cuadrillas.reduce((s,c)=>s+(c.ton||0),0);const totalDet=detenciones.reduce((s,d)=>s+d.min,0);const detNave=detenciones.filter(d=>d.resp==='Nave').reduce((s,d)=>s+d.min,0);const detEstib=detenciones.filter(d=>d.resp==='Estibadores').reduce((s,d)=>s+d.min,0);const detPuerto=detenciones.filter(d=>d.resp==='Puerto').reduce((s,d)=>s+d.min,0);const detClima=detenciones.filter(d=>d.resp==='Clima').reduce((s,d)=>s+d.min,0);const ct=cuadrillas.filter(c=>c.hora_ini&&c.hora_fin&&c.ton>0);let minBruto=turnoVal==='mañana'||turnoVal==='tarde'?450:540;if(ct.length){const inis=ct.map(c=>c.hora_ini.split(':').map(Number)).map(([h,m])=>h*60+m);const fins=ct.map(c=>c.hora_fin.split(':').map(Number)).map(([h,m])=>h*60+m);const sp=Math.max(...fins)>Math.min(...inis)?Math.max(...fins)-Math.min(...inis):Math.max(...fins)+1440-Math.min(...inis);if(sp>0)minBruto=sp;}const bruto=minBruto>0&&totalTon>0?Math.round(totalTon/(minBruto/60)):0;const detNataNave=detenciones.filter(d=>DET_NETO_NAVE.includes(d.tipo)).reduce((s,d)=>s+d.min,0);const minNeto=Math.max(1,minBruto-detNataNave);const neto=totalTon>0?Math.round(totalTon/(minNeto/60)):0;const gruasLines=cuadrillas.length?cuadrillas.map(c=>`  • Grúa ${c.grua||'?'} — ${c.ton||0} ton (${c.hora_ini||'?'}-${c.hora_fin||'?'})${c.producto?' ['+c.producto+']':''}`).join('\n'):'  Sin registros';let detLines='';if(detenciones.length){detLines='\n\n⏸ *DETENCIONES ('+totalDet+" min)*\n";detLines+=detenciones.map(d=>`  • ${d.tipo||'—'} ${d.hi||''}–${d.hf||''} (${d.min||0} min) [${d.resp||'—'}]${d.obs?': '+d.obs:''}`).join('\n');}const nFotos=Object.values(fotosBodegas).reduce((s,arr)=>s+(arr.length||0),0);const fotosLine=nFotos>0?`\n\n📷 *FOTOS:* ${nFotos} imagen(es) adjunta(s) al sistema`:'';const fechaFmt=fecha?new Date(fecha+'T12:00:00').toLocaleDateString('es-CL',{weekday:'long',day:'2-digit',month:'long',year:'numeric'}):'—';const msg=`🚢 *INFORME DE TURNO — VOLANS MARITIME*\n━━━━━━━━━━━━━━━━━━━━━━\n📅 ${fechaFmt}\n🕐 ${turnoLabel}  ${ht.hi||'—'} – ${ht.hf||'—'}\n⚓ Nave: *${nave}*\n🏗️ Puerto: ${puerto} | Terminal: ${terminal}\n👷 Jefe de Turno: ${jefe}\n\n📦 *RENDIMIENTO*\n  Toneladas: *${totalTon.toLocaleString('es-CL')} ton*\n  Rend. Bruto: *${bruto>0?bruto.toLocaleString('es-CL')+' t/h':'—'}*\n  Rend. Neto: *${neto>0?neto.toLocaleString('es-CL')+' t/h':'—'}*\n  T. Detenciones: ${totalDet} min\n\n🏗️ *GRÚAS / CUADRILLAS*\n${gruasLines}\n\n⚠️ *RESUMEN DEMORAS*\n  🚢 Nave: ${detNave} min\n  👷 Estibadores: ${detEstib} min\n  🏗️ Puerto: ${detPuerto} min\n  🌦️ Clima: ${detClima} min${detLines}${fotosLine}${obs?'\n\n📝 *OBSERVACIONES*\n'+obs:''}\n━━━━━━━━━━━━━━━━━━━━━━\n_Generado por Sistema Volans Maritime_`;window.open('https://wa.me/?text='+encodeURIComponent(msg),'_blank');}
+async function compartirWhatsApp(){await guardarTurno();const nave=document.getElementById('t_nave').value.trim()||'—';const puerto=document.getElementById('t_puerto').value.trim()||'—';const fecha=document.getElementById('t_fecha').value||'';const turnoVal=document.getElementById('t_turno').value||'';const jefe=document.getElementById('t_jefe').value.trim()||'—';const obs=document.getElementById('t_obs').value.trim();const terminal=getTerminalValue('t')||'—';const ht=TURNOS[turnoVal]||{};const turnoLabel={'mañana':'\uD83C\uDF05 Mañana','tarde':'\uD83C\uDF06 Tarde','noche':'\uD83C\uDF19 Noche','libre':'\uD83D\uDD50 Libre'}[turnoVal]||turnoVal;const totalTon=cuadrillas.reduce((s,c)=>s+(c.ton||0),0);const totalDet=detenciones.reduce((s,d)=>s+d.min,0);const detNave=detenciones.filter(d=>d.resp==='Nave').reduce((s,d)=>s+d.min,0);const detEstib=detenciones.filter(d=>d.resp==='Estibadores').reduce((s,d)=>s+d.min,0);const detPuerto=detenciones.filter(d=>d.resp==='Puerto').reduce((s,d)=>s+d.min,0);const detClima=detenciones.filter(d=>d.resp==='Clima').reduce((s,d)=>s+d.min,0);const ct=cuadrillas.filter(c=>c.hora_ini&&c.hora_fin&&c.ton>0);let minBruto=turnoVal==='mañana'||turnoVal==='tarde'?450:540;if(ct.length){const inis=ct.map(c=>c.hora_ini.split(':').map(Number)).map(([h,m])=>h*60+m);const fins=ct.map(c=>c.hora_fin.split(':').map(Number)).map(([h,m])=>h*60+m);const sp=Math.max(...fins)>Math.min(...inis)?Math.max(...fins)-Math.min(...inis):Math.max(...fins)+1440-Math.min(...inis);if(sp>0)minBruto=sp;}const bruto=minBruto>0&&totalTon>0?Math.round(totalTon/(minBruto/60)):0;const detNataNave=detenciones.filter(d=>DET_NETO_NAVE.includes(d.tipo)).reduce((s,d)=>s+d.min,0);const minNeto=Math.max(1,minBruto-detNataNave);const neto=totalTon>0?Math.round(totalTon/(minNeto/60)):0;const gruasLines=cuadrillas.length?cuadrillas.map(c=>`  • Grúa ${c.grua||'?'} — ${c.ton||0} ton (${c.hora_ini||'?'}-${c.hora_fin||'?'})${c.producto?' ['+c.producto+']':''}`).join('\n'):'  Sin registros';let detLines='';if(detenciones.length){detLines='\n\n⏸ *DETENCIONES ('+totalDet+" min)*\n";detLines+=detenciones.map(d=>`  • ${d.tipo||'—'} ${d.hi||''}–${d.hf||''} (${d.min||0} min) [${d.resp||'—'}]${d.obs?': '+d.obs:''}`).join('\n');}const nFotos=Object.values(fotosBodegas).reduce((s,arr)=>s+(arr.length||0),0);const fotosLine=nFotos>0?`\n\n\uD83D\uDCF7 *FOTOS:* ${nFotos} imagen(es) adjunta(s) al sistema`:'';const fechaFmt=fecha?new Date(fecha+'T12:00:00').toLocaleDateString('es-CL',{weekday:'long',day:'2-digit',month:'long',year:'numeric'}):'—';const msg=`\uD83D\uDEA2 *INFORME DE TURNO — VOLANS MARITIME*\n━━━━━━━━━━━━━━━━━━━━━━\n\uD83D\uDCC5 ${fechaFmt}\n\uD83D\uDD50 ${turnoLabel}  ${ht.hi||'—'} – ${ht.hf||'—'}\n⚓ Nave: *${nave}*\n\uD83C\uDFD7️ Puerto: ${puerto} | Terminal: ${terminal}\n\uD83D\uDC77 Jefe de Turno: ${jefe}\n\n\uD83D\uDCE6 *RENDIMIENTO*\n  Toneladas: *${totalTon.toLocaleString('es-CL')} ton*\n  Rend. Bruto: *${bruto>0?bruto.toLocaleString('es-CL')+' t/h':'—'}*\n  Rend. Neto: *${neto>0?neto.toLocaleString('es-CL')+' t/h':'—'}*\n  T. Detenciones: ${totalDet} min\n\n\uD83C\uDFD7️ *GRÚAS / CUADRILLAS*\n${gruasLines}\n\n⚠️ *RESUMEN DEMORAS*\n  \uD83D\uDEA2 Nave: ${detNave} min\n  \uD83D\uDC77 Estibadores: ${detEstib} min\n  \uD83C\uDFD7️ Puerto: ${detPuerto} min\n  \uD83C\uDF26️ Clima: ${detClima} min${detLines}${fotosLine}${obs?'\n\n\uD83D\uDCDD *OBSERVACIONES*\n'+obs:''}\n━━━━━━━━━━━━━━━━━━━━━━\n_Generado por Sistema Volans Maritime_`;window.open('https://wa.me/?text='+encodeURIComponent(msg),'_blank');}
 </script>
 </body>
-</html> 
+</html>
