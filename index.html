@@ -1450,7 +1450,7 @@ function renderViajeCard(v){
         <button class="btn btn-sm btn-r" style="font-size:10px;margin-top:2px" onclick="eliminarEscalaViaje('${v.id}','${e.id}')" title="Eliminar puerto">🗑</button>
       </td>
     </tr>
-    ${(()=>{const turnosEscala=TA.getAll().filter(t=>t.escala_id===e.id);if(!turnosEscala.length)return '';return '<tr><td colspan="9" style="padding:0 0 4px 32px"><div style="display:flex;flex-wrap:wrap;gap:4px">'+(turnosEscala.map(t=>'<span style="background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:2px 8px;font-size:10px;cursor:pointer" onclick="event.stopPropagation();abrirEditarTurno(\''+t.id+'\')">'+( t.turno==='mañana'?'🌅':t.turno==='tarde'?'🌆':'🌙')+' '+t.fecha+(t.kpi?.totalTon?' · '+t.kpi.totalTon.toLocaleString('es-CL')+'t':'')+'</span>').join(''))+'</div></td></tr>';})()}`;
+    ${(()=>{const turnosEscala=TA.getAll().filter(t=>t.escala_id===e.id);if(!turnosEscala.length)return '';return '<tr><td colspan="9" style="padding:0 0 4px 32px"><div style="display:flex;flex-wrap:wrap;gap:4px">'+(turnosEscala.map(t=>'<span style="background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:2px 8px;font-size:10px;cursor:pointer" onclick="event.stopPropagation();abrirEditarTurno(\''+t.id+'\')">'+( t.turno==='mañana'?'🌅':t.turno==='tarde'?'🌆':'🌙')+' '+t.fecha+(t.kpi?.totalTon?' · '+t.kpi.totalTon.toLocaleString('es-CL')+'t':'')+'</span>').join(''))+'<button onclick="event.stopPropagation();enviarWA(\''+t.id+'\');" style="background:#25D366;color:#fff;border:none;border-radius:4px;padding:2px 7px;font-size:11px;cursor:pointer;margin-left:6px;" title="Enviar por WhatsApp">📲</button>'+'</div></td></tr>';})()}`;
   }).join('');
 
   return `<div style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;margin-bottom:6px;overflow:hidden">
@@ -4278,6 +4278,32 @@ if(_s){
 }
 async function compartirWhatsApp(){await guardarTurno();const nave=document.getElementById('t_nave').value.trim()||'—';const puerto=document.getElementById('t_puerto').value.trim()||'—';const fecha=document.getElementById('t_fecha').value||'';const turnoVal=document.getElementById('t_turno').value||'';const jefe=document.getElementById('t_jefe').value.trim()||'—';const obs=document.getElementById('t_obs').value.trim();const terminal=getTerminalValue('t')||'—';const ht=TURNOS[turnoVal]||{};const turnoLabel={'mañana':'🌅 Mañana','tarde':'🌆 Tarde','noche':'🌙 Noche','libre':'🕐 Libre'}[turnoVal]||turnoVal;const totalTon=cuadrillas.reduce((s,c)=>s+(c.ton||0),0);const totalDet=detenciones.reduce((s,d)=>s+d.min,0);const detNave=detenciones.filter(d=>d.resp==='Nave').reduce((s,d)=>s+d.min,0);const detEstib=detenciones.filter(d=>d.resp==='Estibadores').reduce((s,d)=>s+d.min,0);const detPuerto=detenciones.filter(d=>d.resp==='Puerto').reduce((s,d)=>s+d.min,0);const detClima=detenciones.filter(d=>d.resp==='Clima').reduce((s,d)=>s+d.min,0);const ct=cuadrillas.filter(c=>c.hora_ini&&c.hora_fin&&c.ton>0);let minBruto=turnoVal==='mañana'||turnoVal==='tarde'?450:540;if(ct.length){const inis=ct.map(c=>c.hora_ini.split(':').map(Number)).map(([h,m])=>h*60+m);const fins=ct.map(c=>c.hora_fin.split(':').map(Number)).map(([h,m])=>h*60+m);const sp=Math.max(...fins)>Math.min(...inis)?Math.max(...fins)-Math.min(...inis):Math.max(...fins)+1440-Math.min(...inis);if(sp>0)minBruto=sp;}const bruto=minBruto>0&&totalTon>0?Math.round(totalTon/(minBruto/60)):0;const detNataNave=detenciones.filter(d=>DET_NETO_NAVE.includes(d.tipo)).reduce((s,d)=>s+d.min,0);const minNeto=Math.max(1,minBruto-detNataNave);const neto=totalTon>0?Math.round(totalTon/(minNeto/60)):0;const gruasLines=cuadrillas.length?cuadrillas.map(c=>`  • Grúa ${c.grua||'?'} — ${c.ton||0} ton (${c.hora_ini||'?'}-${c.hora_fin||'?'})${c.producto?' ['+c.producto+']':''}`).join('\n'):'  Sin registros';let detLines='';if(detenciones.length){detLines='\n\n⏸ *DETENCIONES ('+totalDet+" min)*\n";detLines+=detenciones.map(d=>`  • ${d.tipo||'—'} ${d.hi||''}–${d.hf||''} (${d.min||0} min) [${d.resp||'—'}]${d.obs?': '+d.obs:''}`).join('\n');}const nFotos=Object.values(fotosBodegas).reduce((s,arr)=>s+(arr.length||0),0);const fotosLine=nFotos>0?`\n\n📷 *FOTOS:* ${nFotos} imagen(es) adjunta(s) al sistema`:'';const fechaFmt=fecha?new Date(fecha+'T12:00:00').toLocaleDateString('es-CL',{weekday:'long',day:'2-digit',month:'long',year:'numeric'}):'—';const msg=`🚢 *INFORME DE TURNO — VOLANS MARITIME*\n━━━━━━━━━━━━━━━━━━━━━━\n📅 ${fechaFmt}\n🕐 ${turnoLabel}  ${ht.hi||'—'} – ${ht.hf||'—'}\n⚓ Nave: *${nave}*\n🏗️ Puerto: ${puerto} | Terminal: ${terminal}\n👷 Jefe de Turno: ${jefe}\n\n📦 *RENDIMIENTO*\n  Toneladas: *${totalTon.toLocaleString('es-CL')} ton*\n  Rend. Bruto: *${bruto>0?bruto.toLocaleString('es-CL')+' t/h':'—'}*\n  Rend. Neto: *${neto>0?neto.toLocaleString('es-CL')+' t/h':'—'}*\n  T. Detenciones: ${totalDet} min\n\n🏗️ *GRÚAS / CUADRILLAS*\n${gruasLines}\n\n⚠️ *RESUMEN DEMORAS*\n  🚢 Nave: ${detNave} min\n  👷 Estibadores: ${detEstib} min\n  🏗️ Puerto: ${detPuerto} min\n  🌦️ Clima: ${detClima} min${detLines}${fotosLine}${obs?'\n\n📝 *OBSERVACIONES*\n'+obs:''}\n━━━━━━━━━━━━━━━━━━━━━━\n_Generado por Sistema Volans Maritime_`;window.open('https://wa.me/?text='+encodeURIComponent(msg),'_blank');}
 
+function enviarWA(id){
+  const turnos=JSON.parse(localStorage.vms_turnos||'[]');
+  const t=turnos.find(x=>x.id===id);
+  if(!t)return;
+  const TURNO_LABEL={'mañana':'🌅 Mañana','tarde':'🌆 Tarde','noche':'🌙 Noche'};
+  const resp={'Nave':'🚢','Puerto':'⚓','Estibadores':'👷','Climático':'🌧️'};
+  const dets=(t.detenciones||[]).map(d=>'  • '+d.tipo+(d.resp?' ('+d.resp+')':'')+': '+(d.min||0)+'min'+(d.obs?' - '+d.obs:'')).join('\n');
+  const cuads=(t.cuadrillas||[]).map(c=>'  • '+c.tipo_op+' '+c.producto+' Bdg'+c.bodega+': '+Number(c.ton||0).toLocaleString('es-CL')+'t').join('\n');
+  let msg='🚢 *'+t.nave+'* — '+t.puerto+'\n';
+  msg+='📅 '+t.fecha+' | '+(TURNO_LABEL[t.turno]||t.turno)+'\n';
+  msg+='⏰ '+t.hi+' – '+t.hf+'\n';
+  if(t.jefe)msg+='👤 Jefe turno: '+t.jefe+'\n';
+  msg+='\n📦 *Operaciones:*\n'+(cuads||'  Sin operaciones');
+  msg+='\n\n📊 *KPIs:*\n';
+  msg+='  Toneladas: '+Number(t.kpi?.totalTon||0).toLocaleString('es-CL')+'t\n';
+  msg+='  Bruto: '+(t.kpi?.bruto||0)+' t/h\n';
+  msg+='  Neto: '+(t.kpi?.neto||0)+' t/h\n';
+  if((t.kpi?.totalDet||0)>0){
+    msg+='  Detenciones: '+(t.kpi.totalDet||0)+' min\n';
+    if(dets)msg+='\n🛑 *Detenciones:*\n'+dets+'\n';
+  }
+  if(t.obs)msg+='\n📝 Obs: '+t.obs;
+  msg+='\n\n_Volans Maritime_';
+  const url='https://wa.me/?text='+encodeURIComponent(msg);
+  window.open(url,'_blank');
+}
 function toggleTurnosEscala(vId, eId) {
   var rowId = 'te-' + vId + '-' + eId;
   var existing = document.getElementById(rowId);
