@@ -4101,7 +4101,7 @@ function mmGuardarOp(){
   const bodega=document.getElementById('mm-bodega').value.trim();
   if(!prod){showAlert('Selecciona un producto','warn');return;}
   // Check if same tipo+producto already exists
-  const existing=_mmOps.findIndex(o=>o.tipo_op===tipo&&o.producto===prod);
+  const existing=_mmOps.findIndex(o=>o.tipo_op===tipo&&o.producto===prod&&o.bodega===bodega);
   if(existing>=0){
     // Update existing
     _mmOps[existing].ton_prog+=ton;
