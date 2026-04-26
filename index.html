@@ -1450,7 +1450,7 @@ function renderViajeCard(v){
         <button class="btn btn-sm btn-r" style="font-size:10px;margin-top:2px" onclick="eliminarEscalaViaje('${v.id}','${e.id}')" title="Eliminar puerto">🗑</button>
       </td>
     </tr>
-    ${(()=>{const turnosEscala=TA.getAll().filter(t=>t.escala_id===e.id);if(!turnosEscala.length)return '';return '<tr><td colspan="9" style="padding:0 0 4px 32px"><div style="display:flex;flex-wrap:wrap;gap:4px">'+(turnosEscala.map(t=>'<span style="background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:2px 8px;font-size:10px;cursor:pointer" onclick="event.stopPropagation();abrirEditarTurno(\''+t.id+'\')">'+( t.turno==='mañana'?'🌅':t.turno==='tarde'?'🌆':'🌙')+' '+t.fecha+(t.kpi?.totalTon?' · '+t.kpi.totalTon.toLocaleString('es-CL')+'t':'')+'</span>').join(''))+'<button onclick="event.stopPropagation();enviarWA(\''+t.id+'\');" style="background:#25D366;color:#fff;border:none;border-radius:4px;padding:2px 7px;font-size:11px;cursor:pointer;margin-left:6px;" title="Enviar por WhatsApp">📲</button>'+'</div></td></tr>';})()}`;
+    ${(()=>{const turnosEscala=TA.getAll().filter(t=>t.escala_id===e.id);if(!turnosEscala.length)return '';return '<tr><td colspan="9" style="padding:0 0 4px 32px"><div style="display:flex;flex-wrap:wrap;gap:4px">'+(turnosEscala.map(t=>'<span style="background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:2px 8px;font-size:10px;cursor:pointer" onclick="event.stopPropagation();abrirEditarTurno(\''+t.id+'\')">'+( t.turno==='mañana'?'🌅':t.turno==='tarde'?'🌆':'🌙')+' '+t.fecha+(t.kpi?.totalTon?' · '+t.kpi.totalTon.toLocaleString('es-CL')+'t':'')+'</span>').join(''))+'</div></td></tr>';})()}`;
   }).join('');
 
   return `<div style="background:var(--bg3);border:1px solid var(--border);border-radius:8px;margin-bottom:6px;overflow:hidden">
@@ -4368,7 +4368,8 @@ function toggleTurnosEscala(vId, eId) {
           if (d.obs) html += ' &bull; <i>' + d.obs + '</i>';
           html += '</span>';
         });
-        html += '</div>';
+          html += '<button onclick="event.stopPropagation();enviarWA(\''+t.id+'\');" style="background:#25D366;color:#fff;border:none;border-radius:4px;padding:2px 8px;font-size:11px;cursor:pointer;margin:4px 0 0 10px;" title="WhatsApp">📲 WhatsApp</button>';
+      html += '</div>';
       }
       html += '</div>';
     });
