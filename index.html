@@ -2752,7 +2752,7 @@ function metSeleccionarFoto(bodega){
   input.onchange=e=>{
     const file=e.target.files[0];
     if(!file)return;
-    comprimirFoto(file,0.5,1280,b64=>{if(!Array.isArray(_metFotos[bodega]))_metFotos[bodega]=[];if(_metFotos[bodega].length<${MAX_PER_BODEGA}){_metFotos[bodega].push(b64);}metRenderFotos();});
+    comprimirFoto(file,0.5,1280,b64=>{if(!Array.isArray(_metFotos[bodega]))_metFotos[bodega]=[];if(_metFotos[bodega].length<3){_metFotos[bodega].push(b64);}metRenderFotos();});
   };
   input.click();
 }
