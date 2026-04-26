@@ -1199,6 +1199,16 @@ const TA={
         const SYSTEM_IDS_T=new Set([UA.SB_ID,'__usuarios_volans__','__login_logs_volans__']);
         const realRows=rows.filter(r=>!SYSTEM_IDS_T.has(r.id));
         const merged=[...realRows.map(r=>dbRowToTurno(r)), ...localOnly];
+        // Normalizar nombres de nave antes de guardar
+        const normNave=s=>{
+          if(!s||s.trim()===''||s==='undefined')return s;
+          const l=s.toLowerCase().trim();
+          if(l.includes('valparai'))return 'Cóndor Valparaíso';
+          if(l.includes('magallan'))return 'Cóndor Magallanes';
+          if(l.includes('bilbao'))return 'Cóndor Bilbao';
+          return s;
+        };
+        merged=merged.filter(t=>t.nave&&t.nave!=='undefined').map(t=>({...t,nave:normNave(t.nave)}));
         this.save(merged);
         console.info('[SB] Turnos sincronizados:', rows.length);
       }
