@@ -2628,7 +2628,10 @@ function abrirEditarTurno(id){
   document.getElementById('modal-editar-turno').style.display='flex';
 }
 
-function cerrarEditarTurno(){
+function cerrarEditarTurno(force){
+  if(!force && _metId){
+    if(!confirm('¿Cerrar sin guardar los cambios?'))return;
+  }
   document.getElementById('modal-editar-turno').style.display='none';
   _metId=null;_metCuad=[];_metDet=[];_metFotos={};
 }
@@ -2760,7 +2763,7 @@ function metSeleccionarFoto(bodega){
 // ─ Guardar ─
 function guardarEdicionTurno(){
   if(!_metId)return;
-  const arr=TA.getAll();
+  const arr=TA.getAll().map(x=>({...x}));
   const i=arr.findIndex(x=>x.id===_metId);
   if(i<0)return;
 
