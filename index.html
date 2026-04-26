@@ -2604,9 +2604,30 @@ function abrirEditarTurno(id){
   (function(){
     const puerto=t.puerto||'';
     // Precargar hidden value antes de autoFill
+    // Buscar terminal desde la escala del viaje
+    const _viajes=JSON.parse(localStorage.vms_viajes||'[]');
+    const _escala=_viajes.flatMap(v=>v.escalas||[]).find(e=>e.id===t.escala_id);
+    const _terminalEscala=_escala?.terminal||t.terminal||'';
     const hidden=document.getElementById('met-terminal');
-    if(hidden)hidden.value=t.terminal||'';
+    if(hidden)hidden.value=_terminalEscala;
     autoFillTerminal(puerto,'met-terminal-sel','_unused');
+    // Preseleccionar el terminal de la escala en el select
+    setTimeout(()=>{
+      const sel=document.getElementById('met-terminal-sel');
+      if(sel&&_terminalEscala){
+        // Buscar opción que coincida
+        const opt=[...sel.options].find(o=>o.value===_terminalEscala||o.text===_terminalEscala);
+        if(opt){sel.value=_terminalEscala;}
+        else{
+          // Agregar como opción si no existe
+          const newOpt=new Option(_terminalEscala,_terminalEscala);
+          sel.add(newOpt);
+          sel.value=_terminalEscala;
+        }
+        // Actualizar hidden
+        if(hidden)hidden.value=_terminalEscala;
+      }
+    },50);
     // Si el terminal no está en la lista, mostrar input libre
     const sel=document.getElementById('met-terminal-sel');
     const custom=document.getElementById('met-terminal-custom');
