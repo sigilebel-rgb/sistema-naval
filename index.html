@@ -4246,7 +4246,7 @@ function guardarNuevoPuerto(){
 
 function mmGuardarTodo(){
   if(!_mmViajeId||!_mmEscalaId)return;
-  const viajes=VA.getAll();
+  const viajes=VA.getAll().map(v=>({...v,escalas:(v.escalas||[]).map(e=>({...e,operaciones:[...(e.operaciones||[])]})) }));
   const vi=viajes.findIndex(x=>x.id===_mmViajeId);
   if(vi<0)return;
   const ei=(viajes[vi].escalas||[]).findIndex(x=>x.id===_mmEscalaId);
