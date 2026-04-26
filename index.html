@@ -4297,7 +4297,7 @@ function toggleTurnosEscala(vId, eId) {
   var nave = viaje.nave || '';
   var puerto = escala.puerto || '';
   var todos = JSON.parse(localStorage.getItem('vms_turnos') || '[]');
-  var turnos = todos.filter(function(t){ return t.nave === nave && t.puerto === puerto; });
+  var turnos = todos.filter(function(t){ return t.escala_id === eId; });
   if (turnos.length === 0) {
     div.innerHTML = '<span style="color:var(--text3);font-size:11px">Sin turnos ingresados para ' + puerto + '</span>';
   } else {
