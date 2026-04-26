@@ -357,7 +357,7 @@ var o=[];var l=Array.isArray(e);for(f=n.s.c;f<=n.e.c;++f)s[f]=ya(f);for(var c=n.
     <!-- Datos generales -->
     <div class="section-label" style="margin-top:0">📋 Datos generales</div>
     <div class="fg" style="margin-bottom:10px">
-      <div class="fgrp"><label>Nave</label><input id="met-nave" placeholder="Nombre nave"></div>
+      <div class="fgrp"><label>Nave</label><select id="met-nave" style="width:100%;padding:6px;background:var(--bg2);color:var(--text);border:1px solid var(--border);border-radius:4px;font-size:13px;"></select></div>
       <div class="fgrp"><label>Puerto / Escala</label><input id="met-puerto" placeholder="Puerto"></div>
       <div class="fgrp"><label>Terminal</label>
           <select id="met-terminal-sel" onchange="onTerminalSelChange('met-terminal-sel','met-terminal-custom')">
@@ -2598,7 +2598,7 @@ function abrirEditarTurno(id){
 
   document.getElementById('met-title').textContent='✏️ Editar Turno — '+t.nave;
   document.getElementById('met-sub').textContent=fmt(t.fecha)+' · '+(TLAB_MET[t.turno]||t.turno)+' · '+t.puerto;
-  document.getElementById('met-nave').value=t.nave||'';
+  document.getElementById('met-nave').innerHTML=(JSON.parse(localStorage.vms_naves||'[]')).map(n=>'<option value="'+n.nombre+'">'+n.nombre+'</option>').join('');document.getElementById('met-nave').value=t.nave||'';
   document.getElementById('met-puerto').value=t.puerto||'';
   // Poblar terminales del modal de edición
   (function(){
