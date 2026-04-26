@@ -2781,7 +2781,7 @@ function guardarEdicionTurno(){
   const detClima=dets.filter(d=>d.resp==='Clima').reduce((s,d)=>s+d.min,0);
   const ct=cuad.filter(c=>c.hora_ini&&c.hora_fin&&c.ton>0);
   const turno=document.getElementById('met-turno').value;
-  const durTot=turno==='mañana'||turno==='tarde'?450:540;
+  let durTot=turno==='mañana'||turno==='tarde'?450:540;
   // Usar hi/hf del modal como duración base
   const met_hi=document.getElementById('met-hi')?.value||'';
   const met_hf=document.getElementById('met-hf')?.value||'';
