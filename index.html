@@ -2891,6 +2891,15 @@ function poblarFiltrosHistorial(){
 }
 
 function poblarFiltrosReporte(){
+  // Poblar select de nave desde vms_naves (nombres oficiales)
+  const _navesSel=document.getElementById('r_nave');
+  if(_navesSel){
+    const _navesReg=JSON.parse(localStorage.vms_naves||'[]');
+    const _curNav=_navesSel.value;
+    _navesSel.innerHTML='<option value="">— Seleccionar nave —</option>'+
+      _navesReg.map(n=>'<option value="'+n.nombre+'">'+n.nombre+'</option>').join('');
+    if(_curNav)_navesSel.value=_curNav;
+  }
   const nave=document.getElementById('r_nave')?.value||'';
   const turnos=nave?TA.getAll().filter(t=>t.nave===nave):TA.getAll();
   const puertos=[...new Set(turnos.map(t=>t.puerto).filter(Boolean))].sort();
@@ -2954,7 +2963,7 @@ function renderReporte(){
   if(!nave){document.getElementById('reporte-content').innerHTML='<div class="empty">Seleccione una nave para ver el reporte</div>';return;}
 
   let turnos=TA.getAll().filter(t=>{
-    if(t.nave!==nave)return false;
+    if(nave&&(t.nave||"").toLowerCase()!==nave.toLowerCase())return false;
     if(puerto&&(t.puerto||'')!==puerto)return false;
     if(terminal&&(t.terminal||'')!==terminal)return false;
     if(rturno&&t.turno!==rturno)return false;
