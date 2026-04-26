@@ -1284,7 +1284,9 @@ const VA={KEY:'vms_viajes',
         }
         return vDB;
       });
-      this.save(viajes);
+      // Normalizar nave_id del duplicado eliminado → nave keeper
+        viajes=viajes.map(v=>v.nave_id==='zumny1ynmobm9ksr'?{...v,nave_id:'jvzhzh8bmobmlzxo'}:v);
+        this.save(viajes);
       console.info('[SB] Viajes:',viajes.length);
     }
   }
