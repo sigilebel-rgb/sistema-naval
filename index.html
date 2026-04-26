@@ -2594,7 +2594,7 @@ function abrirEditarTurno(id){
   _metId=id;
   _metCuad=(t.cuadrillas||[]).map(c=>({...c}));
   _metDet=(t.detenciones||[]).map(d=>({...d}));
-  _metFotos={...(t.fotos||{})};
+  _metFotos=Object.fromEntries(Object.entries(t.fotos||{}).map(([k,v])=>[k,Array.isArray(v)?v[0]:v]));
 
   document.getElementById('met-title').textContent='✏️ Editar Turno — '+t.nave;
   document.getElementById('met-sub').textContent=fmt(t.fecha)+' · '+(TLAB_MET[t.turno]||t.turno)+' · '+t.puerto;
@@ -2722,7 +2722,7 @@ function metRenderFotos(){
   const el=document.getElementById('met-fotos');
   let html='';
   for(let b=1;b<=5;b++){
-    const foto=_metFotos[b];
+    const foto=Array.isArray(_metFotos[b])?_metFotos[b][0]:_metFotos[b];
     if(foto){
       html+=`<div style="text-align:center;position:relative">
         <img src="${foto}" style="width:100%;height:110px;object-fit:cover;border-radius:6px;border:1px solid var(--border)">
