@@ -1422,9 +1422,9 @@ function renderViajeCard(v){
     // Calcular progreso real desde turnos guardados
     const turnosEsc=TA.getAll().filter(t=>t.escala_id===e.id);
     const tonEjec={};
-    turnosEsc.forEach(t=>(t.cuadrillas||[]).forEach(c=>{if(c.producto){const k=c.tipo_op+'|'+c.producto;tonEjec[k]=(tonEjec[k]||0)+(c.ton||0);}}));
+    turnosEsc.forEach(t=>(t.cuadrillas||[]).forEach(c=>{if(c.producto){const k=c.tipo_op+'|'+c.producto+'|'+(c.bodega||'');tonEjec[k]=(tonEjec[k]||0)+(c.ton||0);}}));
     const ops=opsData.map(o=>{
-      const k=o.tipo_op+'|'+o.producto;
+      const k=o.tipo_op+'|'+o.producto+'|'+(o.bodega||'');
       const ejec=tonEjec[k]||0;
       const prog=o.ton_prog||0;
       const pct=prog>0?Math.min(100,Math.round(ejec/prog*100)):0;
