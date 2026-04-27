@@ -1656,7 +1656,7 @@ function renderMixCargaEscala(){
   let html='<div class="section-label" style="margin-top:0">📦 Mix de Carga Programado — '+escala.puerto+'</div>';
   html+='<div class="tw"><table style="font-size:12px"><thead><tr><th>Op.</th><th>Producto</th><th>Bodega</th><th>Prog. (t)</th><th>Embarcado/Desc.</th><th>Saldo</th><th>Avance</th></tr></thead><tbody>';
   escala.operaciones.forEach(op=>{
-    const k=op.tipo_op+'|'+op.producto;
+    const k=op.tipo_op+'|'+op.producto+'|'+(op.bodega||'');
     const real=tonPorProd[k]||0;
     const prog=op.ton_prog||0;
     const saldo=Math.max(0,prog-real);
