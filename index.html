@@ -1424,7 +1424,7 @@ function renderViajeCard(v){
     const tonEjec={};
     turnosEsc.forEach(t=>(t.cuadrillas||[]).forEach(c=>{if(c.producto){const k=c.tipo_op+'|'+c.producto+'|'+(c.bodega||'');tonEjec[k]=(tonEjec[k]||0)+(c.ton||0);}}));
     const ops=opsData.map(o=>{
-      const k=o.tipo_op+'|'+o.producto+'|'+(o.bodega||'');
+      const k=o.tipo_op+'|'+o.producto+'|'+(o.bodega||'')+'|'+(o.bodega||'');
       const ejec=tonEjec[k]||0;
       const prog=o.ton_prog||0;
       const pct=prog>0?Math.min(100,Math.round(ejec/prog*100)):0;
@@ -1649,7 +1649,7 @@ function renderMixCargaEscala(){
   turnos.forEach(t=>{
     (t.cuadrillas||[]).forEach(c=>{
       if(!c.producto)return;
-      const k=c.tipo_op+'|'+c.producto;
+      const k=c.tipo_op+'|'+c.producto+'|'+(c.bodega||'');
       tonPorProd[k]=(tonPorProd[k]||0)+(c.ton||0);
     });
   });
