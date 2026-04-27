@@ -1198,7 +1198,7 @@ const TA={
         const localOnly=local.filter(t=>!sbIds.has(t.id));
         const SYSTEM_IDS_T=new Set([UA.SB_ID,'__usuarios_volans__','__login_logs_volans__']);
         const realRows=rows.filter(r=>!SYSTEM_IDS_T.has(r.id));
-        const merged=[...realRows.map(r=>dbRowToTurno(r)), ...localOnly];
+        let   merged=[...realRows.map(r=>dbRowToTurno(r)), ...localOnly];
         // Normalizar nombres de nave antes de guardar
         const normNave=s=>{
           if(!s||s.trim()===''||s==='undefined')return s;
