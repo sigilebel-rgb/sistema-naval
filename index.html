@@ -3466,6 +3466,60 @@ function renderFotoSlot(b){
   }
 
   
+
+function metBorrarFoto(bodega,idx){
+  if(!Array.isArray(_metFotos[bodega]))return;
+  _metFotos[bodega].splice(idx,1);
+  metRenderFotos();
+}
+
+function seleccionarFoto(bodega){
+  const input=document.createElement('input');
+  input.type='file';input.accept='image/*';
+  input.onchange=e=>{
+    const file=e.target.files[0];if(!file)return;
+    if(!Array.isArray(fotosBodegas[bodega]))fotosBodegas[bodega]=[];
+    if(fotosBodegas[bodega].length>=MAX_FOTOS_POR_BODEGA){showAlert('Máximo '+MAX_FOTOS_POR_BODEGA+' fotos por bodega','warn');return;}
+    let pending=1;
+    comprimirFoto(file,0.5,1280,b64=>{
+      fotosBodegas[bodega].push(b64);
+      pending--;
+      if(pending===0)renderFotoSlot(bodega);
+    });
+  };
+  input.click();
+}
+
+function metSeleccionarFoto(bodega){
+  const input=document.createElement('input');
+  input.type='file';input.accept='image/*';
+  input.onchange=e=>{
+    const file=e.target.files[0];if(!file)return;
+    if(!Array.isArray(_metFotos[bodega]))_metFotos[bodega]=[];
+    if(_metFotos[bodega].length<3){
+      comprimirFoto(file,0.5,1280,b64=>{
+        _metFotos[bodega].push(b64);
+        metRenderFotos();
+      });
+    }
+    input.click();
+  };
+  input.click();
+}
+
+function borrarFotoBodega(bodega,idx){
+  if(fotosBodegas[bodega])fotosBodegas[bodega].splice(idx,1);
+  renderFotoSlot(bodega);
+}
+
+function borrarFoto(bodega,idx){borrarFotoBodega(bodega,idx);}
+
+function getFotosParaGuardar(){
+  const res={};
+  for(let b=1;b<=5;b++){if((fotosBodegas[b]||[]).length>0)res[b]=fotosBodegas[b];}
+  return res;
+}
+
 function comprimirFoto(file,quality,maxW,cb){
   const reader=new FileReader();
   reader.onload=ev=>{
