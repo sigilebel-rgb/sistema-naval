@@ -3430,7 +3430,42 @@ function renderFotoSlot(b){
     html+='<div style="text-align:center;font-size:10px;color:var(--text3)">Máximo alcanzado</div>';
   }
 
-  el.innerHTML=html;
+  
+  // Resumen Detenciones
+  if(turnos.length>0){
+    const RCOL={'Nave':'var(--blue)','Estibadores':'var(--yellow)','Puerto':'var(--green)','Climático':'var(--text2)'};
+    const RLBL={'Nave':'🚢 Nave','Estibadores':'👷 Estibadores','Puerto':'⚓ Puerto','Climático':'🌧️ Climático'};
+    const allDets=[];
+    turnos.forEach(t=>(t.detenciones||[]).forEach(d=>{if((d.min||0)>0&&d.min<600)allDets.push({...d});}));
+    if(allDets.length>0){
+      const totalMin=allDets.reduce((s,d)=>s+(d.min||0),0);
+      const porResp={};
+      allDets.forEach(d=>{
+        const r=d.resp||'Otro';
+        if(!porResp[r])porResp[r]={min:0,causas:{}};
+        porResp[r].min+=(d.min||0);
+        const clave=(d.tipo||'Otro')+(d.obs?' — '+d.obs:'');
+        porResp[r].causas[clave]=(porResp[r].causas[clave]||0)+(d.min||0);
+      });
+      html+='<div style="margin-top:24px;background:var(--bg2);border-radius:10px;padding:16px;border:1px solid var(--border)">';
+      html+='<div style="font-weight:700;font-size:13px;margin-bottom:12px">🛑 Resumen de Detenciones — <span style="font-weight:400;color:var(--text2);font-size:11px">'+totalMin+' min totales / '+Math.round(totalMin/60*10)/10+' hrs</span></div>';
+      ['Nave','Estibadores','Puerto','Climático'].forEach(resp=>{
+        const data=porResp[resp];if(!data)return;
+        const pct=Math.round(data.min/totalMin*100);
+        html+='<div style="margin-bottom:10px"><div style="display:flex;justify-content:space-between;margin-bottom:4px">';
+        html+='<span style="font-weight:600;color:'+(RCOL[resp]||'var(--text)')+'">'+RLBL[resp]+'</span>';
+        html+='<span style="font-size:11px;color:var(--text2)">'+data.min+' min ('+pct+'%)</span></div>';
+        html+='<div style="height:4px;background:var(--bg3);border-radius:2px;margin-bottom:6px"><div style="height:4px;width:'+pct+'%;background:'+(RCOL[resp]||'var(--text)')+';border-radius:2px"></div></div>';
+        html+='<div style="font-size:11px;color:var(--text2);padding-left:8px">';
+        Object.entries(data.causas).sort((a,b)=>b[1]-a[1]).forEach(([c,m])=>{
+          html+='<div style="display:flex;justify-content:space-between;padding:2px 0;border-bottom:1px solid var(--border)"><span>'+c+'</span><b style="margin-left:8px;color:var(--text)">'+m+' min</b></div>';
+        });
+        html+='</div></div>';
+      });
+      html+='</div>';
+    }
+  }
+el.innerHTML=html;
   el.onclick=null;
 }
 
