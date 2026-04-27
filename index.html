@@ -3143,6 +3143,41 @@ function renderReporte(){
       }).join('')}
     </div>
 
+    <!-- DESGLOSE POR CAUSAS -->
+    ${(()=>{
+      const dets=[];
+      turnos.forEach(t=>(t.detenciones||[]).forEach(d=>{if((d.min||0)>0&&d.min<600)dets.push({...d});}));
+      if(!dets.length)return '';
+      const totalMin=dets.reduce((s,d)=>s+(d.min||0),0);
+      const porResp={};
+      dets.forEach(d=>{
+        const r=d.resp||'Otro';
+        if(!porResp[r])porResp[r]={min:0,items:[]};
+        porResp[r].min+=(d.min||0);
+        // Agrupar por tipo+obs
+        const clave=(d.tipo||'Otro')+(d.obs?' — '+d.obs:'');
+        const ex=porResp[r].items.find(x=>x.clave===clave);
+        if(ex)ex.min+=(d.min||0); else porResp[r].items.push({clave,min:(d.min||0)});
+      });
+      const RLBL={'Nave':'🚢 Nave','Estibadores':'👷 Estibadores','Puerto':'⚓ Puerto','Climático':'🌧️ Climático'};
+      const RCOL={'Nave':'var(--red)','Estibadores':'var(--yellow)','Puerto':'var(--blue)','Climático':'var(--text3)'};
+      let html2='<div class="report-section"><div class="report-title">📋 Detalle de Causas por Responsable</div>';
+      ['Nave','Estibadores','Puerto','Climático'].forEach(resp=>{
+        const data=porResp[resp];if(!data||!data.items.length)return;
+        const pct=Math.round(data.min/totalMin*100);
+        html2+=`<div style="margin-bottom:14px"><div style="font-weight:700;color:${RCOL[resp]||'var(--text)'};margin-bottom:6px;font-size:12px">${RLBL[resp]} — ${data.min} min (${pct}%)</div>`;
+        html2+='<table style="width:100%;font-size:11px;border-collapse:collapse">';
+        html2+='<tr style="color:var(--text3);border-bottom:1px solid var(--border)"><th style="text-align:left;padding:3px 6px">Causa / Observación</th><th style="text-align:right;padding:3px 6px;white-space:nowrap">Min</th><th style="text-align:right;padding:3px 6px">%</th></tr>';
+        data.items.sort((a,b)=>b.min-a.min).forEach(item=>{
+          const p2=Math.round(item.min/data.min*100);
+          html2+=`<tr style="border-bottom:1px solid var(--border)"><td style="padding:4px 6px;color:var(--text)">${item.clave}</td><td style="padding:4px 6px;text-align:right;font-weight:600;color:var(--text)">${item.min}</td><td style="padding:4px 6px;text-align:right;color:var(--text2)">${p2}%</td></tr>`;
+        });
+        html2+='</table></div>';
+      });
+      html2+='</div>';
+      return html2;
+    })()}
+
     <!-- TOP DETENCIONES -->
     ${topDet.length?`<div class="report-section">
       <div class="report-title">⏱ Top Detenciones por Tiempo</div>
