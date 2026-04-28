@@ -1425,7 +1425,7 @@ function renderViajeCard(v){
     turnosEsc.forEach(t=>(t.cuadrillas||[]).forEach(c=>{if(c.producto){const k=c.tipo_op+'|'+c.producto+'|'+(c.bodega||'');tonEjec[k]=(tonEjec[k]||0)+(c.ton||0);}}));
     const ops=opsData.map(o=>{
       const k=o.tipo_op+'|'+o.producto+'|'+(o.bodega||'');
-      const ejec=turnosEsc.reduce((sum,t)=>sum+(t.cuadrillas||[]).filter(c=>c.producto===o.producto&&String(c.bodega)===String(o.bodega)&&c.tipo_op===o.tipo_op).reduce((s,c)=>s+(c.ton||0),0),0);const ejec=tonEjec[k]||0;
+      const ejec=turnosEsc.reduce((sum,t)=>sum+(t.cuadrillas||[]).filter(c=>c.producto===o.producto&&String(c.bodega)===String(o.bodega)&&c.tipo_op===o.tipo_op).reduce((s,c)=>s+(c.ton||0),0),0)
       const prog=o.ton_prog||0;
       const pct=prog>0?Math.min(100,Math.round(ejec/prog*100)):0;
       const col=pct>=100?'var(--green)':pct>=50?'var(--yellow)':'var(--text3)';
