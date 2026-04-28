@@ -1657,7 +1657,7 @@ function renderMixCargaEscala(){
   html+='<div class="tw"><table style="font-size:12px"><thead><tr><th>Op.</th><th>Producto</th><th>Bodega</th><th>Prog. (t)</th><th>Embarcado/Desc.</th><th>Saldo</th><th>Avance</th></tr></thead><tbody>';
   escala.operaciones.forEach(op=>{
     const k=op.tipo_op+'|'+op.producto+'|'+(op.bodega||'');
-    const real=turnos.filter(t=>t.escala_id==bEsc||((!t.escala_id)&&t.puerto===escala.puerto&&t.nave===escala.nave)).reduce((sum,t)=>sum+(t.cuadrillas||[]).filter(c=>c.producto===op.producto&&String(c.bodega)===String(op.bodega)&&c.tipo_op===op.tipo_op).reduce((s,c)=>s+(c.ton||0),0),0);
+    const real=turnos.reduce((s,t)=>s+(t.cuadrillas||[]).filter(c=>c.producto===op.producto&&String(c.bodega)===String(op.bodega)&&c.tipo_op===op.tipo_op).reduce((a,c)=>a+(c.ton||0),0),0);
     const prog=op.ton_prog||0;
     const saldo=Math.max(0,prog-real);
     const pct=prog>0?Math.min(100,Math.round(real/prog*100)):0;
