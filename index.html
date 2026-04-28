@@ -1420,7 +1420,7 @@ function renderViajeCard(v){
     const TMAP={operacional:'<span class="tag t-bl">📦</span>',transito:'<span class="tag t-pu">🚢</span>',fondeo:'<span class="tag t-am">⚓</span>',servicios:'<span class="tag t-gr">🔧</span>'};
     const opsData=e.operaciones||[];
     // Calcular progreso real desde turnos guardados
-    const turnosEsc=TA.getAll().filter(t=>t.escala_id===e.id);
+    const turnosEsc=TA.getAll().filter(t=>t.escala_id===e.id||((!t.escala_id)&&t.puerto===e.puerto&&t.nave===e.nave));
     const tonEjec={};
     turnosEsc.forEach(t=>(t.cuadrillas||[]).forEach(c=>{if(c.producto){const k=c.tipo_op+'|'+c.producto+'|'+(c.bodega||'');tonEjec[k]=(tonEjec[k]||0)+(c.ton||0);}}));
     const ops=opsData.map(o=>{
