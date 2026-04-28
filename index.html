@@ -1641,10 +1641,8 @@ function renderMixCargaEscala(){
     el.innerHTML='';return;
   }
   // Calcular toneladas embarcadas/descargadas hasta ahora en esta escala
-  const turnos=TA.getAll().filter(t=>{
-    const bEsc=document.getElementById('b_escala').value;
-    return t.escala_id===bEsc;
-  });
+ const bEsc=_mmEscalaId||document.getElementById('b_escala').value;
+  const turnos=TA.getAll().filter(t=>t.escala_id==bEsc);
   const tonPorProd={};
   turnos.forEach(t=>{
     (t.cuadrillas||[]).forEach(c=>{
