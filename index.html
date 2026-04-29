@@ -1636,7 +1636,8 @@ function getEscalaViajeActual(){
 function renderMixCargaEscala(){
   const el=document.getElementById('mix-carga-panel');
   if(!el)return;
-  const {escala,viaje}=getEscalaViajeActual();
+  let {escala,viaje}=getEscalaViajeActual();
+  if(!escala&&_mmEscalaId){const _vv=JSON.parse(localStorage.getItem('vms_viajes')||'[]');for(const v of _vv){const e=(v.escalas||[]).find(e=>e.id===_mmEscalaId);if(e){escala=e;viaje=v;break;}}}
   if(!escala||!escala.operaciones||!escala.operaciones.length){
     el.innerHTML='';return;
   }
