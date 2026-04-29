@@ -1886,7 +1886,7 @@ function agregarCuadrilla(){
     // Calcular qué producto tiene más saldo pendiente
     const tonEjec={};
     TA.getAll().filter(t=>t.escala_id===document.getElementById('b_escala').value)
-      .forEach(t=>(t.cuadrillas||[]).forEach(c=>{if(c.producto){const k=c.tipo_op+'|'+c.producto;tonEjec[k]=(tonEjec[k]||0)+(c.ton||0);}}));
+      .forEach(t=>(t.cuadrillas||[]).forEach(c=>{if(c.producto){const k=c.tipo_op+'|'+c.producto+'|'+(c.bodega||'');tonEjec[k]=(tonEjec[k]||0)+(c.ton||0);}}));
     // También incluir cuadrillas del turno actual
     cuadrillas.forEach(c=>{if(c.producto){const k=c.tipo_op+'|'+c.producto;tonEjec[k]=(tonEjec[k]||0)+(c.ton||0);}});
     let maxSaldo=0;
@@ -4141,7 +4141,7 @@ function mmRenderOps(){
     +'<th>Tipo</th><th>Producto</th><th>Bodega</th><th>Ton.Prog.</th><th>Ejecutado</th><th>Saldo</th><th>Avance</th><th></th>'
     +'</tr></thead><tbody>';
   _mmOps.forEach((op,i)=>{
-    const k=op.tipo_op+'|'+op.producto;
+    const k=op.tipo_op+'|'+op.producto+'|'+(op.bodega||'');
     const ejec=tonEjec[k]||0;
     const prog=op.ton_prog||0;
     const saldo=Math.max(0,prog-ejec);
