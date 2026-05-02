@@ -911,6 +911,7 @@
 // ═══════════════════════════════════════════════
 const LS_CLIENTES = 'vms_charter_clientes';
 const LS_HISTORIAL = 'vms_charter_historial';
+const LS_NAVES = 'vms_naves';
 const LS_VIAJES = 'vms_viajes';
 const LS_TURNOS = 'vms_turnos';
 
@@ -1057,11 +1058,13 @@ function eliminarCliente(id) {
 // NAVES / ESCALAS
 // ═══════════════════════════════════════════════
 function cargarNaves() {
-  const viajes = JSON.parse(localStorage.getItem(LS_VIAJES) || '[]');
-  const naves = [...new Set(viajes.map(v => v.nave).filter(Boolean))];
-  const sel = document.getElementById('selNave');
+  var nv = JSON.parse(localStorage.getItem(LS_NAVES)||'[]');
+  var nm = nv.map(function(n){return n.nombre||n.nave||n;}).filter(Boolean);
+  var sel = document.getElementById('selNave');
   sel.innerHTML = '<option value="">— Seleccionar nave —</option>';
-  naves.forEach(n => sel.innerHTML += `<option value="${n}">${n}</option>`);
+  nm.forEach(function(n){sel.innerHTML += '<option value="'+n+'">' + n + '</option>';});
+  var lt = document.getElementById('ltNave');
+  if(lt){lt.innerHTML=sel.innerHTML;}
 }
 
 function cargarEscalas() {
