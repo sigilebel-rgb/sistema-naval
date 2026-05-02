@@ -1068,16 +1068,19 @@ function cargarNaves() {
 }
 
 function cargarEscalas() {
-  const nave = document.getElementById('selNave').value;
-  const sel = document.getElementById('selEscala');
+  var naveNombre = document.getElementById('selNave').value;
+  var sel = document.getElementById('selEscala');
   sel.innerHTML = '<option value="">— Seleccionar escala —</option>';
+  if (!naveNombre) return;
+  var naves = JSON.parse(localStorage.getItem(LS_NAVES) || '[]');
+  var nave = naves.find(function(n){ return (n.nombre||n.nave||n) === naveNombre; });
   if (!nave) return;
-  const viajes = JSON.parse(localStorage.getItem(LS_VIAJES) || '[]');
-  viajes.filter(v => v.nave === nave).forEach(v => {
-    const escalas = v.escalas || [];
-    escalas.forEach(e => {
-      const label = `${e.puerto || '?'} — ${e.eta ? e.eta.split('T')[0] : 'sin fecha'}`;
-      sel.innerHTML += `<option value="${e.id}" data-viaje="${v.id}">${label}</option>`;
+  var viajes = JSON.parse(localStorage.getItem(LS_VIAJES) || '[]');
+  viajes.filter(function(v){ return v.nave_id === nave.id; }).forEach(function(v) {
+    (v.escalas||[]).forEach(function(e) {
+      var fecha = (e.eta||e.ata||'').substring(0,10) || 'sin fecha';
+      var label = (e.puerto||'?') + ' — ' + fecha + ' (' + (e.tipo||'op') + ')';
+      sel.innerHTML += '<option value="' + e.id + '" data-viaje="' + v.id + '">' + label + '</option>';
     });
   });
 }
