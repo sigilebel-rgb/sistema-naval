@@ -1112,7 +1112,13 @@ function cargarDatosEscala() {
     }
     // Last Hook = fecha+hf del ultimo turno
     if (ultimo.fecha && ultimo.hf) {
-      document.getElementById('lastHook').value = ultimo.fecha + 'T' + ultimo.hf;
+      var lhFecha = ultimo.fecha;
+      if (ultimo.turno === 'noche' && ultimo.hf <= '09:00') {
+        var nd = new Date(ultimo.fecha + 'T00:00:00');
+        nd.setDate(nd.getDate() + 1);
+        lhFecha = nd.toISOString().substring(0,10);
+      }
+      document.getElementById('lastHook').value = lhFecha + 'T' + ultimo.hf;
     }
 
     // Tonelaje total
