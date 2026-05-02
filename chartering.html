@@ -1086,60 +1086,61 @@ function cargarEscalas() {
 }
 
 function cargarDatosEscala() {
-  const escalaId = document.getElementById('selEscala').value;
+  var escalaId = document.getElementById('selEscala').value;
   if (!escalaId) return;
 
-  const turnos = JSON.parse(localStorage.getItem(LS_TURNOS) || '[]');
-  const escTurnos = turnos.filter(t => t.escala_id === escalaId);
+  var viajes = JSON.parse(localStorage.getItem(LS_VIAJES) || '[]');
+  var turnos = JSON.parse(localStorage.getItem(LS_TURNOS) || '[]');
+  var escala = null;
+  viajes.forEach(function(v){ (v.escalas||[]).forEach(function(e){ if(e.id===escalaId) escala=e; }); });
+  var escTurnos = turnos.filter(function(t){ return t.escala_id === escalaId; });
+
+  // NOR = ATA de la escala
+  if (escala && escala.ata) {
+    document.getElementById('norTendered').value = escala.ata.substring(0,16);
+    calcularNorAceptada();
+  }
 
   if (escTurnos.length > 0) {
-    // First Hook: hi del primer turno
-    const sorted = [...escTurnos].sort((a,b) => (a.hi||'').localeCompare(b.hi||''));
-    const firstHookDt = sorted[0].hi;
-    const lastHookDt = sorted[sorted.length-1].hf;
+    var sorted = escTurnos.slice().sort(function(a,b){ return (a.fecha+a.hi).localeCompare(b.fecha+b.hi); });
+    var primero = sorted[0];
+    var ultimo = sorted[sorted.length-1];
 
-    if (firstHookDt) document.getElementById('firstHook').value = formatDtLocal(firstHookDt);
-    if (lastHookDt) document.getElementById('lastHook').value = formatDtLocal(lastHookDt);
+    // First Hook = fecha+hi del primer turno
+    if (primero.fecha && primero.hi) {
+      document.getElementById('firstHook').value = primero.fecha + 'T' + primero.hi;
+    }
+    // Last Hook = fecha+hf del ultimo turno
+    if (ultimo.fecha && ultimo.hf) {
+      document.getElementById('lastHook').value = ultimo.fecha + 'T' + ultimo.hf;
+    }
 
-    // Total ton
-    const totalTon = escTurnos.reduce((s,t) => s + (t.kpi?.totalTon || 0), 0);
+    // Tonelaje total
+    var totalTon = escTurnos.reduce(function(s,t){ return s + ((t.kpi&&t.kpi.totalTon)||0); }, 0);
     document.getElementById('totalTon').value = Math.round(totalTon);
 
     // Detenciones
-    let totalDetMin = 0;
-    let detListHtml = '';
-    escTurnos.forEach(t => {
-      (t.detenciones||[]).forEach(d => {
-        totalDetMin += d.min || 0;
-        detListHtml += `<div style="display:flex;justify-content:space-between;font-size:12px;padding:5px 0;border-bottom:1px solid var(--border)">
-          <span style="color:var(--text2)">${d.tipo||'—'} <span style="font-size:10px">(${d.resp})</span></span>
-          <span class="mono">${d.min} min</span>
-        </div>`;
+    var detMin = 0;
+    var detHtml = '';
+    escTurnos.forEach(function(t){
+      (t.detenciones||[]).forEach(function(d){
+        detMin += d.min||0;
+        detHtml += '<div style="display:flex;justify-content:space-between;font-size:12px;padding:5px 0;border-bottom:1px solid var(--border)"><span style="color:var(--text2)">' + (d.tipo||'—') + ' <span style="font-size:10px">(' + (d.resp||'') + ')</span></span><span class="mono">' + (d.min||0) + ' min</span></div>';
       });
     });
-
+    document.getElementById('detExcluidas').value = detMin;
     document.getElementById('turnosAutoInfo').style.display = 'flex';
     document.getElementById('turnosDetalle').style.display = 'block';
-    document.getElementById('turnosDetencionesLista').innerHTML = detListHtml || '<div style="color:var(--text2);font-size:12px;padding:8px 0">Sin detenciones registradas</div>';
-    document.getElementById('turnosSubtitle').textContent = `${escTurnos.length} turno(s) encontrados`;
-
-    // Para FIOST: detenciones estibadores
-    const detEstib = escTurnos.reduce((s,t) => {
-      return s + (t.detenciones||[]).filter(d => d.resp==='Estibadores').reduce((ss,d) => ss+(d.min||0), 0);
-    }, 0);
-    document.getElementById('detExcluidas').value = detEstib;
-
+    document.getElementById('turnosDetencionesLista').innerHTML = detHtml || '<div style="color:var(--text2);font-size:12px">Sin detenciones</div>';
+    document.getElementById('turnosSubtitle').textContent = escTurnos.length + ' turno(s) encontrados';
     actualizarTimeline();
   } else {
     document.getElementById('turnosAutoInfo').style.display = 'none';
     document.getElementById('turnosDetalle').style.display = 'none';
-    document.getElementById('turnosSubtitle').textContent = 'ingresar manualmente';
+    document.getElementById('turnosSubtitle').textContent = 'sin turnos registrados';
   }
 }
 
-// ═══════════════════════════════════════════════
-// CONDICIONES
-// ═══════════════════════════════════════════════
 function actualizarCondiciones() {
   const tipo = document.getElementById('selTipoOp').value;
   const label = document.getElementById('condTipoLabel');
