@@ -2365,6 +2365,30 @@ function toDatetimeLocal(dt) {
       { id: 'antwerp', nombre: 'Antwerp', tipo: 'descarga', tasa: 5000,  shinc: false, nor_regla: 'traf_destino', nota: 'SHEX UU ATUTC', shex: { satnoon: true, monMorn: '06:00' } },
     ],
   },
+  'candelaria_bremen': {
+    label: 'Candelaria — Concentrado (Coquimbo → Bremen)',
+    demRate: 18000,
+    puertos: [
+      { id: 'coquimbo', nombre: 'Coquimbo', tipo: 'carga',    tasa: 2500, shinc: true,  nor_regla: 'cl17_origen',  nota: 'Sin contrato — 24h detention' },
+      { id: 'bremen',   nombre: 'Bremen',   tipo: 'descarga', tasa: 5000, shinc: false, nor_regla: 'cl17_destino', nota: 'SHEX UU · 5000 T/día', shex: { satnoon: true, monMorn: '06:00' } },
+    ],
+  },
+  'candelaria_brunsbuttel': {
+    label: 'Candelaria — Concentrado (Coquimbo → Brunsbüttel)',
+    demRate: 18000,
+    puertos: [
+      { id: 'coquimbo',    nombre: 'Coquimbo',    tipo: 'carga',    tasa: 2500, shinc: true,  nor_regla: 'cl17_origen',  nota: 'Sin contrato — 24h detention' },
+      { id: 'brunsbuttel', nombre: 'Brunsbüttel', tipo: 'descarga', tasa: 5000, shinc: false, nor_regla: 'cl17_destino', nota: 'SHEX UU · 5000 T/día', shex: { satnoon: true, monMorn: '06:00' } },
+    ],
+  },
+  'candelaria_antwerp': {
+    label: 'Candelaria — Concentrado (Coquimbo → Antwerp)',
+    demRate: 18000,
+    puertos: [
+      { id: 'coquimbo', nombre: 'Coquimbo', tipo: 'carga',    tasa: 2500, shinc: true,  nor_regla: 'cl17_origen',  nota: 'Sin contrato — 24h detention' },
+      { id: 'antwerp',  nombre: 'Antwerp',  tipo: 'descarga', tasa: 5000, shinc: false, nor_regla: 'cl17_destino', nota: 'SHEX UU · 5000 T/día', shex: { satnoon: true, monMorn: '06:00' } },
+    ],
+  },
   'manual': {
     label: 'Sin contrato — Manual',
     demRate: 18000,
