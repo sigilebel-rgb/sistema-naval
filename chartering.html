@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Chartering — Volans Maritime</title>
+<title>Chartering â Volans Maritime</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
 
@@ -239,7 +239,7 @@
   .turno-item-info .ti-title { font-size: 13px; font-weight: 600; }
   .turno-item-info .ti-sub { font-size: 11px; color: var(--text2); font-family: 'JetBrains Mono', monospace; margin-top: 2px; }
 
-  /* RESUMEN RÁPIDO */
+  /* RESUMEN RÃPIDO */
   .kpi-row { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 20px; }
   .kpi-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 16px 20px; flex: 1; min-width: 140px; }
   .kpi-card label { font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--text2); }
@@ -342,13 +342,13 @@
 
 <!-- HEADER -->
 <div class="header">
-  <span class="header-icon">⚓</span>
+  <span class="header-icon">â</span>
   <div>
     <h1>Chartering</h1>
-    <span>Volans Maritime — Cálculo Demurrage / Despatch</span>
+    <span>Volans Maritime â CÃ¡lculo Demurrage / Despatch</span>
   </div>
   <div class="header-right">
-    <button class="btn-back" onclick="window.location.href='index.html'">← Sistema Principal</button>
+    <button class="btn-back" onclick="window.location.href='index.html'">â Sistema Principal</button>
   </div>
 </div>
 
@@ -357,51 +357,51 @@
 
   <!-- TABS -->
   <div class="tabs">
-    <button class="tab active" onclick="setTab('calcular')">📊 Demurrage</button>
-    <button class="tab" onclick="setTab('laytime')">📋 Laytime / SOF</button>
-    <button class="tab" onclick="setTab('detention')">⏱ Detention</button>
-    <button class="tab" onclick="setTab('clientes')">🏢 Clientes</button>
-    <button class="tab" onclick="setTab('historial')">🗂 Historial</button>
+    <button class="tab active" onclick="setTab('calcular')">ð Demurrage</button>
+    <button class="tab" onclick="setTab('laytime')">ð Laytime / SOF</button>
+    <button class="tab" onclick="setTab('detention')">â± Detention</button>
+    <button class="tab" onclick="setTab('clientes')">ð¢ Clientes</button>
+    <button class="tab" onclick="setTab('historial')">ð Historial</button>
   </div>
 
-  <!-- ══════════════════════════════════ TAB: LAYTIME / SOF ══════════════════════════════════ -->
+  <!-- ââââââââââââââââââââââââââââââââââ TAB: LAYTIME / SOF ââââââââââââââââââââââââââââââââââ -->
   <div id="panel-laytime" class="panel">
 
     <!-- CABECERA VIAJE -->
     <div class="card">
-      <div class="section-title">Identificación del Viaje</div>
+      <div class="section-title">IdentificaciÃ³n del Viaje</div>
       <div class="form-grid cols3">
         <div class="field">
           <label>Nave</label>
           <select id="ltNave" onchange="ltCargarEscalas()">
-            <option value="">— Seleccionar —</option>
+            <option value="">â Seleccionar â</option>
           </select>
         </div>
         <div class="field">
           <label>Cliente / Contrato</label>
           <select id="ltCargaTipo" onchange="ltActualizarPuertos()">
-            <option value="codelco_concentrado">Codelco — Concentrado Cobre</option>
-            <option value="codelco_catodos">Codelco — Cátodos Cobre</option>
-            <option value="bhp_concentrado">BHP — Concentrado Cobre</option>
-            <option value="kmp_harina">KMP — Harina de Pescado</option>
-            <option value="trafigura_concentrado_cobre">Trafigura — Concentrado Cobre</option>
-            <option value="trafigura_concentrado_zinc">Trafigura — Concentrado Zinc</option>
+            <option value="codelco_concentrado">Codelco â Concentrado Cobre</option>
+            <option value="codelco_catodos">Codelco â CÃ¡todos Cobre</option>
+            <option value="bhp_concentrado">BHP â Concentrado Cobre</option>
+            <option value="kmp_harina">KMP â Harina de Pescado</option>
+            <option value="trafigura_concentrado_cobre">Trafigura â Concentrado Cobre</option>
+            <option value="trafigura_concentrado_zinc">Trafigura â Concentrado Zinc</option>
           </select>
         </div>
         <div class="field">
-          <label>Demurrage Rate (USD/día)</label>
+          <label>Demurrage Rate (USD/dÃ­a)</label>
           <input type="number" id="ltDemRate" value="18000" step="500">
         </div>
       </div>
     </div>
 
-    <!-- PUERTOS — se generan dinámicamente -->
+    <!-- PUERTOS â se generan dinÃ¡micamente -->
     <div id="ltPuertosContainer"></div>
 
     <!-- RESUMEN TOTAL VIAJE -->
     <div id="ltResumenViaje" style="display:none">
       <div class="card" style="border-color:var(--accent)">
-        <div class="section-title">Resumen Total Viaje — Non Reversible</div>
+        <div class="section-title">Resumen Total Viaje â Non Reversible</div>
         <div style="font-size:11px; color:var(--text2); margin-bottom:16px">Cada puerto se calcula por separado (non-reversible). No se compensan balances.</div>
         <div id="ltResumenTabla"></div>
         <div style="margin-top:20px; padding-top:16px; border-top:1px solid var(--border); display:flex; gap:20px; flex-wrap:wrap">
@@ -419,33 +419,33 @@
           </div>
         </div>
         <div class="actions-row" style="margin-top:16px">
-          <button class="btn-primary" onclick="ltGuardarResumen()">💾 Guardar en Historial</button>
+          <button class="btn-primary" onclick="ltGuardarResumen()">ð¾ Guardar en Historial</button>
         </div>
       </div>
     </div>
 
   </div><!-- /panel-laytime -->
 
-  <!-- ══════════════════════════════════ TAB: CALCULAR ══════════════════════════════════ -->
+  <!-- ââââââââââââââââââââââââââââââââââ TAB: CALCULAR ââââââââââââââââââââââââââââââââââ -->
   <div id="panel-calcular" class="panel active">
 
     <!-- KPI RESUMEN -->
     <div class="kpi-row" id="kpiRow" style="display:none">
       <div class="kpi-card">
         <label>Laytime Permitido</label>
-        <div class="kpi-val" id="kpiAllowed">—</div>
+        <div class="kpi-val" id="kpiAllowed">â</div>
       </div>
       <div class="kpi-card">
         <label>Tiempo Usado</label>
-        <div class="kpi-val" id="kpiUsed">—</div>
+        <div class="kpi-val" id="kpiUsed">â</div>
       </div>
       <div class="kpi-card">
         <label>Balance</label>
-        <div class="kpi-val" id="kpiBalance">—</div>
+        <div class="kpi-val" id="kpiBalance">â</div>
       </div>
       <div class="kpi-card">
         <label>Monto</label>
-        <div class="kpi-val" id="kpiMonto">—</div>
+        <div class="kpi-val" id="kpiMonto">â</div>
       </div>
     </div>
 
@@ -461,20 +461,20 @@
           <div class="field">
             <label>Nave</label>
             <select id="selNave" onchange="cargarEscalas()">
-              <option value="">— Seleccionar —</option>
+              <option value="">â Seleccionar â</option>
             </select>
           </div>
           <div class="field">
             <label>Viaje / Escala</label>
             <select id="selEscala" onchange="cargarDatosEscala()">
-              <option value="">— Seleccionar —</option>
+              <option value="">â Seleccionar â</option>
             </select>
           </div>
           <div class="field">
-            <label>Tipo Operación</label>
+            <label>Tipo OperaciÃ³n</label>
             <select id="selTipoOp" onchange="actualizarCondiciones()">
-              <option value="descarga">Descarga (SHINC — Destino)</option>
-              <option value="embarque">Embarque (SHINC — Origen)</option>
+              <option value="descarga">Descarga (SHINC â Destino)</option>
+              <option value="embarque">Embarque (SHINC â Origen)</option>
             </select>
           </div>
         </div>
@@ -485,26 +485,26 @@
         <div class="step-header">
           <div class="step-num">2</div>
           <div class="step-title">Condiciones Charter</div>
-          <span class="step-subtitle" id="condTipoLabel">SHINC · 12h libres · NOR horario oficina</span>
+          <span class="step-subtitle" id="condTipoLabel">SHINC Â· 12h libres Â· NOR horario oficina</span>
         </div>
         <div class="form-grid">
           <div class="field">
             <label>Cliente</label>
             <select id="selCliente" onchange="cargarCondCliente()">
-              <option             <option value="candelaria_bremen">Candelaria — Coquimbo → Bremen</option>
-            <option value="candelaria_brunsbuttel">Candelaria — Coquimbo → Brunsbüttel</option>
-            <option value="candelaria_antwerp">Candelaria — Coquimbo → Antwerp</option>
+              <option             <option value="candelaria_bremen">Candelaria â Coquimbo â Bremen</option>
+            <option value="candelaria_brunsbuttel">Candelaria â Coquimbo â BrunsbÃ¼ttel</option>
+            <option value="candelaria_antwerp">Candelaria â Coquimbo â Antwerp</option>
             <option value="manual">Manual</option>
           </select>
           </div>
           <div class="field">
-            <label>Demurrage Rate (USD/día)</label>
+            <label>Demurrage Rate (USD/dÃ­a)</label>
             <input type="number" id="demurrageRate" value="25000" step="500" oninput="sincDespatch()">
           </div>
           <div class="field">
-            <label>Despatch Rate (USD/día)</label>
+            <label>Despatch Rate (USD/dÃ­a)</label>
             <input type="number" id="despatchRate" value="12500" step="500">
-            <span class="hint">Automático: 50% del demurrage</span>
+            <span class="hint">AutomÃ¡tico: 50% del demurrage</span>
           </div>
           <div class="field">
             <label>Horas Libres (Laytime)</label>
@@ -526,7 +526,7 @@
             <span class="hint" id="norHint"></span>
           </div>
           <div class="field">
-            <label>NOR Aceptada (automático)</label>
+            <label>NOR Aceptada (automÃ¡tico)</label>
             <input type="datetime-local" id="norAceptada" readonly style="opacity:.7">
             <span class="hint" id="norAjuste" style="color:var(--gold)"></span>
           </div>
@@ -537,31 +537,31 @@
           <div class="nor-event">
             <div class="nor-dot" id="dot1"></div>
             <div class="nor-label">NOR Tendered</div>
-            <div class="nor-time" id="tlNorT">—</div>
+            <div class="nor-time" id="tlNorT">â</div>
           </div>
           <div class="nor-line"></div>
           <div class="nor-event">
             <div class="nor-dot gold" id="dot2"></div>
             <div class="nor-label">NOR Aceptada</div>
-            <div class="nor-time" id="tlNorA">—</div>
+            <div class="nor-time" id="tlNorA">â</div>
           </div>
           <div class="nor-line"></div>
           <div class="nor-event">
             <div class="nor-dot green" id="dot3"></div>
             <div class="nor-label">Laytime Start</div>
-            <div class="nor-time" id="tlLayStart">—</div>
+            <div class="nor-time" id="tlLayStart">â</div>
           </div>
           <div class="nor-line"></div>
           <div class="nor-event">
             <div class="nor-dot green" id="dot4"></div>
             <div class="nor-label">First Hook</div>
-            <div class="nor-time" id="tlFirstHook">—</div>
+            <div class="nor-time" id="tlFirstHook">â</div>
           </div>
           <div class="nor-line"></div>
           <div class="nor-event">
             <div class="nor-dot red" id="dot5"></div>
             <div class="nor-label">Last Hook</div>
-            <div class="nor-time" id="tlLastHook">—</div>
+            <div class="nor-time" id="tlLastHook">â</div>
           </div>
         </div>
       </div>
@@ -570,12 +570,12 @@
       <div class="step-block">
         <div class="step-header">
           <div class="step-num">4</div>
-          <div class="step-title">Datos de Operación</div>
+          <div class="step-title">Datos de OperaciÃ³n</div>
           <span class="step-subtitle" id="turnosSubtitle">desde turnos registrados</span>
         </div>
 
         <div id="turnosAutoInfo" class="info-box" style="margin-bottom:14px; display:none">
-          ℹ️ Se usarán los turnos registrados para esta escala. First Hook y Last Hook calculados automáticamente.
+          â¹ï¸ Se usarÃ¡n los turnos registrados para esta escala. First Hook y Last Hook calculados automÃ¡ticamente.
         </div>
 
         <div class="form-grid cols2">
@@ -609,8 +609,8 @@
 
       <!-- ACCIONES -->
       <div class="actions-row">
-        <button class="btn-primary" onclick="calcular()">⚡ Calcular Demurrage / Despatch</button>
-        <button class="btn-secondary" onclick="limpiarCalculo()">↺ Limpiar</button>
+        <button class="btn-primary" onclick="calcular()">â¡ Calcular Demurrage / Despatch</button>
+        <button class="btn-secondary" onclick="limpiarCalculo()">âº Limpiar</button>
       </div>
 
       <!-- RESULTADO -->
@@ -621,7 +621,7 @@
             <div style="font-size:13px; color:var(--text2); margin-top:2px" id="resultSubtitulo"></div>
             <div class="resultado-monto" id="resultMonto"></div>
           </div>
-          <button class="btn-secondary" onclick="guardarCalculo()" style="align-self:flex-start">💾 Guardar en Historial</button>
+          <button class="btn-secondary" onclick="guardarCalculo()" style="align-self:flex-start">ð¾ Guardar en Historial</button>
         </div>
         <div class="resultado-detalle">
           <div class="resultado-item">
@@ -645,7 +645,7 @@
             <span id="resLayStart"></span>
           </div>
           <div class="resultado-item">
-            <label>Rate (USD/día)</label>
+            <label>Rate (USD/dÃ­a)</label>
             <span id="resRate"></span>
           </div>
         </div>
@@ -654,12 +654,12 @@
     </div><!-- /calc-steps -->
   </div><!-- /panel calcular -->
 
-  <!-- ══════════════════════════════════ TAB: CLIENTES ══════════════════════════════════ -->
+  <!-- ââââââââââââââââââââââââââââââââââ TAB: CLIENTES ââââââââââââââââââââââââââââââââââ -->
   <div id="panel-clientes" class="panel">
     <div class="card">
       <div class="section-title">Condiciones por Cliente</div>
       <p style="font-size:13px; color:var(--text2); margin-bottom:18px">
-        Defina las condiciones charter predeterminadas por cliente. Al seleccionar un cliente en el cálculo, se cargan automáticamente.
+        Defina las condiciones charter predeterminadas por cliente. Al seleccionar un cliente en el cÃ¡lculo, se cargan automÃ¡ticamente.
       </p>
       <div class="clientes-grid" id="clientesGrid">
         <!-- se renderiza via JS -->
@@ -667,31 +667,31 @@
     </div>
   </div>
 
-  <!-- ══════════════════════════════════ TAB: HISTORIAL ══════════════════════════════════ -->
+  <!-- ââââââââââââââââââââââââââââââââââ TAB: HISTORIAL ââââââââââââââââââââââââââââââââââ -->
   <div id="panel-historial" class="panel">
     <div class="card">
-      <div class="section-title">Historial de Cálculos</div>
+      <div class="section-title">Historial de CÃ¡lculos</div>
       <div id="historialContainer">
-        <div class="empty"><span>📋</span>No hay cálculos guardados aún</div>
+        <div class="empty"><span>ð</span>No hay cÃ¡lculos guardados aÃºn</div>
       </div>
     </div>
   </div>
 
-  <!-- ══════════════════════════════════ TAB: DETENTION ══════════════════════════════════ -->
+  <!-- ââââââââââââââââââââââââââââââââââ TAB: DETENTION ââââââââââââââââââââââââââââââââââ -->
   <div id="panel-detention" class="panel">
 
     <!-- SELECTOR CLIENTE -->
     <div class="card" style="margin-bottom:20px">
-      <div class="section-title">Configuración Detention</div>
+      <div class="section-title">ConfiguraciÃ³n Detention</div>
       <div class="form-grid cols3">
         <div class="field">
           <label>Cliente</label>
           <select id="detCliente" onchange="renderDetentionForm()">
               <option value="BHP">BHP</option>
               <option value="Codelco">Codelco</option>
-              <option value="KMP">KMP — Fish Meal</option>
+              <option value="KMP">KMP â Fish Meal</option>
               <option value="Trafigura">Trafigura</option>
-              <option value="Candelaria">Candelaria — Coquimbo</option>
+              <option value="Candelaria">Candelaria â Coquimbo</option>
               <option value="Manual">Manual</option>
             </select>
         </div>
@@ -703,7 +703,7 @@
           </select>
         </div>
         <div class="field">
-          <label>Tasa Detention (USD/día)</label>
+          <label>Tasa Detention (USD/dÃ­a)</label>
           <input type="number" id="detRate" value="18000" step="500">
           <span class="hint">Box 14 del contrato</span>
         </div>
@@ -732,23 +732,23 @@
         <div class="field">
           <label>Tonelaje TOTAL en este puerto (T)</label>
           <input type="number" id="detTonTotal" value="0" step="100" oninput="calcularDetention()">
-          <span class="hint">Para cálculo pro rata con otros cargadores</span>
+          <span class="hint">Para cÃ¡lculo pro rata con otros cargadores</span>
         </div>
         <div class="field">
           <label>Horas Libres (Grace Period)</label>
           <input type="number" id="detHorasLibres" value="48" step="1" readonly style="opacity:.7">
-          <span class="hint" id="detHorasHint">BHP Origen: 48h · Destino: 24h</span>
+          <span class="hint" id="detHorasHint">BHP Origen: 48h Â· Destino: 24h</span>
         </div>
       </div>
     </div>
 
     <!-- ESCENARIO -->
     <div class="card" style="margin-bottom:20px">
-      <div class="section-title" id="detScenarioTitle">Escenario de Arribo — BHP</div>
+      <div class="section-title" id="detScenarioTitle">Escenario de Arribo â BHP</div>
 
       <!-- ESCENARIOS BHP -->
       <div id="scenariosBHP">
-        <p style="font-size:12px; color:var(--text2); margin-bottom:16px">Seleccione el escenario que corresponde según las condiciones al arribo:</p>
+        <p style="font-size:12px; color:var(--text2); margin-bottom:16px">Seleccione el escenario que corresponde segÃºn las condiciones al arribo:</p>
 
         <div class="scenario-grid" id="scenarioBHPGrid">
 
@@ -756,12 +756,12 @@
             <div class="sc-num">A</div>
             <div class="sc-body">
               <div class="sc-title">Puerto Congestionado</div>
-              <div class="sc-desc">La nave arriba y el puerto está congestionado (sin muelle disponible). Detention a tasa completa pro rata por tonelaje BHP.</div>
+              <div class="sc-desc">La nave arriba y el puerto estÃ¡ congestionado (sin muelle disponible). Detention a tasa completa pro rata por tonelaje BHP.</div>
               <div class="sc-sub-grid" id="bhp1-weather-row">
-                <div class="sc-sub-label">¿Posteriormente cierra por clima/swell?</div>
+                <div class="sc-sub-label">Â¿Posteriormente cierra por clima/swell?</div>
                 <div class="radio-row">
                   <label class="radio-opt"><input type="radio" name="bhp1w" value="no" checked onchange="calcularDetention()"> No</label>
-                  <label class="radio-opt"><input type="radio" name="bhp1w" value="si" onchange="calcularDetention()"> Sí → 50% tasa por días cierre</label>
+                  <label class="radio-opt"><input type="radio" name="bhp1w" value="si" onchange="calcularDetention()"> SÃ­ â 50% tasa por dÃ­as cierre</label>
                 </div>
                 <div id="bhp1-weather-hrs" style="display:none; margin-top:8px">
                   <div class="field">
@@ -776,8 +776,8 @@
           <div class="scenario-card" id="sc-bhp-2" onclick="selScenario('bhp-2')">
             <div class="sc-num">B</div>
             <div class="sc-body">
-              <div class="sc-title">Puerto Cerrado — Clima / Swell</div>
-              <div class="sc-desc">La nave arriba y el puerto está cerrado por mal tiempo o swell. Detention al 50% de la tasa, pro rata por tonelaje BHP.</div>
+              <div class="sc-title">Puerto Cerrado â Clima / Swell</div>
+              <div class="sc-desc">La nave arriba y el puerto estÃ¡ cerrado por mal tiempo o swell. Detention al 50% de la tasa, pro rata por tonelaje BHP.</div>
             </div>
           </div>
 
@@ -785,7 +785,7 @@
             <div class="sc-num">C</div>
             <div class="sc-body">
               <div class="sc-title">Carga BHP No Lista (solo BHP)</div>
-              <div class="sc-desc">La nave arriba al puerto de carga y únicamente la carga BHP no está lista. Detention al 100% pagada por BHP.</div>
+              <div class="sc-desc">La nave arriba al puerto de carga y Ãºnicamente la carga BHP no estÃ¡ lista. Detention al 100% pagada por BHP.</div>
             </div>
           </div>
 
@@ -793,7 +793,7 @@
             <div class="sc-num">D</div>
             <div class="sc-body">
               <div class="sc-title">Solo Carga No-BHP No Lista</div>
-              <div class="sc-desc">La nave arriba y solo la carga de otros cargadores no está lista (carga BHP sí está). BHP NO paga detention, aunque luego cierre por clima o haya congestión.</div>
+              <div class="sc-desc">La nave arriba y solo la carga de otros cargadores no estÃ¡ lista (carga BHP sÃ­ estÃ¡). BHP NO paga detention, aunque luego cierre por clima o haya congestiÃ³n.</div>
               <div class="sc-badge no-pay">BHP no paga</div>
             </div>
           </div>
@@ -802,7 +802,7 @@
             <div class="sc-num">E</div>
             <div class="sc-body">
               <div class="sc-title">BHP y No-BHP No Listos</div>
-              <div class="sc-desc">La nave arriba al puerto de carga y tanto la carga BHP como otros cargadores no están listos. Detention pro rata entre responsables por tonelaje.</div>
+              <div class="sc-desc">La nave arriba al puerto de carga y tanto la carga BHP como otros cargadores no estÃ¡n listos. Detention pro rata entre responsables por tonelaje.</div>
             </div>
           </div>
 
@@ -811,31 +811,31 @@
 
       <!-- ESCENARIOS CODELCO -->
       <div id="scenariosCodelco" style="display:none">
-        <p style="font-size:12px; color:var(--text2); margin-bottom:16px">Seleccione el escenario que corresponde según las condiciones al arribo:</p>
+        <p style="font-size:12px; color:var(--text2); margin-bottom:16px">Seleccione el escenario que corresponde segÃºn las condiciones al arribo:</p>
 
         <div class="scenario-grid" id="scenarioCodelcoGrid">
 
           <div class="scenario-card" id="sc-cdlc-1" onclick="selScenario('cdlc-1')">
             <div class="sc-num">A</div>
             <div class="sc-body">
-              <div class="sc-title">Congestión o Carga No Lista 100%</div>
-              <div class="sc-desc">Puerto congestionado o carga no disponible al 100%. Detention a tasa completa después de 24h de gracia. Aplica también si posteriormente cierra por clima.</div>
+              <div class="sc-title">CongestiÃ³n o Carga No Lista 100%</div>
+              <div class="sc-desc">Puerto congestionado o carga no disponible al 100%. Detention a tasa completa despuÃ©s de 24h de gracia. Aplica tambiÃ©n si posteriormente cierra por clima.</div>
             </div>
           </div>
 
           <div class="scenario-card" id="sc-cdlc-2" onclick="selScenario('cdlc-2')">
             <div class="sc-num">B</div>
             <div class="sc-body">
-              <div class="sc-title">Puerto Cerrado — Clima / Swell</div>
-              <div class="sc-desc">El puerto está cerrado por mal tiempo o swell. Detention al 50% después de 24h de gracia.</div>
+              <div class="sc-title">Puerto Cerrado â Clima / Swell</div>
+              <div class="sc-desc">El puerto estÃ¡ cerrado por mal tiempo o swell. Detention al 50% despuÃ©s de 24h de gracia.</div>
             </div>
           </div>
 
           <div class="scenario-card" id="sc-cdlc-3" onclick="selScenario('cdlc-3')">
             <div class="sc-num">C</div>
             <div class="sc-body">
-              <div class="sc-title">Congestión/Carga → luego Cierra por Clima</div>
-              <div class="sc-desc">Puerto congestionado o carga no lista, y luego el puerto cierra por clima. Detention a tasa COMPLETA durante todo el periodo (incluyendo cierre climático). Después de 24h de gracia.</div>
+              <div class="sc-title">CongestiÃ³n/Carga â luego Cierra por Clima</div>
+              <div class="sc-desc">Puerto congestionado o carga no lista, y luego el puerto cierra por clima. Detention a tasa COMPLETA durante todo el periodo (incluyendo cierre climÃ¡tico). DespuÃ©s de 24h de gracia.</div>
               <div class="sc-badge full-pay">Tasa completa siempre</div>
             </div>
           </div>
@@ -847,7 +847,7 @@
           <div class="field" style="max-width:260px">
             <label>Horas de cierre por clima (dentro del periodo)</label>
             <input type="number" id="cdlcWeatherHrs" value="0" step="1" oninput="calcularDetention()">
-            <span class="hint">Solo para escenario B — se cobra al 50%</span>
+            <span class="hint">Solo para escenario B â se cobra al 50%</span>
           </div>
         </div>
       </div>
@@ -862,7 +862,7 @@
           <div style="font-size:13px; color:var(--text2); margin-top:2px" id="detResSubtitulo"></div>
           <div class="resultado-monto" id="detResMonto"></div>
         </div>
-        <button class="btn-secondary" onclick="guardarDetention()">💾 Guardar en Historial</button>
+        <button class="btn-secondary" onclick="guardarDetention()">ð¾ Guardar en Historial</button>
       </div>
       <div class="resultado-detalle" id="detResDetalle"></div>
     </div>
@@ -874,36 +874,36 @@
 <!-- MODAL CLIENTE -->
 <div class="modal-overlay" id="modalCliente">
   <div class="modal">
-    <h3 id="modalClienteTitulo">➕ Nuevo Cliente</h3>
+    <h3 id="modalClienteTitulo">â Nuevo Cliente</h3>
     <div class="field" style="margin-bottom:14px">
       <label>Nombre Cliente</label>
       <input type="text" id="mcNombre" placeholder="Ej: Codelco, BHP, Antofagasta Minerals">
     </div>
-    <div style="margin-bottom:10px; font-size:12px; font-weight:700; color:var(--accent); letter-spacing:1px; text-transform:uppercase">Embarque (Origen — SHINC)</div>
+    <div style="margin-bottom:10px; font-size:12px; font-weight:700; color:var(--accent); letter-spacing:1px; text-transform:uppercase">Embarque (Origen â SHINC)</div>
     <div class="form-grid cols2" style="margin-bottom:16px">
       <div class="field">
         <label>Horas Libres Origen</label>
         <input type="number" id="mcHorasOrigen" value="24" step="0.5">
       </div>
       <div class="field">
-        <label>Demurrage (USD/día)</label>
+        <label>Demurrage (USD/dÃ­a)</label>
         <input type="number" id="mcDemOrigen" value="25000" step="500">
       </div>
     </div>
-    <div style="margin-bottom:10px; font-size:12px; font-weight:700; color:var(--accent2); letter-spacing:1px; text-transform:uppercase">Descarga (Destino — SHINC)</div>
+    <div style="margin-bottom:10px; font-size:12px; font-weight:700; color:var(--accent2); letter-spacing:1px; text-transform:uppercase">Descarga (Destino â SHINC)</div>
     <div class="form-grid cols2" style="margin-bottom:16px">
       <div class="field">
         <label>Horas Libres Destino</label>
         <input type="number" id="mcHorasDestino" value="12" step="0.5">
       </div>
       <div class="field">
-        <label>Demurrage (USD/día)</label>
+        <label>Demurrage (USD/dÃ­a)</label>
         <input type="number" id="mcDemDestino" value="25000" step="500">
       </div>
     </div>
     <div class="field" style="margin-bottom:4px">
       <label>Notas</label>
-      <textarea id="mcNotas" rows="2" style="resize:vertical" placeholder="Cláusulas especiales, observaciones..."></textarea>
+      <textarea id="mcNotas" rows="2" style="resize:vertical" placeholder="ClÃ¡usulas especiales, observaciones..."></textarea>
     </div>
     <div class="modal-actions">
       <button class="btn-secondary" onclick="cerrarModalCliente()">Cancelar</button>
@@ -913,18 +913,18 @@
 </div>
 
 <script>
-// ═══════════════════════════════════════════════
+// âââââââââââââââââââââââââââââââââââââââââââââââ
 // STORAGE KEYS
-// ═══════════════════════════════════════════════
+// âââââââââââââââââââââââââââââââââââââââââââââââ
 const LS_CLIENTES = 'vms_charter_clientes';
 const LS_HISTORIAL = 'vms_charter_historial';
 const LS_NAVES = 'vms_naves';
 const LS_VIAJES = 'vms_viajes';
 const LS_TURNOS = 'vms_turnos';
 
-// ═══════════════════════════════════════════════
+// âââââââââââââââââââââââââââââââââââââââââââââââ
 // INIT
-// ═══════════════════════════════════════════════
+// âââââââââââââââââââââââââââââââââââââââââââââââ
 let currentCalc = null;
 let editingClienteId = null;
 
@@ -937,9 +937,9 @@ document.addEventListener('DOMContentLoaded', () => {
   ltActualizarPuertos();
 });
 
-// ═══════════════════════════════════════════════
+// âââââââââââââââââââââââââââââââââââââââââââââââ
 // TABS
-// ═══════════════════════════════════════════════
+// âââââââââââââââââââââââââââââââââââââââââââââââ
 function setTab(tab) {
   document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
   document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
@@ -951,9 +951,9 @@ function setTab(tab) {
   if (tab === 'laytime') ltActualizarPuertos();
 }
 
-// ═══════════════════════════════════════════════
+// âââââââââââââââââââââââââââââââââââââââââââââââ
 // CLIENTES DEFAULT
-// ═══════════════════════════════════════════════
+// âââââââââââââââââââââââââââââââââââââââââââââââ
 function inicializarClientesDefault() {
   const existing = getClientes();
   if (existing.length > 0) return;
@@ -975,19 +975,19 @@ function renderClientesGrid() {
   clientes.forEach(c => {
     html += `
       <div class="cliente-card">
-        <button class="btn-edit-cliente" onclick="editarCliente('${c.id}')">✏️ Editar</button>
+        <button class="btn-edit-cliente" onclick="editarCliente('${c.id}')">âï¸ Editar</button>
         <div class="cliente-nombre">${c.nombre}</div>
         <div class="cliente-row"><span>Horas libres origen</span><span>${c.horasOrigen}h (FIOST)</span></div>
         <div class="cliente-row"><span>Horas libres destino</span><span>${c.horasDestino}h (SHINC)</span></div>
-        <div class="cliente-row"><span>Demurrage origen</span><span>USD ${c.demOrigen.toLocaleString()}/día</span></div>
-        <div class="cliente-row"><span>Demurrage destino</span><span>USD ${c.demDestino.toLocaleString()}/día</span></div>
+        <div class="cliente-row"><span>Demurrage origen</span><span>USD ${c.demOrigen.toLocaleString()}/dÃ­a</span></div>
+        <div class="cliente-row"><span>Demurrage destino</span><span>USD ${c.demDestino.toLocaleString()}/dÃ­a</span></div>
         ${c.notas ? `<div style="margin-top:8px; font-size:11px; color:var(--text2)">${c.notas}</div>` : ''}
         <div style="margin-top:10px; text-align:right">
-          <button class="btn-danger" onclick="eliminarCliente('${c.id}')">🗑 Eliminar</button>
+          <button class="btn-danger" onclick="eliminarCliente('${c.id}')">ð Eliminar</button>
         </div>
       </div>`;
   });
-  html += `<button class="btn-add-cliente" onclick="abrirModalCliente()">＋ Agregar Cliente</button>`;
+  html += `<button class="btn-add-cliente" onclick="abrirModalCliente()">ï¼ Agregar Cliente</button>`;
   grid.innerHTML = html;
 
   // actualizar select en calcular
@@ -1002,7 +1002,7 @@ function renderClientesGrid() {
 
 function abrirModalCliente() {
   editingClienteId = null;
-  document.getElementById('modalClienteTitulo').textContent = '➕ Nuevo Cliente';
+  document.getElementById('modalClienteTitulo').textContent = 'â Nuevo Cliente';
   document.getElementById('mcNombre').value = '';
   document.getElementById('mcHorasOrigen').value = 24;
   document.getElementById('mcHorasDestino').value = 12;
@@ -1016,7 +1016,7 @@ function editarCliente(id) {
   const c = getClientes().find(x => x.id === id);
   if (!c) return;
   editingClienteId = id;
-  document.getElementById('modalClienteTitulo').textContent = '✏️ Editar Cliente';
+  document.getElementById('modalClienteTitulo').textContent = 'âï¸ Editar Cliente';
   document.getElementById('mcNombre').value = c.nombre;
   document.getElementById('mcHorasOrigen').value = c.horasOrigen;
   document.getElementById('mcHorasDestino').value = c.horasDestino;
@@ -1055,20 +1055,20 @@ function guardarCliente() {
 }
 
 function eliminarCliente(id) {
-  if (!confirm('¿Eliminar este cliente?')) return;
+  if (!confirm('Â¿Eliminar este cliente?')) return;
   const clientes = getClientes().filter(x => x.id !== id);
   localStorage.setItem(LS_CLIENTES, JSON.stringify(clientes));
   renderClientesGrid();
 }
 
-// ═══════════════════════════════════════════════
+// âââââââââââââââââââââââââââââââââââââââââââââââ
 // NAVES / ESCALAS
-// ═══════════════════════════════════════════════
+// âââââââââââââââââââââââââââââââââââââââââââââââ
 function cargarNaves() {
   var nv = JSON.parse(localStorage.getItem(LS_NAVES)||'[]');
   var nm = nv.map(function(n){return n.nombre||n.nave||n;}).filter(Boolean);
   var sel = document.getElementById('selNave');
-  sel.innerHTML = '<option value="">— Seleccionar nave —</option>';
+  sel.innerHTML = '<option value="">â Seleccionar nave â</option>';
   nm.forEach(function(n){sel.innerHTML += '<option value="'+n+'">' + n + '</option>';});
   var lt = document.getElementById('ltNave');
   if(lt){lt.innerHTML=sel.innerHTML;}
@@ -1077,7 +1077,7 @@ function cargarNaves() {
 function cargarEscalas() {
   var naveNombre = document.getElementById('selNave').value;
   var sel = document.getElementById('selEscala');
-  sel.innerHTML = '<option value="">— Seleccionar escala —</option>';
+  sel.innerHTML = '<option value="">â Seleccionar escala â</option>';
   if (!naveNombre) return;
   var naves = JSON.parse(localStorage.getItem(LS_NAVES) || '[]');
   var nave = naves.find(function(n){ return (n.nombre||n.nave||n) === naveNombre; });
@@ -1086,7 +1086,7 @@ function cargarEscalas() {
   viajes.filter(function(v){ return v.nave_id === nave.id; }).forEach(function(v) {
     (v.escalas||[]).forEach(function(e) {
       var fecha = (e.eta||e.ata||'').substring(0,10) || 'sin fecha';
-      var label = (e.puerto||'?') + ' — ' + fecha + ' (' + (e.tipo||'op') + ')';
+      var label = (e.puerto||'?') + ' â ' + fecha + ' (' + (e.tipo||'op') + ')';
       sel.innerHTML += '<option value="' + e.id + '" data-viaje="' + v.id + '">' + label + '</option>';
     });
   });
@@ -1138,7 +1138,7 @@ function cargarDatosEscala() {
     escTurnos.forEach(function(t){
       (t.detenciones||[]).forEach(function(d){
         detMin += d.min||0;
-        detHtml += '<div style="display:flex;justify-content:space-between;font-size:12px;padding:5px 0;border-bottom:1px solid var(--border)"><span style="color:var(--text2)">' + (d.tipo||'—') + ' <span style="font-size:10px">(' + (d.resp||'') + ')</span></span><span class="mono">' + (d.min||0) + ' min</span></div>';
+        detHtml += '<div style="display:flex;justify-content:space-between;font-size:12px;padding:5px 0;border-bottom:1px solid var(--border)"><span style="color:var(--text2)">' + (d.tipo||'â') + ' <span style="font-size:10px">(' + (d.resp||'') + ')</span></span><span class="mono">' + (d.min||0) + ' min</span></div>';
       });
     });
     document.getElementById('detExcluidas').value = detMin;
@@ -1161,15 +1161,15 @@ function actualizarCondiciones() {
   const norHint = document.getElementById('norHint');
 
   if (tipo === 'descarga') {
-    label.textContent = 'SHINC · 24h libres · NOR a cualquier hora';
+    label.textContent = 'SHINC Â· 24h libres Â· NOR a cualquier hora';
     document.getElementById('horasLibres').value = 24;
   } else {
-    label.textContent = 'SHINC · 24h libres · NOR a cualquier hora';
+    label.textContent = 'SHINC Â· 24h libres Â· NOR a cualquier hora';
     document.getElementById('horasLibres').value = 24;
   }
   // Ambos tramos SHINC: no se excluyen detenciones, NOR cuenta siempre
   detHint.textContent = 'SHINC: no se excluyen detenciones del tiempo operado.';
-  norHint.textContent = 'NOR cuenta a cualquier hora (sin restricción de horario de oficina).';
+  norHint.textContent = 'NOR cuenta a cualquier hora (sin restricciÃ³n de horario de oficina).';
   document.getElementById('detExcluidas').value = 0;
   document.getElementById('detExcluidas').disabled = true;
   calcularNorAceptada();
@@ -1196,9 +1196,9 @@ function sincDespatch() {
   document.getElementById('despatchRate').value = dem / 2;
 }
 
-// ═══════════════════════════════════════════════
-// NOR LÓGICA
-// ═══════════════════════════════════════════════
+// âââââââââââââââââââââââââââââââââââââââââââââââ
+// NOR LÃGICA
+// âââââââââââââââââââââââââââââââââââââââââââââââ
 function calcularNorAceptada() {
   const norVal = document.getElementById('norTendered').value;
   if (!norVal) {
@@ -1209,7 +1209,7 @@ function calcularNorAceptada() {
 
   // SHINC ambos tramos: NOR cuenta a cualquier hora, sin ajuste
   document.getElementById('norAceptada').value = norVal;
-  document.getElementById('norAjuste').textContent = '✓ SHINC — NOR válida a cualquier hora';
+  document.getElementById('norAjuste').textContent = 'â SHINC â NOR vÃ¡lida a cualquier hora';
   actualizarTimeline();
 }
 
@@ -1219,39 +1219,39 @@ function ajustarNorOficina(dt) {
   const hour = d.getHours();
   const min = d.getMinutes();
 
-  // Fin de semana → lunes 08:00
+  // Fin de semana â lunes 08:00
   if (dayOfWeek === 0) { // domingo
     d.setDate(d.getDate() + 1);
     d.setHours(8, 0, 0, 0);
-    return { dt: d, ajustado: true, motivo: 'Domingo → Lunes 08:00' };
+    return { dt: d, ajustado: true, motivo: 'Domingo â Lunes 08:00' };
   }
-  if (dayOfWeek === 6) { // sábado
+  if (dayOfWeek === 6) { // sÃ¡bado
     d.setDate(d.getDate() + 2);
     d.setHours(8, 0, 0, 0);
-    return { dt: d, ajustado: true, motivo: 'Sábado → Lunes 08:00' };
+    return { dt: d, ajustado: true, motivo: 'SÃ¡bado â Lunes 08:00' };
   }
 
   // Antes de 08:00
   if (hour < 8) {
     d.setHours(8, 0, 0, 0);
-    return { dt: d, ajustado: true, motivo: `Antes de oficina → ${formatHM(d)}` };
+    return { dt: d, ajustado: true, motivo: `Antes de oficina â ${formatHM(d)}` };
   }
 
-  // Después de 17:00 → siguiente día hábil 08:00
+  // DespuÃ©s de 17:00 â siguiente dÃ­a hÃ¡bil 08:00
   if (hour >= 17) {
     d.setDate(d.getDate() + 1);
     // Si cae en fin de semana, avanzar
     while (d.getDay() === 0 || d.getDay() === 6) d.setDate(d.getDate() + 1);
     d.setHours(8, 0, 0, 0);
-    return { dt: d, ajustado: true, motivo: `Después de 17:00 → ${d.toLocaleDateString('es-CL')} 08:00` };
+    return { dt: d, ajustado: true, motivo: `DespuÃ©s de 17:00 â ${d.toLocaleDateString('es-CL')} 08:00` };
   }
 
   return { dt: d, ajustado: false, motivo: '' };
 }
 
-// ═══════════════════════════════════════════════
+// âââââââââââââââââââââââââââââââââââââââââââââââ
 // TIMELINE
-// ═══════════════════════════════════════════════
+// âââââââââââââââââââââââââââââââââââââââââââââââ
 function actualizarTimeline() {
   const norT = document.getElementById('norTendered').value;
   const norA = document.getElementById('norAceptada').value;
@@ -1265,16 +1265,16 @@ function actualizarTimeline() {
   const layStart = new Date(norADt.getTime() + hl * 3600000);
 
   document.getElementById('norTimeline').style.display = 'flex';
-  document.getElementById('tlNorT').textContent = norT ? formatDtShort(new Date(norT)) : '—';
+  document.getElementById('tlNorT').textContent = norT ? formatDtShort(new Date(norT)) : 'â';
   document.getElementById('tlNorA').textContent = formatDtShort(norADt);
   document.getElementById('tlLayStart').textContent = formatDtShort(layStart);
-  document.getElementById('tlFirstHook').textContent = fh ? formatDtShort(new Date(fh)) : '—';
-  document.getElementById('tlLastHook').textContent = lh ? formatDtShort(new Date(lh)) : '—';
+  document.getElementById('tlFirstHook').textContent = fh ? formatDtShort(new Date(fh)) : 'â';
+  document.getElementById('tlLastHook').textContent = lh ? formatDtShort(new Date(lh)) : 'â';
 }
 
-// ═══════════════════════════════════════════════
+// âââââââââââââââââââââââââââââââââââââââââââââââ
 // CALCULAR
-// ═══════════════════════════════════════════════
+// âââââââââââââââââââââââââââââââââââââââââââââââ
 function calcular() {
   const norA = document.getElementById('norAceptada').value;
   const fh = document.getElementById('firstHook').value;
@@ -1310,7 +1310,7 @@ function calcular() {
   const detHoras = detMin / 60;
   if (tipo === 'embarque') totalHoras = Math.max(0, totalHoras - detHoras);
 
-  // Laytime permitido en horas — acá es solo las horas libres que hay que "consumir" durante la operación
+  // Laytime permitido en horas â acÃ¡ es solo las horas libres que hay que "consumir" durante la operaciÃ³n
   // En realidad laytime allowed = horas libres
   // time used = tiempo desde que empieza a contar hasta Last Hook
   const laytimeAllowed = hl; // horas
@@ -1334,8 +1334,8 @@ function calcular() {
   currentCalc = {
     id: genId(),
     fecha: new Date().toISOString(),
-    nave: document.getElementById('selNave').value || '—',
-    escala: document.getElementById('selEscala').options[document.getElementById('selEscala').selectedIndex]?.text || '—',
+    nave: document.getElementById('selNave').value || 'â',
+    escala: document.getElementById('selEscala').options[document.getElementById('selEscala').selectedIndex]?.text || 'â',
     tipo,
     cliente: document.getElementById('selCliente').options[document.getElementById('selCliente').selectedIndex]?.text || 'Manual',
     norTendered: document.getElementById('norTendered').value,
@@ -1359,17 +1359,17 @@ function calcular() {
   box.className = 'resultado-box ' + tipo_resultado;
   box.style.display = 'block';
 
-  const labels = { demurrage: '⚠️ DEMURRAGE', despatch: '✅ DESPATCH', even: '⚖️ EVEN — Sin costo' };
+  const labels = { demurrage: 'â ï¸ DEMURRAGE', despatch: 'â DESPATCH', even: 'âï¸ EVEN â Sin costo' };
   const subs = {
-    demurrage: `La nave estuvo ${formatHoras(Math.abs(balance))} más de lo permitido`,
-    despatch: `Operación completada ${formatHoras(balance)} antes de lo permitido`,
+    demurrage: `La nave estuvo ${formatHoras(Math.abs(balance))} mÃ¡s de lo permitido`,
+    despatch: `OperaciÃ³n completada ${formatHoras(balance)} antes de lo permitido`,
     even: 'El tiempo usado coincide exactamente con el laytime permitido',
   };
 
   document.getElementById('resultTitulo').textContent = labels[tipo_resultado];
   document.getElementById('resultSubtitulo').textContent = subs[tipo_resultado];
   document.getElementById('resultMonto').textContent = tipo_resultado === 'even' ? 'USD 0' :
-    `${tipo_resultado === 'demurrage' ? '−' : '+'}  USD ${Math.round(monto).toLocaleString('es-CL')}`;
+    `${tipo_resultado === 'demurrage' ? 'â' : '+'}  USD ${Math.round(monto).toLocaleString('es-CL')}`;
 
   document.getElementById('resLaytime').textContent = formatHoras(laytimeAllowed);
   document.getElementById('resTiempoUsado').textContent = formatHoras(timeUsed);
@@ -1385,7 +1385,7 @@ function calcular() {
   document.getElementById('kpiBalance').textContent = (balance >= 0 ? '+' : '') + formatHoras(balance);
   document.getElementById('kpiBalance').className = 'kpi-val ' + (balance < -0.01 ? 'dem' : balance > 0.01 ? 'desp' : '');
   document.getElementById('kpiMonto').textContent = tipo_resultado === 'even' ? 'USD 0' :
-    `${tipo_resultado === 'demurrage' ? '−' : '+'} USD ${Math.round(monto).toLocaleString('es-CL')}`;
+    `${tipo_resultado === 'demurrage' ? 'â' : '+'} USD ${Math.round(monto).toLocaleString('es-CL')}`;
   document.getElementById('kpiMonto').className = 'kpi-val ' + (tipo_resultado === 'demurrage' ? 'dem' : tipo_resultado === 'despatch' ? 'desp' : '');
 
   box.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -1404,30 +1404,30 @@ function limpiarCalculo() {
   currentCalc = null;
 }
 
-// ═══════════════════════════════════════════════
+// âââââââââââââââââââââââââââââââââââââââââââââââ
 // GUARDAR EN HISTORIAL
-// ═══════════════════════════════════════════════
+// âââââââââââââââââââââââââââââââââââââââââââââââ
 function guardarCalculo() {
   if (!currentCalc) return;
   const hist = JSON.parse(localStorage.getItem(LS_HISTORIAL) || '[]');
   hist.unshift(currentCalc);
   localStorage.setItem(LS_HISTORIAL, JSON.stringify(hist));
-  alert('✅ Cálculo guardado en historial');
+  alert('â CÃ¡lculo guardado en historial');
 }
 
-// ═══════════════════════════════════════════════
+// âââââââââââââââââââââââââââââââââââââââââââââââ
 // HISTORIAL
-// ═══════════════════════════════════════════════
+// âââââââââââââââââââââââââââââââââââââââââââââââ
 function renderHistorial() {
   const hist = JSON.parse(localStorage.getItem(LS_HISTORIAL) || '[]');
   const container = document.getElementById('historialContainer');
   if (hist.length === 0) {
-    container.innerHTML = '<div class="empty"><span>📋</span>No hay cálculos guardados aún</div>';
+    container.innerHTML = '<div class="empty"><span>ð</span>No hay cÃ¡lculos guardados aÃºn</div>';
     return;
   }
   let html = `<table class="hist-table">
     <thead><tr>
-      <th>Fecha Cálculo</th>
+      <th>Fecha CÃ¡lculo</th>
       <th>Nave / Escala</th>
       <th>Cliente</th>
       <th>Tipo Op.</th>
@@ -1442,7 +1442,7 @@ function renderHistorial() {
     const badgeClass = c.tipo_resultado === 'demurrage' ? 'dem' : c.tipo_resultado === 'despatch' ? 'desp' : 'even';
     const badgeLabel = c.tipo_resultado === 'demurrage' ? 'DEMURRAGE' : c.tipo_resultado === 'despatch' ? 'DESPATCH' : 'EVEN';
     const montoStr = c.tipo_resultado === 'even' ? '0' :
-      `${c.tipo_resultado === 'demurrage' ? '−' : '+'}${Math.round(c.monto).toLocaleString('es-CL')}`;
+      `${c.tipo_resultado === 'demurrage' ? 'â' : '+'}${Math.round(c.monto).toLocaleString('es-CL')}`;
     html += `<tr>
       <td class="mono" style="font-size:11px">${new Date(c.fecha).toLocaleDateString('es-CL')}<br>${new Date(c.fecha).toLocaleTimeString('es-CL',{hour:'2-digit',minute:'2-digit'})}</td>
       <td><div style="font-weight:600">${c.nave}</div><div style="font-size:11px;color:var(--text2)">${c.escala}</div></td>
@@ -1453,7 +1453,7 @@ function renderHistorial() {
       <td class="mono">${(c.balance >= 0 ? '+' : '') + formatHoras(c.balance)}</td>
       <td><span class="badge ${badgeClass}">${badgeLabel}</span></td>
       <td class="mono" style="font-weight:700">${montoStr}</td>
-      <td><button class="btn-danger" onclick="eliminarHistorial('${c.id}')">🗑</button></td>
+      <td><button class="btn-danger" onclick="eliminarHistorial('${c.id}')">ð</button></td>
     </tr>`;
   });
   html += '</tbody></table>';
@@ -1461,89 +1461,89 @@ function renderHistorial() {
 }
 
 function eliminarHistorial(id) {
-  if (!confirm('¿Eliminar este registro?')) return;
+  if (!confirm('Â¿Eliminar este registro?')) return;
   const hist = JSON.parse(localStorage.getItem(LS_HISTORIAL) || '[]').filter(x => x.id !== id);
   localStorage.setItem(LS_HISTORIAL, JSON.stringify(hist));
   renderHistorial();
 }
 
-// ═══════════════════════════════════════════════
-// LAYTIME / SOF — LÓGICA CLÁUSULA 17
-// ═══════════════════════════════════════════════
+// âââââââââââââââââââââââââââââââââââââââââââââââ
+// LAYTIME / SOF â LÃGICA CLÃUSULA 17
+// âââââââââââââââââââââââââââââââââââââââââââââââ
 
-// ── Reglas NOR por cliente ────────────────────────────────────────────────
-// 'cl17_origen'   → Cláusula 17 origen:  L-V 09-17, Sáb 09-12, laytime = NOR+12h (USC)
-// 'cl17_destino'  → Cláusula 17 destino: L-V 09-17, Sáb 09-12, ≤12:00→15:00 / >12:00→next 06:00
-// 'traf_origen'   → Trafigura origen:    L-V 08-17, Sáb 09-12, laytime = next working day 08:00
-// 'traf_destino'  → Trafigura destino:   L-V 08-17 (sin sáb), laytime = next working day 08:00
-// 'kmp_origen'    → KMP harina:          L-V 09-17, Sáb 09-12, laytime = NOR+12h (USC)
+// ââ Reglas NOR por cliente ââââââââââââââââââââââââââââââââââââââââââââââââ
+// 'cl17_origen'   â ClÃ¡usula 17 origen:  L-V 09-17, SÃ¡b 09-12, laytime = NOR+12h (USC)
+// 'cl17_destino'  â ClÃ¡usula 17 destino: L-V 09-17, SÃ¡b 09-12, â¤12:00â15:00 / >12:00ânext 06:00
+// 'traf_origen'   â Trafigura origen:    L-V 08-17, SÃ¡b 09-12, laytime = next working day 08:00
+// 'traf_destino'  â Trafigura destino:   L-V 08-17 (sin sÃ¡b), laytime = next working day 08:00
+// 'kmp_origen'    â KMP harina:          L-V 09-17, SÃ¡b 09-12, laytime = NOR+12h (USC)
 
 const LT_CLIENTES_CONFIG = {
-  // ── Codelco ──────────────────────────────────────────────────────────────
+  // ââ Codelco ââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
   'codelco_concentrado': {
-    label: 'Codelco — Concentrado Cobre',
+    label: 'Codelco â Concentrado Cobre',
     demRate: 18000,
     puertos: [
-      { id: 'chimbote', nombre: 'Chimbote',  tipo: 'carga',    tasa: 1500, shinc: true,  nor_regla: 'cl17_origen',  nota: 'SHINC · 12h turn time USC' },
-      { id: 'arica',    nombre: 'Arica',     tipo: 'carga',    tasa: 2500, shinc: true,  nor_regla: 'cl17_origen',  nota: 'SHINC · 12h turn time USC' },
-      { id: 'bremen',   nombre: 'Bremen',    tipo: 'descarga', tasa: 3500, shinc: false, nor_regla: 'cl17_destino', nota: 'SHEX UU · Sáb 12:00–Lun 06:00',
+      { id: 'chimbote', nombre: 'Chimbote',  tipo: 'carga',    tasa: 1500, shinc: true,  nor_regla: 'cl17_origen',  nota: 'SHINC Â· 12h turn time USC' },
+      { id: 'arica',    nombre: 'Arica',     tipo: 'carga',    tasa: 2500, shinc: true,  nor_regla: 'cl17_origen',  nota: 'SHINC Â· 12h turn time USC' },
+      { id: 'bremen',   nombre: 'Bremen',    tipo: 'descarga', tasa: 3500, shinc: false, nor_regla: 'cl17_destino', nota: 'SHEX UU Â· SÃ¡b 12:00âLun 06:00',
         shex: { satnoon: true, monMorn: '06:00' } },
     ],
   },
   'codelco_catodos': {
-    label: 'Codelco — Cátodos Cobre',
+    label: 'Codelco â CÃ¡todos Cobre',
     demRate: 18000,
     puertos: [
-      { id: 'arica',    nombre: 'Arica',     tipo: 'carga',    tasa: 2500, shinc: true,  nor_regla: 'cl17_origen',  nota: 'SHINC · 12h turn time USC' },
-      { id: 'bremen',   nombre: 'Bremen',    tipo: 'descarga', tasa: 3500, shinc: false, nor_regla: 'cl17_destino', nota: 'SHEX UU · Sáb 12:00–Lun 06:00',
+      { id: 'arica',    nombre: 'Arica',     tipo: 'carga',    tasa: 2500, shinc: true,  nor_regla: 'cl17_origen',  nota: 'SHINC Â· 12h turn time USC' },
+      { id: 'bremen',   nombre: 'Bremen',    tipo: 'descarga', tasa: 3500, shinc: false, nor_regla: 'cl17_destino', nota: 'SHEX UU Â· SÃ¡b 12:00âLun 06:00',
         shex: { satnoon: true, monMorn: '06:00' } },
     ],
   },
-  // ── BHP ──────────────────────────────────────────────────────────────────
+  // ââ BHP ââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
   'bhp_concentrado': {
-    label: 'BHP — Concentrado Cobre',
+    label: 'BHP â Concentrado Cobre',
     demRate: 18000,
     puertos: [
-      { id: 'chimbote', nombre: 'Chimbote',  tipo: 'carga',    tasa: 1500, shinc: true,  nor_regla: 'cl17_origen',  nota: 'SHINC · 12h turn time USC · 48h detention' },
-      { id: 'arica',    nombre: 'Arica',     tipo: 'carga',    tasa: 2500, shinc: true,  nor_regla: 'cl17_origen',  nota: 'SHINC · 12h turn time USC · 48h detention' },
-      { id: 'bremen',   nombre: 'Bremen',    tipo: 'descarga', tasa: 3500, shinc: false, nor_regla: 'cl17_destino', nota: 'SHEX UU · Sáb 12:00–Lun 06:00 · 24h detention',
+      { id: 'chimbote', nombre: 'Chimbote',  tipo: 'carga',    tasa: 1500, shinc: true,  nor_regla: 'cl17_origen',  nota: 'SHINC Â· 12h turn time USC Â· 48h detention' },
+      { id: 'arica',    nombre: 'Arica',     tipo: 'carga',    tasa: 2500, shinc: true,  nor_regla: 'cl17_origen',  nota: 'SHINC Â· 12h turn time USC Â· 48h detention' },
+      { id: 'bremen',   nombre: 'Bremen',    tipo: 'descarga', tasa: 3500, shinc: false, nor_regla: 'cl17_destino', nota: 'SHEX UU Â· SÃ¡b 12:00âLun 06:00 Â· 24h detention',
         shex: { satnoon: true, monMorn: '06:00' } },
     ],
   },
-  // ── KMP — Harina de Pescado ───────────────────────────────────────────────
+  // ââ KMP â Harina de Pescado âââââââââââââââââââââââââââââââââââââââââââââââ
   'kmp_harina': {
-    label: 'KMP — Harina de Pescado',
+    label: 'KMP â Harina de Pescado',
     demRate: 18000,
     puertos: [
-      { id: 'chimbote', nombre: 'Chimbote',  tipo: 'carga',    tasa: 1500, shinc: true,  nor_regla: 'cl17_origen',  nota: 'SHINC · 12h turn time USC' },
-      { id: 'arica',    nombre: 'Arica',     tipo: 'carga',    tasa: 2500, shinc: true,  nor_regla: 'cl17_origen',  nota: 'SHINC · 12h turn time USC' },
-      { id: 'bremen',   nombre: 'Bremen',    tipo: 'descarga', tasa: 3500, shinc: false, nor_regla: 'cl17_destino', nota: 'SHEX UU · Sáb 12:00–Lun 06:00',
+      { id: 'chimbote', nombre: 'Chimbote',  tipo: 'carga',    tasa: 1500, shinc: true,  nor_regla: 'cl17_origen',  nota: 'SHINC Â· 12h turn time USC' },
+      { id: 'arica',    nombre: 'Arica',     tipo: 'carga',    tasa: 2500, shinc: true,  nor_regla: 'cl17_origen',  nota: 'SHINC Â· 12h turn time USC' },
+      { id: 'bremen',   nombre: 'Bremen',    tipo: 'descarga', tasa: 3500, shinc: false, nor_regla: 'cl17_destino', nota: 'SHEX UU Â· SÃ¡b 12:00âLun 06:00',
         shex: { satnoon: true, monMorn: '06:00' } },
     ],
   },
-  // ── Trafigura — Concentrado Cobre ─────────────────────────────────────────
+  // ââ Trafigura â Concentrado Cobre âââââââââââââââââââââââââââââââââââââââââ
   'trafigura_concentrado_cobre': {
-    label: 'Trafigura — Concentrado Cobre',
+    label: 'Trafigura â Concentrado Cobre',
     demRate: 19000,
     puertos: [
-      { id: 'callao',   nombre: 'Callao',    tipo: 'carga',    tasa: 15000, shinc: true,  nor_regla: 'traf_origen',  nota: 'WWWD SHINC · Next working day 08:00' },
-      { id: 'antwerp',  nombre: 'Antwerp',   tipo: 'descarga', tasa: 5000,  shinc: false, nor_regla: 'traf_destino', nota: 'WWWD SHEX UU ATUTC · Next working day 08:00',
+      { id: 'callao',   nombre: 'Callao',    tipo: 'carga',    tasa: 15000, shinc: true,  nor_regla: 'traf_origen',  nota: 'WWWD SHINC Â· Next working day 08:00' },
+      { id: 'antwerp',  nombre: 'Antwerp',   tipo: 'descarga', tasa: 5000,  shinc: false, nor_regla: 'traf_destino', nota: 'WWWD SHEX UU ATUTC Â· Next working day 08:00',
         shex: { satnoon: true, monMorn: '06:00' } },
     ],
   },
-  // ── Trafigura — Concentrado Zinc ──────────────────────────────────────────
+  // ââ Trafigura â Concentrado Zinc ââââââââââââââââââââââââââââââââââââââââââ
   'trafigura_concentrado_zinc': {
-    label: 'Trafigura — Concentrado Zinc',
+    label: 'Trafigura â Concentrado Zinc',
     demRate: 19000,
     puertos: [
-      { id: 'callao',   nombre: 'Callao',    tipo: 'carga',    tasa: 15000, shinc: true,  nor_regla: 'traf_origen',  nota: 'WWWD SHINC · Next working day 08:00' },
-      { id: 'antwerp',  nombre: 'Antwerp',   tipo: 'descarga', tasa: 5000,  shinc: false, nor_regla: 'traf_destino', nota: 'WWWD SHEX UU ATUTC · Next working day 08:00',
+      { id: 'callao',   nombre: 'Callao',    tipo: 'carga',    tasa: 15000, shinc: true,  nor_regla: 'traf_origen',  nota: 'WWWD SHINC Â· Next working day 08:00' },
+      { id: 'antwerp',  nombre: 'Antwerp',   tipo: 'descarga', tasa: 5000,  shinc: false, nor_regla: 'traf_destino', nota: 'WWWD SHEX UU ATUTC Â· Next working day 08:00',
         shex: { satnoon: true, monMorn: '06:00' } },
     ],
   },
 };
 
-// Compatibilidad backwards — usado por selector anterior
+// Compatibilidad backwards â usado por selector anterior
 const LT_PUERTOS = {
   concentrado: LT_CLIENTES_CONFIG['codelco_concentrado'].puertos,
   harina:      LT_CLIENTES_CONFIG['kmp_harina'].puertos,
@@ -1570,34 +1570,34 @@ function ltActualizarPuertos() {
 
 function ltRenderPuertoBlock(p, cfg) {
   const esCarga = p.tipo === 'carga';
-  const icono = esCarga ? '🚢' : '🏭';
+  const icono = esCarga ? 'ð¢' : 'ð­';
   const tipoLabel = esCarga ? 'Puerto de Carga' : 'Puerto de Descarga';
-  const tasaLabel = `${p.tasa.toLocaleString()} T/día · ${p.nota}`;
+  const tasaLabel = `${p.tasa.toLocaleString()} T/dÃ­a Â· ${p.nota}`;
 
-  // Reglas NOR según regla del puerto
+  // Reglas NOR segÃºn regla del puerto
   const norReglaHtml = (() => {
     switch (p.nor_regla) {
       case 'cl17_origen': return `
         <div class="nor-rules-box">
-          <strong>Cláusula 17 — Origen (SHINC):</strong> NOR válida L–V 09:00–17:00 · Sáb 09:00–12:00.<br>
-          Laytime inicia <strong>12h post-NOR</strong>. Si First Hook ocurre antes → laytime desde First Hook (USC).
+          <strong>ClÃ¡usula 17 â Origen (SHINC):</strong> NOR vÃ¡lida LâV 09:00â17:00 Â· SÃ¡b 09:00â12:00.<br>
+          Laytime inicia <strong>12h post-NOR</strong>. Si First Hook ocurre antes â laytime desde First Hook (USC).
         </div>`;
       case 'cl17_destino': return `
         <div class="nor-rules-box">
-          <strong>Cláusula 17 — Destino:</strong> NOR válida L–V 09:00–17:00 · Sáb 09:00–12:00.<br>
-          NOR ≤ 12:00 → laytime a las <strong>15:00</strong>. NOR > 12:00 → laytime <strong>06:00 próximo día hábil</strong>.<br>
-          Shifting no cuenta. SHEX Sáb 12:00–Lun 06:00 excluido salvo UU.
+          <strong>ClÃ¡usula 17 â Destino:</strong> NOR vÃ¡lida LâV 09:00â17:00 Â· SÃ¡b 09:00â12:00.<br>
+          NOR â¤ 12:00 â laytime a las <strong>15:00</strong>. NOR > 12:00 â laytime <strong>06:00 prÃ³ximo dÃ­a hÃ¡bil</strong>.<br>
+          Shifting no cuenta. SHEX SÃ¡b 12:00âLun 06:00 excluido salvo UU.
         </div>`;
       case 'traf_origen': return `
         <div class="nor-rules-box">
-          <strong>Trafigura — Origen:</strong> NOR válida L–V 08:00–17:00 · Sáb 09:00–12:00.<br>
+          <strong>Trafigura â Origen:</strong> NOR vÃ¡lida LâV 08:00â17:00 Â· SÃ¡b 09:00â12:00.<br>
           Laytime inicia <strong>next working day 08:00</strong>. Todo tiempo previo acumulado cuenta igualmente.
         </div>`;
       case 'traf_destino': return `
         <div class="nor-rules-box">
-          <strong>Trafigura — Destino:</strong> NOR válida L–V 08:00–17:00 (sin sábados).<br>
+          <strong>Trafigura â Destino:</strong> NOR vÃ¡lida LâV 08:00â17:00 (sin sÃ¡bados).<br>
           Laytime inicia <strong>next working day 08:00</strong>. Todo tiempo previo acumulado cuenta igualmente.<br>
-          SHEX Sáb 12:00–Lun 06:00 excluido salvo UU (ATUTC).
+          SHEX SÃ¡b 12:00âLun 06:00 excluido salvo UU (ATUTC).
         </div>`;
       default: return '';
     }
@@ -1652,14 +1652,14 @@ function ltRenderPuertoBlock(p, cfg) {
       ${!esCarga ? `
       <div class="form-grid cols2" style="margin-bottom:16px">
         <div class="field">
-          <label>Horas Shifting (roads → berth)</label>
+          <label>Horas Shifting (roads â berth)</label>
           <input type="number" id="lt_${p.id}_shifting" value="0" step="0.5" oninput="ltRecalcular('${p.id}')">
           <span class="hint">No cuenta como laytime ni demurrage</span>
         </div>
         <div class="field">
           <label>Horas SHEX usadas por acuerdo (UU)</label>
           <input type="number" id="lt_${p.id}_shex_uu" value="0" step="0.5" oninput="ltRecalcular('${p.id}')">
-          <span class="hint">Horas Sáb 12:00–Lun 06:00 que sí se trabajaron</span>
+          <span class="hint">Horas SÃ¡b 12:00âLun 06:00 que sÃ­ se trabajaron</span>
         </div>
       </div>` : ''}
 
@@ -1677,7 +1677,7 @@ function ltRenderPuertoBlock(p, cfg) {
 
       <!-- Tabla timeline resultado -->
       <div id="lt_${p.id}_resultado" style="display:none">
-        <div class="section-title" style="margin-top:4px">Statement of Facts — ${p.nombre}</div>
+        <div class="section-title" style="margin-top:4px">Statement of Facts â ${p.nombre}</div>
         <table class="lt-timeline">
           <thead><tr>
             <th>Evento</th><th>Fecha / Hora</th><th>Hrs Laytime</th><th>Obs</th>
@@ -1707,7 +1707,7 @@ function ltRenderPuertoBlock(p, cfg) {
   </div>`;
 }
 
-// ── NOR ACEPTADA según cláusula 17 ──────────────────────────────────────
+// ââ NOR ACEPTADA segÃºn clÃ¡usula 17 ââââââââââââââââââââââââââââââââââââââ
 function ltCalcNorAceptada(pid, regla) {
   const norVal = document.getElementById(`lt_${pid}_nor`).value;
   if (!norVal) {
@@ -1721,42 +1721,42 @@ function ltCalcNorAceptada(pid, regla) {
   const norDt = new Date(norVal);
   let norAceptada, layStart, norHint, layHint;
 
-  // ── Ajustar ventana NOR según regla ─────────────────────────────────────
+  // ââ Ajustar ventana NOR segÃºn regla âââââââââââââââââââââââââââââââââââââ
   if (regla === 'traf_destino') {
-    // Trafigura destino: solo L-V 08:00-17:00 (sin sábado)
+    // Trafigura destino: solo L-V 08:00-17:00 (sin sÃ¡bado)
     const aj = ltAjustarVentanaNOR(norDt, { abreLV: '08:00', cierreLV: '17:00', sabado: false });
     norAceptada = aj.dt; norHint = aj.hint;
   } else if (regla === 'traf_origen') {
-    // Trafigura origen: L-V 08:00-17:00, Sáb 09:00-12:00
+    // Trafigura origen: L-V 08:00-17:00, SÃ¡b 09:00-12:00
     const aj = ltAjustarVentanaNOR(norDt, { abreLV: '08:00', cierreLV: '17:00', sabado: true });
     norAceptada = aj.dt; norHint = aj.hint;
   } else {
-    // Cláusula 17: L-V 09:00-17:00, Sáb 09:00-12:00
+    // ClÃ¡usula 17: L-V 09:00-17:00, SÃ¡b 09:00-12:00
     const aj = ltAjustarVentanaNOR(norDt, { abreLV: '09:00', cierreLV: '17:00', sabado: true });
     norAceptada = aj.dt; norHint = aj.hint;
   }
 
-  // ── Calcular Laytime Start según regla ──────────────────────────────────
+  // ââ Calcular Laytime Start segÃºn regla ââââââââââââââââââââââââââââââââââ
   if (regla === 'cl17_origen') {
     // +12h (USC aplicado en ltRecalcular)
     layStart = new Date(norAceptada.getTime() + 12 * 3600000);
     layHint = 'NOR aceptada + 12h (USC si First Hook antes)';
 
   } else if (regla === 'cl17_destino') {
-    // ≤12:00 → 15:00 mismo día / >12:00 → 06:00 próximo día hábil
+    // â¤12:00 â 15:00 mismo dÃ­a / >12:00 â 06:00 prÃ³ximo dÃ­a hÃ¡bil
     const h = norAceptada.getHours(), m = norAceptada.getMinutes();
     if (h * 60 + m <= 12 * 60) {
       layStart = new Date(norAceptada); layStart.setHours(15, 0, 0, 0);
-      layHint = 'NOR ≤ 12:00 → Laytime a las 15:00';
+      layHint = 'NOR â¤ 12:00 â Laytime a las 15:00';
     } else {
       layStart = ltNextWorkingDay(norAceptada, '06:00');
-      layHint = `NOR > 12:00 → 06:00 ${layStart.toLocaleDateString('es-CL')}`;
+      layHint = `NOR > 12:00 â 06:00 ${layStart.toLocaleDateString('es-CL')}`;
     }
 
   } else if (regla === 'traf_origen' || regla === 'traf_destino') {
     // Next working day 08:00
     layStart = ltNextWorkingDay(norAceptada, '08:00');
-    layHint = `Next working day 08:00 → ${layStart.toLocaleDateString('es-CL')}`;
+    layHint = `Next working day 08:00 â ${layStart.toLocaleDateString('es-CL')}`;
   }
 
   document.getElementById(`lt_${pid}_norA`).value    = toDatetimeLocal(norAceptada);
@@ -1790,37 +1790,37 @@ function ltAjustarVentanaNOR(dt, opts = {}) {
   const dow = d.getDay();
   const minDia = d.getHours() * 60 + d.getMinutes();
 
-  // Domingo → lunes apertura
+  // Domingo â lunes apertura
   if (dow === 0) {
     d.setDate(d.getDate() + 1); d.setHours(aH, aM, 0, 0);
-    return { dt: d, hint: `⚠️ Domingo → Lunes ${abreLV}` };
+    return { dt: d, hint: `â ï¸ Domingo â Lunes ${abreLV}` };
   }
 
-  // Sábado
+  // SÃ¡bado
   if (dow === 6) {
     if (!conSabado) {
-      // Sin sábado → lunes apertura
+      // Sin sÃ¡bado â lunes apertura
       d.setDate(d.getDate() + 2); d.setHours(aH, aM, 0, 0);
-      return { dt: d, hint: `⚠️ Sábado (no válido) → Lunes ${abreLV}` };
+      return { dt: d, hint: `â ï¸ SÃ¡bado (no vÃ¡lido) â Lunes ${abreLV}` };
     }
-    // Con sábado: solo 09:00–12:00
-    if (minDia < 9 * 60) { d.setHours(9, 0, 0, 0); return { dt: d, hint: '⚠️ Sáb antes 09:00 → 09:00' }; }
+    // Con sÃ¡bado: solo 09:00â12:00
+    if (minDia < 9 * 60) { d.setHours(9, 0, 0, 0); return { dt: d, hint: 'â ï¸ SÃ¡b antes 09:00 â 09:00' }; }
     if (minDia >= 12 * 60) {
       d.setDate(d.getDate() + 2); d.setHours(aH, aM, 0, 0);
-      return { dt: d, hint: `⚠️ Sáb ≥ 12:00 → Lunes ${abreLV}` };
+      return { dt: d, hint: `â ï¸ SÃ¡b â¥ 12:00 â Lunes ${abreLV}` };
     }
-    return { dt: d, hint: '✓ Sáb dentro de ventana 09:00–12:00' };
+    return { dt: d, hint: 'â SÃ¡b dentro de ventana 09:00â12:00' };
   }
 
   // L-V
-  if (minDia < abreMin) { d.setHours(aH, aM, 0, 0); return { dt: d, hint: `⚠️ Antes ${abreLV} → ${abreLV}` }; }
+  if (minDia < abreMin) { d.setHours(aH, aM, 0, 0); return { dt: d, hint: `â ï¸ Antes ${abreLV} â ${abreLV}` }; }
   if (minDia >= cierraMin) {
     d.setDate(d.getDate() + 1);
     while (d.getDay() === 0 || d.getDay() === 6) d.setDate(d.getDate() + 1);
     d.setHours(aH, aM, 0, 0);
-    return { dt: d, hint: `⚠️ Después ${cierreLV} → ${d.toLocaleDateString('es-CL')} ${abreLV}` };
+    return { dt: d, hint: `â ï¸ DespuÃ©s ${cierreLV} â ${d.toLocaleDateString('es-CL')} ${abreLV}` };
   }
-  return { dt: d, hint: `✓ NOR dentro de horario ${abreLV}–${cierreLV}` };
+  return { dt: d, hint: `â NOR dentro de horario ${abreLV}â${cierreLV}` };
 }
 
 function ltRecalcular(pid) {
@@ -1852,7 +1852,7 @@ function ltRecalcular(pid) {
   const fhDt       = new Date(fhVal);
   const lhDt       = new Date(lhVal);
 
-  // USC aplica solo para reglas cl17_origen (Cláusula 17 carga)
+  // USC aplica solo para reglas cl17_origen (ClÃ¡usula 17 carga)
   // Trafigura: laytime SIEMPRE desde next working day 08:00, no USC
   const uscDisponible = puerto.nor_regla === 'cl17_origen';
   const uscAplicado   = uscDisponible && fhDt < layStartDt;
@@ -1861,7 +1861,7 @@ function ltRecalcular(pid) {
   // Hint First Hook
   const fhHintEl = document.getElementById(`lt_${pid}_fhHint`);
   if (fhHintEl) {
-    if (uscAplicado) fhHintEl.textContent = '⚡ USC aplicado — laytime arranca desde First Hook';
+    if (uscAplicado) fhHintEl.textContent = 'â¡ USC aplicado â laytime arranca desde First Hook';
     else if (uscDisponible && fhDt >= layStartDt) fhHintEl.textContent = 'First Hook posterior al laytime calculado';
     else if (!uscDisponible) fhHintEl.textContent = 'Trafigura: laytime fijo desde next working day 08:00';
     else fhHintEl.textContent = '';
@@ -1896,33 +1896,33 @@ function ltRecalcular(pid) {
 
   ltResultados[pid] = { puerto: puerto.nombre, tipo: puerto.tipo, laytimeAllowedHrs, tiempoUsadoHrs, balance, tipo_res, monto, demRate, despRate };
 
-  // ── Statement of Facts ──────────────────────────────────────────────────
+  // ââ Statement of Facts ââââââââââââââââââââââââââââââââââââââââââââââââââ
   const norTVal = document.getElementById(`lt_${pid}_nor`).value;
   const norAVal = document.getElementById(`lt_${pid}_norA`).value;
   const rows = [];
 
-  rows.push({ cls: 'row-key', evento: '📋 NOR Tendered',   dt: norTVal, hrs: '—', obs: 'Master notifica readiness' });
-  rows.push({ cls: 'row-key', evento: '✅ NOR Aceptada',   dt: norAVal, hrs: '—', obs: document.getElementById(`lt_${pid}_norHint`).textContent });
-  rows.push({ cls: 'row-key', evento: '⏱ Laytime Inicia', dt: toDatetimeLocal(conteoStartDt), hrs: '0h 00m',
-    obs: uscAplicado ? '⚡ USC — operación antes del laytime calculado' : document.getElementById(`lt_${pid}_layHint`).textContent });
+  rows.push({ cls: 'row-key', evento: 'ð NOR Tendered',   dt: norTVal, hrs: 'â', obs: 'Master notifica readiness' });
+  rows.push({ cls: 'row-key', evento: 'â NOR Aceptada',   dt: norAVal, hrs: 'â', obs: document.getElementById(`lt_${pid}_norHint`).textContent });
+  rows.push({ cls: 'row-key', evento: 'â± Laytime Inicia', dt: toDatetimeLocal(conteoStartDt), hrs: '0h 00m',
+    obs: uscAplicado ? 'â¡ USC â operaciÃ³n antes del laytime calculado' : document.getElementById(`lt_${pid}_layHint`).textContent });
 
   if (shiftingHrs > 0)
-    rows.push({ cls: 'row-exc', evento: '🔗 Shifting (excluido)',     dt: '—', hrs: `-${formatHoras(shiftingHrs)}`, obs: 'Roads/anchorage → berth no cuenta' });
+    rows.push({ cls: 'row-exc', evento: 'ð Shifting (excluido)',     dt: 'â', hrs: `-${formatHoras(shiftingHrs)}`, obs: 'Roads/anchorage â berth no cuenta' });
   if (shexExclHrs > 0)
-    rows.push({ cls: 'row-exc', evento: '📅 SHEX excluido',           dt: 'Sáb 12:00–Lun 06:00', hrs: `-${formatHoras(shexExclHrs)}`, obs: `UU utilizado: ${formatHoras(shexUU)}` });
+    rows.push({ cls: 'row-exc', evento: 'ð SHEX excluido',           dt: 'SÃ¡b 12:00âLun 06:00', hrs: `-${formatHoras(shexExclHrs)}`, obs: `UU utilizado: ${formatHoras(shexUU)}` });
   if (detHrs > 0)
-    rows.push({ cls: 'row-exc', evento: '🛑 Detenciones excluidas',   dt: '—', hrs: `-${formatHoras(detHrs)}`, obs: 'Según contrato' });
+    rows.push({ cls: 'row-exc', evento: 'ð Detenciones excluidas',   dt: 'â', hrs: `-${formatHoras(detHrs)}`, obs: 'SegÃºn contrato' });
 
-  rows.push({ cls: 'row-key', evento: '⚓ First Hook',  dt: fhVal, hrs: '→ inicio op.', obs: '' });
-  rows.push({ cls: 'row-key', evento: '🏁 Last Hook',   dt: lhVal, hrs: '→ fin op.',    obs: '' });
-  rows.push({ cls: 'row-total', evento: 'TIEMPO USADO (neto)',   dt: '—', hrs: formatHoras(tiempoUsadoHrs), obs: '' });
-  rows.push({ cls: 'row-total', evento: 'LAYTIME PERMITIDO',    dt: '—', hrs: formatHoras(laytimeAllowedHrs),
-    obs: `${ton.toLocaleString()} T ÷ ${puerto.tasa.toLocaleString()} T/día` });
+  rows.push({ cls: 'row-key', evento: 'â First Hook',  dt: fhVal, hrs: 'â inicio op.', obs: '' });
+  rows.push({ cls: 'row-key', evento: 'ð Last Hook',   dt: lhVal, hrs: 'â fin op.',    obs: '' });
+  rows.push({ cls: 'row-total', evento: 'TIEMPO USADO (neto)',   dt: 'â', hrs: formatHoras(tiempoUsadoHrs), obs: '' });
+  rows.push({ cls: 'row-total', evento: 'LAYTIME PERMITIDO',    dt: 'â', hrs: formatHoras(laytimeAllowedHrs),
+    obs: `${ton.toLocaleString()} T Ã· ${puerto.tasa.toLocaleString()} T/dÃ­a` });
 
   document.getElementById(`lt_${pid}_tbody`).innerHTML = rows.map(r => `
     <tr class="${r.cls}">
       <td>${r.evento}</td>
-      <td class="mono" style="font-size:11px">${r.dt ? formatDtShort(new Date(r.dt)) : '—'}</td>
+      <td class="mono" style="font-size:11px">${r.dt ? formatDtShort(new Date(r.dt)) : 'â'}</td>
       <td class="mono">${r.hrs}</td>
       <td style="color:var(--text2);font-size:11px">${r.obs}</td>
     </tr>`).join('');
@@ -1930,10 +1930,10 @@ function ltRecalcular(pid) {
   // Resultado bar
   const resbar = document.getElementById(`lt_${pid}_resbar`);
   resbar.className = `lt-result-bar ${tipo_res}`;
-  const labels = { dem: '⚠️ DEMURRAGE', desp: '✅ DESPATCH', even: '⚖️ EVEN' };
+  const labels = { dem: 'â ï¸ DEMURRAGE', desp: 'â DESPATCH', even: 'âï¸ EVEN' };
   const subs = {
-    dem:  `Excedió laytime en ${formatHoras(Math.abs(balance))}`,
-    desp: `Terminó ${formatHoras(balance)} antes — despatch al 50%`,
+    dem:  `ExcediÃ³ laytime en ${formatHoras(Math.abs(balance))}`,
+    desp: `TerminÃ³ ${formatHoras(balance)} antes â despatch al 50%`,
     even: 'Tiempo exactamente igual al laytime permitido',
   };
   document.getElementById(`lt_${pid}_reslabel`).textContent  = labels[tipo_res];
@@ -1942,13 +1942,13 @@ function ltRecalcular(pid) {
   document.getElementById(`lt_${pid}_used`).textContent      = formatHoras(tiempoUsadoHrs);
   document.getElementById(`lt_${pid}_resmonto`).textContent  =
     tipo_res === 'even' ? 'USD 0' :
-    `${tipo_res === 'dem' ? '− ' : '+ '}USD ${Math.round(monto).toLocaleString('es-CL')}`;
+    `${tipo_res === 'dem' ? 'â ' : '+ '}USD ${Math.round(monto).toLocaleString('es-CL')}`;
 
   document.getElementById(`lt_${pid}_resultado`).style.display = 'block';
   ltActualizarResumen();
 }
 
-// ── SHEX: calcular horas Sáb 12:00 – Lun 06:00 dentro de un rango ──────
+// ââ SHEX: calcular horas SÃ¡b 12:00 â Lun 06:00 dentro de un rango ââââââ
 function ltCalcularSHEX(desde, hasta) {
   let excluidas = 0;
   let cur = new Date(desde);
@@ -1956,7 +1956,7 @@ function ltCalcularSHEX(desde, hasta) {
     const fin = new Date(Math.min(cur.getTime() + 3600000, hasta.getTime()));
     const dow = cur.getDay();
     const h   = cur.getHours();
-    // Sábado ≥ 12:00 o domingo o lunes < 06:00
+    // SÃ¡bado â¥ 12:00 o domingo o lunes < 06:00
     const enShex = (dow === 6 && h >= 12) || dow === 0 || (dow === 1 && h < 6);
     if (enShex) excluidas += (fin - cur) / 3600000;
     cur = fin;
@@ -1964,7 +1964,7 @@ function ltCalcularSHEX(desde, hasta) {
   return excluidas;
 }
 
-// ── RESUMEN TOTAL VIAJE ──────────────────────────────────────────────────
+// ââ RESUMEN TOTAL VIAJE ââââââââââââââââââââââââââââââââââââââââââââââââââ
 function ltActualizarResumen() {
   const clienteKey = document.getElementById('ltCargaTipo').value;
   const cfg = LT_CLIENTES_CONFIG[clienteKey];
@@ -1987,7 +1987,7 @@ function ltActualizarResumen() {
     const bc = r.tipo_res === 'dem' ? 'var(--red)' : r.tipo_res === 'desp' ? 'var(--green)' : 'var(--gold)';
     const label = r.tipo_res === 'dem' ? 'DEMURRAGE' : r.tipo_res === 'desp' ? 'DESPATCH' : 'EVEN';
     const usd = r.tipo_res === 'even' ? '0' :
-      `${r.tipo_res === 'dem' ? '−' : '+'}${Math.round(r.monto).toLocaleString('es-CL')}`;
+      `${r.tipo_res === 'dem' ? 'â' : '+'}${Math.round(r.monto).toLocaleString('es-CL')}`;
     if (r.tipo_res === 'dem') totalDem += r.monto;
     if (r.tipo_res === 'desp') totalDesp += r.monto;
     html += `<tr>
@@ -2007,7 +2007,7 @@ function ltActualizarResumen() {
   document.getElementById('ltTotalDem').textContent  = `USD ${Math.round(totalDem).toLocaleString('es-CL')}`;
   document.getElementById('ltTotalDesp').textContent = `USD ${Math.round(totalDesp).toLocaleString('es-CL')}`;
   const netoEl = document.getElementById('ltBalanceNeto');
-  netoEl.textContent = `${neto >= 0 ? '− ' : '+ '}USD ${Math.round(Math.abs(neto)).toLocaleString('es-CL')}`;
+  netoEl.textContent = `${neto >= 0 ? 'â ' : '+ '}USD ${Math.round(Math.abs(neto)).toLocaleString('es-CL')}`;
   netoEl.style.color = neto > 0 ? 'var(--red)' : neto < 0 ? 'var(--green)' : 'var(--gold)';
   document.getElementById('ltResumenViaje').style.display = 'block';
 }
@@ -2016,18 +2016,18 @@ function ltGuardarResumen() {
   const tipoCarga = document.getElementById('ltCargaTipo').value;
   const rec = {
     id: genId(), fecha: new Date().toISOString(), tipo: 'laytime_sof',
-    tipoCarga, nave: document.getElementById('ltNave').value || '—',
+    tipoCarga, nave: document.getElementById('ltNave').value || 'â',
     resultados: { ...ltResultados },
   };
   const hist = JSON.parse(localStorage.getItem(LS_HISTORIAL) || '[]');
   hist.unshift(rec);
   localStorage.setItem(LS_HISTORIAL, JSON.stringify(hist));
-  alert('✅ SOF guardado en historial');
+  alert('â SOF guardado en historial');
 }
 
-// ═══════════════════════════════════════════════
-// DETENTION — LÓGICA
-// ═══════════════════════════════════════════════
+// âââââââââââââââââââââââââââââââââââââââââââââââ
+// DETENTION â LÃGICA
+// âââââââââââââââââââââââââââââââââââââââââââââââ
 let selectedScenario = null;
 let currentDetCalc = null;
 
@@ -2035,12 +2035,12 @@ function renderDetentionForm() {
   const cliente = document.getElementById('detCliente').value;
   const tipoPuerto = document.getElementById('detTipoPuerto').value;
 
-  // Mostrar bloques según cliente
+  // Mostrar bloques segÃºn cliente
   document.getElementById('scenariosBHP').style.display = cliente === 'BHP' ? 'block' : 'none';
   document.getElementById('scenariosCodelco').style.display = cliente === 'Codelco' ? 'block' : 'none';
-  document.getElementById('detScenarioTitle').textContent = `Escenario de Arribo — ${cliente}`;
+  document.getElementById('detScenarioTitle').textContent = `Escenario de Arribo â ${cliente}`;
 
-  // Horas libres según cliente y puerto
+  // Horas libres segÃºn cliente y puerto
   const horasMap = { BHP: { origen: 48, destino: 24 }, Codelco: { origen: 24, destino: 24 }, KMP: { origen: 12, destino: 12 }, Trafigura: { origen: 24, destino: 24 }, Candelaria: { origen: 24, destino: 24 }, Manual: { origen: 24, destino: 24 } };
   const hl = horasMap[cliente][tipoPuerto];
   document.getElementById('detHorasLibres').value = hl;
@@ -2048,8 +2048,8 @@ function renderDetentionForm() {
     document.getElementById('detRate').value = rateMap[cliente] || 18000;
   document.getElementById('detHorasHint').textContent = `${cliente} ${tipoPuerto === 'origen' ? 'Origen' : 'Destino'}: ${hl}h de gracia`;
 
-  // Pro rata solo aplica en escenarios BHP específicos
-  // Mostrar campo tonelaje total siempre (útil para pro rata)
+  // Pro rata solo aplica en escenarios BHP especÃ­ficos
+  // Mostrar campo tonelaje total siempre (Ãºtil para pro rata)
   selectedScenario = null;
   clearScenarioSelection();
   document.getElementById('detResultBox').style.display = 'none';
@@ -2109,7 +2109,7 @@ function calcularDetention() {
   // Total horas desde arribo hasta All Fast
   const totalHorasEspera = Math.max(0, (allFastDt - arriboDt) / 3600000);
 
-  // Horas de espera DESPUÉS del grace period
+  // Horas de espera DESPUÃS del grace period
   const horasDetention = Math.max(0, totalHorasEspera - horasLibres);
 
   // Pro rata ratio
@@ -2128,7 +2128,7 @@ function calcularDetention() {
     switch (selectedScenario) {
       case 'bhp-1': {
         // Congestionado: tasa completa pro rata
-        // Si después cierra por clima: esas horas al 50% pro rata
+        // Si despuÃ©s cierra por clima: esas horas al 50% pro rata
         const radClima = document.querySelector('input[name="bhp1w"]:checked');
         const hayClima = radClima && radClima.value === 'si';
         const hrsClima = hayClima ? (parseFloat(document.getElementById('bhp1WeatherHrs').value) || 0) : 0;
@@ -2138,13 +2138,13 @@ function calcularDetention() {
         const montoClima = hrsClima * rateMitadHora * proRata;
         montoTotal = montoCongest + montoClima;
 
-        titulo = '⚠️ DETENTION — Puerto Congestionado';
-        subtitulo = `Escenario A · BHP · ${tipoPuerto === 'origen' ? 'Origen' : 'Destino'}`;
+        titulo = 'â ï¸ DETENTION â Puerto Congestionado';
+        subtitulo = `Escenario A Â· BHP Â· ${tipoPuerto === 'origen' ? 'Origen' : 'Destino'}`;
         detalle = `
           <div class="resultado-item"><label>Horas espera total</label><span>${formatHoras(totalHorasEspera)}</span></div>
           <div class="resultado-item"><label>Grace period</label><span>${horasLibres}h</span></div>
           <div class="resultado-item"><label>Horas detention</label><span>${formatHoras(horasDetention)}</span></div>
-          <div class="resultado-item"><label>Congestión (100%)</label><span>${formatHoras(hrsCongest)}</span></div>
+          <div class="resultado-item"><label>CongestiÃ³n (100%)</label><span>${formatHoras(hrsCongest)}</span></div>
           <div class="resultado-item"><label>Cierre clima (50%)</label><span>${formatHoras(hrsClima)}</span></div>
           <div class="resultado-item"><label>Pro rata BHP</label><span>${(proRata * 100).toFixed(1)}%</span></div>`;
         break;
@@ -2152,8 +2152,8 @@ function calcularDetention() {
       case 'bhp-2': {
         // Cerrado por clima: 50% pro rata
         montoTotal = horasDetention * rateMitadHora * proRata;
-        titulo = '🌊 DETENTION — Puerto Cerrado (Clima)';
-        subtitulo = `Escenario B · BHP · Tasa 50% · ${tipoPuerto === 'origen' ? 'Origen' : 'Destino'}`;
+        titulo = 'ð DETENTION â Puerto Cerrado (Clima)';
+        subtitulo = `Escenario B Â· BHP Â· Tasa 50% Â· ${tipoPuerto === 'origen' ? 'Origen' : 'Destino'}`;
         detalle = `
           <div class="resultado-item"><label>Horas espera total</label><span>${formatHoras(totalHorasEspera)}</span></div>
           <div class="resultado-item"><label>Grace period</label><span>${horasLibres}h</span></div>
@@ -2165,21 +2165,21 @@ function calcularDetention() {
       case 'bhp-3': {
         // Solo BHP no listo: 100% sin pro rata
         montoTotal = horasDetention * rateHora;
-        titulo = '⚠️ DETENTION — Carga BHP No Lista';
-        subtitulo = 'Escenario C · BHP · Tasa completa 100%';
+        titulo = 'â ï¸ DETENTION â Carga BHP No Lista';
+        subtitulo = 'Escenario C Â· BHP Â· Tasa completa 100%';
         detalle = `
           <div class="resultado-item"><label>Horas espera total</label><span>${formatHoras(totalHorasEspera)}</span></div>
           <div class="resultado-item"><label>Grace period</label><span>${horasLibres}h</span></div>
           <div class="resultado-item"><label>Horas detention</label><span>${formatHoras(horasDetention)}</span></div>
-          <div class="resultado-item"><label>Tasa aplicada</label><span>100% USD ${rate.toLocaleString()}/día</span></div>`;
+          <div class="resultado-item"><label>Tasa aplicada</label><span>100% USD ${rate.toLocaleString()}/dÃ­a</span></div>`;
         break;
       }
       case 'bhp-4': {
         // Solo no-BHP no listo: BHP NO paga
         noPaga = true;
         montoTotal = 0;
-        titulo = '✅ SIN DETENTION — Carga No-BHP No Lista';
-        subtitulo = 'Escenario D · BHP no paga detention en este caso';
+        titulo = 'â SIN DETENTION â Carga No-BHP No Lista';
+        subtitulo = 'Escenario D Â· BHP no paga detention en este caso';
         detalle = `
           <div class="resultado-item"><label>Horas espera total</label><span>${formatHoras(totalHorasEspera)}</span></div>
           <div class="resultado-item"><label>Motivo</label><span>Solo carga no-BHP no lista</span></div>
@@ -2189,8 +2189,8 @@ function calcularDetention() {
       case 'bhp-5': {
         // BHP y no-BHP no listos: pro rata
         montoTotal = horasDetention * rateHora * proRata;
-        titulo = '⚠️ DETENTION — BHP + No-BHP No Listos';
-        subtitulo = `Escenario E · BHP · Pro rata entre responsables`;
+        titulo = 'â ï¸ DETENTION â BHP + No-BHP No Listos';
+        subtitulo = `Escenario E Â· BHP Â· Pro rata entre responsables`;
         detalle = `
           <div class="resultado-item"><label>Horas espera total</label><span>${formatHoras(totalHorasEspera)}</span></div>
           <div class="resultado-item"><label>Grace period</label><span>${horasLibres}h</span></div>
@@ -2203,38 +2203,38 @@ function calcularDetention() {
     // CODELCO
     switch (selectedScenario) {
       case 'cdlc-1': {
-        // Congestión o carga no lista: 100% después de 24h
+        // CongestiÃ³n o carga no lista: 100% despuÃ©s de 24h
         montoTotal = horasDetention * rateHora;
-        titulo = '⚠️ DETENTION — Congestión / Carga No Lista';
-        subtitulo = 'Escenario A · Codelco · Tasa completa';
+        titulo = 'â ï¸ DETENTION â CongestiÃ³n / Carga No Lista';
+        subtitulo = 'Escenario A Â· Codelco Â· Tasa completa';
         detalle = `
           <div class="resultado-item"><label>Horas espera total</label><span>${formatHoras(totalHorasEspera)}</span></div>
           <div class="resultado-item"><label>Grace period</label><span>24h</span></div>
           <div class="resultado-item"><label>Horas detention</label><span>${formatHoras(horasDetention)}</span></div>
-          <div class="resultado-item"><label>Tasa aplicada</label><span>100% USD ${rate.toLocaleString()}/día</span></div>`;
+          <div class="resultado-item"><label>Tasa aplicada</label><span>100% USD ${rate.toLocaleString()}/dÃ­a</span></div>`;
         break;
       }
       case 'cdlc-2': {
-        // Puerto cerrado clima: 50% después de 24h
+        // Puerto cerrado clima: 50% despuÃ©s de 24h
         const hrsClima = parseFloat(document.getElementById('cdlcWeatherHrs').value) || 0;
         const hrsSinClima = Math.max(0, horasDetention - hrsClima);
         montoTotal = (hrsSinClima * rateHora) + (hrsClima * rateMitadHora);
         // Si todo fue clima, solo 50%
         if (hrsSinClima === 0) montoTotal = horasDetention * rateMitadHora;
-        titulo = '🌊 DETENTION — Puerto Cerrado (Clima)';
-        subtitulo = 'Escenario B · Codelco · Tasa 50%';
+        titulo = 'ð DETENTION â Puerto Cerrado (Clima)';
+        subtitulo = 'Escenario B Â· Codelco Â· Tasa 50%';
         detalle = `
           <div class="resultado-item"><label>Horas espera total</label><span>${formatHoras(totalHorasEspera)}</span></div>
           <div class="resultado-item"><label>Grace period</label><span>24h</span></div>
           <div class="resultado-item"><label>Horas detention</label><span>${formatHoras(horasDetention)}</span></div>
-          <div class="resultado-item"><label>Tasa aplicada</label><span>50% USD ${rate.toLocaleString()}/día</span></div>`;
+          <div class="resultado-item"><label>Tasa aplicada</label><span>50% USD ${rate.toLocaleString()}/dÃ­a</span></div>`;
         break;
       }
       case 'cdlc-3': {
-        // Congestión → luego clima: tasa COMPLETA todo el periodo
+        // CongestiÃ³n â luego clima: tasa COMPLETA todo el periodo
         montoTotal = horasDetention * rateHora;
-        titulo = '🔴 DETENTION — Congestión + Cierre Clima';
-        subtitulo = 'Escenario C · Codelco · Tasa completa incluso durante cierre climático';
+        titulo = 'ð´ DETENTION â CongestiÃ³n + Cierre Clima';
+        subtitulo = 'Escenario C Â· Codelco Â· Tasa completa incluso durante cierre climÃ¡tico';
         detalle = `
           <div class="resultado-item"><label>Horas espera total</label><span>${formatHoras(totalHorasEspera)}</span></div>
           <div class="resultado-item"><label>Grace period</label><span>24h</span></div>
@@ -2270,12 +2270,12 @@ function guardarDetention() {
   const hist = JSON.parse(localStorage.getItem(LS_HISTORIAL) || '[]');
   hist.unshift(currentDetCalc);
   localStorage.setItem(LS_HISTORIAL, JSON.stringify(hist));
-  alert('✅ Detention guardada en historial');
+  alert('â Detention guardada en historial');
 }
 
-// ═══════════════════════════════════════════════
+// âââââââââââââââââââââââââââââââââââââââââââââââ
 // UTILS
-// ═══════════════════════════════════════════════
+// âââââââââââââââââââââââââââââââââââââââââââââââ
 function genId() { return Math.random().toString(36).substr(2,9); }
 
 function formatHoras(h) {
@@ -2307,100 +2307,100 @@ function toDatetimeLocal(dt) {
 </body>
 </html>
   'codelco_catodos': {
-    label: 'Codelco — Cátodos Cobre',
+    label: 'Codelco â CÃ¡todos Cobre',
     demRate: 18000,
     puertos: [
-      { id: 'mejillones', nombre: 'Mejillones', tipo: 'carga',    tasa: 2500, shinc: true,  nor_regla: 'cl17_origen',  nota: 'SHINC · 12h USC · 24h detention' },
-      { id: 'bremen',     nombre: 'Bremen',     tipo: 'descarga', tasa: 3500, shinc: false, nor_regla: 'cl17_destino', nota: 'SHEX UU · 24h detention', shex: { satnoon: true, monMorn: '06:00' } },
+      { id: 'mejillones', nombre: 'Mejillones', tipo: 'carga',    tasa: 2500, shinc: true,  nor_regla: 'cl17_origen',  nota: 'SHINC Â· 12h USC Â· 24h detention' },
+      { id: 'bremen',     nombre: 'Bremen',     tipo: 'descarga', tasa: 3500, shinc: false, nor_regla: 'cl17_destino', nota: 'SHEX UU Â· 24h detention', shex: { satnoon: true, monMorn: '06:00' } },
     ],
   },
   'codelco_concentrado': {
-    label: 'Codelco — Concentrado Cobre',
+    label: 'Codelco â Concentrado Cobre',
     demRate: 18000,
     puertos: [
-      { id: 'mejillones', nombre: 'Mejillones', tipo: 'carga',    tasa: 2500, shinc: true,  nor_regla: 'cl17_origen',  nota: 'SHINC · 12h USC · 24h detention' },
-      { id: 'bremen',     nombre: 'Bremen',     tipo: 'descarga', tasa: 3500, shinc: false, nor_regla: 'cl17_destino', nota: 'SHEX UU · 24h detention', shex: { satnoon: true, monMorn: '06:00' } },
+      { id: 'mejillones', nombre: 'Mejillones', tipo: 'carga',    tasa: 2500, shinc: true,  nor_regla: 'cl17_origen',  nota: 'SHINC Â· 12h USC Â· 24h detention' },
+      { id: 'bremen',     nombre: 'Bremen',     tipo: 'descarga', tasa: 3500, shinc: false, nor_regla: 'cl17_destino', nota: 'SHEX UU Â· 24h detention', shex: { satnoon: true, monMorn: '06:00' } },
     ],
   },
   'bhp_concentrado': {
-    label: 'BHP — Concentrado Cobre',
+    label: 'BHP â Concentrado Cobre',
     demRate: 18000,
     puertos: [
-      { id: 'mejillones', nombre: 'Mejillones', tipo: 'carga',    tasa: 2500, shinc: true,  nor_regla: 'cl17_origen',  nota: 'SHINC · 12h USC · 48h detention' },
-      { id: 'bremen',     nombre: 'Bremen',     tipo: 'descarga', tasa: 3500, shinc: false, nor_regla: 'cl17_destino', nota: 'SHEX UU · 24h detention', shex: { satnoon: true, monMorn: '06:00' } },
+      { id: 'mejillones', nombre: 'Mejillones', tipo: 'carga',    tasa: 2500, shinc: true,  nor_regla: 'cl17_origen',  nota: 'SHINC Â· 12h USC Â· 48h detention' },
+      { id: 'bremen',     nombre: 'Bremen',     tipo: 'descarga', tasa: 3500, shinc: false, nor_regla: 'cl17_destino', nota: 'SHEX UU Â· 24h detention', shex: { satnoon: true, monMorn: '06:00' } },
     ],
   },
   'kmp_harina_arica': {
-    label: 'KMP — Harina Pescado (Arica)',
+    label: 'KMP â Harina Pescado (Arica)',
     demRate: 18000,
     puertos: [
-      { id: 'arica',  nombre: 'Arica',  tipo: 'carga',    tasa: 1500, shinc: true,  nor_regla: 'cl17_origen',  nota: 'SHINC · 12h USC' },
+      { id: 'arica',  nombre: 'Arica',  tipo: 'carga',    tasa: 1500, shinc: true,  nor_regla: 'cl17_origen',  nota: 'SHINC Â· 12h USC' },
       { id: 'bremen', nombre: 'Bremen', tipo: 'descarga', tasa: 3500, shinc: false, nor_regla: 'cl17_destino', nota: 'SHEX UU', shex: { satnoon: true, monMorn: '06:00' } },
     ],
   },
   'kmp_harina_chimbote': {
-    label: 'KMP — Harina Pescado (Chimbote)',
+    label: 'KMP â Harina Pescado (Chimbote)',
     demRate: 18000,
     puertos: [
-      { id: 'chimbote', nombre: 'Chimbote', tipo: 'carga',    tasa: 1500, shinc: true,  nor_regla: 'cl17_origen',  nota: 'SHINC · 12h USC' },
+      { id: 'chimbote', nombre: 'Chimbote', tipo: 'carga',    tasa: 1500, shinc: true,  nor_regla: 'cl17_origen',  nota: 'SHINC Â· 12h USC' },
       { id: 'bremen',   nombre: 'Bremen',   tipo: 'descarga', tasa: 3500, shinc: false, nor_regla: 'cl17_destino', nota: 'SHEX UU', shex: { satnoon: true, monMorn: '06:00' } },
     ],
   },
   'kmp_harina_ambos': {
-    label: 'KMP — Harina Pescado (Chimbote + Arica)',
+    label: 'KMP â Harina Pescado (Chimbote + Arica)',
     demRate: 18000,
     puertos: [
-      { id: 'chimbote', nombre: 'Chimbote', tipo: 'carga',    tasa: 1500, shinc: true, nor_regla: 'cl17_origen', nota: 'SHINC · 12h USC' },
-      { id: 'arica',    nombre: 'Arica',    tipo: 'carga',    tasa: 1500, shinc: true, nor_regla: 'cl17_origen', nota: 'SHINC · 12h USC' },
+      { id: 'chimbote', nombre: 'Chimbote', tipo: 'carga',    tasa: 1500, shinc: true, nor_regla: 'cl17_origen', nota: 'SHINC Â· 12h USC' },
+      { id: 'arica',    nombre: 'Arica',    tipo: 'carga',    tasa: 1500, shinc: true, nor_regla: 'cl17_origen', nota: 'SHINC Â· 12h USC' },
       { id: 'bremen',   nombre: 'Bremen',   tipo: 'descarga', tasa: 3500, shinc: false, nor_regla: 'cl17_destino', nota: 'SHEX UU', shex: { satnoon: true, monMorn: '06:00' } },
     ],
   },
   'trafigura_zinc': {
-    label: 'Trafigura — Concentrado Zinc (Arica)',
+    label: 'Trafigura â Concentrado Zinc (Arica)',
     demRate: 19000,
     puertos: [
-      { id: 'arica',   nombre: 'Arica',   tipo: 'carga',    tasa: 15000, shinc: true,  nor_regla: 'traf_origen',  nota: 'WWWD SHINC · Next WD 08:00' },
+      { id: 'arica',   nombre: 'Arica',   tipo: 'carga',    tasa: 15000, shinc: true,  nor_regla: 'traf_origen',  nota: 'WWWD SHINC Â· Next WD 08:00' },
       { id: 'antwerp', nombre: 'Antwerp', tipo: 'descarga', tasa: 5000,  shinc: false, nor_regla: 'traf_destino', nota: 'SHEX UU ATUTC', shex: { satnoon: true, monMorn: '06:00' } },
     ],
   },
   'trafigura_cobre': {
-    label: 'Trafigura — Concentrado Cobre (Callao)',
+    label: 'Trafigura â Concentrado Cobre (Callao)',
     demRate: 19000,
     puertos: [
-      { id: 'callao',  nombre: 'Callao',  tipo: 'carga',    tasa: 15000, shinc: true,  nor_regla: 'traf_origen',  nota: 'WWWD SHINC · Next WD 08:00' },
+      { id: 'callao',  nombre: 'Callao',  tipo: 'carga',    tasa: 15000, shinc: true,  nor_regla: 'traf_origen',  nota: 'WWWD SHINC Â· Next WD 08:00' },
       { id: 'antwerp', nombre: 'Antwerp', tipo: 'descarga', tasa: 5000,  shinc: false, nor_regla: 'traf_destino', nota: 'SHEX UU ATUTC', shex: { satnoon: true, monMorn: '06:00' } },
     ],
   },
   'candelaria_bremen': {
-    label: 'Candelaria — Concentrado (Coquimbo → Bremen)',
+    label: 'Candelaria â Concentrado (Coquimbo â Bremen)',
     demRate: 18000,
     puertos: [
-      { id: 'coquimbo', nombre: 'Coquimbo', tipo: 'carga',    tasa: 2500, shinc: true,  nor_regla: 'cl17_origen',  nota: 'Sin contrato — 24h detention' },
-      { id: 'bremen',   nombre: 'Bremen',   tipo: 'descarga', tasa: 5000, shinc: false, nor_regla: 'cl17_destino', nota: 'SHEX UU · 5000 T/día', shex: { satnoon: true, monMorn: '06:00' } },
+      { id: 'coquimbo', nombre: 'Coquimbo', tipo: 'carga',    tasa: 2500, shinc: true,  nor_regla: 'cl17_origen',  nota: 'Sin contrato â 24h detention' },
+      { id: 'bremen',   nombre: 'Bremen',   tipo: 'descarga', tasa: 5000, shinc: false, nor_regla: 'cl17_destino', nota: 'SHEX UU Â· 5000 T/dÃ­a', shex: { satnoon: true, monMorn: '06:00' } },
     ],
   },
   'candelaria_brunsbuttel': {
-    label: 'Candelaria — Concentrado (Coquimbo → Brunsbüttel)',
+    label: 'Candelaria â Concentrado (Coquimbo â BrunsbÃ¼ttel)',
     demRate: 18000,
     puertos: [
-      { id: 'coquimbo',    nombre: 'Coquimbo',    tipo: 'carga',    tasa: 2500, shinc: true,  nor_regla: 'cl17_origen',  nota: 'Sin contrato — 24h detention' },
-      { id: 'brunsbuttel', nombre: 'Brunsbüttel', tipo: 'descarga', tasa: 5000, shinc: false, nor_regla: 'cl17_destino', nota: 'SHEX UU · 5000 T/día', shex: { satnoon: true, monMorn: '06:00' } },
+      { id: 'coquimbo',    nombre: 'Coquimbo',    tipo: 'carga',    tasa: 2500, shinc: true,  nor_regla: 'cl17_origen',  nota: 'Sin contrato â 24h detention' },
+      { id: 'brunsbuttel', nombre: 'BrunsbÃ¼ttel', tipo: 'descarga', tasa: 5000, shinc: false, nor_regla: 'cl17_destino', nota: 'SHEX UU Â· 5000 T/dÃ­a', shex: { satnoon: true, monMorn: '06:00' } },
     ],
   },
   'candelaria_antwerp': {
-    label: 'Candelaria — Concentrado (Coquimbo → Antwerp)',
+    label: 'Candelaria â Concentrado (Coquimbo â Antwerp)',
     demRate: 18000,
     puertos: [
-      { id: 'coquimbo', nombre: 'Coquimbo', tipo: 'carga',    tasa: 2500, shinc: true,  nor_regla: 'cl17_origen',  nota: 'Sin contrato — 24h detention' },
-      { id: 'antwerp',  nombre: 'Antwerp',  tipo: 'descarga', tasa: 5000, shinc: false, nor_regla: 'cl17_destino', nota: 'SHEX UU · 5000 T/día', shex: { satnoon: true, monMorn: '06:00' } },
+      { id: 'coquimbo', nombre: 'Coquimbo', tipo: 'carga',    tasa: 2500, shinc: true,  nor_regla: 'cl17_origen',  nota: 'Sin contrato â 24h detention' },
+      { id: 'antwerp',  nombre: 'Antwerp',  tipo: 'descarga', tasa: 5000, shinc: false, nor_regla: 'cl17_destino', nota: 'SHEX UU Â· 5000 T/dÃ­a', shex: { satnoon: true, monMorn: '06:00' } },
     ],
   },
   'manual': {
-    label: 'Sin contrato — Manual',
+    label: 'Sin contrato â Manual',
     demRate: 18000,
     puertos: [
-      { id: 'origen',  nombre: 'Puerto Origen',  tipo: 'carga',    tasa: 2500, shinc: true,  nor_regla: 'cl17_origen',  nota: 'Modificar según contrato' },
-      { id: 'destino', nombre: 'Puerto Destino', tipo: 'descarga', tasa: 3500, shinc: false, nor_regla: 'cl17_destino', nota: 'Modificar según contrato', shex: { satnoon: true, monMorn: '06:00' } },
+      { id: 'origen',  nombre: 'Puerto Origen',  tipo: 'carga',    tasa: 2500, shinc: true,  nor_regla: 'cl17_origen',  nota: 'Modificar segÃºn contrato' },
+      { id: 'destino', nombre: 'Puerto Destino', tipo: 'descarga', tasa: 3500, shinc: false, nor_regla: 'cl17_destino', nota: 'Modificar segÃºn contrato', shex: { satnoon: true, monMorn: '06:00' } },
     ],
   },
 };
@@ -2413,7 +2413,7 @@ const LT_PUERTOS = {
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Chartering — Volans Maritime</title>
+<title>Chartering â Volans Maritime</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
 
@@ -2649,7 +2649,7 @@ const LT_PUERTOS = {
   .turno-item-info .ti-title { font-size: 13px; font-weight: 600; }
   .turno-item-info .ti-sub { font-size: 11px; color: var(--text2); font-family: 'JetBrains Mono', monospace; margin-top: 2px; }
 
-  /* RESUMEN RÁPIDO */
+  /* RESUMEN RÃPIDO */
   .kpi-row { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 20px; }
   .kpi-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 16px 20px; flex: 1; min-width: 140px; }
   .kpi-card label { font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--text2); }
@@ -2752,13 +2752,13 @@ const LT_PUERTOS = {
 
 <!-- HEADER -->
 <div class="header">
-  <span class="header-icon">⚓</span>
+  <span class="header-icon">â</span>
   <div>
     <h1>Chartering</h1>
-    <span>Volans Maritime — Cálculo Demurrage / Despatch</span>
+    <span>Volans Maritime â CÃ¡lculo Demurrage / Despatch</span>
   </div>
   <div class="header-right">
-    <button class="btn-back" onclick="window.location.href='index.html'">← Sistema Principal</button>
+    <button class="btn-back" onclick="window.location.href='index.html'">â Sistema Principal</button>
   </div>
 </div>
 
@@ -2767,51 +2767,51 @@ const LT_PUERTOS = {
 
   <!-- TABS -->
   <div class="tabs">
-    <button class="tab active" onclick="setTab('calcular')">📊 Demurrage</button>
-    <button class="tab" onclick="setTab('laytime')">📋 Laytime / SOF</button>
-    <button class="tab" onclick="setTab('detention')">⏱ Detention</button>
-    <button class="tab" onclick="setTab('clientes')">🏢 Clientes</button>
-    <button class="tab" onclick="setTab('historial')">🗂 Historial</button>
+    <button class="tab active" onclick="setTab('calcular')">ð Demurrage</button>
+    <button class="tab" onclick="setTab('laytime')">ð Laytime / SOF</button>
+    <button class="tab" onclick="setTab('detention')">â± Detention</button>
+    <button class="tab" onclick="setTab('clientes')">ð¢ Clientes</button>
+    <button class="tab" onclick="setTab('historial')">ð Historial</button>
   </div>
 
-  <!-- ══════════════════════════════════ TAB: LAYTIME / SOF ══════════════════════════════════ -->
+  <!-- ââââââââââââââââââââââââââââââââââ TAB: LAYTIME / SOF ââââââââââââââââââââââââââââââââââ -->
   <div id="panel-laytime" class="panel">
 
     <!-- CABECERA VIAJE -->
     <div class="card">
-      <div class="section-title">Identificación del Viaje</div>
+      <div class="section-title">IdentificaciÃ³n del Viaje</div>
       <div class="form-grid cols3">
         <div class="field">
           <label>Nave</label>
           <select id="ltNave" onchange="ltCargarEscalas()">
-            <option value="">— Seleccionar —</option>
+            <option value="">â Seleccionar â</option>
           </select>
         </div>
         <div class="field">
           <label>Cliente / Contrato</label>
           <select id="ltCargaTipo" onchange="ltActualizarPuertos()">
-            <option value="codelco_concentrado">Codelco — Concentrado Cobre</option>
-            <option value="codelco_catodos">Codelco — Cátodos Cobre</option>
-            <option value="bhp_concentrado">BHP — Concentrado Cobre</option>
-            <option value="kmp_harina">KMP — Harina de Pescado</option>
-            <option value="trafigura_concentrado_cobre">Trafigura — Concentrado Cobre</option>
-            <option value="trafigura_concentrado_zinc">Trafigura — Concentrado Zinc</option>
+            <option value="codelco_concentrado">Codelco â Concentrado Cobre</option>
+            <option value="codelco_catodos">Codelco â CÃ¡todos Cobre</option>
+            <option value="bhp_concentrado">BHP â Concentrado Cobre</option>
+            <option value="kmp_harina">KMP â Harina de Pescado</option>
+            <option value="trafigura_concentrado_cobre">Trafigura â Concentrado Cobre</option>
+            <option value="trafigura_concentrado_zinc">Trafigura â Concentrado Zinc</option>
           </select>
         </div>
         <div class="field">
-          <label>Demurrage Rate (USD/día)</label>
+          <label>Demurrage Rate (USD/dÃ­a)</label>
           <input type="number" id="ltDemRate" value="18000" step="500">
         </div>
       </div>
     </div>
 
-    <!-- PUERTOS — se generan dinámicamente -->
+    <!-- PUERTOS â se generan dinÃ¡micamente -->
     <div id="ltPuertosContainer"></div>
 
     <!-- RESUMEN TOTAL VIAJE -->
     <div id="ltResumenViaje" style="display:none">
       <div class="card" style="border-color:var(--accent)">
-        <div class="section-title">Resumen Total Viaje — Non Reversible</div>
+        <div class="section-title">Resumen Total Viaje â Non Reversible</div>
         <div style="font-size:11px; color:var(--text2); margin-bottom:16px">Cada puerto se calcula por separado (non-reversible). No se compensan balances.</div>
         <div id="ltResumenTabla"></div>
         <div style="margin-top:20px; padding-top:16px; border-top:1px solid var(--border); display:flex; gap:20px; flex-wrap:wrap">
@@ -2829,33 +2829,33 @@ const LT_PUERTOS = {
           </div>
         </div>
         <div class="actions-row" style="margin-top:16px">
-          <button class="btn-primary" onclick="ltGuardarResumen()">💾 Guardar en Historial</button>
+          <button class="btn-primary" onclick="ltGuardarResumen()">ð¾ Guardar en Historial</button>
         </div>
       </div>
     </div>
 
   </div><!-- /panel-laytime -->
 
-  <!-- ══════════════════════════════════ TAB: CALCULAR ══════════════════════════════════ -->
+  <!-- ââââââââââââââââââââââââââââââââââ TAB: CALCULAR ââââââââââââââââââââââââââââââââââ -->
   <div id="panel-calcular" class="panel active">
 
     <!-- KPI RESUMEN -->
     <div class="kpi-row" id="kpiRow" style="display:none">
       <div class="kpi-card">
         <label>Laytime Permitido</label>
-        <div class="kpi-val" id="kpiAllowed">—</div>
+        <div class="kpi-val" id="kpiAllowed">â</div>
       </div>
       <div class="kpi-card">
         <label>Tiempo Usado</label>
-        <div class="kpi-val" id="kpiUsed">—</div>
+        <div class="kpi-val" id="kpiUsed">â</div>
       </div>
       <div class="kpi-card">
         <label>Balance</label>
-        <div class="kpi-val" id="kpiBalance">—</div>
+        <div class="kpi-val" id="kpiBalance">â</div>
       </div>
       <div class="kpi-card">
         <label>Monto</label>
-        <div class="kpi-val" id="kpiMonto">—</div>
+        <div class="kpi-val" id="kpiMonto">â</div>
       </div>
     </div>
 
@@ -2871,20 +2871,20 @@ const LT_PUERTOS = {
           <div class="field">
             <label>Nave</label>
             <select id="selNave" onchange="cargarEscalas()">
-              <option value="">— Seleccionar —</option>
+              <option value="">â Seleccionar â</option>
             </select>
           </div>
           <div class="field">
             <label>Viaje / Escala</label>
             <select id="selEscala" onchange="cargarDatosEscala()">
-              <option value="">— Seleccionar —</option>
+              <option value="">â Seleccionar â</option>
             </select>
           </div>
           <div class="field">
-            <label>Tipo Operación</label>
+            <label>Tipo OperaciÃ³n</label>
             <select id="selTipoOp" onchange="actualizarCondiciones()">
-              <option value="descarga">Descarga (SHINC — Destino)</option>
-              <option value="embarque">Embarque (SHINC — Origen)</option>
+              <option value="descarga">Descarga (SHINC â Destino)</option>
+              <option value="embarque">Embarque (SHINC â Origen)</option>
             </select>
           </div>
         </div>
@@ -2895,7 +2895,7 @@ const LT_PUERTOS = {
         <div class="step-header">
           <div class="step-num">2</div>
           <div class="step-title">Condiciones Charter</div>
-          <span class="step-subtitle" id="condTipoLabel">SHINC · 12h libres · NOR horario oficina</span>
+          <span class="step-subtitle" id="condTipoLabel">SHINC Â· 12h libres Â· NOR horario oficina</span>
         </div>
         <div class="form-grid">
           <div class="field">
@@ -2905,13 +2905,13 @@ const LT_PUERTOS = {
             </select>
           </div>
           <div class="field">
-            <label>Demurrage Rate (USD/día)</label>
+            <label>Demurrage Rate (USD/dÃ­a)</label>
             <input type="number" id="demurrageRate" value="25000" step="500" oninput="sincDespatch()">
           </div>
           <div class="field">
-            <label>Despatch Rate (USD/día)</label>
+            <label>Despatch Rate (USD/dÃ­a)</label>
             <input type="number" id="despatchRate" value="12500" step="500">
-            <span class="hint">Automático: 50% del demurrage</span>
+            <span class="hint">AutomÃ¡tico: 50% del demurrage</span>
           </div>
           <div class="field">
             <label>Horas Libres (Laytime)</label>
@@ -2933,7 +2933,7 @@ const LT_PUERTOS = {
             <span class="hint" id="norHint"></span>
           </div>
           <div class="field">
-            <label>NOR Aceptada (automático)</label>
+            <label>NOR Aceptada (automÃ¡tico)</label>
             <input type="datetime-local" id="norAceptada" readonly style="opacity:.7">
             <span class="hint" id="norAjuste" style="color:var(--gold)"></span>
           </div>
@@ -2944,31 +2944,31 @@ const LT_PUERTOS = {
           <div class="nor-event">
             <div class="nor-dot" id="dot1"></div>
             <div class="nor-label">NOR Tendered</div>
-            <div class="nor-time" id="tlNorT">—</div>
+            <div class="nor-time" id="tlNorT">â</div>
           </div>
           <div class="nor-line"></div>
           <div class="nor-event">
             <div class="nor-dot gold" id="dot2"></div>
             <div class="nor-label">NOR Aceptada</div>
-            <div class="nor-time" id="tlNorA">—</div>
+            <div class="nor-time" id="tlNorA">â</div>
           </div>
           <div class="nor-line"></div>
           <div class="nor-event">
             <div class="nor-dot green" id="dot3"></div>
             <div class="nor-label">Laytime Start</div>
-            <div class="nor-time" id="tlLayStart">—</div>
+            <div class="nor-time" id="tlLayStart">â</div>
           </div>
           <div class="nor-line"></div>
           <div class="nor-event">
             <div class="nor-dot green" id="dot4"></div>
             <div class="nor-label">First Hook</div>
-            <div class="nor-time" id="tlFirstHook">—</div>
+            <div class="nor-time" id="tlFirstHook">â</div>
           </div>
           <div class="nor-line"></div>
           <div class="nor-event">
             <div class="nor-dot red" id="dot5"></div>
             <div class="nor-label">Last Hook</div>
-            <div class="nor-time" id="tlLastHook">—</div>
+            <div class="nor-time" id="tlLastHook">â</div>
           </div>
         </div>
       </div>
@@ -2977,12 +2977,12 @@ const LT_PUERTOS = {
       <div class="step-block">
         <div class="step-header">
           <div class="step-num">4</div>
-          <div class="step-title">Datos de Operación</div>
+          <div class="step-title">Datos de OperaciÃ³n</div>
           <span class="step-subtitle" id="turnosSubtitle">desde turnos registrados</span>
         </div>
 
         <div id="turnosAutoInfo" class="info-box" style="margin-bottom:14px; display:none">
-          ℹ️ Se usarán los turnos registrados para esta escala. First Hook y Last Hook calculados automáticamente.
+          â¹ï¸ Se usarÃ¡n los turnos registrados para esta escala. First Hook y Last Hook calculados automÃ¡ticamente.
         </div>
 
         <div class="form-grid cols2">
@@ -3016,8 +3016,8 @@ const LT_PUERTOS = {
 
       <!-- ACCIONES -->
       <div class="actions-row">
-        <button class="btn-primary" onclick="calcular()">⚡ Calcular Demurrage / Despatch</button>
-        <button class="btn-secondary" onclick="limpiarCalculo()">↺ Limpiar</button>
+        <button class="btn-primary" onclick="calcular()">â¡ Calcular Demurrage / Despatch</button>
+        <button class="btn-secondary" onclick="limpiarCalculo()">âº Limpiar</button>
       </div>
 
       <!-- RESULTADO -->
@@ -3028,7 +3028,7 @@ const LT_PUERTOS = {
             <div style="font-size:13px; color:var(--text2); margin-top:2px" id="resultSubtitulo"></div>
             <div class="resultado-monto" id="resultMonto"></div>
           </div>
-          <button class="btn-secondary" onclick="guardarCalculo()" style="align-self:flex-start">💾 Guardar en Historial</button>
+          <button class="btn-secondary" onclick="guardarCalculo()" style="align-self:flex-start">ð¾ Guardar en Historial</button>
         </div>
         <div class="resultado-detalle">
           <div class="resultado-item">
@@ -3052,7 +3052,7 @@ const LT_PUERTOS = {
             <span id="resLayStart"></span>
           </div>
           <div class="resultado-item">
-            <label>Rate (USD/día)</label>
+            <label>Rate (USD/dÃ­a)</label>
             <span id="resRate"></span>
           </div>
         </div>
@@ -3061,12 +3061,12 @@ const LT_PUERTOS = {
     </div><!-- /calc-steps -->
   </div><!-- /panel calcular -->
 
-  <!-- ══════════════════════════════════ TAB: CLIENTES ══════════════════════════════════ -->
+  <!-- ââââââââââââââââââââââââââââââââââ TAB: CLIENTES ââââââââââââââââââââââââââââââââââ -->
   <div id="panel-clientes" class="panel">
     <div class="card">
       <div class="section-title">Condiciones por Cliente</div>
       <p style="font-size:13px; color:var(--text2); margin-bottom:18px">
-        Defina las condiciones charter predeterminadas por cliente. Al seleccionar un cliente en el cálculo, se cargan automáticamente.
+        Defina las condiciones charter predeterminadas por cliente. Al seleccionar un cliente en el cÃ¡lculo, se cargan automÃ¡ticamente.
       </p>
       <div class="clientes-grid" id="clientesGrid">
         <!-- se renderiza via JS -->
@@ -3074,22 +3074,22 @@ const LT_PUERTOS = {
     </div>
   </div>
 
-  <!-- ══════════════════════════════════ TAB: HISTORIAL ══════════════════════════════════ -->
+  <!-- ââââââââââââââââââââââââââââââââââ TAB: HISTORIAL ââââââââââââââââââââââââââââââââââ -->
   <div id="panel-historial" class="panel">
     <div class="card">
-      <div class="section-title">Historial de Cálculos</div>
+      <div class="section-title">Historial de CÃ¡lculos</div>
       <div id="historialContainer">
-        <div class="empty"><span>📋</span>No hay cálculos guardados aún</div>
+        <div class="empty"><span>ð</span>No hay cÃ¡lculos guardados aÃºn</div>
       </div>
     </div>
   </div>
 
-  <!-- ══════════════════════════════════ TAB: DETENTION ══════════════════════════════════ -->
+  <!-- ââââââââââââââââââââââââââââââââââ TAB: DETENTION ââââââââââââââââââââââââââââââââââ -->
   <div id="panel-detention" class="panel">
 
     <!-- SELECTOR CLIENTE -->
     <div class="card" style="margin-bottom:20px">
-      <div class="section-title">Configuración Detention</div>
+      <div class="section-title">ConfiguraciÃ³n Detention</div>
       <div class="form-grid cols3">
         <div class="field">
           <label>Cliente</label>
@@ -3106,7 +3106,7 @@ const LT_PUERTOS = {
           </select>
         </div>
         <div class="field">
-          <label>Tasa Detention (USD/día)</label>
+          <label>Tasa Detention (USD/dÃ­a)</label>
           <input type="number" id="detRate" value="18000" step="500">
           <span class="hint">Box 14 del contrato</span>
         </div>
@@ -3135,23 +3135,23 @@ const LT_PUERTOS = {
         <div class="field">
           <label>Tonelaje TOTAL en este puerto (T)</label>
           <input type="number" id="detTonTotal" value="0" step="100" oninput="calcularDetention()">
-          <span class="hint">Para cálculo pro rata con otros cargadores</span>
+          <span class="hint">Para cÃ¡lculo pro rata con otros cargadores</span>
         </div>
         <div class="field">
           <label>Horas Libres (Grace Period)</label>
           <input type="number" id="detHorasLibres" value="48" step="1" readonly style="opacity:.7">
-          <span class="hint" id="detHorasHint">BHP Origen: 48h · Destino: 24h</span>
+          <span class="hint" id="detHorasHint">BHP Origen: 48h Â· Destino: 24h</span>
         </div>
       </div>
     </div>
 
     <!-- ESCENARIO -->
     <div class="card" style="margin-bottom:20px">
-      <div class="section-title" id="detScenarioTitle">Escenario de Arribo — BHP</div>
+      <div class="section-title" id="detScenarioTitle">Escenario de Arribo â BHP</div>
 
       <!-- ESCENARIOS BHP -->
       <div id="scenariosBHP">
-        <p style="font-size:12px; color:var(--text2); margin-bottom:16px">Seleccione el escenario que corresponde según las condiciones al arribo:</p>
+        <p style="font-size:12px; color:var(--text2); margin-bottom:16px">Seleccione el escenario que corresponde segÃºn las condiciones al arribo:</p>
 
         <div class="scenario-grid" id="scenarioBHPGrid">
 
@@ -3159,12 +3159,12 @@ const LT_PUERTOS = {
             <div class="sc-num">A</div>
             <div class="sc-body">
               <div class="sc-title">Puerto Congestionado</div>
-              <div class="sc-desc">La nave arriba y el puerto está congestionado (sin muelle disponible). Detention a tasa completa pro rata por tonelaje BHP.</div>
+              <div class="sc-desc">La nave arriba y el puerto estÃ¡ congestionado (sin muelle disponible). Detention a tasa completa pro rata por tonelaje BHP.</div>
               <div class="sc-sub-grid" id="bhp1-weather-row">
-                <div class="sc-sub-label">¿Posteriormente cierra por clima/swell?</div>
+                <div class="sc-sub-label">Â¿Posteriormente cierra por clima/swell?</div>
                 <div class="radio-row">
                   <label class="radio-opt"><input type="radio" name="bhp1w" value="no" checked onchange="calcularDetention()"> No</label>
-                  <label class="radio-opt"><input type="radio" name="bhp1w" value="si" onchange="calcularDetention()"> Sí → 50% tasa por días cierre</label>
+                  <label class="radio-opt"><input type="radio" name="bhp1w" value="si" onchange="calcularDetention()"> SÃ­ â 50% tasa por dÃ­as cierre</label>
                 </div>
                 <div id="bhp1-weather-hrs" style="display:none; margin-top:8px">
                   <div class="field">
@@ -3179,8 +3179,8 @@ const LT_PUERTOS = {
           <div class="scenario-card" id="sc-bhp-2" onclick="selScenario('bhp-2')">
             <div class="sc-num">B</div>
             <div class="sc-body">
-              <div class="sc-title">Puerto Cerrado — Clima / Swell</div>
-              <div class="sc-desc">La nave arriba y el puerto está cerrado por mal tiempo o swell. Detention al 50% de la tasa, pro rata por tonelaje BHP.</div>
+              <div class="sc-title">Puerto Cerrado â Clima / Swell</div>
+              <div class="sc-desc">La nave arriba y el puerto estÃ¡ cerrado por mal tiempo o swell. Detention al 50% de la tasa, pro rata por tonelaje BHP.</div>
             </div>
           </div>
 
@@ -3188,7 +3188,7 @@ const LT_PUERTOS = {
             <div class="sc-num">C</div>
             <div class="sc-body">
               <div class="sc-title">Carga BHP No Lista (solo BHP)</div>
-              <div class="sc-desc">La nave arriba al puerto de carga y únicamente la carga BHP no está lista. Detention al 100% pagada por BHP.</div>
+              <div class="sc-desc">La nave arriba al puerto de carga y Ãºnicamente la carga BHP no estÃ¡ lista. Detention al 100% pagada por BHP.</div>
             </div>
           </div>
 
@@ -3196,7 +3196,7 @@ const LT_PUERTOS = {
             <div class="sc-num">D</div>
             <div class="sc-body">
               <div class="sc-title">Solo Carga No-BHP No Lista</div>
-              <div class="sc-desc">La nave arriba y solo la carga de otros cargadores no está lista (carga BHP sí está). BHP NO paga detention, aunque luego cierre por clima o haya congestión.</div>
+              <div class="sc-desc">La nave arriba y solo la carga de otros cargadores no estÃ¡ lista (carga BHP sÃ­ estÃ¡). BHP NO paga detention, aunque luego cierre por clima o haya congestiÃ³n.</div>
               <div class="sc-badge no-pay">BHP no paga</div>
             </div>
           </div>
@@ -3205,7 +3205,7 @@ const LT_PUERTOS = {
             <div class="sc-num">E</div>
             <div class="sc-body">
               <div class="sc-title">BHP y No-BHP No Listos</div>
-              <div class="sc-desc">La nave arriba al puerto de carga y tanto la carga BHP como otros cargadores no están listos. Detention pro rata entre responsables por tonelaje.</div>
+              <div class="sc-desc">La nave arriba al puerto de carga y tanto la carga BHP como otros cargadores no estÃ¡n listos. Detention pro rata entre responsables por tonelaje.</div>
             </div>
           </div>
 
@@ -3214,31 +3214,31 @@ const LT_PUERTOS = {
 
       <!-- ESCENARIOS CODELCO -->
       <div id="scenariosCodelco" style="display:none">
-        <p style="font-size:12px; color:var(--text2); margin-bottom:16px">Seleccione el escenario que corresponde según las condiciones al arribo:</p>
+        <p style="font-size:12px; color:var(--text2); margin-bottom:16px">Seleccione el escenario que corresponde segÃºn las condiciones al arribo:</p>
 
         <div class="scenario-grid" id="scenarioCodelcoGrid">
 
           <div class="scenario-card" id="sc-cdlc-1" onclick="selScenario('cdlc-1')">
             <div class="sc-num">A</div>
             <div class="sc-body">
-              <div class="sc-title">Congestión o Carga No Lista 100%</div>
-              <div class="sc-desc">Puerto congestionado o carga no disponible al 100%. Detention a tasa completa después de 24h de gracia. Aplica también si posteriormente cierra por clima.</div>
+              <div class="sc-title">CongestiÃ³n o Carga No Lista 100%</div>
+              <div class="sc-desc">Puerto congestionado o carga no disponible al 100%. Detention a tasa completa despuÃ©s de 24h de gracia. Aplica tambiÃ©n si posteriormente cierra por clima.</div>
             </div>
           </div>
 
           <div class="scenario-card" id="sc-cdlc-2" onclick="selScenario('cdlc-2')">
             <div class="sc-num">B</div>
             <div class="sc-body">
-              <div class="sc-title">Puerto Cerrado — Clima / Swell</div>
-              <div class="sc-desc">El puerto está cerrado por mal tiempo o swell. Detention al 50% después de 24h de gracia.</div>
+              <div class="sc-title">Puerto Cerrado â Clima / Swell</div>
+              <div class="sc-desc">El puerto estÃ¡ cerrado por mal tiempo o swell. Detention al 50% despuÃ©s de 24h de gracia.</div>
             </div>
           </div>
 
           <div class="scenario-card" id="sc-cdlc-3" onclick="selScenario('cdlc-3')">
             <div class="sc-num">C</div>
             <div class="sc-body">
-              <div class="sc-title">Congestión/Carga → luego Cierra por Clima</div>
-              <div class="sc-desc">Puerto congestionado o carga no lista, y luego el puerto cierra por clima. Detention a tasa COMPLETA durante todo el periodo (incluyendo cierre climático). Después de 24h de gracia.</div>
+              <div class="sc-title">CongestiÃ³n/Carga â luego Cierra por Clima</div>
+              <div class="sc-desc">Puerto congestionado o carga no lista, y luego el puerto cierra por clima. Detention a tasa COMPLETA durante todo el periodo (incluyendo cierre climÃ¡tico). DespuÃ©s de 24h de gracia.</div>
               <div class="sc-badge full-pay">Tasa completa siempre</div>
             </div>
           </div>
@@ -3250,7 +3250,7 @@ const LT_PUERTOS = {
           <div class="field" style="max-width:260px">
             <label>Horas de cierre por clima (dentro del periodo)</label>
             <input type="number" id="cdlcWeatherHrs" value="0" step="1" oninput="calcularDetention()">
-            <span class="hint">Solo para escenario B — se cobra al 50%</span>
+            <span class="hint">Solo para escenario B â se cobra al 50%</span>
           </div>
         </div>
       </div>
@@ -3265,7 +3265,7 @@ const LT_PUERTOS = {
           <div style="font-size:13px; color:var(--text2); margin-top:2px" id="detResSubtitulo"></div>
           <div class="resultado-monto" id="detResMonto"></div>
         </div>
-        <button class="btn-secondary" onclick="guardarDetention()">💾 Guardar en Historial</button>
+        <button class="btn-secondary" onclick="guardarDetention()">ð¾ Guardar en Historial</button>
       </div>
       <div class="resultado-detalle" id="detResDetalle"></div>
     </div>
@@ -3277,36 +3277,36 @@ const LT_PUERTOS = {
 <!-- MODAL CLIENTE -->
 <div class="modal-overlay" id="modalCliente">
   <div class="modal">
-    <h3 id="modalClienteTitulo">➕ Nuevo Cliente</h3>
+    <h3 id="modalClienteTitulo">â Nuevo Cliente</h3>
     <div class="field" style="margin-bottom:14px">
       <label>Nombre Cliente</label>
       <input type="text" id="mcNombre" placeholder="Ej: Codelco, BHP, Antofagasta Minerals">
     </div>
-    <div style="margin-bottom:10px; font-size:12px; font-weight:700; color:var(--accent); letter-spacing:1px; text-transform:uppercase">Embarque (Origen — SHINC)</div>
+    <div style="margin-bottom:10px; font-size:12px; font-weight:700; color:var(--accent); letter-spacing:1px; text-transform:uppercase">Embarque (Origen â SHINC)</div>
     <div class="form-grid cols2" style="margin-bottom:16px">
       <div class="field">
         <label>Horas Libres Origen</label>
         <input type="number" id="mcHorasOrigen" value="24" step="0.5">
       </div>
       <div class="field">
-        <label>Demurrage (USD/día)</label>
+        <label>Demurrage (USD/dÃ­a)</label>
         <input type="number" id="mcDemOrigen" value="25000" step="500">
       </div>
     </div>
-    <div style="margin-bottom:10px; font-size:12px; font-weight:700; color:var(--accent2); letter-spacing:1px; text-transform:uppercase">Descarga (Destino — SHINC)</div>
+    <div style="margin-bottom:10px; font-size:12px; font-weight:700; color:var(--accent2); letter-spacing:1px; text-transform:uppercase">Descarga (Destino â SHINC)</div>
     <div class="form-grid cols2" style="margin-bottom:16px">
       <div class="field">
         <label>Horas Libres Destino</label>
         <input type="number" id="mcHorasDestino" value="12" step="0.5">
       </div>
       <div class="field">
-        <label>Demurrage (USD/día)</label>
+        <label>Demurrage (USD/dÃ­a)</label>
         <input type="number" id="mcDemDestino" value="25000" step="500">
       </div>
     </div>
     <div class="field" style="margin-bottom:4px">
       <label>Notas</label>
-      <textarea id="mcNotas" rows="2" style="resize:vertical" placeholder="Cláusulas especiales, observaciones..."></textarea>
+      <textarea id="mcNotas" rows="2" style="resize:vertical" placeholder="ClÃ¡usulas especiales, observaciones..."></textarea>
     </div>
     <div class="modal-actions">
       <button class="btn-secondary" onclick="cerrarModalCliente()">Cancelar</button>
@@ -3316,16 +3316,16 @@ const LT_PUERTOS = {
 </div>
 
 <script>
-// ═══════════════════════════════════════════════
+// âââââââââââââââââââââââââââââââââââââââââââââââ
 // STORAGE KEYS
-// ═══════════════════════════════════════════════
+// âââââââââââââââââââââââââââââââââââââââââââââââ
 const LS_NAVES = 'vms_naves';
 const LS_VIAJES = 'vms_viajes';
 const LS_TURNOS = 'vms_turnos';
 
-// ═══════════════════════════════════════════════
+// âââââââââââââââââââââââââââââââââââââââââââââââ
 // INIT
-// ═══════════════════════════════════════════════
+// âââââââââââââââââââââââââââââââââââââââââââââââ
 let currentCalc = null;
 let editingClienteId = null;
 
@@ -3338,9 +3338,9 @@ document.addEventListener('DOMContentLoaded', () => {
   ltActualizarPuertos();
 });
 
-// ═══════════════════════════════════════════════
+// âââââââââââââââââââââââââââââââââââââââââââââââ
 // TABS
-// ═══════════════════════════════════════════════
+// âââââââââââââââââââââââââââââââââââââââââââââââ
 function setTab(tab) {
   document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
   document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
@@ -3352,9 +3352,9 @@ function setTab(tab) {
   if (tab === 'laytime') ltActualizarPuertos();
 }
 
-// ═══════════════════════════════════════════════
+// âââââââââââââââââââââââââââââââââââââââââââââââ
 // CLIENTES DEFAULT
-// ═══════════════════════════════════════════════
+// âââââââââââââââââââââââââââââââââââââââââââââââ
 function inicializarClientesDefault() {
   const existing = getClientes();
   if (existing.length > 0) return;
@@ -3376,19 +3376,19 @@ function renderClientesGrid() {
   clientes.forEach(c => {
     html += `
       <div class="cliente-card">
-        <button class="btn-edit-cliente" onclick="editarCliente('${c.id}')">✏️ Editar</button>
+        <button class="btn-edit-cliente" onclick="editarCliente('${c.id}')">âï¸ Editar</button>
         <div class="cliente-nombre">${c.nombre}</div>
         <div class="cliente-row"><span>Horas libres origen</span><span>${c.horasOrigen}h (FIOST)</span></div>
         <div class="cliente-row"><span>Horas libres destino</span><span>${c.horasDestino}h (SHINC)</span></div>
-        <div class="cliente-row"><span>Demurrage origen</span><span>USD ${c.demOrigen.toLocaleString()}/día</span></div>
-        <div class="cliente-row"><span>Demurrage destino</span><span>USD ${c.demDestino.toLocaleString()}/día</span></div>
+        <div class="cliente-row"><span>Demurrage origen</span><span>USD ${c.demOrigen.toLocaleString()}/dÃ­a</span></div>
+        <div class="cliente-row"><span>Demurrage destino</span><span>USD ${c.demDestino.toLocaleString()}/dÃ­a</span></div>
         ${c.notas ? `<div style="margin-top:8px; font-size:11px; color:var(--text2)">${c.notas}</div>` : ''}
         <div style="margin-top:10px; text-align:right">
-          <button class="btn-danger" onclick="eliminarCliente('${c.id}')">🗑 Eliminar</button>
+          <button class="btn-danger" onclick="eliminarCliente('${c.id}')">ð Eliminar</button>
         </div>
       </div>`;
   });
-  html += `<button class="btn-add-cliente" onclick="abrirModalCliente()">＋ Agregar Cliente</button>`;
+  html += `<button class="btn-add-cliente" onclick="abrirModalCliente()">ï¼ Agregar Cliente</button>`;
   grid.innerHTML = html;
 
   // actualizar select en calcular
@@ -3403,7 +3403,7 @@ function renderClientesGrid() {
 
 function abrirModalCliente() {
   editingClienteId = null;
-  document.getElementById('modalClienteTitulo').textContent = '➕ Nuevo Cliente';
+  document.getElementById('modalClienteTitulo').textContent = 'â Nuevo Cliente';
   document.getElementById('mcNombre').value = '';
   document.getElementById('mcHorasOrigen').value = 24;
   document.getElementById('mcHorasDestino').value = 12;
@@ -3417,7 +3417,7 @@ function editarCliente(id) {
   const c = getClientes().find(x => x.id === id);
   if (!c) return;
   editingClienteId = id;
-  document.getElementById('modalClienteTitulo').textContent = '✏️ Editar Cliente';
+  document.getElementById('modalClienteTitulo').textContent = 'âï¸ Editar Cliente';
   document.getElementById('mcNombre').value = c.nombre;
   document.getElementById('mcHorasOrigen').value = c.horasOrigen;
   document.getElementById('mcHorasDestino').value = c.horasDestino;
@@ -3456,20 +3456,20 @@ function guardarCliente() {
 }
 
 function eliminarCliente(id) {
-  if (!confirm('¿Eliminar este cliente?')) return;
+  if (!confirm('Â¿Eliminar este cliente?')) return;
   const clientes = getClientes().filter(x => x.id !== id);
   localStorage.setItem(LS_CLIENTES, JSON.stringify(clientes));
   renderClientesGrid();
 }
 
-// ═══════════════════════════════════════════════
+// âââââââââââââââââââââââââââââââââââââââââââââââ
 // NAVES / ESCALAS
-// ═══════════════════════════════════════════════
+// âââââââââââââââââââââââââââââââââââââââââââââââ
 function cargarNaves() {
   var nv = JSON.parse(localStorage.getItem(LS_NAVES)||'[]');
   var nm = nv.map(function(n){return n.nombre||n.nave||n;}).filter(Boolean);
   var sel = document.getElementById('selNave');
-  sel.innerHTML = '<option value="">— Seleccionar nave —</option>';
+  sel.innerHTML = '<option value="">â Seleccionar nave â</option>';
   nm.forEach(function(n){sel.innerHTML += '<option value="'+n+'">' + n + '</option>';});
   var lt = document.getElementById('ltNave');
   if(lt){lt.innerHTML=sel.innerHTML;}
@@ -3478,13 +3478,13 @@ function cargarNaves() {
 function cargarEscalas() {
   const nave = document.getElementById('selNave').value;
   const sel = document.getElementById('selEscala');
-  sel.innerHTML = '<option value="">— Seleccionar escala —</option>';
+  sel.innerHTML = '<option value="">â Seleccionar escala â</option>';
   if (!nave) return;
   const viajes = JSON.parse(localStorage.getItem(LS_VIAJES) || '[]');
   viajes.filter(v => v.nave === nave).forEach(v => {
     const escalas = v.escalas || [];
     escalas.forEach(e => {
-      const label = `${e.puerto || '?'} — ${e.eta ? e.eta.split('T')[0] : 'sin fecha'}`;
+      const label = `${e.puerto || '?'} â ${e.eta ? e.eta.split('T')[0] : 'sin fecha'}`;
       sel.innerHTML += `<option value="${e.id}" data-viaje="${v.id}">${label}</option>`;
     });
   });
@@ -3517,7 +3517,7 @@ function cargarDatosEscala() {
       (t.detenciones||[]).forEach(d => {
         totalDetMin += d.min || 0;
         detListHtml += `<div style="display:flex;justify-content:space-between;font-size:12px;padding:5px 0;border-bottom:1px solid var(--border)">
-          <span style="color:var(--text2)">${d.tipo||'—'} <span style="font-size:10px">(${d.resp})</span></span>
+          <span style="color:var(--text2)">${d.tipo||'â'} <span style="font-size:10px">(${d.resp})</span></span>
           <span class="mono">${d.min} min</span>
         </div>`;
       });
@@ -3542,9 +3542,9 @@ function cargarDatosEscala() {
   }
 }
 
-// ═══════════════════════════════════════════════
+// âââââââââââââââââââââââââââââââââââââââââââââââ
 // CONDICIONES
-// ═══════════════════════════════════════════════
+// âââââââââââââââââââââââââââââââââââââââââââââââ
 function actualizarCondiciones() {
   const tipo = document.getElementById('selTipoOp').value;
   const label = document.getElementById('condTipoLabel');
@@ -3552,15 +3552,15 @@ function actualizarCondiciones() {
   const norHint = document.getElementById('norHint');
 
   if (tipo === 'descarga') {
-    label.textContent = 'SHINC · 24h libres · NOR a cualquier hora';
+    label.textContent = 'SHINC Â· 24h libres Â· NOR a cualquier hora';
     document.getElementById('horasLibres').value = 24;
   } else {
-    label.textContent = 'SHINC · 24h libres · NOR a cualquier hora';
+    label.textContent = 'SHINC Â· 24h libres Â· NOR a cualquier hora';
     document.getElementById('horasLibres').value = 24;
   }
   // Ambos tramos SHINC: no se excluyen detenciones, NOR cuenta siempre
   detHint.textContent = 'SHINC: no se excluyen detenciones del tiempo operado.';
-  norHint.textContent = 'NOR cuenta a cualquier hora (sin restricción de horario de oficina).';
+  norHint.textContent = 'NOR cuenta a cualquier hora (sin restricciÃ³n de horario de oficina).';
   document.getElementById('detExcluidas').value = 0;
   document.getElementById('detExcluidas').disabled = true;
   calcularNorAceptada();
@@ -3587,9 +3587,9 @@ function sincDespatch() {
   document.getElementById('despatchRate').value = dem / 2;
 }
 
-// ═══════════════════════════════════════════════
-// NOR LÓGICA
-// ═══════════════════════════════════════════════
+// âââââââââââââââââââââââââââââââââââââââââââââââ
+// NOR LÃGICA
+// âââââââââââââââââââââââââââââââââââââââââââââââ
 function calcularNorAceptada() {
   const norVal = document.getElementById('norTendered').value;
   if (!norVal) {
@@ -3600,7 +3600,7 @@ function calcularNorAceptada() {
 
   // SHINC ambos tramos: NOR cuenta a cualquier hora, sin ajuste
   document.getElementById('norAceptada').value = norVal;
-  document.getElementById('norAjuste').textContent = '✓ SHINC — NOR válida a cualquier hora';
+  document.getElementById('norAjuste').textContent = 'â SHINC â NOR vÃ¡lida a cualquier hora';
   actualizarTimeline();
 }
 
@@ -3610,39 +3610,39 @@ function ajustarNorOficina(dt) {
   const hour = d.getHours();
   const min = d.getMinutes();
 
-  // Fin de semana → lunes 08:00
+  // Fin de semana â lunes 08:00
   if (dayOfWeek === 0) { // domingo
     d.setDate(d.getDate() + 1);
     d.setHours(8, 0, 0, 0);
-    return { dt: d, ajustado: true, motivo: 'Domingo → Lunes 08:00' };
+    return { dt: d, ajustado: true, motivo: 'Domingo â Lunes 08:00' };
   }
-  if (dayOfWeek === 6) { // sábado
+  if (dayOfWeek === 6) { // sÃ¡bado
     d.setDate(d.getDate() + 2);
     d.setHours(8, 0, 0, 0);
-    return { dt: d, ajustado: true, motivo: 'Sábado → Lunes 08:00' };
+    return { dt: d, ajustado: true, motivo: 'SÃ¡bado â Lunes 08:00' };
   }
 
   // Antes de 08:00
   if (hour < 8) {
     d.setHours(8, 0, 0, 0);
-    return { dt: d, ajustado: true, motivo: `Antes de oficina → ${formatHM(d)}` };
+    return { dt: d, ajustado: true, motivo: `Antes de oficina â ${formatHM(d)}` };
   }
 
-  // Después de 17:00 → siguiente día hábil 08:00
+  // DespuÃ©s de 17:00 â siguiente dÃ­a hÃ¡bil 08:00
   if (hour >= 17) {
     d.setDate(d.getDate() + 1);
     // Si cae en fin de semana, avanzar
     while (d.getDay() === 0 || d.getDay() === 6) d.setDate(d.getDate() + 1);
     d.setHours(8, 0, 0, 0);
-    return { dt: d, ajustado: true, motivo: `Después de 17:00 → ${d.toLocaleDateString('es-CL')} 08:00` };
+    return { dt: d, ajustado: true, motivo: `DespuÃ©s de 17:00 â ${d.toLocaleDateString('es-CL')} 08:00` };
   }
 
   return { dt: d, ajustado: false, motivo: '' };
 }
 
-// ═══════════════════════════════════════════════
+// âââââââââââââââââââââââââââââââââââââââââââââââ
 // TIMELINE
-// ═══════════════════════════════════════════════
+// âââââââââââââââââââââââââââââââââââââââââââââââ
 function actualizarTimeline() {
   const norT = document.getElementById('norTendered').value;
   const norA = document.getElementById('norAceptada').value;
@@ -3656,16 +3656,16 @@ function actualizarTimeline() {
   const layStart = new Date(norADt.getTime() + hl * 3600000);
 
   document.getElementById('norTimeline').style.display = 'flex';
-  document.getElementById('tlNorT').textContent = norT ? formatDtShort(new Date(norT)) : '—';
+  document.getElementById('tlNorT').textContent = norT ? formatDtShort(new Date(norT)) : 'â';
   document.getElementById('tlNorA').textContent = formatDtShort(norADt);
   document.getElementById('tlLayStart').textContent = formatDtShort(layStart);
-  document.getElementById('tlFirstHook').textContent = fh ? formatDtShort(new Date(fh)) : '—';
-  document.getElementById('tlLastHook').textContent = lh ? formatDtShort(new Date(lh)) : '—';
+  document.getElementById('tlFirstHook').textContent = fh ? formatDtShort(new Date(fh)) : 'â';
+  document.getElementById('tlLastHook').textContent = lh ? formatDtShort(new Date(lh)) : 'â';
 }
 
-// ═══════════════════════════════════════════════
+// âââââââââââââââââââââââââââââââââââââââââââââââ
 // CALCULAR
-// ═══════════════════════════════════════════════
+// âââââââââââââââââââââââââââââââââââââââââââââââ
 function calcular() {
   const norA = document.getElementById('norAceptada').value;
   const fh = document.getElementById('firstHook').value;
@@ -3701,7 +3701,7 @@ function calcular() {
   const detHoras = detMin / 60;
   if (tipo === 'embarque') totalHoras = Math.max(0, totalHoras - detHoras);
 
-  // Laytime permitido en horas — acá es solo las horas libres que hay que "consumir" durante la operación
+  // Laytime permitido en horas â acÃ¡ es solo las horas libres que hay que "consumir" durante la operaciÃ³n
   // En realidad laytime allowed = horas libres
   // time used = tiempo desde que empieza a contar hasta Last Hook
   const laytimeAllowed = hl; // horas
@@ -3725,8 +3725,8 @@ function calcular() {
   currentCalc = {
     id: genId(),
     fecha: new Date().toISOString(),
-    nave: document.getElementById('selNave').value || '—',
-    escala: document.getElementById('selEscala').options[document.getElementById('selEscala').selectedIndex]?.text || '—',
+    nave: document.getElementById('selNave').value || 'â',
+    escala: document.getElementById('selEscala').options[document.getElementById('selEscala').selectedIndex]?.text || 'â',
     tipo,
     cliente: document.getElementById('selCliente').options[document.getElementById('selCliente').selectedIndex]?.text || 'Manual',
     norTendered: document.getElementById('norTendered').value,
@@ -3750,17 +3750,17 @@ function calcular() {
   box.className = 'resultado-box ' + tipo_resultado;
   box.style.display = 'block';
 
-  const labels = { demurrage: '⚠️ DEMURRAGE', despatch: '✅ DESPATCH', even: '⚖️ EVEN — Sin costo' };
+  const labels = { demurrage: 'â ï¸ DEMURRAGE', despatch: 'â DESPATCH', even: 'âï¸ EVEN â Sin costo' };
   const subs = {
-    demurrage: `La nave estuvo ${formatHoras(Math.abs(balance))} más de lo permitido`,
-    despatch: `Operación completada ${formatHoras(balance)} antes de lo permitido`,
+    demurrage: `La nave estuvo ${formatHoras(Math.abs(balance))} mÃ¡s de lo permitido`,
+    despatch: `OperaciÃ³n completada ${formatHoras(balance)} antes de lo permitido`,
     even: 'El tiempo usado coincide exactamente con el laytime permitido',
   };
 
   document.getElementById('resultTitulo').textContent = labels[tipo_resultado];
   document.getElementById('resultSubtitulo').textContent = subs[tipo_resultado];
   document.getElementById('resultMonto').textContent = tipo_resultado === 'even' ? 'USD 0' :
-    `${tipo_resultado === 'demurrage' ? '−' : '+'}  USD ${Math.round(monto).toLocaleString('es-CL')}`;
+    `${tipo_resultado === 'demurrage' ? 'â' : '+'}  USD ${Math.round(monto).toLocaleString('es-CL')}`;
 
   document.getElementById('resLaytime').textContent = formatHoras(laytimeAllowed);
   document.getElementById('resTiempoUsado').textContent = formatHoras(timeUsed);
@@ -3776,7 +3776,7 @@ function calcular() {
   document.getElementById('kpiBalance').textContent = (balance >= 0 ? '+' : '') + formatHoras(balance);
   document.getElementById('kpiBalance').className = 'kpi-val ' + (balance < -0.01 ? 'dem' : balance > 0.01 ? 'desp' : '');
   document.getElementById('kpiMonto').textContent = tipo_resultado === 'even' ? 'USD 0' :
-    `${tipo_resultado === 'demurrage' ? '−' : '+'} USD ${Math.round(monto).toLocaleString('es-CL')}`;
+    `${tipo_resultado === 'demurrage' ? 'â' : '+'} USD ${Math.round(monto).toLocaleString('es-CL')}`;
   document.getElementById('kpiMonto').className = 'kpi-val ' + (tipo_resultado === 'demurrage' ? 'dem' : tipo_resultado === 'despatch' ? 'desp' : '');
 
   box.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -3795,30 +3795,30 @@ function limpiarCalculo() {
   currentCalc = null;
 }
 
-// ═══════════════════════════════════════════════
+// âââââââââââââââââââââââââââââââââââââââââââââââ
 // GUARDAR EN HISTORIAL
-// ═══════════════════════════════════════════════
+// âââââââââââââââââââââââââââââââââââââââââââââââ
 function guardarCalculo() {
   if (!currentCalc) return;
   const hist = JSON.parse(localStorage.getItem(LS_HISTORIAL) || '[]');
   hist.unshift(currentCalc);
   localStorage.setItem(LS_HISTORIAL, JSON.stringify(hist));
-  alert('✅ Cálculo guardado en historial');
+  alert('â CÃ¡lculo guardado en historial');
 }
 
-// ═══════════════════════════════════════════════
+// âââââââââââââââââââââââââââââââââââââââââââââââ
 // HISTORIAL
-// ═══════════════════════════════════════════════
+// âââââââââââââââââââââââââââââââââââââââââââââââ
 function renderHistorial() {
   const hist = JSON.parse(localStorage.getItem(LS_HISTORIAL) || '[]');
   const container = document.getElementById('historialContainer');
   if (hist.length === 0) {
-    container.innerHTML = '<div class="empty"><span>📋</span>No hay cálculos guardados aún</div>';
+    container.innerHTML = '<div class="empty"><span>ð</span>No hay cÃ¡lculos guardados aÃºn</div>';
     return;
   }
   let html = `<table class="hist-table">
     <thead><tr>
-      <th>Fecha Cálculo</th>
+      <th>Fecha CÃ¡lculo</th>
       <th>Nave / Escala</th>
       <th>Cliente</th>
       <th>Tipo Op.</th>
@@ -3833,7 +3833,7 @@ function renderHistorial() {
     const badgeClass = c.tipo_resultado === 'demurrage' ? 'dem' : c.tipo_resultado === 'despatch' ? 'desp' : 'even';
     const badgeLabel = c.tipo_resultado === 'demurrage' ? 'DEMURRAGE' : c.tipo_resultado === 'despatch' ? 'DESPATCH' : 'EVEN';
     const montoStr = c.tipo_resultado === 'even' ? '0' :
-      `${c.tipo_resultado === 'demurrage' ? '−' : '+'}${Math.round(c.monto).toLocaleString('es-CL')}`;
+      `${c.tipo_resultado === 'demurrage' ? 'â' : '+'}${Math.round(c.monto).toLocaleString('es-CL')}`;
     html += `<tr>
       <td class="mono" style="font-size:11px">${new Date(c.fecha).toLocaleDateString('es-CL')}<br>${new Date(c.fecha).toLocaleTimeString('es-CL',{hour:'2-digit',minute:'2-digit'})}</td>
       <td><div style="font-weight:600">${c.nave}</div><div style="font-size:11px;color:var(--text2)">${c.escala}</div></td>
@@ -3844,7 +3844,7 @@ function renderHistorial() {
       <td class="mono">${(c.balance >= 0 ? '+' : '') + formatHoras(c.balance)}</td>
       <td><span class="badge ${badgeClass}">${badgeLabel}</span></td>
       <td class="mono" style="font-weight:700">${montoStr}</td>
-      <td><button class="btn-danger" onclick="eliminarHistorial('${c.id}')">🗑</button></td>
+      <td><button class="btn-danger" onclick="eliminarHistorial('${c.id}')">ð</button></td>
     </tr>`;
   });
   html += '</tbody></table>';
@@ -3852,89 +3852,89 @@ function renderHistorial() {
 }
 
 function eliminarHistorial(id) {
-  if (!confirm('¿Eliminar este registro?')) return;
+  if (!confirm('Â¿Eliminar este registro?')) return;
   const hist = JSON.parse(localStorage.getItem(LS_HISTORIAL) || '[]').filter(x => x.id !== id);
   localStorage.setItem(LS_HISTORIAL, JSON.stringify(hist));
   renderHistorial();
 }
 
-// ═══════════════════════════════════════════════
-// LAYTIME / SOF — LÓGICA CLÁUSULA 17
-// ═══════════════════════════════════════════════
+// âââââââââââââââââââââââââââââââââââââââââââââââ
+// LAYTIME / SOF â LÃGICA CLÃUSULA 17
+// âââââââââââââââââââââââââââââââââââââââââââââââ
 
-// ── Reglas NOR por cliente ────────────────────────────────────────────────
-// 'cl17_origen'   → Cláusula 17 origen:  L-V 09-17, Sáb 09-12, laytime = NOR+12h (USC)
-// 'cl17_destino'  → Cláusula 17 destino: L-V 09-17, Sáb 09-12, ≤12:00→15:00 / >12:00→next 06:00
-// 'traf_origen'   → Trafigura origen:    L-V 08-17, Sáb 09-12, laytime = next working day 08:00
-// 'traf_destino'  → Trafigura destino:   L-V 08-17 (sin sáb), laytime = next working day 08:00
-// 'kmp_origen'    → KMP harina:          L-V 09-17, Sáb 09-12, laytime = NOR+12h (USC)
+// ââ Reglas NOR por cliente ââââââââââââââââââââââââââââââââââââââââââââââââ
+// 'cl17_origen'   â ClÃ¡usula 17 origen:  L-V 09-17, SÃ¡b 09-12, laytime = NOR+12h (USC)
+// 'cl17_destino'  â ClÃ¡usula 17 destino: L-V 09-17, SÃ¡b 09-12, â¤12:00â15:00 / >12:00ânext 06:00
+// 'traf_origen'   â Trafigura origen:    L-V 08-17, SÃ¡b 09-12, laytime = next working day 08:00
+// 'traf_destino'  â Trafigura destino:   L-V 08-17 (sin sÃ¡b), laytime = next working day 08:00
+// 'kmp_origen'    â KMP harina:          L-V 09-17, SÃ¡b 09-12, laytime = NOR+12h (USC)
 
 const LT_CLIENTES_CONFIG = {
-  // ── Codelco ──────────────────────────────────────────────────────────────
+  // ââ Codelco ââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
   'codelco_concentrado': {
-    label: 'Codelco — Concentrado Cobre',
+    label: 'Codelco â Concentrado Cobre',
     demRate: 18000,
     puertos: [
-      { id: 'chimbote', nombre: 'Chimbote',  tipo: 'carga',    tasa: 1500, shinc: true,  nor_regla: 'cl17_origen',  nota: 'SHINC · 12h turn time USC' },
-      { id: 'arica',    nombre: 'Arica',     tipo: 'carga',    tasa: 2500, shinc: true,  nor_regla: 'cl17_origen',  nota: 'SHINC · 12h turn time USC' },
-      { id: 'bremen',   nombre: 'Bremen',    tipo: 'descarga', tasa: 3500, shinc: false, nor_regla: 'cl17_destino', nota: 'SHEX UU · Sáb 12:00–Lun 06:00',
+      { id: 'chimbote', nombre: 'Chimbote',  tipo: 'carga',    tasa: 1500, shinc: true,  nor_regla: 'cl17_origen',  nota: 'SHINC Â· 12h turn time USC' },
+      { id: 'arica',    nombre: 'Arica',     tipo: 'carga',    tasa: 2500, shinc: true,  nor_regla: 'cl17_origen',  nota: 'SHINC Â· 12h turn time USC' },
+      { id: 'bremen',   nombre: 'Bremen',    tipo: 'descarga', tasa: 3500, shinc: false, nor_regla: 'cl17_destino', nota: 'SHEX UU Â· SÃ¡b 12:00âLun 06:00',
         shex: { satnoon: true, monMorn: '06:00' } },
     ],
   },
   'codelco_catodos': {
-    label: 'Codelco — Cátodos Cobre',
+    label: 'Codelco â CÃ¡todos Cobre',
     demRate: 18000,
     puertos: [
-      { id: 'arica',    nombre: 'Arica',     tipo: 'carga',    tasa: 2500, shinc: true,  nor_regla: 'cl17_origen',  nota: 'SHINC · 12h turn time USC' },
-      { id: 'bremen',   nombre: 'Bremen',    tipo: 'descarga', tasa: 3500, shinc: false, nor_regla: 'cl17_destino', nota: 'SHEX UU · Sáb 12:00–Lun 06:00',
+      { id: 'arica',    nombre: 'Arica',     tipo: 'carga',    tasa: 2500, shinc: true,  nor_regla: 'cl17_origen',  nota: 'SHINC Â· 12h turn time USC' },
+      { id: 'bremen',   nombre: 'Bremen',    tipo: 'descarga', tasa: 3500, shinc: false, nor_regla: 'cl17_destino', nota: 'SHEX UU Â· SÃ¡b 12:00âLun 06:00',
         shex: { satnoon: true, monMorn: '06:00' } },
     ],
   },
-  // ── BHP ──────────────────────────────────────────────────────────────────
+  // ââ BHP ââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
   'bhp_concentrado': {
-    label: 'BHP — Concentrado Cobre',
+    label: 'BHP â Concentrado Cobre',
     demRate: 18000,
     puertos: [
-      { id: 'chimbote', nombre: 'Chimbote',  tipo: 'carga',    tasa: 1500, shinc: true,  nor_regla: 'cl17_origen',  nota: 'SHINC · 12h turn time USC · 48h detention' },
-      { id: 'arica',    nombre: 'Arica',     tipo: 'carga',    tasa: 2500, shinc: true,  nor_regla: 'cl17_origen',  nota: 'SHINC · 12h turn time USC · 48h detention' },
-      { id: 'bremen',   nombre: 'Bremen',    tipo: 'descarga', tasa: 3500, shinc: false, nor_regla: 'cl17_destino', nota: 'SHEX UU · Sáb 12:00–Lun 06:00 · 24h detention',
+      { id: 'chimbote', nombre: 'Chimbote',  tipo: 'carga',    tasa: 1500, shinc: true,  nor_regla: 'cl17_origen',  nota: 'SHINC Â· 12h turn time USC Â· 48h detention' },
+      { id: 'arica',    nombre: 'Arica',     tipo: 'carga',    tasa: 2500, shinc: true,  nor_regla: 'cl17_origen',  nota: 'SHINC Â· 12h turn time USC Â· 48h detention' },
+      { id: 'bremen',   nombre: 'Bremen',    tipo: 'descarga', tasa: 3500, shinc: false, nor_regla: 'cl17_destino', nota: 'SHEX UU Â· SÃ¡b 12:00âLun 06:00 Â· 24h detention',
         shex: { satnoon: true, monMorn: '06:00' } },
     ],
   },
-  // ── KMP — Harina de Pescado ───────────────────────────────────────────────
+  // ââ KMP â Harina de Pescado âââââââââââââââââââââââââââââââââââââââââââââââ
   'kmp_harina': {
-    label: 'KMP — Harina de Pescado',
+    label: 'KMP â Harina de Pescado',
     demRate: 18000,
     puertos: [
-      { id: 'chimbote', nombre: 'Chimbote',  tipo: 'carga',    tasa: 1500, shinc: true,  nor_regla: 'cl17_origen',  nota: 'SHINC · 12h turn time USC' },
-      { id: 'arica',    nombre: 'Arica',     tipo: 'carga',    tasa: 2500, shinc: true,  nor_regla: 'cl17_origen',  nota: 'SHINC · 12h turn time USC' },
-      { id: 'bremen',   nombre: 'Bremen',    tipo: 'descarga', tasa: 3500, shinc: false, nor_regla: 'cl17_destino', nota: 'SHEX UU · Sáb 12:00–Lun 06:00',
+      { id: 'chimbote', nombre: 'Chimbote',  tipo: 'carga',    tasa: 1500, shinc: true,  nor_regla: 'cl17_origen',  nota: 'SHINC Â· 12h turn time USC' },
+      { id: 'arica',    nombre: 'Arica',     tipo: 'carga',    tasa: 2500, shinc: true,  nor_regla: 'cl17_origen',  nota: 'SHINC Â· 12h turn time USC' },
+      { id: 'bremen',   nombre: 'Bremen',    tipo: 'descarga', tasa: 3500, shinc: false, nor_regla: 'cl17_destino', nota: 'SHEX UU Â· SÃ¡b 12:00âLun 06:00',
         shex: { satnoon: true, monMorn: '06:00' } },
     ],
   },
-  // ── Trafigura — Concentrado Cobre ─────────────────────────────────────────
+  // ââ Trafigura â Concentrado Cobre âââââââââââââââââââââââââââââââââââââââââ
   'trafigura_concentrado_cobre': {
-    label: 'Trafigura — Concentrado Cobre',
+    label: 'Trafigura â Concentrado Cobre',
     demRate: 19000,
     puertos: [
-      { id: 'callao',   nombre: 'Callao',    tipo: 'carga',    tasa: 15000, shinc: true,  nor_regla: 'traf_origen',  nota: 'WWWD SHINC · Next working day 08:00' },
-      { id: 'antwerp',  nombre: 'Antwerp',   tipo: 'descarga', tasa: 5000,  shinc: false, nor_regla: 'traf_destino', nota: 'WWWD SHEX UU ATUTC · Next working day 08:00',
+      { id: 'callao',   nombre: 'Callao',    tipo: 'carga',    tasa: 15000, shinc: true,  nor_regla: 'traf_origen',  nota: 'WWWD SHINC Â· Next working day 08:00' },
+      { id: 'antwerp',  nombre: 'Antwerp',   tipo: 'descarga', tasa: 5000,  shinc: false, nor_regla: 'traf_destino', nota: 'WWWD SHEX UU ATUTC Â· Next working day 08:00',
         shex: { satnoon: true, monMorn: '06:00' } },
     ],
   },
-  // ── Trafigura — Concentrado Zinc ──────────────────────────────────────────
+  // ââ Trafigura â Concentrado Zinc ââââââââââââââââââââââââââââââââââââââââââ
   'trafigura_concentrado_zinc': {
-    label: 'Trafigura — Concentrado Zinc',
+    label: 'Trafigura â Concentrado Zinc',
     demRate: 19000,
     puertos: [
-      { id: 'callao',   nombre: 'Callao',    tipo: 'carga',    tasa: 15000, shinc: true,  nor_regla: 'traf_origen',  nota: 'WWWD SHINC · Next working day 08:00' },
-      { id: 'antwerp',  nombre: 'Antwerp',   tipo: 'descarga', tasa: 5000,  shinc: false, nor_regla: 'traf_destino', nota: 'WWWD SHEX UU ATUTC · Next working day 08:00',
+      { id: 'callao',   nombre: 'Callao',    tipo: 'carga',    tasa: 15000, shinc: true,  nor_regla: 'traf_origen',  nota: 'WWWD SHINC Â· Next working day 08:00' },
+      { id: 'antwerp',  nombre: 'Antwerp',   tipo: 'descarga', tasa: 5000,  shinc: false, nor_regla: 'traf_destino', nota: 'WWWD SHEX UU ATUTC Â· Next working day 08:00',
         shex: { satnoon: true, monMorn: '06:00' } },
     ],
   },
 };
 
-// Compatibilidad backwards — usado por selector anterior
+// Compatibilidad backwards â usado por selector anterior
 const LT_PUERTOS = {
   concentrado: LT_CLIENTES_CONFIG['codelco_concentrado'].puertos,
   harina:      LT_CLIENTES_CONFIG['kmp_harina'].puertos,
@@ -3961,34 +3961,34 @@ function ltActualizarPuertos() {
 
 function ltRenderPuertoBlock(p, cfg) {
   const esCarga = p.tipo === 'carga';
-  const icono = esCarga ? '🚢' : '🏭';
+  const icono = esCarga ? 'ð¢' : 'ð­';
   const tipoLabel = esCarga ? 'Puerto de Carga' : 'Puerto de Descarga';
-  const tasaLabel = `${p.tasa.toLocaleString()} T/día · ${p.nota}`;
+  const tasaLabel = `${p.tasa.toLocaleString()} T/dÃ­a Â· ${p.nota}`;
 
-  // Reglas NOR según regla del puerto
+  // Reglas NOR segÃºn regla del puerto
   const norReglaHtml = (() => {
     switch (p.nor_regla) {
       case 'cl17_origen': return `
         <div class="nor-rules-box">
-          <strong>Cláusula 17 — Origen (SHINC):</strong> NOR válida L–V 09:00–17:00 · Sáb 09:00–12:00.<br>
-          Laytime inicia <strong>12h post-NOR</strong>. Si First Hook ocurre antes → laytime desde First Hook (USC).
+          <strong>ClÃ¡usula 17 â Origen (SHINC):</strong> NOR vÃ¡lida LâV 09:00â17:00 Â· SÃ¡b 09:00â12:00.<br>
+          Laytime inicia <strong>12h post-NOR</strong>. Si First Hook ocurre antes â laytime desde First Hook (USC).
         </div>`;
       case 'cl17_destino': return `
         <div class="nor-rules-box">
-          <strong>Cláusula 17 — Destino:</strong> NOR válida L–V 09:00–17:00 · Sáb 09:00–12:00.<br>
-          NOR ≤ 12:00 → laytime a las <strong>15:00</strong>. NOR > 12:00 → laytime <strong>06:00 próximo día hábil</strong>.<br>
-          Shifting no cuenta. SHEX Sáb 12:00–Lun 06:00 excluido salvo UU.
+          <strong>ClÃ¡usula 17 â Destino:</strong> NOR vÃ¡lida LâV 09:00â17:00 Â· SÃ¡b 09:00â12:00.<br>
+          NOR â¤ 12:00 â laytime a las <strong>15:00</strong>. NOR > 12:00 â laytime <strong>06:00 prÃ³ximo dÃ­a hÃ¡bil</strong>.<br>
+          Shifting no cuenta. SHEX SÃ¡b 12:00âLun 06:00 excluido salvo UU.
         </div>`;
       case 'traf_origen': return `
         <div class="nor-rules-box">
-          <strong>Trafigura — Origen:</strong> NOR válida L–V 08:00–17:00 · Sáb 09:00–12:00.<br>
+          <strong>Trafigura â Origen:</strong> NOR vÃ¡lida LâV 08:00â17:00 Â· SÃ¡b 09:00â12:00.<br>
           Laytime inicia <strong>next working day 08:00</strong>. Todo tiempo previo acumulado cuenta igualmente.
         </div>`;
       case 'traf_destino': return `
         <div class="nor-rules-box">
-          <strong>Trafigura — Destino:</strong> NOR válida L–V 08:00–17:00 (sin sábados).<br>
+          <strong>Trafigura â Destino:</strong> NOR vÃ¡lida LâV 08:00â17:00 (sin sÃ¡bados).<br>
           Laytime inicia <strong>next working day 08:00</strong>. Todo tiempo previo acumulado cuenta igualmente.<br>
-          SHEX Sáb 12:00–Lun 06:00 excluido salvo UU (ATUTC).
+          SHEX SÃ¡b 12:00âLun 06:00 excluido salvo UU (ATUTC).
         </div>`;
       default: return '';
     }
@@ -4043,14 +4043,14 @@ function ltRenderPuertoBlock(p, cfg) {
       ${!esCarga ? `
       <div class="form-grid cols2" style="margin-bottom:16px">
         <div class="field">
-          <label>Horas Shifting (roads → berth)</label>
+          <label>Horas Shifting (roads â berth)</label>
           <input type="number" id="lt_${p.id}_shifting" value="0" step="0.5" oninput="ltRecalcular('${p.id}')">
           <span class="hint">No cuenta como laytime ni demurrage</span>
         </div>
         <div class="field">
           <label>Horas SHEX usadas por acuerdo (UU)</label>
           <input type="number" id="lt_${p.id}_shex_uu" value="0" step="0.5" oninput="ltRecalcular('${p.id}')">
-          <span class="hint">Horas Sáb 12:00–Lun 06:00 que sí se trabajaron</span>
+          <span class="hint">Horas SÃ¡b 12:00âLun 06:00 que sÃ­ se trabajaron</span>
         </div>
       </div>` : ''}
 
@@ -4068,7 +4068,7 @@ function ltRenderPuertoBlock(p, cfg) {
 
       <!-- Tabla timeline resultado -->
       <div id="lt_${p.id}_resultado" style="display:none">
-        <div class="section-title" style="margin-top:4px">Statement of Facts — ${p.nombre}</div>
+        <div class="section-title" style="margin-top:4px">Statement of Facts â ${p.nombre}</div>
         <table class="lt-timeline">
           <thead><tr>
             <th>Evento</th><th>Fecha / Hora</th><th>Hrs Laytime</th><th>Obs</th>
@@ -4098,7 +4098,7 @@ function ltRenderPuertoBlock(p, cfg) {
   </div>`;
 }
 
-// ── NOR ACEPTADA según cláusula 17 ──────────────────────────────────────
+// ââ NOR ACEPTADA segÃºn clÃ¡usula 17 ââââââââââââââââââââââââââââââââââââââ
 function ltCalcNorAceptada(pid, regla) {
   const norVal = document.getElementById(`lt_${pid}_nor`).value;
   if (!norVal) {
@@ -4112,42 +4112,42 @@ function ltCalcNorAceptada(pid, regla) {
   const norDt = new Date(norVal);
   let norAceptada, layStart, norHint, layHint;
 
-  // ── Ajustar ventana NOR según regla ─────────────────────────────────────
+  // ââ Ajustar ventana NOR segÃºn regla âââââââââââââââââââââââââââââââââââââ
   if (regla === 'traf_destino') {
-    // Trafigura destino: solo L-V 08:00-17:00 (sin sábado)
+    // Trafigura destino: solo L-V 08:00-17:00 (sin sÃ¡bado)
     const aj = ltAjustarVentanaNOR(norDt, { abreLV: '08:00', cierreLV: '17:00', sabado: false });
     norAceptada = aj.dt; norHint = aj.hint;
   } else if (regla === 'traf_origen') {
-    // Trafigura origen: L-V 08:00-17:00, Sáb 09:00-12:00
+    // Trafigura origen: L-V 08:00-17:00, SÃ¡b 09:00-12:00
     const aj = ltAjustarVentanaNOR(norDt, { abreLV: '08:00', cierreLV: '17:00', sabado: true });
     norAceptada = aj.dt; norHint = aj.hint;
   } else {
-    // Cláusula 17: L-V 09:00-17:00, Sáb 09:00-12:00
+    // ClÃ¡usula 17: L-V 09:00-17:00, SÃ¡b 09:00-12:00
     const aj = ltAjustarVentanaNOR(norDt, { abreLV: '09:00', cierreLV: '17:00', sabado: true });
     norAceptada = aj.dt; norHint = aj.hint;
   }
 
-  // ── Calcular Laytime Start según regla ──────────────────────────────────
+  // ââ Calcular Laytime Start segÃºn regla ââââââââââââââââââââââââââââââââââ
   if (regla === 'cl17_origen') {
     // +12h (USC aplicado en ltRecalcular)
     layStart = new Date(norAceptada.getTime() + 12 * 3600000);
     layHint = 'NOR aceptada + 12h (USC si First Hook antes)';
 
   } else if (regla === 'cl17_destino') {
-    // ≤12:00 → 15:00 mismo día / >12:00 → 06:00 próximo día hábil
+    // â¤12:00 â 15:00 mismo dÃ­a / >12:00 â 06:00 prÃ³ximo dÃ­a hÃ¡bil
     const h = norAceptada.getHours(), m = norAceptada.getMinutes();
     if (h * 60 + m <= 12 * 60) {
       layStart = new Date(norAceptada); layStart.setHours(15, 0, 0, 0);
-      layHint = 'NOR ≤ 12:00 → Laytime a las 15:00';
+      layHint = 'NOR â¤ 12:00 â Laytime a las 15:00';
     } else {
       layStart = ltNextWorkingDay(norAceptada, '06:00');
-      layHint = `NOR > 12:00 → 06:00 ${layStart.toLocaleDateString('es-CL')}`;
+      layHint = `NOR > 12:00 â 06:00 ${layStart.toLocaleDateString('es-CL')}`;
     }
 
   } else if (regla === 'traf_origen' || regla === 'traf_destino') {
     // Next working day 08:00
     layStart = ltNextWorkingDay(norAceptada, '08:00');
-    layHint = `Next working day 08:00 → ${layStart.toLocaleDateString('es-CL')}`;
+    layHint = `Next working day 08:00 â ${layStart.toLocaleDateString('es-CL')}`;
   }
 
   document.getElementById(`lt_${pid}_norA`).value    = toDatetimeLocal(norAceptada);
@@ -4181,37 +4181,37 @@ function ltAjustarVentanaNOR(dt, opts = {}) {
   const dow = d.getDay();
   const minDia = d.getHours() * 60 + d.getMinutes();
 
-  // Domingo → lunes apertura
+  // Domingo â lunes apertura
   if (dow === 0) {
     d.setDate(d.getDate() + 1); d.setHours(aH, aM, 0, 0);
-    return { dt: d, hint: `⚠️ Domingo → Lunes ${abreLV}` };
+    return { dt: d, hint: `â ï¸ Domingo â Lunes ${abreLV}` };
   }
 
-  // Sábado
+  // SÃ¡bado
   if (dow === 6) {
     if (!conSabado) {
-      // Sin sábado → lunes apertura
+      // Sin sÃ¡bado â lunes apertura
       d.setDate(d.getDate() + 2); d.setHours(aH, aM, 0, 0);
-      return { dt: d, hint: `⚠️ Sábado (no válido) → Lunes ${abreLV}` };
+      return { dt: d, hint: `â ï¸ SÃ¡bado (no vÃ¡lido) â Lunes ${abreLV}` };
     }
-    // Con sábado: solo 09:00–12:00
-    if (minDia < 9 * 60) { d.setHours(9, 0, 0, 0); return { dt: d, hint: '⚠️ Sáb antes 09:00 → 09:00' }; }
+    // Con sÃ¡bado: solo 09:00â12:00
+    if (minDia < 9 * 60) { d.setHours(9, 0, 0, 0); return { dt: d, hint: 'â ï¸ SÃ¡b antes 09:00 â 09:00' }; }
     if (minDia >= 12 * 60) {
       d.setDate(d.getDate() + 2); d.setHours(aH, aM, 0, 0);
-      return { dt: d, hint: `⚠️ Sáb ≥ 12:00 → Lunes ${abreLV}` };
+      return { dt: d, hint: `â ï¸ SÃ¡b â¥ 12:00 â Lunes ${abreLV}` };
     }
-    return { dt: d, hint: '✓ Sáb dentro de ventana 09:00–12:00' };
+    return { dt: d, hint: 'â SÃ¡b dentro de ventana 09:00â12:00' };
   }
 
   // L-V
-  if (minDia < abreMin) { d.setHours(aH, aM, 0, 0); return { dt: d, hint: `⚠️ Antes ${abreLV} → ${abreLV}` }; }
+  if (minDia < abreMin) { d.setHours(aH, aM, 0, 0); return { dt: d, hint: `â ï¸ Antes ${abreLV} â ${abreLV}` }; }
   if (minDia >= cierraMin) {
     d.setDate(d.getDate() + 1);
     while (d.getDay() === 0 || d.getDay() === 6) d.setDate(d.getDate() + 1);
     d.setHours(aH, aM, 0, 0);
-    return { dt: d, hint: `⚠️ Después ${cierreLV} → ${d.toLocaleDateString('es-CL')} ${abreLV}` };
+    return { dt: d, hint: `â ï¸ DespuÃ©s ${cierreLV} â ${d.toLocaleDateString('es-CL')} ${abreLV}` };
   }
-  return { dt: d, hint: `✓ NOR dentro de horario ${abreLV}–${cierreLV}` };
+  return { dt: d, hint: `â NOR dentro de horario ${abreLV}â${cierreLV}` };
 }
 
 function ltRecalcular(pid) {
@@ -4243,7 +4243,7 @@ function ltRecalcular(pid) {
   const fhDt       = new Date(fhVal);
   const lhDt       = new Date(lhVal);
 
-  // USC aplica solo para reglas cl17_origen (Cláusula 17 carga)
+  // USC aplica solo para reglas cl17_origen (ClÃ¡usula 17 carga)
   // Trafigura: laytime SIEMPRE desde next working day 08:00, no USC
   const uscDisponible = puerto.nor_regla === 'cl17_origen';
   const uscAplicado   = uscDisponible && fhDt < layStartDt;
@@ -4252,7 +4252,7 @@ function ltRecalcular(pid) {
   // Hint First Hook
   const fhHintEl = document.getElementById(`lt_${pid}_fhHint`);
   if (fhHintEl) {
-    if (uscAplicado) fhHintEl.textContent = '⚡ USC aplicado — laytime arranca desde First Hook';
+    if (uscAplicado) fhHintEl.textContent = 'â¡ USC aplicado â laytime arranca desde First Hook';
     else if (uscDisponible && fhDt >= layStartDt) fhHintEl.textContent = 'First Hook posterior al laytime calculado';
     else if (!uscDisponible) fhHintEl.textContent = 'Trafigura: laytime fijo desde next working day 08:00';
     else fhHintEl.textContent = '';
@@ -4287,33 +4287,33 @@ function ltRecalcular(pid) {
 
   ltResultados[pid] = { puerto: puerto.nombre, tipo: puerto.tipo, laytimeAllowedHrs, tiempoUsadoHrs, balance, tipo_res, monto, demRate, despRate };
 
-  // ── Statement of Facts ──────────────────────────────────────────────────
+  // ââ Statement of Facts ââââââââââââââââââââââââââââââââââââââââââââââââââ
   const norTVal = document.getElementById(`lt_${pid}_nor`).value;
   const norAVal = document.getElementById(`lt_${pid}_norA`).value;
   const rows = [];
 
-  rows.push({ cls: 'row-key', evento: '📋 NOR Tendered',   dt: norTVal, hrs: '—', obs: 'Master notifica readiness' });
-  rows.push({ cls: 'row-key', evento: '✅ NOR Aceptada',   dt: norAVal, hrs: '—', obs: document.getElementById(`lt_${pid}_norHint`).textContent });
-  rows.push({ cls: 'row-key', evento: '⏱ Laytime Inicia', dt: toDatetimeLocal(conteoStartDt), hrs: '0h 00m',
-    obs: uscAplicado ? '⚡ USC — operación antes del laytime calculado' : document.getElementById(`lt_${pid}_layHint`).textContent });
+  rows.push({ cls: 'row-key', evento: 'ð NOR Tendered',   dt: norTVal, hrs: 'â', obs: 'Master notifica readiness' });
+  rows.push({ cls: 'row-key', evento: 'â NOR Aceptada',   dt: norAVal, hrs: 'â', obs: document.getElementById(`lt_${pid}_norHint`).textContent });
+  rows.push({ cls: 'row-key', evento: 'â± Laytime Inicia', dt: toDatetimeLocal(conteoStartDt), hrs: '0h 00m',
+    obs: uscAplicado ? 'â¡ USC â operaciÃ³n antes del laytime calculado' : document.getElementById(`lt_${pid}_layHint`).textContent });
 
   if (shiftingHrs > 0)
-    rows.push({ cls: 'row-exc', evento: '🔗 Shifting (excluido)',     dt: '—', hrs: `-${formatHoras(shiftingHrs)}`, obs: 'Roads/anchorage → berth no cuenta' });
+    rows.push({ cls: 'row-exc', evento: 'ð Shifting (excluido)',     dt: 'â', hrs: `-${formatHoras(shiftingHrs)}`, obs: 'Roads/anchorage â berth no cuenta' });
   if (shexExclHrs > 0)
-    rows.push({ cls: 'row-exc', evento: '📅 SHEX excluido',           dt: 'Sáb 12:00–Lun 06:00', hrs: `-${formatHoras(shexExclHrs)}`, obs: `UU utilizado: ${formatHoras(shexUU)}` });
+    rows.push({ cls: 'row-exc', evento: 'ð SHEX excluido',           dt: 'SÃ¡b 12:00âLun 06:00', hrs: `-${formatHoras(shexExclHrs)}`, obs: `UU utilizado: ${formatHoras(shexUU)}` });
   if (detHrs > 0)
-    rows.push({ cls: 'row-exc', evento: '🛑 Detenciones excluidas',   dt: '—', hrs: `-${formatHoras(detHrs)}`, obs: 'Según contrato' });
+    rows.push({ cls: 'row-exc', evento: 'ð Detenciones excluidas',   dt: 'â', hrs: `-${formatHoras(detHrs)}`, obs: 'SegÃºn contrato' });
 
-  rows.push({ cls: 'row-key', evento: '⚓ First Hook',  dt: fhVal, hrs: '→ inicio op.', obs: '' });
-  rows.push({ cls: 'row-key', evento: '🏁 Last Hook',   dt: lhVal, hrs: '→ fin op.',    obs: '' });
-  rows.push({ cls: 'row-total', evento: 'TIEMPO USADO (neto)',   dt: '—', hrs: formatHoras(tiempoUsadoHrs), obs: '' });
-  rows.push({ cls: 'row-total', evento: 'LAYTIME PERMITIDO',    dt: '—', hrs: formatHoras(laytimeAllowedHrs),
-    obs: `${ton.toLocaleString()} T ÷ ${puerto.tasa.toLocaleString()} T/día` });
+  rows.push({ cls: 'row-key', evento: 'â First Hook',  dt: fhVal, hrs: 'â inicio op.', obs: '' });
+  rows.push({ cls: 'row-key', evento: 'ð Last Hook',   dt: lhVal, hrs: 'â fin op.',    obs: '' });
+  rows.push({ cls: 'row-total', evento: 'TIEMPO USADO (neto)',   dt: 'â', hrs: formatHoras(tiempoUsadoHrs), obs: '' });
+  rows.push({ cls: 'row-total', evento: 'LAYTIME PERMITIDO',    dt: 'â', hrs: formatHoras(laytimeAllowedHrs),
+    obs: `${ton.toLocaleString()} T Ã· ${puerto.tasa.toLocaleString()} T/dÃ­a` });
 
   document.getElementById(`lt_${pid}_tbody`).innerHTML = rows.map(r => `
     <tr class="${r.cls}">
       <td>${r.evento}</td>
-      <td class="mono" style="font-size:11px">${r.dt ? formatDtShort(new Date(r.dt)) : '—'}</td>
+      <td class="mono" style="font-size:11px">${r.dt ? formatDtShort(new Date(r.dt)) : 'â'}</td>
       <td class="mono">${r.hrs}</td>
       <td style="color:var(--text2);font-size:11px">${r.obs}</td>
     </tr>`).join('');
@@ -4321,10 +4321,10 @@ function ltRecalcular(pid) {
   // Resultado bar
   const resbar = document.getElementById(`lt_${pid}_resbar`);
   resbar.className = `lt-result-bar ${tipo_res}`;
-  const labels = { dem: '⚠️ DEMURRAGE', desp: '✅ DESPATCH', even: '⚖️ EVEN' };
+  const labels = { dem: 'â ï¸ DEMURRAGE', desp: 'â DESPATCH', even: 'âï¸ EVEN' };
   const subs = {
-    dem:  `Excedió laytime en ${formatHoras(Math.abs(balance))}`,
-    desp: `Terminó ${formatHoras(balance)} antes — despatch al 50%`,
+    dem:  `ExcediÃ³ laytime en ${formatHoras(Math.abs(balance))}`,
+    desp: `TerminÃ³ ${formatHoras(balance)} antes â despatch al 50%`,
     even: 'Tiempo exactamente igual al laytime permitido',
   };
   document.getElementById(`lt_${pid}_reslabel`).textContent  = labels[tipo_res];
@@ -4333,13 +4333,13 @@ function ltRecalcular(pid) {
   document.getElementById(`lt_${pid}_used`).textContent      = formatHoras(tiempoUsadoHrs);
   document.getElementById(`lt_${pid}_resmonto`).textContent  =
     tipo_res === 'even' ? 'USD 0' :
-    `${tipo_res === 'dem' ? '− ' : '+ '}USD ${Math.round(monto).toLocaleString('es-CL')}`;
+    `${tipo_res === 'dem' ? 'â ' : '+ '}USD ${Math.round(monto).toLocaleString('es-CL')}`;
 
   document.getElementById(`lt_${pid}_resultado`).style.display = 'block';
   ltActualizarResumen();
 }
 
-// ── SHEX: calcular horas Sáb 12:00 – Lun 06:00 dentro de un rango ──────
+// ââ SHEX: calcular horas SÃ¡b 12:00 â Lun 06:00 dentro de un rango ââââââ
 function ltCalcularSHEX(desde, hasta) {
   let excluidas = 0;
   let cur = new Date(desde);
@@ -4347,7 +4347,7 @@ function ltCalcularSHEX(desde, hasta) {
     const fin = new Date(Math.min(cur.getTime() + 3600000, hasta.getTime()));
     const dow = cur.getDay();
     const h   = cur.getHours();
-    // Sábado ≥ 12:00 o domingo o lunes < 06:00
+    // SÃ¡bado â¥ 12:00 o domingo o lunes < 06:00
     const enShex = (dow === 6 && h >= 12) || dow === 0 || (dow === 1 && h < 6);
     if (enShex) excluidas += (fin - cur) / 3600000;
     cur = fin;
@@ -4355,7 +4355,7 @@ function ltCalcularSHEX(desde, hasta) {
   return excluidas;
 }
 
-// ── RESUMEN TOTAL VIAJE ──────────────────────────────────────────────────
+// ââ RESUMEN TOTAL VIAJE ââââââââââââââââââââââââââââââââââââââââââââââââââ
 function ltActualizarResumen() {
   const clienteKey = document.getElementById('ltCargaTipo').value;
   const cfg = LT_CLIENTES_CONFIG[clienteKey];
@@ -4378,7 +4378,7 @@ function ltActualizarResumen() {
     const bc = r.tipo_res === 'dem' ? 'var(--red)' : r.tipo_res === 'desp' ? 'var(--green)' : 'var(--gold)';
     const label = r.tipo_res === 'dem' ? 'DEMURRAGE' : r.tipo_res === 'desp' ? 'DESPATCH' : 'EVEN';
     const usd = r.tipo_res === 'even' ? '0' :
-      `${r.tipo_res === 'dem' ? '−' : '+'}${Math.round(r.monto).toLocaleString('es-CL')}`;
+      `${r.tipo_res === 'dem' ? 'â' : '+'}${Math.round(r.monto).toLocaleString('es-CL')}`;
     if (r.tipo_res === 'dem') totalDem += r.monto;
     if (r.tipo_res === 'desp') totalDesp += r.monto;
     html += `<tr>
@@ -4398,7 +4398,7 @@ function ltActualizarResumen() {
   document.getElementById('ltTotalDem').textContent  = `USD ${Math.round(totalDem).toLocaleString('es-CL')}`;
   document.getElementById('ltTotalDesp').textContent = `USD ${Math.round(totalDesp).toLocaleString('es-CL')}`;
   const netoEl = document.getElementById('ltBalanceNeto');
-  netoEl.textContent = `${neto >= 0 ? '− ' : '+ '}USD ${Math.round(Math.abs(neto)).toLocaleString('es-CL')}`;
+  netoEl.textContent = `${neto >= 0 ? 'â ' : '+ '}USD ${Math.round(Math.abs(neto)).toLocaleString('es-CL')}`;
   netoEl.style.color = neto > 0 ? 'var(--red)' : neto < 0 ? 'var(--green)' : 'var(--gold)';
   document.getElementById('ltResumenViaje').style.display = 'block';
 }
@@ -4407,18 +4407,18 @@ function ltGuardarResumen() {
   const tipoCarga = document.getElementById('ltCargaTipo').value;
   const rec = {
     id: genId(), fecha: new Date().toISOString(), tipo: 'laytime_sof',
-    tipoCarga, nave: document.getElementById('ltNave').value || '—',
+    tipoCarga, nave: document.getElementById('ltNave').value || 'â',
     resultados: { ...ltResultados },
   };
   const hist = JSON.parse(localStorage.getItem(LS_HISTORIAL) || '[]');
   hist.unshift(rec);
   localStorage.setItem(LS_HISTORIAL, JSON.stringify(hist));
-  alert('✅ SOF guardado en historial');
+  alert('â SOF guardado en historial');
 }
 
-// ═══════════════════════════════════════════════
-// DETENTION — LÓGICA
-// ═══════════════════════════════════════════════
+// âââââââââââââââââââââââââââââââââââââââââââââââ
+// DETENTION â LÃGICA
+// âââââââââââââââââââââââââââââââââââââââââââââââ
 let selectedScenario = null;
 let currentDetCalc = null;
 
@@ -4426,19 +4426,19 @@ function renderDetentionForm() {
   const cliente = document.getElementById('detCliente').value;
   const tipoPuerto = document.getElementById('detTipoPuerto').value;
 
-  // Mostrar bloques según cliente
+  // Mostrar bloques segÃºn cliente
   document.getElementById('scenariosBHP').style.display = cliente === 'BHP' ? 'block' : 'none';
   document.getElementById('scenariosCodelco').style.display = cliente === 'Codelco' ? 'block' : 'none';
-  document.getElementById('detScenarioTitle').textContent = `Escenario de Arribo — ${cliente}`;
+  document.getElementById('detScenarioTitle').textContent = `Escenario de Arribo â ${cliente}`;
 
-  // Horas libres según cliente y puerto
+  // Horas libres segÃºn cliente y puerto
   const horasMap = { BHP: { origen: 48, destino: 24 }, Codelco: { origen: 24, destino: 24 } };
   const hl = horasMap[cliente][tipoPuerto];
   document.getElementById('detHorasLibres').value = hl;
   document.getElementById('detHorasHint').textContent = `${cliente} ${tipoPuerto === 'origen' ? 'Origen' : 'Destino'}: ${hl}h de gracia`;
 
-  // Pro rata solo aplica en escenarios BHP específicos
-  // Mostrar campo tonelaje total siempre (útil para pro rata)
+  // Pro rata solo aplica en escenarios BHP especÃ­ficos
+  // Mostrar campo tonelaje total siempre (Ãºtil para pro rata)
   selectedScenario = null;
   clearScenarioSelection();
   document.getElementById('detResultBox').style.display = 'none';
@@ -4498,7 +4498,7 @@ function calcularDetention() {
   // Total horas desde arribo hasta All Fast
   const totalHorasEspera = Math.max(0, (allFastDt - arriboDt) / 3600000);
 
-  // Horas de espera DESPUÉS del grace period
+  // Horas de espera DESPUÃS del grace period
   const horasDetention = Math.max(0, totalHorasEspera - horasLibres);
 
   // Pro rata ratio
@@ -4517,7 +4517,7 @@ function calcularDetention() {
     switch (selectedScenario) {
       case 'bhp-1': {
         // Congestionado: tasa completa pro rata
-        // Si después cierra por clima: esas horas al 50% pro rata
+        // Si despuÃ©s cierra por clima: esas horas al 50% pro rata
         const radClima = document.querySelector('input[name="bhp1w"]:checked');
         const hayClima = radClima && radClima.value === 'si';
         const hrsClima = hayClima ? (parseFloat(document.getElementById('bhp1WeatherHrs').value) || 0) : 0;
@@ -4527,13 +4527,13 @@ function calcularDetention() {
         const montoClima = hrsClima * rateMitadHora * proRata;
         montoTotal = montoCongest + montoClima;
 
-        titulo = '⚠️ DETENTION — Puerto Congestionado';
-        subtitulo = `Escenario A · BHP · ${tipoPuerto === 'origen' ? 'Origen' : 'Destino'}`;
+        titulo = 'â ï¸ DETENTION â Puerto Congestionado';
+        subtitulo = `Escenario A Â· BHP Â· ${tipoPuerto === 'origen' ? 'Origen' : 'Destino'}`;
         detalle = `
           <div class="resultado-item"><label>Horas espera total</label><span>${formatHoras(totalHorasEspera)}</span></div>
           <div class="resultado-item"><label>Grace period</label><span>${horasLibres}h</span></div>
           <div class="resultado-item"><label>Horas detention</label><span>${formatHoras(horasDetention)}</span></div>
-          <div class="resultado-item"><label>Congestión (100%)</label><span>${formatHoras(hrsCongest)}</span></div>
+          <div class="resultado-item"><label>CongestiÃ³n (100%)</label><span>${formatHoras(hrsCongest)}</span></div>
           <div class="resultado-item"><label>Cierre clima (50%)</label><span>${formatHoras(hrsClima)}</span></div>
           <div class="resultado-item"><label>Pro rata BHP</label><span>${(proRata * 100).toFixed(1)}%</span></div>`;
         break;
@@ -4541,8 +4541,8 @@ function calcularDetention() {
       case 'bhp-2': {
         // Cerrado por clima: 50% pro rata
         montoTotal = horasDetention * rateMitadHora * proRata;
-        titulo = '🌊 DETENTION — Puerto Cerrado (Clima)';
-        subtitulo = `Escenario B · BHP · Tasa 50% · ${tipoPuerto === 'origen' ? 'Origen' : 'Destino'}`;
+        titulo = 'ð DETENTION â Puerto Cerrado (Clima)';
+        subtitulo = `Escenario B Â· BHP Â· Tasa 50% Â· ${tipoPuerto === 'origen' ? 'Origen' : 'Destino'}`;
         detalle = `
           <div class="resultado-item"><label>Horas espera total</label><span>${formatHoras(totalHorasEspera)}</span></div>
           <div class="resultado-item"><label>Grace period</label><span>${horasLibres}h</span></div>
@@ -4554,21 +4554,21 @@ function calcularDetention() {
       case 'bhp-3': {
         // Solo BHP no listo: 100% sin pro rata
         montoTotal = horasDetention * rateHora;
-        titulo = '⚠️ DETENTION — Carga BHP No Lista';
-        subtitulo = 'Escenario C · BHP · Tasa completa 100%';
+        titulo = 'â ï¸ DETENTION â Carga BHP No Lista';
+        subtitulo = 'Escenario C Â· BHP Â· Tasa completa 100%';
         detalle = `
           <div class="resultado-item"><label>Horas espera total</label><span>${formatHoras(totalHorasEspera)}</span></div>
           <div class="resultado-item"><label>Grace period</label><span>${horasLibres}h</span></div>
           <div class="resultado-item"><label>Horas detention</label><span>${formatHoras(horasDetention)}</span></div>
-          <div class="resultado-item"><label>Tasa aplicada</label><span>100% USD ${rate.toLocaleString()}/día</span></div>`;
+          <div class="resultado-item"><label>Tasa aplicada</label><span>100% USD ${rate.toLocaleString()}/dÃ­a</span></div>`;
         break;
       }
       case 'bhp-4': {
         // Solo no-BHP no listo: BHP NO paga
         noPaga = true;
         montoTotal = 0;
-        titulo = '✅ SIN DETENTION — Carga No-BHP No Lista';
-        subtitulo = 'Escenario D · BHP no paga detention en este caso';
+        titulo = 'â SIN DETENTION â Carga No-BHP No Lista';
+        subtitulo = 'Escenario D Â· BHP no paga detention en este caso';
         detalle = `
           <div class="resultado-item"><label>Horas espera total</label><span>${formatHoras(totalHorasEspera)}</span></div>
           <div class="resultado-item"><label>Motivo</label><span>Solo carga no-BHP no lista</span></div>
@@ -4578,8 +4578,8 @@ function calcularDetention() {
       case 'bhp-5': {
         // BHP y no-BHP no listos: pro rata
         montoTotal = horasDetention * rateHora * proRata;
-        titulo = '⚠️ DETENTION — BHP + No-BHP No Listos';
-        subtitulo = `Escenario E · BHP · Pro rata entre responsables`;
+        titulo = 'â ï¸ DETENTION â BHP + No-BHP No Listos';
+        subtitulo = `Escenario E Â· BHP Â· Pro rata entre responsables`;
         detalle = `
           <div class="resultado-item"><label>Horas espera total</label><span>${formatHoras(totalHorasEspera)}</span></div>
           <div class="resultado-item"><label>Grace period</label><span>${horasLibres}h</span></div>
@@ -4592,38 +4592,38 @@ function calcularDetention() {
     // CODELCO
     switch (selectedScenario) {
       case 'cdlc-1': {
-        // Congestión o carga no lista: 100% después de 24h
+        // CongestiÃ³n o carga no lista: 100% despuÃ©s de 24h
         montoTotal = horasDetention * rateHora;
-        titulo = '⚠️ DETENTION — Congestión / Carga No Lista';
-        subtitulo = 'Escenario A · Codelco · Tasa completa';
+        titulo = 'â ï¸ DETENTION â CongestiÃ³n / Carga No Lista';
+        subtitulo = 'Escenario A Â· Codelco Â· Tasa completa';
         detalle = `
           <div class="resultado-item"><label>Horas espera total</label><span>${formatHoras(totalHorasEspera)}</span></div>
           <div class="resultado-item"><label>Grace period</label><span>24h</span></div>
           <div class="resultado-item"><label>Horas detention</label><span>${formatHoras(horasDetention)}</span></div>
-          <div class="resultado-item"><label>Tasa aplicada</label><span>100% USD ${rate.toLocaleString()}/día</span></div>`;
+          <div class="resultado-item"><label>Tasa aplicada</label><span>100% USD ${rate.toLocaleString()}/dÃ­a</span></div>`;
         break;
       }
       case 'cdlc-2': {
-        // Puerto cerrado clima: 50% después de 24h
+        // Puerto cerrado clima: 50% despuÃ©s de 24h
         const hrsClima = parseFloat(document.getElementById('cdlcWeatherHrs').value) || 0;
         const hrsSinClima = Math.max(0, horasDetention - hrsClima);
         montoTotal = (hrsSinClima * rateHora) + (hrsClima * rateMitadHora);
         // Si todo fue clima, solo 50%
         if (hrsSinClima === 0) montoTotal = horasDetention * rateMitadHora;
-        titulo = '🌊 DETENTION — Puerto Cerrado (Clima)';
-        subtitulo = 'Escenario B · Codelco · Tasa 50%';
+        titulo = 'ð DETENTION â Puerto Cerrado (Clima)';
+        subtitulo = 'Escenario B Â· Codelco Â· Tasa 50%';
         detalle = `
           <div class="resultado-item"><label>Horas espera total</label><span>${formatHoras(totalHorasEspera)}</span></div>
           <div class="resultado-item"><label>Grace period</label><span>24h</span></div>
           <div class="resultado-item"><label>Horas detention</label><span>${formatHoras(horasDetention)}</span></div>
-          <div class="resultado-item"><label>Tasa aplicada</label><span>50% USD ${rate.toLocaleString()}/día</span></div>`;
+          <div class="resultado-item"><label>Tasa aplicada</label><span>50% USD ${rate.toLocaleString()}/dÃ­a</span></div>`;
         break;
       }
       case 'cdlc-3': {
-        // Congestión → luego clima: tasa COMPLETA todo el periodo
+        // CongestiÃ³n â luego clima: tasa COMPLETA todo el periodo
         montoTotal = horasDetention * rateHora;
-        titulo = '🔴 DETENTION — Congestión + Cierre Clima';
-        subtitulo = 'Escenario C · Codelco · Tasa completa incluso durante cierre climático';
+        titulo = 'ð´ DETENTION â CongestiÃ³n + Cierre Clima';
+        subtitulo = 'Escenario C Â· Codelco Â· Tasa completa incluso durante cierre climÃ¡tico';
         detalle = `
           <div class="resultado-item"><label>Horas espera total</label><span>${formatHoras(totalHorasEspera)}</span></div>
           <div class="resultado-item"><label>Grace period</label><span>24h</span></div>
@@ -4659,12 +4659,12 @@ function guardarDetention() {
   const hist = JSON.parse(localStorage.getItem(LS_HISTORIAL) || '[]');
   hist.unshift(currentDetCalc);
   localStorage.setItem(LS_HISTORIAL, JSON.stringify(hist));
-  alert('✅ Detention guardada en historial');
+  alert('â Detention guardada en historial');
 }
 
-// ═══════════════════════════════════════════════
+// âââââââââââââââââââââââââââââââââââââââââââââââ
 // UTILS
-// ═══════════════════════════════════════════════
+// âââââââââââââââââââââââââââââââââââââââââââââââ
 function genId() { return Math.random().toString(36).substr(2,9); }
 
 function formatHoras(h) {
