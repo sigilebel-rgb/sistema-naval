@@ -687,9 +687,13 @@
         <div class="field">
           <label>Cliente</label>
           <select id="detCliente" onchange="renderDetentionForm()">
-            <option value="BHP">BHP</option>
-            <option value="Codelco">Codelco</option>
-          </select>
+              <option value="BHP">BHP</option>
+              <option value="Codelco">Codelco</option>
+              <option value="KMP">KMP — Fish Meal</option>
+              <option value="Trafigura">Trafigura</option>
+              <option value="Candelaria">Candelaria — Coquimbo</option>
+              <option value="Manual">Manual</option>
+            </select>
         </div>
         <div class="field">
           <label>Tipo Puerto</label>
@@ -2037,9 +2041,11 @@ function renderDetentionForm() {
   document.getElementById('detScenarioTitle').textContent = `Escenario de Arribo — ${cliente}`;
 
   // Horas libres según cliente y puerto
-  const horasMap = { BHP: { origen: 48, destino: 24 }, Codelco: { origen: 24, destino: 24 } };
+  const horasMap = { BHP: { origen: 48, destino: 24 }, Codelco: { origen: 24, destino: 24 }, KMP: { origen: 12, destino: 12 }, Trafigura: { origen: 24, destino: 24 }, Candelaria: { origen: 24, destino: 24 }, Manual: { origen: 24, destino: 24 } };
   const hl = horasMap[cliente][tipoPuerto];
   document.getElementById('detHorasLibres').value = hl;
+    const rateMap = { BHP: 18000, Codelco: 18000, KMP: 18000, Trafigura: 19000, Candelaria: 18000, Manual: 18000 };
+    document.getElementById('detRate').value = rateMap[cliente] || 18000;
   document.getElementById('detHorasHint').textContent = `${cliente} ${tipoPuerto === 'origen' ? 'Origen' : 'Destino'}: ${hl}h de gracia`;
 
   // Pro rata solo aplica en escenarios BHP específicos
