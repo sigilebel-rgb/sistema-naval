@@ -4382,6 +4382,7 @@ function guardarTiemposEfectivos(){
   viajes[vi].escalas[ei].obs_efectiva=obs_ef;
   viajes[vi].escalas[ei].efectivo=!!(ata||atb||atd);
   VA.save(viajes);
+  VA.update(viajes[vi]);
   cerrarModalTiempos();
   renderNaves();
   showAlert('✅ Tiempos efectivos guardados para '+viajes[vi].escalas[ei].puerto,'ok');
