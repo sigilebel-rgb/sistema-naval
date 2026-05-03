@@ -466,7 +466,7 @@
           </div>
           <div class="field">
             <label>Viaje / Escala</label>
-            <select id="selEscala" onchange="cargarDatosEscala()">
+            <select id="selEscala" onchange="ltCargarEscalas();ltCargarDatosEscala()">
               <option value="">— Seleccionar —</option>
             </select>
           </div>
@@ -1550,6 +1550,30 @@ const LT_PUERTOS = {
 };
 
 let ltResultados = {}; // resultados por puerto id
+
+function ltCargarDatosEscala() {
+  var escalaId = document.getElementById("selEscala").value;
+  if (!escalaId) return;
+  var turnos = JSON.parse(localStorage.getItem("vms_turnos")||"[]").filter(function(t){return t.escala_id===escalaId;});
+  var viajes = JSON.parse(localStorage.getItem("vms_viajes")||"[]");
+  var escala = null;
+  viajes.forEach(function(v){if(v.escalas)v.escalas.forEach(function(e){if(e.id===escalaId)escala=e;});});
+  if (!escala) return;
+  if (escala.ata) {
+    var ataFmt = escala.ata.substring(0,16);
+    var el = document.getElementById("ltArribo"); if(el) el.value = ataFmt;
+    var n = document.getElementById("ltNorTendered"); if(n) n.value = ataFmt;
+  }
+  if (escala.atb) { var el2 = document.getElementById("ltAllFast"); if(el2) el2.value = escala.atb.substring(0,16); }
+  if (turnos.length > 0) {
+    turnos.sort(function(a,b){return a.hi>b.hi?1:-1;});
+    var fh = document.getElementById("ltFirstHook"); if(fh && turnos[0].hi) fh.value = turnos[0].hi.substring(0,16);
+    var lh = document.getElementById("ltLastHook"); if(lh && turnos[turnos.length-1].hf) lh.value = turnos[turnos.length-1].hf.substring(0,16);
+  }
+  var tot = turnos.reduce(function(s,x){return s+(x.kpi&&x.kpi.totalTon?x.kpi.totalTon:0);},0);
+  var tc = document.getElementById("ltTonCliente"); if(tc && tot>0) tc.value = tot;
+  var tt = document.getElementById("ltTonTotal"); if(tt && tot>0) tt.value = tot;
+}
 
 function ltCargarEscalas() {
   ltActualizarPuertos();
