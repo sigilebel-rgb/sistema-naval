@@ -948,7 +948,22 @@ function setTab(tab) {
   if (tab === 'historial') renderHistorial();
   if (tab === 'clientes') renderClientesGrid();
   if (tab === 'detention') renderDetentionForm();
-  if (tab === 'laytime') ltActualizarPuertos();
+  if (tab === 'laytime') {
+    // Sincronizar cliente desde Demurrage
+    const dmCliente = document.getElementById('dmCliente');
+    const ltCargaTipo = document.getElementById('ltCargaTipo');
+    if (dmCliente && ltCargaTipo && dmCliente.value) {
+      ltCargaTipo.value = dmCliente.value;
+    }
+    // Sincronizar nave desde Demurrage
+    const dmNave = document.getElementById('dmNave');
+    const ltNave = document.getElementById('ltNave');
+    if (dmNave && ltNave && dmNave.value) {
+      ltNave.value = dmNave.value;
+      ltNave.dispatchEvent(new Event('change'));
+    }
+    ltActualizarPuertos();
+  }
 }
 
 // ═══════════════════════════════════════════════
