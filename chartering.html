@@ -2358,16 +2358,6 @@ function formatDtShort(dt) {
   return dt.toLocaleDateString('es-CL', { day: '2-digit', month: '2-digit' }) + ' ' +
     dt.toLocaleTimeString('es-CL', { hour: '2-digit', minute: '2-digit' });
 }
-
-function formatDtLocal(str) {
-  // convierte "2026-04-26 08:00" o "2026-04-26T08:00" a datetime-local
-  return str.replace(' ', 'T').slice(0,16);
-}
-
-function toDatetimeLocal(dt) {
-  const pad = n => String(n).padStart(2,'0');
-  return `${dt.getFullYear()}-${pad(dt.getMonth()+1)}-${pad(dt.getDate())}T${pad(dt.getHours())}:${pad(dt.getMinutes())}`;
-}
   'codelco_catodos': {
     label: 'Codelco — Cátodos Cobre',
     demRate: 18000,
@@ -2466,6 +2456,16 @@ function toDatetimeLocal(dt) {
     ],
   },
 };
+
+function formatDtLocal(str) {
+  // convierte "2026-04-26 08:00" o "2026-04-26T08:00" a datetime-local
+  return str.replace(' ', 'T').slice(0,16);
+}
+
+function toDatetimeLocal(dt) {
+  const pad = n => String(n).padStart(2,'0');
+  return `${dt.getFullYear()}-${pad(dt.getMonth()+1)}-${pad(dt.getDate())}T${pad(dt.getHours())}:${pad(dt.getMinutes())}`;
+}
 
 const LT_PUERTOS = {
   concentrado: LT_CLIENTES_CONFIG['codelco_concentrado'].puertos,
