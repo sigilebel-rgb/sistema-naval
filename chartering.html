@@ -949,11 +949,23 @@ function setTab(tab) {
   if (tab === 'clientes') renderClientesGrid();
   if (tab === 'detention') renderDetentionForm();
   if (tab === 'laytime') {
-    // Sincronizar cliente desde Demurrage
+    // Sincronizar cliente desde Demurrage por texto
     const selCliente = document.getElementById('selCliente');
     const ltCargaTipo = document.getElementById('ltCargaTipo');
     if (selCliente && ltCargaTipo && selCliente.value) {
-      ltCargaTipo.value = selCliente.value;
+      const clienteTexto = selCliente.options[selCliente.selectedIndex]?.text?.toLowerCase() || '';
+      const ltOpts = [...ltCargaTipo.options];
+      // Buscar la opción de ltCargaTipo cuyo texto más se parezca
+      const match = ltOpts.find(o => {
+        const t = o.text.toLowerCase();
+        return clienteTexto.includes('candelaria') && t.includes('candelaria') ||
+               clienteTexto.includes('codelco') && t.includes('codelco') && clienteTexto.includes('concentrado') && t.includes('concentrado') ||
+               clienteTexto.includes('codelco') && t.includes('codelco') && clienteTexto.includes('cátodo') && t.includes('cátodo') ||
+               clienteTexto.includes('bhp') && t.includes('bhp') ||
+               clienteTexto.includes('kmp') && t.includes('kmp') ||
+               clienteTexto.includes('trafigura') && t.includes('trafigura');
+      });
+      if (match) ltCargaTipo.value = match.value;
     }
     // Sincronizar nave desde Demurrage
     const selNave = document.getElementById('selNave');
@@ -1595,9 +1607,9 @@ function ltCargarDatosEscala(escalaId, portoId) {
   const fhField = document.getElementById(prefix + 'FirstHook') || document.querySelector('[id$="FirstHook"]');
   const lhField = document.getElementById(prefix + 'LastHook') || document.querySelector('[id$="LastHook"]');
   const tonField = document.getElementById(prefix + 'Tonelaje') || document.querySelector('[id$="Tonelaje"]');
-  if (norField && ata) norField.value = new Date(ata).toISOString().slice(0,16);
-  if (fhField && firstHook) fhField.value = new Date(firstHook).toISOString().slice(0,16);
-  if (lhField && lastHook) lhField.value = new Date(lastHook).toISOString().slice(0,16);
+  if (norField && ata) { try { norField.value = new Date(ata).toISOString().slice(0,16); } catch(e){} }
+  if (fhField && firstHook) { try { fhField.value = new Date(firstHook).toISOString().slice(0,16); } catch(e){} }
+  if (lhField && lastHook) { try { lhField.value = new Date(lastHook).toISOString().slice(0,16); } catch(e){} }
   if (tonField) tonField.value = totalTon;
 }
 function ltCargarEscalas() {
