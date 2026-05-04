@@ -386,6 +386,7 @@
             <option value="kmp_harina">KMP — Harina de Pescado</option>
             <option value="trafigura_concentrado_cobre">Trafigura — Concentrado Cobre</option>
             <option value="trafigura_concentrado_zinc">Trafigura — Concentrado Zinc</option>
+            <option value="candelaria_concentrado">Candelaria — Cobre</option>
           </select>
         </div>
         <div class="field">
@@ -1540,7 +1541,15 @@ const LT_CLIENTES_CONFIG = {
       { id: 'antwerp',  nombre: 'Antwerp',   tipo: 'descarga', tasa: 5000,  shinc: false, nor_regla: 'traf_destino', nota: 'WWWD SHEX UU ATUTC · Next working day 08:00',
         shex: { satnoon: true, monMorn: '06:00' } },
     ],
-  },
+  },,
+  'candelaria_concentrado': {
+    label: 'Candelaria — Concentrado Cobre',
+    demRate: 18000,
+    puertos: [
+      { id: 'coquimbo', nombre: 'Coquimbo', tipo: 'carga', tasa: 5000, shinc: true, nor_regla: 'candelaria_origen', nota: 'SHINC · NOR a cualquier hora' },
+      { id: 'brunsbuttel', nombre: 'Brunsbuttel', tipo: 'descarga', tasa: 5000, shinc: true, nor_regla: 'candelaria_destino', nota: 'SHINC · NOR a cualquier hora' }
+    ]
+  }
 };
 
 // Compatibilidad backwards — usado por selector anterior
