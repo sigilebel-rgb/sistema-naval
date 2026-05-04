@@ -950,19 +950,23 @@ function setTab(tab) {
   if (tab === 'detention') renderDetentionForm();
   if (tab === 'laytime') {
     // Sincronizar cliente desde Demurrage
-    const dmCliente = document.getElementById('dmCliente');
+    const selCliente = document.getElementById('selCliente');
     const ltCargaTipo = document.getElementById('ltCargaTipo');
-    if (dmCliente && ltCargaTipo && dmCliente.value) {
-      ltCargaTipo.value = dmCliente.value;
+    if (selCliente && ltCargaTipo && selCliente.value) {
+      ltCargaTipo.value = selCliente.value;
     }
     // Sincronizar nave desde Demurrage
-    const dmNave = document.getElementById('dmNave');
+    const selNave = document.getElementById('selNave');
     const ltNave = document.getElementById('ltNave');
-    if (dmNave && ltNave && dmNave.value) {
-      ltNave.value = dmNave.value;
-      ltNave.dispatchEvent(new Event('change'));
+    if (selNave && ltNave && selNave.value) {
+      ltNave.value = selNave.value;
     }
     ltActualizarPuertos();
+    // Cargar datos de escala automáticamente
+    const selEscala = document.getElementById('selEscala');
+    if (selEscala && selEscala.value) {
+      ltCargarDatosEscala(selEscala.value);
+    }
   }
 }
 
