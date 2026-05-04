@@ -295,6 +295,18 @@ var o=[];var l=Array.isArray(e);for(f=n.s.c;f<=n.e.c;++f)s[f]=ya(f);for(var c=n.
         <div class="fgrp"><label>Bodega(s)</label>
           <input id="mm-bodega" placeholder="Ej: 1, 2, 3">
         </div>
+        <div class="fgrp"><label>Cliente / Contrato</label>
+          <select id="mm-cliente">
+            <option value="">— Sin contrato —</option>
+            <option value="codelco_concentrado">Codelco — Concentrado Cobre</option>
+            <option value="codelco_catodos">Codelco — Catodos Cobre</option>
+            <option value="bhp_concentrado">BHP — Concentrado</option>
+            <option value="kmp_harina">KMP — Harina Pescado</option>
+            <option value="trafigura_concentrado_cobre">Trafigura — Concentrado Cobre</option>
+            <option value="trafigura_concentrado_zinc">Trafigura — Concentrado Zinc</option>
+            <option value="candelaria_coquimbo">Candelaria — Coquimbo</option>
+          </select>
+        </div>
       </div>
       <div class="btn-row">
         <button class="btn btn-g btn-sm" onclick="mmGuardarOp()">✅ Agregar</button>
@@ -4116,6 +4128,7 @@ function abrirModalMix(viajeId, escalaId){
   document.getElementById('mm-form').style.display='none';
   document.getElementById('mm-ton').value='';
   document.getElementById('mm-bodega').value='';
+  document.getElementById('mm-cliente').value=e.cliente||'';
   mmRenderOps();
   document.getElementById('modal-mix').style.display='flex';
 }
@@ -4334,6 +4347,7 @@ function mmGuardarTodo(){
   const ei=(viajes[vi].escalas||[]).findIndex(x=>x.id===_mmEscalaId);
   if(ei<0)return;
   viajes[vi].escalas[ei].operaciones=[..._mmOps];
+  viajes[vi].escalas[ei].cliente=document.getElementById('mm-cliente').value;
   VA.update(viajes[vi]);
   cerrarModalMix();
   showAlert('✅ Mix de carga guardado para '+viajes[vi].escalas[ei].puerto,'ok');
