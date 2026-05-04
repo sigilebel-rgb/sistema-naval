@@ -380,7 +380,10 @@
         <div class="field">
           <label>Cliente / Contrato</label>
           <select id="ltCargaTipo" onchange="ltActualizarPuertos()">
-            <option value="codelco_concentrado">Codelco — Concentrado Cobre</option>
+            <option value="candelaria_bremen">Candelaria — Coquimbo → Bremen</option>
+                <option value="candelaria_brunsbuttel">Candelaria — Coquimbo → Brunsbüttel</option>
+                <option value="candelaria_antwerp">Candelaria — Coquimbo → Antwerp</option>
+                <option value="codelco_concentrado">Codelco — Concentrado Cobre</option>
             <option value="codelco_catodos">Codelco — Cátodos Cobre</option>
             <option value="bhp_concentrado">BHP — Concentrado Cobre</option>
             <option value="kmp_harina">KMP — Harina de Pescado</option>
@@ -1589,10 +1592,11 @@ function ltCargarDatosEscala(escalaId, portoId) {
   const turnosEscala = turnos.filter(t => t.escala_id === escalaId);
   if (!turnosEscala.length) return;
   // First Hook: mínimo hi de todos los turnos
-  const firstHook = turnosEscala.map(t => t.hi).filter(Boolean).sort()[0];
-  // Last Hook: máximo hf de todos los turnos  
-  const lastHook = turnosEscala.map(t => t.hf).filter(Boolean).sort().slice(-1)[0];
-  // Tonelaje total
+  const toISO = (turno, hora) => turno.fecha && hora ? turno.fecha + 'T' + hora : null;
+  const firstTurno = turnosEscala.slice().sort((a,b)=>a.fecha+a.hi < b.fecha+b.hi?-1:1)[0];
+  const lastTurno = turnosEscala.slice().sort((a,b)=>a.fecha+a.hf > b.fecha+b.hf?-1:1)[0];
+  const firstHook = toISO(firstTurno, firstTurno?.hi);
+  const lastHook = toISO(lastTurno, lastTurno?.hf);
   const totalTon = turnosEscala.reduce((s,t) => s + (t.kpi?.totalTon || 0), 0);
   // ATA como NOR tendered (si existe)
   const viajes = JSON.parse(localStorage.getItem('vms_viajes') || '[]');
