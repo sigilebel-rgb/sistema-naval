@@ -1566,6 +1566,36 @@ const LT_PUERTOS = {
 
 let ltResultados = {}; // resultados por puerto id
 
+
+function ltCargarDatosEscala(escalaId, portoId) {
+  if (!escalaId) return;
+  const turnos = JSON.parse(localStorage.getItem('vms_turnos') || '[]');
+  const turnosEscala = turnos.filter(t => t.escala_id === escalaId);
+  if (!turnosEscala.length) return;
+  // First Hook: mínimo hi de todos los turnos
+  const firstHook = turnosEscala.map(t => t.hi).filter(Boolean).sort()[0];
+  // Last Hook: máximo hf de todos los turnos  
+  const lastHook = turnosEscala.map(t => t.hf).filter(Boolean).sort().slice(-1)[0];
+  // Tonelaje total
+  const totalTon = turnosEscala.reduce((s,t) => s + (t.kpi?.totalTon || 0), 0);
+  // ATA como NOR tendered (si existe)
+  const viajes = JSON.parse(localStorage.getItem('vms_viajes') || '[]');
+  let ata = null;
+  for (const v of viajes) {
+    const esc = (v.escalas||[]).find(e => e.id === escalaId);
+    if (esc && esc.ata) { ata = esc.ata; break; }
+  }
+  // Poblar campos del puerto activo
+  const prefix = portoId || '';
+  const norField = document.getElementById(prefix + 'NorTendered') || document.querySelector('[id$="NorTendered"]');
+  const fhField = document.getElementById(prefix + 'FirstHook') || document.querySelector('[id$="FirstHook"]');
+  const lhField = document.getElementById(prefix + 'LastHook') || document.querySelector('[id$="LastHook"]');
+  const tonField = document.getElementById(prefix + 'Tonelaje') || document.querySelector('[id$="Tonelaje"]');
+  if (norField && ata) norField.value = new Date(ata).toISOString().slice(0,16);
+  if (fhField && firstHook) fhField.value = new Date(firstHook).toISOString().slice(0,16);
+  if (lhField && lastHook) lhField.value = new Date(lastHook).toISOString().slice(0,16);
+  if (tonField) tonField.value = totalTon;
+}
 function ltCargarEscalas() {
   ltActualizarPuertos();
 }
