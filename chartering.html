@@ -386,8 +386,8 @@
             <option value="kmp_harina">KMP — Harina de Pescado</option>
             <option value="trafigura_concentrado_cobre">Trafigura — Concentrado Cobre</option>
             <option value="trafigura_concentrado_zinc">Trafigura — Concentrado Zinc</option>
-            <option value="candelaria_concentrado">Candelaria — Cobre</option>
-          </select>
+          <option value="candelaria_concentrado">Candelaria – Concentrado</option>
+        </select>
         </div>
         <div class="field">
           <label>Demurrage Rate (USD/día)</label>
@@ -1541,16 +1541,19 @@ const LT_CLIENTES_CONFIG = {
       { id: 'antwerp',  nombre: 'Antwerp',   tipo: 'descarga', tasa: 5000,  shinc: false, nor_regla: 'traf_destino', nota: 'WWWD SHEX UU ATUTC · Next working day 08:00',
         shex: { satnoon: true, monMorn: '06:00' } },
     ],
-  },,
+  },
+};
+
+
+  // ── Candelaria – Concentrado ─────────────────────────────
   'candelaria_concentrado': {
-    label: 'Candelaria — Concentrado Cobre',
+    label: 'Candelaria – Concentrado',
     demRate: 18000,
     puertos: [
-      { id: 'coquimbo', nombre: 'Coquimbo', tipo: 'carga', tasa: 5000, shinc: true, nor_regla: 'candelaria_origen', nota: 'SHINC · NOR a cualquier hora' },
-      { id: 'brunsbuttel', nombre: 'Brunsbuttel', tipo: 'descarga', tasa: 5000, shinc: true, nor_regla: 'candelaria_destino', nota: 'SHINC · NOR a cualquier hora' }
-    ]
-  }
-};
+      { id: 'coquimbo',    nombre: 'Coquimbo',    tipo: 'carga',    tasa: 5000, shinc: true, nor_regla: 'candelaria_origen',  nota: 'SHINC · NOR a cualquier hora' },
+      { id: 'brunsbuttel', nombre: 'Brunsbüttel', tipo: 'descarga', tasa: 5000, shinc: true, nor_regla: 'candelaria_destino', nota: 'SHINC · NOR a cualquier hora' },
+    ],
+  },
 
 // Compatibilidad backwards — usado por selector anterior
 const LT_PUERTOS = {
@@ -1811,6 +1814,10 @@ function ltAjustarVentanaNOR(dt, opts = {}) {
       // Sin sábado → lunes apertura
       d.setDate(d.getDate() + 2); d.setHours(aH, aM, 0, 0);
       return { dt: d, hint: `⚠️ Sábado (no válido) → Lunes ${abreLV}` };
+    } else if (regla === 'candelaria_origen' || regla === 'candelaria_destino') {
+      // NOR a cualquier hora, laytime = NOR inmediato (sin horas libres adicionales)
+      layStart = new Date(norAceptada);
+      layHint = 'NOR aceptada → Laytime inicia inmediatamente';
     }
     // Con sábado: solo 09:00–12:00
     if (minDia < 9 * 60) { d.setHours(9, 0, 0, 0); return { dt: d, hint: '⚠️ Sáb antes 09:00 → 09:00' }; }
