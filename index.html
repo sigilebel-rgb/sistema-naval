@@ -3479,6 +3479,8 @@ function renderFotoSlot(b){
 
   
   // Resumen Detenciones
+  const _eid = _mmEscalaId || '';
+  const turnos = JSON.parse(localStorage.getItem('vms_turnos')||'[]').filter(t=>t.escala_id===_eid);
   if(turnos.length>0){
     const RCOL={'Nave':'var(--blue)','Estibadores':'var(--yellow)','Puerto':'var(--green)','Climático':'var(--text2)'};
     const RLBL={'Nave':'🚢 Nave','Estibadores':'👷 Estibadores','Puerto':'⚓ Puerto','Climático':'🌧️ Climático'};
