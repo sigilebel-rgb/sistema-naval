@@ -942,7 +942,20 @@ function setTab(tab) {
   if (tab === 'historial') renderHistorial();
   if (tab === 'clientes') renderClientesGrid();
   if (tab === 'detention') renderDetentionForm();
-  if (tab === 'laytime') ltActualizarPuertos();
+  if (tab === 'laytime') {
+    // Sincronizar cliente desde escala seleccionada
+    const _eid = document.getElementById('selEscala')?.value;
+    if (_eid) {
+      const _vj = JSON.parse(localStorage.getItem('vms_viajes')||'[]');
+      let _esc = null;
+      _vj.forEach(v=>{const e=(v.escalas||[]).find(e=>e.id===_eid);if(e)_esc=e;});
+      if (_esc?.cliente) {
+        const _sel = document.getElementById('ltCargaTipo');
+        if (_sel) _sel.value = _esc.cliente;
+      }
+    }
+    ltActualizarPuertos();
+  }
 }
 
 // ═══════════════════════════════════════════════
