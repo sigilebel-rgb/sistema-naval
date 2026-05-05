@@ -1092,8 +1092,8 @@ function cargarDatosEscala() {
   if (escTurnos.length > 0) {
     // First Hook: hi del primer turno
     const sorted = [...escTurnos].sort((a,b) => (a.hi||'').localeCompare(b.hi||''));
-    const firstHookDt = sorted[0].hi;
-    const lastHookDt = sorted[sorted.length-1].hf;
+    const firstHookDt = (sorted[0].fecha ? sorted[0].fecha + 'T' + sorted[0].hi : sorted[0].hi);
+    const lastHookDt = (sorted[sorted.length-1].fecha ? sorted[sorted.length-1].fecha + 'T' + sorted[sorted.length-1].hf : sorted[sorted.length-1].hf);
 
     if (firstHookDt) document.getElementById('firstHook').value = formatDtLocal(firstHookDt);
     if (lastHookDt) document.getElementById('lastHook').value = formatDtLocal(lastHookDt);
