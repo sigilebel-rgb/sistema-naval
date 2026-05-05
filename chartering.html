@@ -1814,7 +1814,13 @@ function ltCalcNorAceptada(pid, regla) {
       layHint = `NOR > 12:00 → 06:00 ${layStart.toLocaleDateString('es-CL')}`;
     }
 
-  } else if (regla === 'traf_origen' || regla === 'traf_destino') {
+  } else if (regla === 'candelaria_origen' || regla === 'candelaria_destino') {
+      // SHINC - NOR a cualquier hora, laytime inicia inmediatamente
+      norAceptada = norDt;
+      norHint = 'SHINC → NOR válida a cualquier hora';
+      layStart = new Date(norDt);
+      layHint = 'NOR aceptada → Laytime inicia inmediatamente';
+    } else if (regla === 'traf_origen' || regla === 'traf_destino') {
     // Next working day 08:00
     layStart = ltNextWorkingDay(norAceptada, '08:00');
     layHint = `Next working day 08:00 → ${layStart.toLocaleDateString('es-CL')}`;
