@@ -1068,12 +1068,12 @@ function cargarNaves() {
 }
 
 function cargarEscalas() {
-  const nave = document.getElementById('selNave').value;
+  const naveNombre = document.getElementById('selNave').value;
   const sel = document.getElementById('selEscala');
   sel.innerHTML = '<option value="">— Seleccionar escala —</option>';
-  if (!nave) return;
+  if (!naveNombre) return;
   const viajes = JSON.parse(localStorage.getItem(LS_VIAJES) || '[]');
-  viajes.filter(v => v.nave === nave).forEach(v => {
+  viajes.filter(v => v.nave_id === (JSON.parse(localStorage.getItem('vms_naves')||'[]').find(n=>n.nombre===naveNombre)||{}).id).forEach(v => {
     const escalas = v.escalas || [];
     escalas.forEach(e => {
       const label = `${e.puerto || '?'} — ${e.eta ? e.eta.split('T')[0] : 'sin fecha'}`;
