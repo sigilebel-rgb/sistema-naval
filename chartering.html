@@ -1592,43 +1592,9 @@ function ltActualizarPuertos() {
   const container = document.getElementById('ltPuertosContainer');
   container.innerHTML = puertos.map(p => ltRenderPuertoBlock(p, cfg)).join('');
   document.getElementById('ltResumenViaje').style.display = 'none';
+}
 
-  setTimeout(ltAutoPopular, 100);}
-
-f
-
-function ltAutoPopular() {
-  var clienteKey = document.getElementById('ltCargaTipo').value;
-  var cfg = LT_CLIENTES_CONFIG[clienteKey];
-  if (!cfg) return;
-  var viajes = JSON.parse(localStorage.getItem('vms_viajes') || '[]');
-  var turnos = JSON.parse(localStorage.getItem('vms_turnos') || '[]');
-  cfg.puertos.forEach(function(p) {
-    var escala = null;
-    viajes.forEach(function(v) {
-      (v.escalas || []).forEach(function(e) {
-        if ((e.puerto || '').toLowerCase().includes(p.nombre.toLowerCase())) escala = e;
-      });
-    });
-    if (!escala) return;
-    var norEl = document.getElementById('lt_' + p.id + '_nor');
-    if (norEl && escala.ata) norEl.value = escala.ata;
-    var tEscala = turnos.filter(function(t) { return t.escala_id === escala.id; });
-    if (tEscala.length) {
-      var fh = tEscala.map(function(t){return t.hi;}).filter(Boolean).sort()[0];
-      var lh = tEscala.map(function(t){return t.hf;}).filter(Boolean).sort().reverse()[0];
-      var ton = tEscala.reduce(function(s,t){return s+((t.kpi&&t.kpi.totalTon)||0);},0);
-      var fhEl = document.getElementById('lt_' + p.id + '_fh');
-      var lhEl = document.getElementById('lt_' + p.id + '_lh');
-      var tonEl = document.getElementById('lt_' + p.id + '_ton');
-      if (fhEl && fh) fhEl.value = fh;
-      if (lhEl && lh) lhEl.value = lh;
-      if (tonEl) tonEl.value = ton;
-      ltRecalcular(p.id);
-    }
-    ltCalcNor(p.id);
-  });
-}unction ltRenderPuertoBlock(p, cfg) {
+function ltRenderPuertoBlock(p, cfg) {
   const esCarga = p.tipo === 'carga';
   const icono = esCarga ? '🚢' : '🏭';
   const tipoLabel = esCarga ? 'Puerto de Carga' : 'Puerto de Descarga';
