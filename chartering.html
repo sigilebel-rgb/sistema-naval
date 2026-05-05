@@ -1613,8 +1613,8 @@ function ltAutoPopular() {
     if (norEl && escala.ata) norEl.value = escala.ata;
     var tEscala = turnos.filter(function(t) { return t.escala_id === escala.id; });
     if (tEscala.length) {
-      var fh = tEscala.map(function(t){return t.hi;}).filter(Boolean).sort()[0];
-      var lh = tEscala.map(function(t){return t.hf;}).filter(Boolean).sort().reverse()[0];
+      var fh = tEscala.map(function(t){return t.fecha&&t.hi?t.fecha+'T'+t.hi:'';}).filter(Boolean).sort()[0];
+      var lh = tEscala.map(function(t){return t.fecha&&t.hf?t.fecha+'T'+t.hf:'';}).filter(Boolean).sort().reverse()[0];
       var ton = tEscala.reduce(function(s,t){return s+((t.kpi&&t.kpi.totalTon)||0);},0);
       var fhEl = document.getElementById('lt_' + p.id + '_fh');
       var lhEl = document.getElementById('lt_' + p.id + '_lh');
@@ -1624,7 +1624,7 @@ function ltAutoPopular() {
       if (tonEl) tonEl.value = ton;
       ltRecalcular(p.id);
     }
-    ltCalcNor(p.id);
+    ltCalcNorAceptada(p.id, p.nor_regla);
   });
 }
 
