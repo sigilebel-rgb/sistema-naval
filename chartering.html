@@ -1624,6 +1624,9 @@ function ltAutoPopular() {
       if (fhEl && fh) fhEl.value = fh;
       if (lhEl && lh) lhEl.value = lh;
       if (tonEl) tonEl.value = ton;
+      var det = tEscala.reduce(function(s,t){return s+(t.detenciones||[]).filter(function(d){return d.resp==='Climático'||d.resp==='Nave';}).reduce(function(s2,d){return s2+d.min;},0);},0);
+      var detEl = document.getElementById('lt_'+p.id+'_det');
+      if(detEl) detEl.value = det;
     }
     ltCalcNorAceptada(p.id, p.nor_regla);
     ltRecalcular(p.id);
