@@ -1611,6 +1611,8 @@ function ltAutoPopular() {
     if (!escala) return;
     var norEl = document.getElementById('lt_' + p.id + '_nor');
     if (norEl && escala.ata) norEl.value = escala.ata;
+    var layEl = document.getElementById('lt_' + p.id + '_layStart');
+    // layStart se calcula via ltCalcNorAceptada
     var tEscala = turnos.filter(function(t) { return t.escala_id === escala.id; });
     if (tEscala.length) {
       var fh = tEscala.map(function(t){return t.fecha&&t.hi?t.fecha+'T'+t.hi:'';}).filter(Boolean).sort()[0];
@@ -1622,9 +1624,9 @@ function ltAutoPopular() {
       if (fhEl && fh) fhEl.value = fh;
       if (lhEl && lh) lhEl.value = lh;
       if (tonEl) tonEl.value = ton;
-      ltRecalcular(p.id);
     }
     ltCalcNorAceptada(p.id, p.nor_regla);
+    ltRecalcular(p.id);
   });
 }
 
