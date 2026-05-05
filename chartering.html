@@ -1510,7 +1510,18 @@ const LT_CLIENTES_CONFIG = {
     demRate: 19000,
     puertos: [
       { id: 'callao',   nombre: 'Callao',    tipo: 'carga',    tasa: 15000, shinc: true,  nor_regla: 'traf_origen',  nota: 'WWWD SHINC · Next working day 08:00' },
-      { id: 'antwerp',  nombre: 'Antwerp',   tipo: 'descarga', tasa: 5000,  shinc: false, nor_regla: 'traf_destino', nota: 'WWWD SHEX UU ATUTC · Next working day 08:00',
+      { id: 'antwerp',  no,
+  candelaria_concentrado: {
+    nombre: "Candelaria",
+    demRate: 18000,
+    despRate: 9000,
+    horasLibres: 24,
+    shinc: true,
+    puertos: [
+      { id: "coquimbo", nombre: "Coquimbo", tipo: "carga", tasa: 5000, shinc: true, nor_regla: "candelaria_origen", nota: "SHINC · NOR a cualquier hora" },
+      { id: "brunsbuttel", nombre: "Brunsbuttel", tipo: "descarga", tasa: 5000, shinc: true, nor_regla: "candelaria_destino", nota: "SHINC · NOR a cualquier hora" }
+    ]
+  }mbre: 'Antwerp',   tipo: 'descarga', tasa: 5000,  shinc: false, nor_regla: 'traf_destino', nota: 'WWWD SHEX UU ATUTC · Next working day 08:00',
         shex: { satnoon: true, monMorn: '06:00' } },
     ],
   },
