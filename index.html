@@ -4125,7 +4125,8 @@ function abrirModalMix(viajeId, escalaId){
   // Populate product select
   const sel=document.getElementById('mm-prod');
   sel.innerHTML='<option value="">— Seleccionar —</option>'+PRODUCTOS.map(p=>'<option value="'+p+'">'+p+'</option>').join('');
-  document.getElementById('mm-form').style.display='none';
+  window._mmClienteSeleccionado = document.getElementById('mm-cliente').value;
+    document.getElementById('mm-form').style.display='none';
   document.getElementById('mm-ton').value='';
   document.getElementById('mm-bodega').value='';
   document.getElementById('mm-cliente').value=e.cliente||'';
@@ -4347,7 +4348,7 @@ function mmGuardarTodo(){
   const ei=(viajes[vi].escalas||[]).findIndex(x=>x.id===_mmEscalaId);
   if(ei<0)return;
   viajes[vi].escalas[ei].operaciones=[..._mmOps];
-  viajes[vi].escalas[ei].cliente=document.getElementById('mm-cliente').value;
+  viajes[vi].escalas[ei].cliente=window._mmClienteSeleccionado||document.getElementById('mm-cliente').value;
   VA.update(viajes[vi]);
   cerrarModalMix();
   showAlert('✅ Mix de carga guardado para '+viajes[vi].escalas[ei].puerto,'ok');
