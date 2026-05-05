@@ -1086,6 +1086,15 @@ function cargarDatosEscala() {
   const escalaId = document.getElementById('selEscala').value;
   if (!escalaId) return;
 
+  // Leer escala desde vms_viajes para obtener ATA
+  const _viajes = JSON.parse(localStorage.getItem('vms_viajes') || '[]');
+  let _escala = null;
+  _viajes.forEach(v => { const e = (v.escalas||[]).find(e=>e.id===escalaId); if(e) _escala=e; });
+  if (_escala && _escala.ata) {
+    document.getElementById('norTendered').value = _escala.ata.substring(0,16);
+    calcularNorAceptada();
+  }
+
   const turnos = JSON.parse(localStorage.getItem(LS_TURNOS) || '[]');
   const escTurnos = turnos.filter(t => t.escala_id === escalaId);
 
