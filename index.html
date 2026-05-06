@@ -2821,6 +2821,18 @@ function metSeleccionarFoto(bodega){
 }
 
 // ─ Guardar ─
+function eliminarTurnoEdicion(){
+  const id = _metId;
+  if(!id){alert(msg1);return;}
+  if(!confirm("Eliminar este turno? Esta accion no se puede deshacer."))return;
+  let turnos = JSON.parse(localStorage.getItem("vms_turnos")||"[]");
+  turnos = turnos.filter(t=>t.id!==id);
+  localStorage.setItem("vms_turnos",JSON.stringify(turnos));
+  if(window.SB){SB.from("turnos").delete().eq("id",id);}
+  cerrarEditarTurno();
+  renderNaves();
+  alert(msg2);
+}
 function guardarEdicionTurno(){
   if(!_metId)return;
   const arr=TA.getAll().map(x=>({...x}));
