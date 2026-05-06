@@ -1994,7 +1994,7 @@ function ltRecalcular(pid) {
   document.getElementById(`lt_${pid}_tbody`).innerHTML = rows.map(r => `
     <tr class="${r.cls}">
       <td>${r.evento}</td>
-      <td class="mono" style="font-size:11px">${r.dt ? formatDtShort(new Date(r.dt)) : '—'}</td>
+      <td class="mono" style="font-size:11px">${r.dt && r.dt !== '-' ? formatDtShort(new Date(r.dt)) : '—'}</td>
       <td class="mono">${r.hrs}</td>
       <td style="color:var(--text2);font-size:11px">${r.obs}</td>
     </tr>`).join('');
