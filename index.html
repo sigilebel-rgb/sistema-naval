@@ -412,7 +412,6 @@ var o=[];var l=Array.isArray(e);for(f=n.s.c;f<=n.e.c;++f)s[f]=ya(f);for(var c=n.
     <div class="btn-row" style="margin-top:1.5rem;border-top:1px solid var(--border);padding-top:1rem">
       <button class="btn btn-g" onclick="guardarEdicionTurno()">💾 Guardar cambios</button>
       <button class="btn btn-sm" onclick="cerrarEditarTurno()">Cancelar</button>
-            <button class="btn btn-sm" style="background:#c0392b;color:#fff;border-color:#c0392b" onclick="eliminarTurnoEdicion()">🗑 Eliminar Turno</button>
     </div>
   </div>
 </div>
@@ -2822,18 +2821,6 @@ function metSeleccionarFoto(bodega){
 }
 
 // ─ Guardar ─
-function eliminarTurnoEdicion(){
-  const id = window._editandoTurnoId;
-  if(!id){alert('No hay turno seleccionado');return;}
-  if(!confirm('¿Eliminar este turno? Esta acción no se puede deshacer.'))return;
-  let turnos = JSON.parse(localStorage.getItem('vms_turnos')||'[]');
-  turnos = turnos.filter(t=>t.id!==id);
-  localStorage.setItem('vms_turnos',JSON.stringify(turnos));
-  if(window.SB){SB.from('turnos').delete().eq('id',id).then(()=>console.log('eliminado SB'));}
-  cerrarEditarTurno();
-  renderNaves();
-  alert('Turno eliminado.');
-}
 function guardarEdicionTurno(){
   if(!_metId)return;
   const arr=TA.getAll().map(x=>({...x}));
