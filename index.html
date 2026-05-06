@@ -2833,6 +2833,7 @@ function eliminarTurnoEdicion(){
   renderNaves();
   alert(msg2);
 }
+function eliminarTurnoEdicion(){const id=_metId;if(!id){alert("No hay turno");return;}if(!confirm("Eliminar este turno?"))return;let t=JSON.parse(localStorage.getItem("vms_turnos")||"[]");t=t.filter(x=>x.id!==id);localStorage.setItem("vms_turnos",JSON.stringify(t));if(window.SB){SB.from("turnos").delete().eq("id",id);}cerrarEditarTurno();renderNaves();alert("Turno eliminado.");}
 function guardarEdicionTurno(){
   if(!_metId)return;
   const arr=TA.getAll().map(x=>({...x}));
