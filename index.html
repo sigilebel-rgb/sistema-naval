@@ -849,6 +849,7 @@ var o=[];var l=Array.isArray(e);for(f=n.s.c;f<=n.e.c;++f)s[f]=ya(f);for(var c=n.
         <button class="btn btn-g" onclick="guardarTurno()">✅ Guardar Turno</button>
         <button class="btn" style="background:#25D366;color:#fff;border-color:#25D366" onclick="compartirWhatsApp()">📲 WhatsApp</button>
         <button class="btn" onclick="limpiarFormTurno()">🗑 Limpiar</button>
+            <button class="btn" style="background:#c0392b;color:#fff;border-color:#c0392b" onclick="eliminarTurno()">🗑 Eliminar Turno</button>
       </div>
     </div>
   </div>
@@ -2347,6 +2348,20 @@ function hideSaving(){
 }
 
 // ─── GUARDAR TURNO ───
+function eliminarTurno(){
+  const id = document.getElementById('t_id')?.value;
+  if(!id){alert('No hay turno seleccionado');return;}
+  if(!confirm('¿Eliminar este turno? Esta acción no se puede deshacer.'))return;
+  // localStorage
+  let turnos = JSON.parse(localStorage.getItem('vms_turnos')||'[]');
+  turnos = turnos.filter(t=>t.id!==id);
+  localStorage.setItem('vms_turnos',JSON.stringify(turnos));
+  // Supabase
+  if(window.SB){SB.from('turnos').delete().eq('id',id).then(()=>console.log('eliminado SB'));}
+  cerrarModal('modalTurno');
+  renderNaves();
+  alert('Turno eliminado.');
+}
 function guardarTurno(){
   if(_guardando){return;} // Anti-duplicado: bloquea si ya se está guardando
   const nave=document.getElementById('t_nave').value.trim();
